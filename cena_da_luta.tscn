@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://qbsfhc72tmiq"]
+
+[ext_resource type="Texture2D" uid="uid://2v76ym5x6eyq" path="res://assets/ChatGPT Image 6 de mai. de 2026, 20_59_51.png" id="1_btc7l"]
+[ext_resource type="Texture2D" uid="uid://c3ggcoutar7gl" path="res://icon.svg" id="2_umdng"]
+[ext_resource type="Texture2D" uid="uid://drbpvnnpuodvv" path="res://assets/SF3_3rd_Chunli_23059-removebg-preview.png" id="3_umdng"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e813m"]
+size = Vector2(1585.959, 128.5924)
+
+[node name="CenaDaLuta" type="Node2D" unique_id=111988353]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1922729996]
+position = Vector2(565, 310)
+texture = ExtResource("1_btc7l")
+
+[node name="Chão" type="StaticBody2D" parent="." unique_id=43905329]
+position = Vector2(693, 315)
+scale = Vector2(0.9453125, 0.8769531)
+
+[node name="textura" type="Sprite2D" parent="Chão" unique_id=821571757]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-39.14051, 395.68823)
+scale = Vector2(12.454545, 1.1403118)
+texture = ExtResource("2_umdng")
+
+[node name="colisão" type="CollisionShape2D" parent="Chão" unique_id=655591213]
+position = Vector2(-29.61982, 399.10913)
+scale = Vector2(0.9999998, 1)
+shape = SubResource("RectangleShape2D_e813m")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=33270292]
+position = Vector2(171, 493)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=2027092921]
+position = Vector2(42.999996, -58)
+scale = Vector2(2.4817708, 2.3973215)
+texture = ExtResource("3_umdng")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1452666393]
+
+[node name="Control" type="MarginContainer" parent="CanvasLayer" unique_id=1674668307]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="_" type="HBoxContainer" parent="CanvasLayer/Control" unique_id=1329210420]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Player 1" type="VBoxContainer" parent="CanvasLayer/Control/_" unique_id=1142768344]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control/_/Player 1" unique_id=175178215]
+custom_minimum_size = Vector2(0, 33)
+layout_mode = 2
+size_flags_vertical = 1
+show_percentage = false
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/_/Player 1" unique_id=1274233073]
+layout_mode = 2
+text = "Player 1"
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/_" unique_id=2079442115]
+layout_mode = 2
+text = "KO"
