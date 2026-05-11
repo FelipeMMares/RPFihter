@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cifi2eaq8od35"]
+
+[ext_resource type="Texture2D" uid="uid://drbpvnnpuodvv" path="res://assets/SF3_3rd_Chunli_23059-removebg-preview.png" id="1_7k6h6"]
+[ext_resource type="Script" uid="uid://2x8a0erix5ss" path="res://Scripts/Player/Player.gd" id="1_htvwm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r8ryd"]
+size = Vector2(197, 236.5)
+
+[node name="Player" type="CharacterBody2D" unique_id=1120152477]
+script = ExtResource("1_htvwm")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=991022668]
+position = Vector2(34.99991, 30)
+scale = Vector2(2.4817708, 2.3973215)
+texture = ExtResource("1_7k6h6")
+
+[node name="Colisao" type="CollisionShape2D" parent="." unique_id=1334167780]
+position = Vector2(36.5, 90.75)
+shape = SubResource("RectangleShape2D_r8ryd")
+
+[node name="imputBuffer" type="Node" parent="." unique_id=1159587412]
+
+[node name="StateMachine" type="Node" parent="." unique_id=139237865]

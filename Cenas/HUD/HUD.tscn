@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://cxwujt80wiqyw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xyro"]
+bg_color = Color(0.64705884, 0.011764706, 0.12156863, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5de2"]
+bg_color = Color(0.8784314, 0.7882353, 0.03529412, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_efote"]
+font_size = 32
+font_color = Color(0.64705884, 0.011764706, 0.12156863, 1)
+outline_size = 7
+outline_color = Color(1, 1, 0, 1)
+
+[node name="HUD" type="CanvasLayer" unique_id=434548975]
+
+[node name="__" type="MarginContainer" parent="." unique_id=514696011]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="_" type="HBoxContainer" parent="__" unique_id=1013989321]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Player 1" type="VBoxContainer" parent="__/_" unique_id=2059506825]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="ProgressBar" type="ProgressBar" parent="__/_/Player 1" unique_id=961687590]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_5xyro")
+theme_override_styles/fill = SubResource("StyleBoxFlat_k5de2")
+value = 50.0
+fill_mode = 1
+show_percentage = false
+
+[node name="Label" type="Label" parent="__/_/Player 1" unique_id=1155781019]
+layout_mode = 2
+text = "Player 1"
+
+[node name="KO" type="Label" parent="__/_" unique_id=2027855875]
+layout_mode = 2
+size_flags_vertical = 1
+text = "KO"
+label_settings = SubResource("LabelSettings_efote")
+vertical_alignment = 1
+
+[node name="Player 2" type="VBoxContainer" parent="__/_" unique_id=152278363]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="ProgressBar" type="ProgressBar" parent="__/_/Player 2" unique_id=1075165494]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_5xyro")
+theme_override_styles/fill = SubResource("StyleBoxFlat_k5de2")
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="__/_/Player 2" unique_id=1361142782]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Player 2"
