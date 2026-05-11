@@ -1,16 +1,27 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1778436481
-cena_da_luta.tscn::PackedScene::1126188083045734168::1778172545::0::1::::<><><>0<>0<><>::uid://2v76ym5x6eyq::::res://assets/ChatGPT Image 6 de mai. de 2026, 20_59_51.png<>uid://c3ggcoutar7gl::::res://icon.svg<>uid://drbpvnnpuodvv::::res://assets/SF3_3rd_Chunli_23059-removebg-preview.png
-icon.svg::CompressedTexture2D::6750883896406844863::1778110929::1778110935::1::::<><><>0<>0<>7861e36ca5846d504cdf12902c8838f5<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-::res://assets/::1778164876
-ChatGPT Image 6 de mai. de 2026, 20_59_51.png::CompressedTexture2D::1940450294934787064::1778111992::1778112104::1::::<><><>0<>0<>8ac53f95c1abb6fa13a95306e147ae5d<>res://.godot/imported/ChatGPT Image 6 de mai. de 2026, 20_59_51.png-eda26ad98f8cfd7630ed76b4c0967291.ctex::
-SF3_3rd_Chunli_23059-removebg-preview.png::CompressedTexture2D::8355485730838235067::1778164875::1778164876::1::::<><><>0<>0<>40ad8306c0c0d60f3c7374fad32cf407<>res://.godot/imported/SF3_3rd_Chunli_23059-removebg-preview.png-c121a53214a858b05c5216005cd02d6a.ctex::
-::res://Cenas/::1778424259
-::res://Cenas/HUD/::1778424238
-HUD.tscn::PackedScene::6433832543738552582::1778424125::0::1::::<><><>0<>0<><>::
-::res://Cenas/Player/::1778424259
-Player.tscn::PackedScene::5345208168503345122::1778424210::0::1::::<><><>0<>0<><>::uid://drbpvnnpuodvv::::res://assets/SF3_3rd_Chunli_23059-removebg-preview.png
-::res://Scripts/::1778436481
-::res://Scripts/Player/::1778436552
-player.gd::GDScript::1944584447378545990::1778424850::0::1::::<>CharacterBody2D<><>0<>0<><>::
-State.gd::GDScript::3109652275392931801::1778436552::0::1::::<>Node<><>0<>0<><>::
+::res://::1778529971
+cena_da_luta.tscn::PackedScene::1126188083045734168::1778523085::0::1::::<><><>0<>0<><>::uid://2v76ym5x6eyq::::res://assets/ChatGPT Image 6 de mai. de 2026, 20_59_51.png<>uid://c3ggcoutar7gl::::res://icon.svg<>uid://cxwujt80wiqyw::::res://Cenas/HUD/HUD.tscn<>uid://cifi2eaq8od35::::res://Cenas/Player/Player.tscn<>uid://2x8a0erix5ss::::res://Scripts/Player/Player.gd
+icon.svg::CompressedTexture2D::6750883896406844863::1778523085::1778523085::1::::<><><>0<>0<>7861e36ca5846d504cdf12902c8838f5<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://assets/::1778529971
+ChatGPT Image 6 de mai. de 2026, 20_59_51.png::CompressedTexture2D::1940450294934787064::1778523085::1778523085::1::::<><><>0<>0<>8ac53f95c1abb6fa13a95306e147ae5d<>res://.godot/imported/ChatGPT Image 6 de mai. de 2026, 20_59_51.png-eda26ad98f8cfd7630ed76b4c0967291.ctex::
+SF3_3rd_Chunli_23056-removebg-preview.png::CompressedTexture2D::1188300603644071410::1778529424::1778529974::1::::<><><>0<>0<>bd7ec327d91caeae035907cc2d22444b<>res://.godot/imported/SF3_3rd_Chunli_23056-removebg-preview.png-90335b7412ebf78ffb490c0bf796f8d4.ctex::
+SF3_3rd_Chunli_23057-removebg-preview.png::CompressedTexture2D::4961325405360164289::1778529424::1778529974::1::::<><><>0<>0<>cd3c61ef10b7f2fd5dca0ca1c47f7513<>res://.godot/imported/SF3_3rd_Chunli_23057-removebg-preview.png-cdd2b2ad8b86b9073c149acd0f84c493.ctex::
+SF3_3rd_Chunli_23058-removebg-preview.png::CompressedTexture2D::359516272047392653::1778529424::1778529974::1::::<><><>0<>0<>c11b5a992ac4c7c7cdcefe304240274e<>res://.godot/imported/SF3_3rd_Chunli_23058-removebg-preview.png-1b94e18aff275a1d80e6b118efb9a0e5.ctex::
+SF3_3rd_Chunli_23059-removebg-preview.png::CompressedTexture2D::2607053715460940159::1778529424::1778529975::1::::<><><>0<>0<>245804cd279501e7a36f3ff747709c17<>res://.godot/imported/SF3_3rd_Chunli_23059-removebg-preview.png-c121a53214a858b05c5216005cd02d6a.ctex::
+SF3_3rd_Chunli_23060-removebg-preview.png::CompressedTexture2D::7687223532360724920::1778529424::1778529974::1::::<><><>0<>0<>1c92ca7317d363fdbe717864e84d4bc4<>res://.godot/imported/SF3_3rd_Chunli_23060-removebg-preview.png-fd9b7167f6570280e9c091a3dde7fe9f.ctex::
+SF3_3rd_Chunli_23061-removebg-preview.png::CompressedTexture2D::4112027186167987817::1778529424::1778529974::1::::<><><>0<>0<>26238f3b1a6aa0aacc6004e368ccf05e<>res://.godot/imported/SF3_3rd_Chunli_23061-removebg-preview.png-452b4efee8f8754248f05556a659d8e1.ctex::
+SF3_3rd_Chunli_23062-removebg-preview.png::CompressedTexture2D::692688921458579056::1778529424::1778529974::1::::<><><>0<>0<>cd0910f8a2c6f056f01c51021467e77b<>res://.godot/imported/SF3_3rd_Chunli_23062-removebg-preview.png-699488ccdcc018a7f19910bf3368acfe.ctex::
+SF3_3rd_Chunli_23063-removebg-preview.png::CompressedTexture2D::5230378582392951579::1778529424::1778529975::1::::<><><>0<>0<>6584500feda9631f7bf6b55fd596a8fa<>res://.godot/imported/SF3_3rd_Chunli_23063-removebg-preview.png-930a2d639f5f3a48ebd6b84b5a642204.ctex::
+::res://Cenas/::1778523085
+::res://Cenas/HUD/::1778523085
+HUD.tscn::PackedScene::6433832543738552582::1778523085::0::1::::<><><>0<>0<><>::
+::res://Cenas/Player/::1778525686
+Player.tscn::PackedScene::5345208168503345122::1778523085::0::1::::<><><>0<>0<><>::uid://drbpvnnpuodvv::::res://assets/SF3_3rd_Chunli_23059-removebg-preview.png<>uid://2x8a0erix5ss::::res://Scripts/Player/Player.gd
+::res://Scripts/::1778523085
+::res://Scripts/Player/::1778525686
+Player.gd::GDScript::1944584447378545990::1778523085::0::1::::<>CharacterBody2D<><>0<>0<><>::
+State.gd::GDScript::3109652275392931801::1778523085::0::1::::State<>Node<><>0<>0<><>::
+StateMachine.gd::GDScript::5647145498647578683::1778523085::0::1::::<>Node<><>0<>0<><>::
+::res://Scripts/Player/StateMachine/::1778525593
+::res://Scripts/Player/StateMachine/States/::1778529955
+Idle.gd::GDScript::3012952750294198440::1778525632::0::1::::<>State<><>0<>0<><>::
