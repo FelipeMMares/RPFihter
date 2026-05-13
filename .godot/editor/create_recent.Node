@@ -1,6 +1,7 @@
-AnimationPlayer
 State
 Node
+AnimatedSprite2D
+AnimationPlayer
 CollisionShape2D
 Label
 ProgressBar
@@ -11,4 +12,3 @@ Control
 CanvasLayer
 Sprite2D
 CharacterBody2D
-StaticBody2D

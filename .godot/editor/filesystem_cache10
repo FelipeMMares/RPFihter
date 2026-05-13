@@ -1,9 +1,13 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1778529971
+::res://::1778671162
 cena_da_luta.tscn::PackedScene::1126188083045734168::1778523085::0::1::::<><><>0<>0<><>::uid://2v76ym5x6eyq::::res://assets/ChatGPT Image 6 de mai. de 2026, 20_59_51.png<>uid://c3ggcoutar7gl::::res://icon.svg<>uid://cxwujt80wiqyw::::res://Cenas/HUD/HUD.tscn<>uid://cifi2eaq8od35::::res://Cenas/Player/Player.tscn<>uid://2x8a0erix5ss::::res://Scripts/Player/Player.gd
 icon.svg::CompressedTexture2D::6750883896406844863::1778523085::1778523085::1::::<><><>0<>0<>7861e36ca5846d504cdf12902c8838f5<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-::res://assets/::1778529971
+::res://assets/::1778607858
 ChatGPT Image 6 de mai. de 2026, 20_59_51.png::CompressedTexture2D::1940450294934787064::1778523085::1778523085::1::::<><><>0<>0<>8ac53f95c1abb6fa13a95306e147ae5d<>res://.godot/imported/ChatGPT Image 6 de mai. de 2026, 20_59_51.png-eda26ad98f8cfd7630ed76b4c0967291.ctex::
+idle chun li (2).png::CompressedTexture2D::7815121051177583200::1778606399::1778606400::1::::<><><>0<>0<>e078aaa5bf165de4eed455c28e6383ab<>res://.godot/imported/idle chun li (2).png-c8e78cb998529c2c51f6c6f932784012.ctex::
+idle chun li (3).png::CompressedTexture2D::7227593686510848533::1778607832::1778607858::1::::<><><>0<>0<>a066e8226d57746a2fd661c173db8dfd<>res://.godot/imported/idle chun li (3).png-512c1445fa59fae6b278ad8d781f5279.ctex::
+idle chun li.png::CompressedTexture2D::1670570790790688075::1778606119::1778606239::1::::<><><>0<>0<>156803a68b6537d312040b0207e8b942<>res://.godot/imported/idle chun li.png-051dd745d9291acf95e7e0a59e89379c.ctex::
+idle chun li.svg::CompressedTexture2D::2768941722433652218::1778606097::1778606190::1::::<><><>0<>0<>0f3856e473940214b8861dd3ca0b4db6<>res://.godot/imported/idle chun li.svg-f3e581229879c7f842327d692c763693.ctex::
 SF3_3rd_Chunli_23056-removebg-preview.png::CompressedTexture2D::1188300603644071410::1778529424::1778529974::1::::<><><>0<>0<>bd7ec327d91caeae035907cc2d22444b<>res://.godot/imported/SF3_3rd_Chunli_23056-removebg-preview.png-90335b7412ebf78ffb490c0bf796f8d4.ctex::
 SF3_3rd_Chunli_23057-removebg-preview.png::CompressedTexture2D::4961325405360164289::1778529424::1778529974::1::::<><><>0<>0<>cd3c61ef10b7f2fd5dca0ca1c47f7513<>res://.godot/imported/SF3_3rd_Chunli_23057-removebg-preview.png-cdd2b2ad8b86b9073c149acd0f84c493.ctex::
 SF3_3rd_Chunli_23058-removebg-preview.png::CompressedTexture2D::359516272047392653::1778529424::1778529974::1::::<><><>0<>0<>c11b5a992ac4c7c7cdcefe304240274e<>res://.godot/imported/SF3_3rd_Chunli_23058-removebg-preview.png-1b94e18aff275a1d80e6b118efb9a0e5.ctex::
