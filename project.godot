@@ -11,8 +11,44 @@ config_version=5
 [application]
 
 config/name="RPFighter"
+run/main_scene="uid://cifi2eaq8od35"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[input]
+
+Player1_down={
+"deadzone": 0.2,
+"events": []
+}
+Player1_up={
+"deadzone": 0.2,
+"events": []
+}
+Player1_left={
+"deadzone": 0.2,
+"events": []
+}
+Player1_right={
+"deadzone": 0.2,
+"events": []
+}
+Player1_lightPunch={
+"deadzone": 0.2,
+"events": []
+}
+Player1_highPunch={
+"deadzone": 0.2,
+"events": []
+}
+Player1_kick={
+"deadzone": 0.2,
+"events": []
+}
+Player1_lowKick={
+"deadzone": 0.2,
+"events": []
+}
 
 [physics]
 

@@ -1,0 +1,11 @@
+extends Resource
+class_name PlayerControls
+
+@export var up : String
+@export var down : String
+@export var left : String
+@export var right : String
+@export var light_punch : String
+@export var high_punch : String
+@export var kick : String
+@export var low_kick : String

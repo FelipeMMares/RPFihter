@@ -1,23 +1,136 @@
 [gd_scene format=3 uid="uid://cifi2eaq8od35"]
 
-[ext_resource type="Texture2D" uid="uid://drbpvnnpuodvv" path="res://assets/SF3_3rd_Chunli_23059-removebg-preview.png" id="1_7k6h6"]
+[ext_resource type="Texture2D" uid="uid://bde418vpjs5cd" path="res://assets/SF3_3rd_Chunli_23059-removebg-preview.png" id="1_7k6h6"]
 [ext_resource type="Script" uid="uid://2x8a0erix5ss" path="res://Scripts/Player/Player.gd" id="1_htvwm"]
+[ext_resource type="Script" uid="uid://bt5tashi1crub" path="res://Scripts/Player/ImputBuffering.gd" id="2_q2jvu"]
+[ext_resource type="Script" uid="uid://cmprwqp560lvn" path="res://Scripts/Player/StateMachine/StateMachine.gd" id="3_4iq01"]
+[ext_resource type="Resource" uid="uid://c0xesnt3643gj" path="res://Scripts/Player/PlayerControls/Player1.tres" id="3_jukqq"]
+[ext_resource type="Script" uid="uid://bi6q5kxootr01" path="res://Scripts/Player/StateMachine/States/Idle.gd" id="4_q2jvu"]
+[ext_resource type="Texture2D" uid="uid://q6vew0t4dxao" path="res://assets/SF3_3rd_Chunli_23056-removebg-preview.png" id="5_jukqq"]
+[ext_resource type="Texture2D" uid="uid://ccxkkmcyuu5v6" path="res://assets/SF3_3rd_Chunli_23057-removebg-preview.png" id="6_j4vva"]
+[ext_resource type="Texture2D" uid="uid://fefgevm0uo0t" path="res://assets/SF3_3rd_Chunli_23058-removebg-preview.png" id="7_ynwyb"]
+[ext_resource type="Texture2D" uid="uid://dhr0piokaaxa3" path="res://assets/SF3_3rd_Chunli_23060-removebg-preview.png" id="8_vf6lm"]
+[ext_resource type="Texture2D" uid="uid://byt5qs7k501tt" path="res://assets/SF3_3rd_Chunli_23061-removebg-preview.png" id="9_tqt4m"]
+[ext_resource type="Texture2D" uid="uid://cgrvtof5j6prv" path="res://assets/SF3_3rd_Chunli_23063-removebg-preview.png" id="10_mow34"]
+[ext_resource type="Texture2D" uid="uid://j4sqrbsmqrky" path="res://assets/SF3_3rd_Chunli_23062-removebg-preview.png" id="11_lamxu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r8ryd"]
-size = Vector2(197, 236.5)
+size = Vector2(133, 188)
+
+[sub_resource type="Animation" id="Animation_4iq01"]
+resource_name = "Idle"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4, 2.7, 3, 3.3, 3.6, 3.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+}
+
+[sub_resource type="Animation" id="Animation_q2jvu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jukqq"]
+_data = {
+&"Idle": SubResource("Animation_4iq01"),
+&"RESET": SubResource("Animation_q2jvu")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ma6wq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_jukqq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_j4vva")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ynwyb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_7k6h6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vf6lm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_tqt4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_mow34")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_lamxu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_lamxu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_tqt4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vf6lm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_7k6h6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ynwyb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_j4vva")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D" unique_id=1120152477]
+position = Vector2(-47, 149)
 script = ExtResource("1_htvwm")
 
-[node name="Sprite" type="Sprite2D" parent="." unique_id=991022668]
-position = Vector2(34.99991, 30)
-scale = Vector2(2.4817708, 2.3973215)
-texture = ExtResource("1_7k6h6")
-
 [node name="Colisao" type="CollisionShape2D" parent="." unique_id=1334167780]
-position = Vector2(36.5, 90.75)
+position = Vector2(464, 175)
 shape = SubResource("RectangleShape2D_r8ryd")
 
 [node name="imputBuffer" type="Node" parent="." unique_id=1159587412]
+script = ExtResource("2_q2jvu")
+player_controls = ExtResource("3_jukqq")
 
-[node name="StateMachine" type="Node" parent="." unique_id=139237865]
+[node name="StateMachine" type="Node" parent="." unique_id=139237865 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_4iq01")
+initial_state = NodePath("Idle")
+on_ready = true
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1520455805]
+script = ExtResource("4_q2jvu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=94950649]
+libraries/ = SubResource("AnimationLibrary_jukqq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=75413742]
+position = Vector2(165, -77)
+scale = Vector2(1.6119791, 1.8772322)
+sprite_frames = SubResource("SpriteFrames_ma6wq")
+animation = &"Idle"
+centered = false

@@ -1,8 +1,8 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1778671162
-cena_da_luta.tscn::PackedScene::1126188083045734168::1778523085::0::1::::<><><>0<>0<><>::uid://2v76ym5x6eyq::::res://assets/ChatGPT Image 6 de mai. de 2026, 20_59_51.png<>uid://c3ggcoutar7gl::::res://icon.svg<>uid://cxwujt80wiqyw::::res://Cenas/HUD/HUD.tscn<>uid://cifi2eaq8od35::::res://Cenas/Player/Player.tscn<>uid://2x8a0erix5ss::::res://Scripts/Player/Player.gd
+::res://::1778784171
+cena_da_luta.tscn::PackedScene::1126188083045734168::1778767441::0::1::::<><><>0<>0<><>::uid://2v76ym5x6eyq::::res://assets/ChatGPT Image 6 de mai. de 2026, 20_59_51.png<>uid://c3ggcoutar7gl::::res://icon.svg<>uid://cxwujt80wiqyw::::res://Cenas/HUD/HUD.tscn<>uid://cifi2eaq8od35::::res://Cenas/Player/Player.tscn
 icon.svg::CompressedTexture2D::6750883896406844863::1778523085::1778523085::1::::<><><>0<>0<>7861e36ca5846d504cdf12902c8838f5<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-::res://assets/::1778607858
+::res://assets/::1778765996
 ChatGPT Image 6 de mai. de 2026, 20_59_51.png::CompressedTexture2D::1940450294934787064::1778523085::1778523085::1::::<><><>0<>0<>8ac53f95c1abb6fa13a95306e147ae5d<>res://.godot/imported/ChatGPT Image 6 de mai. de 2026, 20_59_51.png-eda26ad98f8cfd7630ed76b4c0967291.ctex::
 idle chun li (2).png::CompressedTexture2D::7815121051177583200::1778606399::1778606400::1::::<><><>0<>0<>e078aaa5bf165de4eed455c28e6383ab<>res://.godot/imported/idle chun li (2).png-c8e78cb998529c2c51f6c6f932784012.ctex::
 idle chun li (3).png::CompressedTexture2D::7227593686510848533::1778607832::1778607858::1::::<><><>0<>0<>a066e8226d57746a2fd661c173db8dfd<>res://.godot/imported/idle chun li (3).png-512c1445fa59fae6b278ad8d781f5279.ctex::
@@ -19,13 +19,18 @@ SF3_3rd_Chunli_23063-removebg-preview.png::CompressedTexture2D::5230378582392951
 ::res://Cenas/::1778523085
 ::res://Cenas/HUD/::1778523085
 HUD.tscn::PackedScene::6433832543738552582::1778523085::0::1::::<><><>0<>0<><>::
-::res://Cenas/Player/::1778525686
-Player.tscn::PackedScene::5345208168503345122::1778523085::0::1::::<><><>0<>0<><>::uid://drbpvnnpuodvv::::res://assets/SF3_3rd_Chunli_23059-removebg-preview.png<>uid://2x8a0erix5ss::::res://Scripts/Player/Player.gd
+::res://Cenas/Player/::1778784834
+idle.gd::GDScript::5188525527456567699::1778674650::0::1::::<>Node<><>0<>0<><>::
+Player.tscn::PackedScene::5345208168503345122::1778784834::0::1::::<><><>0<>0<><>::uid://bde418vpjs5cd::::res://assets/SF3_3rd_Chunli_23059-removebg-preview.png<>uid://2x8a0erix5ss::::res://Scripts/Player/Player.gd<>uid://cmprwqp560lvn::::res://Scripts/Player/StateMachine/StateMachine.gd<>uid://bi6q5kxootr01::::res://Scripts/Player/StateMachine/States/Idle.gd<>uid://q6vew0t4dxao::::res://assets/SF3_3rd_Chunli_23056-removebg-preview.png<>uid://ccxkkmcyuu5v6::::res://assets/SF3_3rd_Chunli_23057-removebg-preview.png<>uid://fefgevm0uo0t::::res://assets/SF3_3rd_Chunli_23058-removebg-preview.png<>uid://dhr0piokaaxa3::::res://assets/SF3_3rd_Chunli_23060-removebg-preview.png<>uid://byt5qs7k501tt::::res://assets/SF3_3rd_Chunli_23061-removebg-preview.png<>uid://cgrvtof5j6prv::::res://assets/SF3_3rd_Chunli_23063-removebg-preview.png<>uid://j4sqrbsmqrky::::res://assets/SF3_3rd_Chunli_23062-removebg-preview.png
 ::res://Scripts/::1778523085
-::res://Scripts/Player/::1778525686
-Player.gd::GDScript::1944584447378545990::1778523085::0::1::::<>CharacterBody2D<><>0<>0<><>::
-State.gd::GDScript::3109652275392931801::1778523085::0::1::::State<>Node<><>0<>0<><>::
-StateMachine.gd::GDScript::5647145498647578683::1778523085::0::1::::<>Node<><>0<>0<><>::
-::res://Scripts/Player/StateMachine/::1778525593
-::res://Scripts/Player/StateMachine/States/::1778529955
-Idle.gd::GDScript::3012952750294198440::1778525632::0::1::::<>State<><>0<>0<><>::
+::res://Scripts/Player/::1778784170
+ImputBuffering.gd::GDScript::3783094624932333021::1778783820::0::1::::<>Node<><>0<>0<><>::
+Player.gd::GDScript::1944584447378545990::1778766969::0::1::::<>CharacterBody2D<><>0<>0<><>::
+::res://Scripts/Player/PlayerControls/::1778784819
+new_script.gd::GDScript::4108780184841789786::1778784688::0::1::::PlayerControls<>Resource<><>0<>0<><>::
+Player1.tres::Resource/PlayerControls::6575318872411367005::1778784819::0::1::::<><><>0<>0<><>::uid://byslak2i1ykxe::::res://Scripts/Player/PlayerControls/new_script.gd
+::res://Scripts/Player/StateMachine/::1778783741
+State.gd::GDScript::3109652275392931801::1778764838::0::1::::State<>Node<><>0<>0<><>::
+StateMachine.gd::GDScript::5647145498647578683::1778768392::0::1::::StateMachine<>Node<><>0<>0<><>::
+::res://Scripts/Player/StateMachine/States/::1778768424
+Idle.gd::GDScript::3012952750294198440::1778768424::0::1::::<>State<><>0<>0<><>::

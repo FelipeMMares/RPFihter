@@ -1,12 +1,19 @@
 extends Node
+class_name StateMachine
 
-const State = preload("res://Scripts/Player/State.gd")
+@export var initial_state : State
+@export var animated_sprite : AnimatedSprite2D
+@export var on_ready : bool = false
 
-@export var current_state : State
 
-var states : Dictionary [String, State] = {}
+var _states : Dictionary [String, State] = {}
+var _started : bool = false
+var _current_state : State = null
 
 func _ready() -> void:
+	var animated_sprite = get_node("../AnimatedSprite2D")
+	if not animated_sprite:
+		animated_sprite = get_tree().get_first_node_in_group("Idle")
 	
 	for child in get_children():
 		
@@ -14,13 +21,16 @@ func _ready() -> void:
 			continue
 			
 		var state_name : String = child.name.to_lower()
-		states[state_name] = child
+		_states[state_name] = child
 		child.transition_to.connect(_transition_to.bind(state_name))
+		child.animated_sprite = animated_sprite
 		child.set_process(false)
 		child.set_physics_process(false)
 		
-	if current_state :
-		current_state._enter()
+	if initial_state and on_ready:
+		initial_state._enter()
+		_current_state = initial_state
+		_started = true
 		
 func _transition_to(new_state: String, previous_state: String) -> void:
 	pass
@@ -40,3 +50,17 @@ func _transition_to(new_state: String, previous_state: String) -> void:
 	
 	new_state_node.set_physics_process(true)
 	new_state_node.set_process(true)
+	
+	_current_state = new_state_node
+
+func start() -> void:
+
+	if _started:
+		return
+		
+	_started = true
+	
+	if initial_state:
+		_current_state = initial_state
+		_current_state._enter()
+	

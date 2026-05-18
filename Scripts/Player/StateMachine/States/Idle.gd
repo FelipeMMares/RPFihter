@@ -1,11 +1,14 @@
 extends State
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _enter():
+	# Toca a animação idle diretamente no AnimatedSprite2D
+	if animated_sprite:
+		animated_sprite.play("Idle")
+		print("Idle animation started")
+	else:
+		print("Erro: animated_sprite é null em Idle")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _exit():
+	# Opcional: fazer algo ao sair do estado
 	pass
