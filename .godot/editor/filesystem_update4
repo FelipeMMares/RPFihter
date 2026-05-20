@@ -1,9 +1,3 @@
 res://Cenas/Player/Player.tscn
-res://Scripts/Player/StateMachine/States/Idle.gd
-res://Scripts/Player/Player.gd
-res://Scripts/Player/State.gd
-res://Scripts/Player/StateMachine.gd
-res://cena_da_luta.tscn
-res://Scripts/Player/PlayerControls/new_script.gd
 res://Scripts/Player/ImputBuffering.gd
-res://Scripts/Player/PlayerControls/Player1.tres
+res://cena_da_luta.tscn

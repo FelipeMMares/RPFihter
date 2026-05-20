@@ -9,8 +9,11 @@ func _init(p_action_name: String,
 		pass
 
 @export var player_controls : PlayerControls
+@export var input_prefix : String
 
-var actions = Array[String] = []
+var actions : Array[String] = []
 
 func _ready() -> void:
-	pass # Replace with function body.
+	
+	for input in InputMap.get_actions():
+		printt("input= ", input)

@@ -13,6 +13,24 @@
 [ext_resource type="Texture2D" uid="uid://byt5qs7k501tt" path="res://assets/SF3_3rd_Chunli_23061-removebg-preview.png" id="9_tqt4m"]
 [ext_resource type="Texture2D" uid="uid://cgrvtof5j6prv" path="res://assets/SF3_3rd_Chunli_23063-removebg-preview.png" id="10_mow34"]
 [ext_resource type="Texture2D" uid="uid://j4sqrbsmqrky" path="res://assets/SF3_3rd_Chunli_23062-removebg-preview.png" id="11_lamxu"]
+[ext_resource type="Texture2D" uid="uid://dea3mspcdterf" path="res://assets/chun li walk/SF3_3rd_Chunli_23072-removebg-preview.png" id="14_paebk"]
+[ext_resource type="Texture2D" uid="uid://dba7upeqjx3w7" path="res://assets/chun li walk/SF3_3rd_Chunli_23073-removebg-preview.png" id="15_4ysqk"]
+[ext_resource type="Texture2D" uid="uid://buhuii8js83k6" path="res://assets/chun li walk/SF3_3rd_Chunli_23074-removebg-preview.png" id="16_0e5gp"]
+[ext_resource type="Texture2D" uid="uid://cspyvxi7j60m0" path="res://assets/chun li walk/SF3_3rd_Chunli_23075-removebg-preview.png" id="17_yklbd"]
+[ext_resource type="Texture2D" uid="uid://obwfvel86unu" path="res://assets/chun li walk/SF3_3rd_Chunli_23076-removebg-preview.png" id="18_r6xnt"]
+[ext_resource type="Texture2D" uid="uid://by2cj3x5t3suo" path="res://assets/chun li walk/SF3_3rd_Chunli_23077-removebg-preview.png" id="19_le7h4"]
+[ext_resource type="Texture2D" uid="uid://ch1c7id7oikau" path="res://assets/chun li walk/SF3_3rd_Chunli_23078-removebg-preview.png" id="20_d4xyl"]
+[ext_resource type="Texture2D" uid="uid://b8gm75q7law2o" path="res://assets/chun li walk/SF3_3rd_Chunli_23079-removebg-preview.png" id="21_5kex2"]
+[ext_resource type="Texture2D" uid="uid://dl6fyi4pks0p8" path="res://assets/chun li walk/SF3_3rd_Chunli_23080-removebg-preview.png" id="22_brfeo"]
+[ext_resource type="Texture2D" uid="uid://bh874d4xhie5t" path="res://assets/chun li walk/SF3_3rd_Chunli_23081-removebg-preview.png" id="23_3pw7r"]
+[ext_resource type="Texture2D" uid="uid://boya5ngwm4onp" path="res://assets/chun li walk/SF3_3rd_Chunli_23082-removebg-preview.png" id="24_6opnp"]
+[ext_resource type="Texture2D" uid="uid://dq2mxerb3i2th" path="res://assets/chun li walk/SF3_3rd_Chunli_23083-removebg-preview.png" id="25_1a66w"]
+[ext_resource type="Texture2D" uid="uid://cc0qnxhyp0x2n" path="res://assets/chun li walk/SF3_3rd_Chunli_23084-removebg-preview.png" id="26_xu23s"]
+[ext_resource type="Texture2D" uid="uid://xfom6liwr0sn" path="res://assets/chun li walk/SF3_3rd_Chunli_23085-removebg-preview.png" id="27_l0vo0"]
+[ext_resource type="Texture2D" uid="uid://h5kvknlshuqn" path="res://assets/chun li walk/SF3_3rd_Chunli_23086-removebg-preview.png" id="28_rstdr"]
+[ext_resource type="Texture2D" uid="uid://qft2r1giqogj" path="res://assets/chun li walk/SF3_3rd_Chunli_23087-removebg-preview.png" id="29_1h1pg"]
+[ext_resource type="Texture2D" uid="uid://dsscbyvtjtg88" path="res://assets/chun li walk/SF3_3rd_Chunli_23088-removebg-preview.png" id="30_muxrf"]
+[ext_resource type="Texture2D" uid="uid://cqtq7obipnnfr" path="res://assets/chun li walk/SF3_3rd_Chunli_23089-removebg-preview.png" id="31_xf2w6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r8ryd"]
 size = Vector2(133, 188)
@@ -102,7 +120,117 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 5.0
+"speed": 11.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_paebk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_4ysqk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_0e5gp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_yklbd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_r6xnt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_le7h4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_d4xyl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_5kex2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_brfeo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_3pw7r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_6opnp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_1a66w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_xu23s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_l0vo0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_rstdr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_1h1pg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_muxrf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_xf2w6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_muxrf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_1h1pg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_rstdr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_l0vo0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_xu23s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_1a66w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_6opnp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_3pw7r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_brfeo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_5kex2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_d4xyl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_le7h4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_r6xnt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_yklbd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_0e5gp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_4ysqk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_paebk")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 12.0
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=1120152477]
@@ -110,7 +238,7 @@ position = Vector2(-47, 149)
 script = ExtResource("1_htvwm")
 
 [node name="Colisao" type="CollisionShape2D" parent="." unique_id=1334167780]
-position = Vector2(464, 175)
+position = Vector2(311, 346)
 shape = SubResource("RectangleShape2D_r8ryd")
 
 [node name="imputBuffer" type="Node" parent="." unique_id=1159587412]
@@ -129,8 +257,8 @@ script = ExtResource("4_q2jvu")
 libraries/ = SubResource("AnimationLibrary_jukqq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=75413742]
-position = Vector2(165, -77)
+position = Vector2(9, 92)
 scale = Vector2(1.6119791, 1.8772322)
 sprite_frames = SubResource("SpriteFrames_ma6wq")
-animation = &"Idle"
+animation = &"walking"
 centered = false
