@@ -244,7 +244,6 @@ shape = SubResource("RectangleShape2D_r8ryd")
 [node name="inputBuffer" type="Node" parent="." unique_id=1159587412]
 script = ExtResource("2_q2jvu")
 player_controls = ExtResource("3_jukqq")
-input_prefix = null
 
 [node name="StateMachine" type="Node" parent="." unique_id=139237865 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_4iq01")
