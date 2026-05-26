@@ -4,6 +4,8 @@ class_name State
 signal transition_to(new_state, previous_state)
 
 var animated_sprite : AnimatedSprite2D
+var player_controls : PlayerControls
+var character : CharacterBody2D
 
 func _enter() -> void:
 	pass

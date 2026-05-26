@@ -9,6 +9,11 @@ func _enter():
 	else:
 		print("Erro: animated_sprite é null em Idle")
 
+func _physics_process(delta: float) -> void:
+	
+	if player_controls.is_walking():
+		transition_to.emit("Walk")
+
 func _exit():
 	# Opcional: fazer algo ao sair do estado
 	pass

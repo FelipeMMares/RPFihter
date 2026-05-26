@@ -32,4 +32,5 @@ shape = SubResource("RectangleShape2D_e813m")
 [node name="HUD" parent="." unique_id=434548975 instance=ExtResource("3_hvrgt")]
 
 [node name="Player2" parent="." unique_id=1120152477 instance=ExtResource("4_oi066")]
-position = Vector2(110, 538)
+position = Vector2(-182, 119)
+disable_mode = 2

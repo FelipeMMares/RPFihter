@@ -1,6 +1,6 @@
-Sprite2D
 State
 Node
+Sprite2D
 AnimatedSprite2D
 AnimationPlayer
 CollisionShape2D
