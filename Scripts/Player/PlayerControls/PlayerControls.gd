@@ -18,5 +18,5 @@ func is_walking() -> bool:
 func is_jumping() -> bool:
 	return Input.is_action_just_pressed(up)
 	
-func is_crounching() -> bool:
+func just_crouched() -> bool:
 	return Input.is_action_just_pressed(down)

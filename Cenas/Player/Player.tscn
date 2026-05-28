@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://q6vew0t4dxao" path="res://assets/SF3_3rd_Chunli_23056-removebg-preview.png" id="5_jukqq"]
 [ext_resource type="Script" uid="uid://bi4f41m5i0rbr" path="res://Scripts/Player/StateMachine/States/walk.gd" id="6_4ysqk"]
 [ext_resource type="Texture2D" uid="uid://ccxkkmcyuu5v6" path="res://assets/SF3_3rd_Chunli_23057-removebg-preview.png" id="6_j4vva"]
+[ext_resource type="Script" uid="uid://4il616qhcg6y" path="res://Scripts/Player/StateMachine/States/crouch.gd" id="7_0e5gp"]
 [ext_resource type="Texture2D" uid="uid://fefgevm0uo0t" path="res://assets/SF3_3rd_Chunli_23058-removebg-preview.png" id="7_ynwyb"]
 [ext_resource type="Texture2D" uid="uid://dhr0piokaaxa3" path="res://assets/SF3_3rd_Chunli_23060-removebg-preview.png" id="8_vf6lm"]
 [ext_resource type="Texture2D" uid="uid://byt5qs7k501tt" path="res://assets/SF3_3rd_Chunli_23061-removebg-preview.png" id="9_tqt4m"]
@@ -172,6 +173,10 @@ script = ExtResource("4_q2jvu")
 
 [node name="Walk" type="Node" parent="StateMachine" unique_id=1367889219]
 script = ExtResource("6_4ysqk")
+metadata/_custom_type_script = "uid://bkklrvtapkren"
+
+[node name="Crouch" type="Node" parent="StateMachine" unique_id=1686374222]
+script = ExtResource("7_0e5gp")
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=75413742]
