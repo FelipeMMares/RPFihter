@@ -47,7 +47,7 @@ func _capture_input() -> void:
 func _input_to_resource_action(action: String) -> String:
 	# CORRIGIDO: Verificar se a string tem tamanho suficiente
 	if action.length() > input_prefix.length():
-		return action.right(-input_prefix.length())
+		return action.trim_prefix(input_prefix)
 	return action  # Retorna a própria ação se não houver prefixo
 
 func _clean_input() -> void:

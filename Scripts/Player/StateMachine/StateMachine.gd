@@ -25,7 +25,7 @@ func _ready() -> void:
 		if child is not State:
 			continue
 			
-		var state_name : String = child.name.to_lower()
+		var state_name : String = child.name
 		_states[state_name] = child
 		child.transition_to.connect(_transition_to.bind(state_name))
 		child.animated_sprite = animated_sprite
@@ -45,7 +45,6 @@ func _ready() -> void:
 		_started = true
 		
 func _transition_to(new_state: String, previous_state: String) -> void:
-	pass
 	
 	var new_state_node : State = get_node_or_null(new_state)
 	var previous_state_node : State = get_node_or_null(previous_state)

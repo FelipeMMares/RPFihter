@@ -4,10 +4,10 @@
 [ext_resource type="Script" uid="uid://2x8a0erix5ss" path="res://Scripts/Player/Player.gd" id="1_htvwm"]
 [ext_resource type="Script" uid="uid://bt5tashi1crub" path="res://Scripts/Player/ImputBuffering.gd" id="2_q2jvu"]
 [ext_resource type="Script" uid="uid://cmprwqp560lvn" path="res://Scripts/Player/StateMachine/StateMachine.gd" id="3_4iq01"]
-[ext_resource type="Script" uid="uid://byslak2i1ykxe" path="res://Scripts/Player/PlayerControls/PlayerControls.gd" id="4_4ysqk"]
+[ext_resource type="Resource" uid="uid://c0xesnt3643gj" path="res://Scripts/Player/PlayerControls/Player1.tres" id="4_paebk"]
 [ext_resource type="Script" uid="uid://bi6q5kxootr01" path="res://Scripts/Player/StateMachine/States/Idle.gd" id="4_q2jvu"]
 [ext_resource type="Texture2D" uid="uid://q6vew0t4dxao" path="res://assets/SF3_3rd_Chunli_23056-removebg-preview.png" id="5_jukqq"]
-[ext_resource type="Script" uid="uid://bkklrvtapkren" path="res://Scripts/Player/StateMachine/State.gd" id="6_4ysqk"]
+[ext_resource type="Script" uid="uid://bi4f41m5i0rbr" path="res://Scripts/Player/StateMachine/States/walk.gd" id="6_4ysqk"]
 [ext_resource type="Texture2D" uid="uid://ccxkkmcyuu5v6" path="res://assets/SF3_3rd_Chunli_23057-removebg-preview.png" id="6_j4vva"]
 [ext_resource type="Texture2D" uid="uid://fefgevm0uo0t" path="res://assets/SF3_3rd_Chunli_23058-removebg-preview.png" id="7_ynwyb"]
 [ext_resource type="Texture2D" uid="uid://dhr0piokaaxa3" path="res://assets/SF3_3rd_Chunli_23060-removebg-preview.png" id="8_vf6lm"]
@@ -34,11 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://cqtq7obipnnfr" path="res://assets/chun li walk/SF3_3rd_Chunli_23089-removebg-preview.png" id="31_xf2w6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r8ryd"]
-size = Vector2(133, 188)
-
-[sub_resource type="Resource" id="Resource_0e5gp"]
-script = ExtResource("4_4ysqk")
-metadata/_custom_type_script = "uid://byslak2i1ykxe"
+size = Vector2(130.5, 164)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ma6wq"]
 animations = [{
@@ -146,57 +142,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("30_muxrf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("29_1h1pg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("28_rstdr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("27_l0vo0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("26_xu23s")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25_1a66w")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_6opnp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_3pw7r")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_brfeo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_5kex2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_d4xyl")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_le7h4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_r6xnt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_yklbd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_0e5gp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_4ysqk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_paebk")
 }],
 "loop": true,
-"name": &"walking",
+"name": &"Walk",
 "speed": 12.0
 }]
 
@@ -205,16 +153,18 @@ position = Vector2(-47, 149)
 script = ExtResource("1_htvwm")
 
 [node name="Colisao" type="CollisionShape2D" parent="." unique_id=1334167780]
-position = Vector2(311, 346)
+position = Vector2(-10.25, 29)
 shape = SubResource("RectangleShape2D_r8ryd")
+one_way_collision = true
 
 [node name="inputBuffer" type="Node" parent="." unique_id=1159587412]
 script = ExtResource("2_q2jvu")
 
-[node name="StateMachine" type="Node" parent="." unique_id=139237865 node_paths=PackedStringArray("initial_state")]
+[node name="StateMachine" type="Node" parent="." unique_id=139237865 node_paths=PackedStringArray("initial_state", "animated_sprite")]
 script = ExtResource("3_4iq01")
 initial_state = NodePath("Idle")
-player_controls = SubResource("Resource_0e5gp")
+animated_sprite = NodePath("../AnimatedSprite2D")
+player_controls = ExtResource("4_paebk")
 on_ready = true
 
 [node name="Idle" type="Node" parent="StateMachine" unique_id=1520455805]
@@ -225,8 +175,7 @@ script = ExtResource("6_4ysqk")
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=75413742]
-position = Vector2(9, 92)
 scale = Vector2(1.6119791, 1.8772322)
 sprite_frames = SubResource("SpriteFrames_ma6wq")
-animation = &"walking"
-centered = false
+animation = &"Walk"
+frame_progress = 0.98771393

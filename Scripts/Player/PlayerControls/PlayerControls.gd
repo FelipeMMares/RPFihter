@@ -12,8 +12,8 @@ class_name PlayerControls
 
 
 func is_walking() -> bool:
-	return Input.is_action_just_pressed(right) or\
-			Input.is_action_just_pressed(left)
+	return Input.is_action_pressed(right) or\
+			Input.is_action_pressed(left)
 
 func is_jumping() -> bool:
 	return Input.is_action_just_pressed(up)

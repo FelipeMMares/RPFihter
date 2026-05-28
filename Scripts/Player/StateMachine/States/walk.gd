@@ -1,18 +1,19 @@
 extends State
 
+func _enter():
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+	print("ENTER WALK")
 
+	animated_sprite.play("Walk")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	
 	var direction : float = \
 	Input.get_axis(player_controls.left, player_controls.right)
 	
 	if direction != 0:
+		animated_sprite.play(name)
 		character.velocity.x = direction * 50
 	else:
 		character.velocity.x = 0

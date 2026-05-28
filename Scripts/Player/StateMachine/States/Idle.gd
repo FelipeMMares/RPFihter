@@ -8,7 +8,9 @@ func _enter():
 		print("Idle animation started")
 	else:
 		print("Erro: animated_sprite é null em Idle")
-
+	if character:
+		character.velocity.x = 0
+		
 func _physics_process(delta: float) -> void:
 	
 	if player_controls.is_walking():
