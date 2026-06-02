@@ -17,6 +17,7 @@ func _physics_process(delta: float) -> void:
 		transition_to.emit("Walk")
 	
 	if player_controls.just_crouched():
+		
 		transition_to.emit("Crouch")
 
 func _exit():

@@ -1,4 +1,5 @@
 res://Cenas/Player/Player.tscn
-res://Scripts/Player/StateMachine/States/crouch.gd
-res://Scripts/Player/StateMachine/States/Idle.gd
-res://Scripts/Player/PlayerControls/PlayerControls.gd
+res://cena_da_luta.tscn
+res://Scripts/Player/CommandParse/command_parse.gd
+res://Scripts/Player/CommandParser/command_parse.gd
+res://Scripts/Player/Player.gd
