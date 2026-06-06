@@ -46,7 +46,7 @@
 [ext_resource type="Texture2D" uid="uid://qft2r1giqogj" path="res://assets/chun li walk/SF3_3rd_Chunli_23087-removebg-preview.png" id="29_1h1pg"]
 [ext_resource type="Texture2D" uid="uid://dsscbyvtjtg88" path="res://assets/chun li walk/SF3_3rd_Chunli_23088-removebg-preview.png" id="30_muxrf"]
 [ext_resource type="Texture2D" uid="uid://cqtq7obipnnfr" path="res://assets/chun li walk/SF3_3rd_Chunli_23089-removebg-preview.png" id="31_xf2w6"]
-[ext_resource type="Script" uid="uid://dbu8ihntj2ffr" path="res://Scripts/Player/CommandParser/command_parse.gd" id="47_muxrf"]
+[ext_resource type="Script" uid="uid://dbu8ihntj2ffr" path="res://Scripts/Player/CommandParser/commandParse.gd" id="47_muxrf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r8ryd"]
 size = Vector2(149, 171)
@@ -248,8 +248,17 @@ position = Vector2(-8.5, 32.5)
 shape = SubResource("RectangleShape2D_r8ryd")
 one_way_collision = true
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=75413742]
+position = Vector2(4, -3)
+scale = Vector2(1.6119791, 1.8772322)
+sprite_frames = SubResource("SpriteFrames_ma6wq")
+animation = &"Idle"
+
 [node name="inputBuffer" type="Node" parent="." unique_id=1159587412]
 script = ExtResource("2_q2jvu")
+
+[node name="CommandParser" type="Node" parent="." unique_id=99549594]
+script = ExtResource("47_muxrf")
 
 [node name="StateMachine" type="Node" parent="." unique_id=139237865 node_paths=PackedStringArray("initial_state", "animated_sprite")]
 script = ExtResource("3_4iq01")
@@ -268,12 +277,3 @@ metadata/_custom_type_script = "uid://bkklrvtapkren"
 [node name="Crouch" type="Node" parent="StateMachine" unique_id=1686374222]
 script = ExtResource("7_0e5gp")
 metadata/_custom_type_script = "uid://bkklrvtapkren"
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=75413742]
-position = Vector2(4, -3)
-scale = Vector2(1.6119791, 1.8772322)
-sprite_frames = SubResource("SpriteFrames_ma6wq")
-animation = &"Idle"
-
-[node name="CommandParser" type="Node" parent="." unique_id=99549594]
-script = ExtResource("47_muxrf")
