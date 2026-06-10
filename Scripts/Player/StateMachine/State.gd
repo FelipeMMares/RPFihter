@@ -2,10 +2,11 @@ extends Node
 class_name State
 
 signal transition_to(new_state, previous_state)
+signal move(direction: Vector2)
+signal play_animation(name: String, backwards: bool)
 
-var animated_sprite : AnimatedSprite2D
 var player_controls : PlayerControls
-var character : CharacterBody2D
+var command_parser : CommandParser
 
 func _enter() -> void:
 	pass
@@ -13,5 +14,5 @@ func _enter() -> void:
 func _exit() -> void:
 	pass
 
-func change_state(state_name: String):
-	transition_to.emit(state_name, name)
+func _animation_finished() -> void:
+	pass

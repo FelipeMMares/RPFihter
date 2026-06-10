@@ -1,4 +1,10 @@
 res://Cenas/Player/Player.tscn
+res://cena_da_luta.tscn
 res://Scripts/Player/CommandParser/commandParse.gd
-res://Scripts/Player/ImputBuffering.gd
+res://Scripts/Player/StateMachine/StateMachine.gd
+res://Scripts/Player/CommandParser/CommandNode.gd
 res://Scripts/Player/CommandParser/CommandSequence.gd
+res://Scripts/Player/StateMachine/State.gd
+res://Scripts/Player/StateMachine/States/crouch.gd
+res://Scripts/Player/StateMachine/States/Idle.gd
+res://Scripts/Player/StateMachine/States/walk.gd

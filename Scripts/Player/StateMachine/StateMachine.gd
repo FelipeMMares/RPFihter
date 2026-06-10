@@ -1,36 +1,43 @@
 extends Node
 class_name StateMachine
 
+@export var move_method : String = "move"
 @export var initial_state : State
 @export var animated_sprite : AnimatedSprite2D
 @export var player_controls : PlayerControls
+@export var command_parser : CommandParser
 @export var on_ready : bool = false
 
-
-var _states : Dictionary [String, State] = {}
 var _started : bool = false
 var _current_state : State = null
 var _character : CharacterBody2D
+var _anim_request_id : int = 0
 
 func _ready() -> void:
 	
 	_character = get_parent()
 	
-	var animated_sprite = get_node("../AnimatedSprite2D")
-	if not animated_sprite:
-		animated_sprite = get_tree().get_first_node_in_group("Idle")
+	if _character is not CharacterBody2D:
+		printerr("Character is not CharacterBody2D")
+	
+	if not _character.has_method(move_method):
+		printerr("Character doesnt have \"%s\" method" % [move_method])
 	
 	for child in get_children():
-		
 		if child is not State:
-			continue
-			
+			printerr("Removed %s because is not a State node!", child)
+			remove_child(child)
+	
+	for child: State in get_children():
+		
 		var state_name : String = child.name
-		_states[state_name] = child
+		
 		child.transition_to.connect(_transition_to.bind(state_name))
-		child.animated_sprite = animated_sprite
+		child.move.connect(_on_request_move_direction)
+		child.play_animation.connect(_on_request_play_animation.bind(child))
+		
+		child.command_parser = command_parser
 		child.player_controls = player_controls
-		child.character = _character
 		
 		child.set_process(false)
 		child.set_physics_process(false)
@@ -77,4 +84,25 @@ func start() -> void:
 	if initial_state:
 		_current_state = initial_state
 		_current_state._enter()
-	
+		_current_state.set_process(true)
+		_current_state.set_physics_process(true)
+
+func _on_request_move_direction(direction: Vector2) -> void:
+	if _character and _character.has_method(move_method):
+		_character.call(move_method, direction)
+
+func _on_request_play_animation(anim_name: String,
+								backwards: bool = false,
+								state: State = null) -> void:
+	if not animated_sprite:
+		return
+
+	_anim_request_id += 1
+	var request_id := _anim_request_id
+
+	if backwards:
+		animated_sprite.play_backwards(anim_name)
+	else:
+		animated_sprite.play(anim_name)
+
+	await  animated_sprite.animation_finished
