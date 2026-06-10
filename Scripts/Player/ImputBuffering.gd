@@ -55,3 +55,10 @@ func _clean_input() -> void:
 	for action in buffer:
 		if current_frame - action.timeframe >= buffer_window:
 			buffer.erase(action)
+
+func get_input_at(i: int) -> ActionTimeFrame:
+	
+	if i < 0 or i >= buffer.size():
+		return null
+	
+	return buffer[i]

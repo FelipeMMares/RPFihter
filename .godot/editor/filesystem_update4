@@ -1,5 +1,4 @@
 res://Cenas/Player/Player.tscn
-res://Scripts/Player/CommandParser/command_parse.gd
-res://Scripts/Player/CommandParser/CommandNode.gd
-res://Scripts/Player/CommandParser/CommandSequence.gd
 res://Scripts/Player/CommandParser/commandParse.gd
+res://Scripts/Player/ImputBuffering.gd
+res://Scripts/Player/CommandParser/CommandSequence.gd
