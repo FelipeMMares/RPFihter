@@ -56,7 +56,7 @@ func _transition_to(new_state: String, previous_state: String) -> void:
 	var new_state_node : State = get_node_or_null(new_state)
 	var previous_state_node : State = get_node_or_null(previous_state)
 	
-	if not new_state_node or not previous_state:
+	if not new_state_node or not previous_state_node:
 		printerr("%s or %s is null" % [new_state, previous_state])
 		return
 		
@@ -71,8 +71,8 @@ func _transition_to(new_state: String, previous_state: String) -> void:
 	
 	_current_state = new_state_node
 	
-func _physics_process(delta: float) -> void:
-	print("current_state: ", _current_state.name)
+#func _physics_process(delta: float) -> void:
+	#print("current_state: ", _current_state.name)
 
 func start() -> void:
 
@@ -106,3 +106,5 @@ func _on_request_play_animation(anim_name: String,
 		animated_sprite.play(anim_name)
 
 	await  animated_sprite.animation_finished
+	if state and state.has_method("_animation_finished"):
+		state._animation_finished()

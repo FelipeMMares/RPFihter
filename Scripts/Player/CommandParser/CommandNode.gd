@@ -10,6 +10,8 @@ func add_sequence(sequence: Array[String],
 	
 	var current_node : CommandNode = self
 	
+	sequence.reverse()
+	
 	for action in sequence:
 		if not current_node.children.has(action):
 			current_node.children[action] = CommandNode.new()

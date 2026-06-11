@@ -38,7 +38,7 @@ func _capture_input() -> void:
 	for action : String in actions:
 		if Input.is_action_just_pressed(action):
 			var raw_action : String = _input_to_resource_action(action)
-			print("raw_action: ", raw_action)
+			#print("raw_action: ", raw_action)
 			var p_action_frame = \
 			ActionTimeFrame.new(raw_action, current_frame)
 			buffer.append(p_action_frame)

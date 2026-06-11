@@ -9,7 +9,8 @@ var root := CommandNode.new()
 func _ready() -> void:
 	
 	for command in commands:
-		root.add_sequence(command.inputs, command.name)
+		if command and command.is_valid():
+			root.add_sequence(command.inputs, command.name)
 
 func get_current_special_move() -> String:
 	var current_node = root
@@ -18,10 +19,11 @@ func get_current_special_move() -> String:
 	for i in range(input_buffer.buffer.size()-1, -1, -1):
 		var input = input_buffer.get_input_at(i)
 		
-		if current_node.has(input.action_name):
+		if current_node.children.has(input.action_name):
 			current_node = current_node.children[input.action_name]
 			
 			if current_node.resulting_move != "":
+				printerr("funfou!")
 				input_buffer.buffer.clear()
 				return current_node.resulting_move
 		
