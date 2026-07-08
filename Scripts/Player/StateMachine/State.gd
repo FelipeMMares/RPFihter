@@ -16,3 +16,26 @@ func _exit() -> void:
 
 func _animation_finished() -> void:
 	pass
+
+func check_special_move():
+
+	if command_parser == null:
+		return
+
+	var move = command_parser.get_current_special_move()
+
+	if move == "":
+		return
+
+	print("🔥 Movimento detectado:", move)
+
+	match move:
+
+		"teste_combo":
+			print("Combo detectado!")
+
+		"hadouken":
+			print("Executar Hadouken")
+
+		"shoryuken":
+			print("Executar Shoryuken")

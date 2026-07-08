@@ -4,7 +4,7 @@ func _enter() -> void:
 	play_animation.emit(name, false)
 
 func _physics_process(delta: float) -> void:
-	
+	check_special_move()
 	if player_controls.is_walking():
 		transition_to.emit("Walk")
 		

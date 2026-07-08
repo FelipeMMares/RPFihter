@@ -46,6 +46,7 @@
 [ext_resource type="Texture2D" uid="uid://qft2r1giqogj" path="res://assets/chun li walk/SF3_3rd_Chunli_23087-removebg-preview.png" id="29_1h1pg"]
 [ext_resource type="Texture2D" uid="uid://dsscbyvtjtg88" path="res://assets/chun li walk/SF3_3rd_Chunli_23088-removebg-preview.png" id="30_muxrf"]
 [ext_resource type="Texture2D" uid="uid://cqtq7obipnnfr" path="res://assets/chun li walk/SF3_3rd_Chunli_23089-removebg-preview.png" id="31_xf2w6"]
+[ext_resource type="Script" uid="uid://byslak2i1ykxe" path="res://Scripts/Player/PlayerControls/PlayerControls.gd" id="42_7t34q"]
 [ext_resource type="Script" uid="uid://brg7ixgqu5kif" path="res://Scripts/Player/CommandParser/CommandSequence.gd" id="43_xf2w6"]
 [ext_resource type="Script" uid="uid://dbu8ihntj2ffr" path="res://Scripts/Player/CommandParser/commandParse.gd" id="47_muxrf"]
 
@@ -73,9 +74,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("13_4wbdy")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Crouch",
-"speed": 9.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -129,7 +130,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("14_1h1pg")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Idle",
 "speed": 10.0
 }, {
@@ -173,7 +174,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("22_rm342")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Idle_crouch",
 "speed": 11.0
 }, {
@@ -235,15 +236,20 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("30_muxrf")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Walk",
 "speed": 12.0
 }]
 
-[sub_resource type="Resource" id="Resource_7t34q"]
+[sub_resource type="Resource" id="Resource_sx2x5"]
+script = ExtResource("42_7t34q")
+metadata/_custom_type_script = "uid://byslak2i1ykxe"
+
+[sub_resource type="Resource" id="Resource_muxrf"]
 script = ExtResource("43_xf2w6")
-name = "test"
-inputs = Array[String](["right", "right", "left"])
+name = "teste_combo"
+inputs = Array[String](["left", "left", "right"])
+is_special = true
 metadata/_custom_type_script = "uid://brg7ixgqu5kif"
 
 [node name="Player" type="CharacterBody2D" unique_id=1120152477]
@@ -259,14 +265,16 @@ one_way_collision = true
 position = Vector2(4, -3)
 scale = Vector2(1.6119791, 1.8772322)
 sprite_frames = SubResource("SpriteFrames_ma6wq")
-animation = &"Idle"
+animation = &"Crouch"
 
 [node name="inputBuffer" type="Node" parent="." unique_id=1159587412]
 script = ExtResource("2_q2jvu")
+input_prefix = "Player1_"
+player_controls = SubResource("Resource_sx2x5")
 
 [node name="CommandParser" type="Node" parent="." unique_id=99549594 node_paths=PackedStringArray("input_buffer")]
 script = ExtResource("47_muxrf")
-commands = Array[ExtResource("43_xf2w6")]([SubResource("Resource_7t34q")])
+commands = Array[ExtResource("43_xf2w6")]([SubResource("Resource_muxrf")])
 input_buffer = NodePath("../inputBuffer")
 
 [node name="StateMachine" type="Node" parent="." unique_id=139237865 node_paths=PackedStringArray("initial_state", "animated_sprite", "command_parser")]

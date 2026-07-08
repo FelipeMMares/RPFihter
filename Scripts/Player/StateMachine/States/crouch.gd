@@ -7,6 +7,7 @@ func _enter():
 
 func _physics_process(delta: float) -> void:
 	
+	check_special_move()
 	if !Input.is_action_pressed(player_controls.down):
 		crouched = true
 		play_animation.emit(name, true)
