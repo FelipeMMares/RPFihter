@@ -4,9 +4,9 @@
 [ext_resource type="Script" uid="uid://bt5tashi1crub" path="res://Scripts/Player/ImputBuffering.gd" id="2_q2jvu"]
 [ext_resource type="Script" uid="uid://cmprwqp560lvn" path="res://Scripts/Player/StateMachine/StateMachine.gd" id="3_4iq01"]
 [ext_resource type="Resource" uid="uid://c0xesnt3643gj" path="res://Scripts/Player/PlayerControls/Player1.tres" id="4_paebk"]
-[ext_resource type="Script" uid="uid://bi6q5kxootr01" path="res://Scripts/Player/StateMachine/States/Idle.gd" id="4_q2jvu"]
-[ext_resource type="Script" uid="uid://bi4f41m5i0rbr" path="res://Scripts/Player/StateMachine/States/walk.gd" id="6_4ysqk"]
-[ext_resource type="Script" uid="uid://4il616qhcg6y" path="res://Scripts/Player/StateMachine/States/crouch.gd" id="7_0e5gp"]
+[ext_resource type="Script" uid="uid://bi6q5kxootr01" path="res://Scripts/Player/StateMachine/States/Ground/Idle.gd" id="4_q2jvu"]
+[ext_resource type="Script" uid="uid://bi4f41m5i0rbr" path="res://Scripts/Player/StateMachine/States/Ground/walk.gd" id="6_4ysqk"]
+[ext_resource type="Script" uid="uid://4il616qhcg6y" path="res://Scripts/Player/StateMachine/States/Ground/crouch.gd" id="7_0e5gp"]
 [ext_resource type="Texture2D" uid="uid://kwyc8ubrldp4" path="res://assets/crouch/SF3_3rd_Chunli_23136-removebg-preview.png" id="8_1h1pg"]
 [ext_resource type="Texture2D" uid="uid://cea6bgoovb08u" path="res://assets/crouch/SF3_3rd_Chunli_23137-removebg-preview.png" id="9_muxrf"]
 [ext_resource type="Texture2D" uid="uid://t2i0ymdyp613" path="res://assets/crouch/SF3_3rd_Chunli_23138-removebg-preview.png" id="10_xf2w6"]
@@ -67,6 +67,9 @@
 [ext_resource type="Script" uid="uid://byslak2i1ykxe" path="res://Scripts/Player/PlayerControls/PlayerControls.gd" id="42_7t34q"]
 [ext_resource type="Script" uid="uid://brg7ixgqu5kif" path="res://Scripts/Player/CommandParser/CommandSequence.gd" id="43_xf2w6"]
 [ext_resource type="Script" uid="uid://dbu8ihntj2ffr" path="res://Scripts/Player/CommandParser/commandParse.gd" id="47_muxrf"]
+[ext_resource type="Script" uid="uid://c0vg4x7xgk1qp" path="res://Scripts/Player/StateMachine/States/Air/jump.gd" id="68_tj5lq"]
+[ext_resource type="Script" uid="uid://c3ookyq3ypabc" path="res://Scripts/Player/StateMachine/States/Air/start_jump.gd" id="69_vao2x"]
+[ext_resource type="Script" uid="uid://julkhtuc7ncf" path="res://Scripts/Player/StateMachine/States/Ground/IdleCrouched.gd" id="70_wj34k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r8ryd"]
 size = Vector2(149, 171)
@@ -176,45 +179,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("27_laead")
-}, {
-"duration": 1.0,
-"texture": ExtResource("26_ok0yd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25_5g1c5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_mw5mv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_ybk73")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_rm342")
 }],
 "loop": 1,
-"name": &"Idle_crouch",
-"speed": 11.0
+"name": &"IdleCrouched",
+"speed": 8.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("23_ttbwf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_tj5lq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25_vao2x")
-}, {
-"duration": 1.0,
-"texture": ExtResource("26_wj34k")
-}, {
-"duration": 1.0,
-"texture": ExtResource("27_o8hur")
-}, {
-"duration": 1.0,
-"texture": ExtResource("28_f0bps")
-}, {
 "duration": 1.0,
 "texture": ExtResource("29_kseou")
 }, {
@@ -283,7 +253,27 @@ animations = [{
 }],
 "loop": 0,
 "name": &"Jump",
-"speed": 5.0
+"speed": 14.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_tj5lq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_vao2x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_wj34k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_o8hur")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_f0bps")
+}],
+"loop": 0,
+"name": &"StartJump",
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -372,9 +362,8 @@ one_way_collision = true
 position = Vector2(4, -3)
 scale = Vector2(1.6119791, 1.8772322)
 sprite_frames = SubResource("SpriteFrames_ma6wq")
-animation = &"Jump"
-frame = 27
-frame_progress = 1.0
+animation = &"IdleCrouched"
+frame_progress = 0.08261333
 
 [node name="inputBuffer" type="Node" parent="." unique_id=1159587412]
 script = ExtResource("2_q2jvu")
@@ -403,4 +392,16 @@ metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="Crouch" type="Node" parent="StateMachine" unique_id=1686374222]
 script = ExtResource("7_0e5gp")
+metadata/_custom_type_script = "uid://bkklrvtapkren"
+
+[node name="Jump" type="Node" parent="StateMachine" unique_id=941616741]
+script = ExtResource("68_tj5lq")
+metadata/_custom_type_script = "uid://bkklrvtapkren"
+
+[node name="StartJump" type="Node" parent="StateMachine" unique_id=1933858357]
+script = ExtResource("69_vao2x")
+metadata/_custom_type_script = "uid://bkklrvtapkren"
+
+[node name="IdleCrouched" type="Node" parent="StateMachine" unique_id=25288478]
+script = ExtResource("70_wj34k")
 metadata/_custom_type_script = "uid://bkklrvtapkren"

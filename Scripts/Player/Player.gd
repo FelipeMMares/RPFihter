@@ -19,9 +19,11 @@ func jump():
 
 func move(direction: Vector2) -> void:
 	
-	velocity = direction * speed
-	move_and_slide()
-	
+	velocity.x = direction.x * speed
+
+func stop():
+
+	velocity.x = 0
 #func _input(event):
 	#if event is InputEventKey and event.pressed:
 		#match event.keycode:

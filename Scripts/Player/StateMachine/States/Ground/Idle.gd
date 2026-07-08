@@ -4,6 +4,7 @@ func _enter() -> void:
 	play_animation.emit(name, false)
 
 func _physics_process(delta: float) -> void:
+	move.emit(Vector2.ZERO)
 	check_special_move()
 	if player_controls.is_walking():
 		transition_to.emit("Walk")
@@ -13,4 +14,4 @@ func _physics_process(delta: float) -> void:
 	
 	if player_controls.is_jumping():
 		print("PEDIU PULO")
-		transition_to.emit("Jump")
+		transition_to.emit("StartJump")

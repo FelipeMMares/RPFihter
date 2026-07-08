@@ -1,7 +1,7 @@
 extends Node
 class_name StateMachine
 
-@export var jump_method : String = "Jump"
+@export var jump_method := "jump"
 @export var move_method : String = "move"
 @export var initial_state : State
 @export var animated_sprite : AnimatedSprite2D
@@ -97,13 +97,21 @@ func _on_request_move_direction(direction: Vector2) -> void:
 		_character.call(move_method, direction)
 
 func _on_request_jump() -> void:
+	print("STATE MACHINE PEDIU PULO")
 
-	if _character and _character.has_method(jump_method):
-		_character.jump()
+	if _character.has_method(jump_method):
+		_character.call(jump_method)
 
 func _on_request_play_animation(anim_name: String,
 								backwards: bool = false,
 								state: State = null) -> void:
+	print("TOCANDO:", anim_name)
+	print(animated_sprite.sprite_frames.get_animation_names())
+
+	if backwards:
+		animated_sprite.play_backwards(anim_name)
+	else:
+		animated_sprite.play(anim_name)
 	if not animated_sprite:
 		return
 
