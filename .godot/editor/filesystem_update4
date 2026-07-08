@@ -10,3 +10,6 @@ res://Scripts/Player/StateMachine/States/walk.gd
 res://Scripts/Player/StateMachine/States/crouch.gd
 res://Scripts/Player/StateMachine/States/Idle.gd
 res://Scripts/Player/StateMachine/StateMachine.gd
+res://Scripts/Player/StateMachine/States/jump.gd
+res://Scripts/Player/StateMachine/States/Jump.gd
+res://Cenas/Player/jump.gd

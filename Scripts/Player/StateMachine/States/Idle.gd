@@ -10,3 +10,7 @@ func _physics_process(delta: float) -> void:
 		
 	if player_controls.just_crouched():
 		transition_to.emit("Crouch")
+	
+	if player_controls.is_jumping():
+		print("PEDIU PULO")
+		transition_to.emit("Jump")

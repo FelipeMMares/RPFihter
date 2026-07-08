@@ -3,6 +3,7 @@ class_name State
 
 signal transition_to(new_state, previous_state)
 signal move(direction: Vector2)
+signal jump()
 signal play_animation(name: String, backwards: bool)
 
 var player_controls : PlayerControls

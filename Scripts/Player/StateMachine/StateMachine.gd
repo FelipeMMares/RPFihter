@@ -1,6 +1,7 @@
 extends Node
 class_name StateMachine
 
+@export var jump_method : String = "Jump"
 @export var move_method : String = "move"
 @export var initial_state : State
 @export var animated_sprite : AnimatedSprite2D
@@ -34,6 +35,7 @@ func _ready() -> void:
 		
 		child.transition_to.connect(_transition_to.bind(state_name))
 		child.move.connect(_on_request_move_direction)
+		child.jump.connect(_on_request_jump)
 		child.play_animation.connect(_on_request_play_animation.bind(child))
 		
 		child.command_parser = command_parser
@@ -52,11 +54,13 @@ func _ready() -> void:
 		_started = true
 		
 func _transition_to(new_state: String, previous_state: String) -> void:
-	
+	print("TRANSIÇÃO:", previous_state, " -> ", new_state)
 	var new_state_node : State = get_node_or_null(new_state)
+	
 	var previous_state_node : State = get_node_or_null(previous_state)
 	
 	if not new_state_node or not previous_state_node:
+		print("❌ Estado", new_state, "não encontrado!")
 		printerr("%s or %s is null" % [new_state, previous_state])
 		return
 		
@@ -71,6 +75,7 @@ func _transition_to(new_state: String, previous_state: String) -> void:
 	
 	_current_state = new_state_node
 	
+	print("TRANSIÇÃO:", previous_state, " -> ", new_state)
 #func _physics_process(delta: float) -> void:
 	#print("current_state: ", _current_state.name)
 
@@ -90,6 +95,11 @@ func start() -> void:
 func _on_request_move_direction(direction: Vector2) -> void:
 	if _character and _character.has_method(move_method):
 		_character.call(move_method, direction)
+
+func _on_request_jump() -> void:
+
+	if _character and _character.has_method(jump_method):
+		_character.jump()
 
 func _on_request_play_animation(anim_name: String,
 								backwards: bool = false,

@@ -51,18 +51,18 @@ var root := CommandNode.new()
 func _ready() -> void:
 
 	if input_buffer == null:
-		printerr("CommandParser: InputBuffer não definido.")
+		#printerr("CommandParser: InputBuffer não definido.")
 		return
 
 	_build_tree()
 
-	print("\n==============================")
-	print("ÁRVORE DE COMANDOS")
-	print("==============================")
-
-	print_command_tree(root,0)
-
-	print("==============================\n")
+	#print("\n==============================")
+	#print("ÁRVORE DE COMANDOS")
+	#print("==============================")
+#
+	#print_command_tree(root,0)
+#
+	#print("==============================\n")
 
 func _build_tree():
 
@@ -77,13 +77,13 @@ func _build_tree():
 			continue
 
 		root.add_sequence(command.inputs, command.name)
-
-		print(
-			"Comando carregado:",
-			command.name,
-			" -> ",
-			command.inputs
-		)
+#
+		#print(
+			#"Comando carregado:",
+			#command.name,
+			#" -> ",
+			#command.inputs
+		#)
 
 func print_command_tree(node: CommandNode, depth:int):
 
@@ -113,10 +113,10 @@ func get_current_special_move() -> String:
 		# ==========================
 	# DEBUG DO BUFFER
 	# ==========================
-	print("\n===== BUFFER =====")
-	for input in input_buffer.buffer:
-		print(input.action_name)
-	print("==================")
+	#print("\n===== BUFFER =====")
+	#for input in input_buffer.buffer:
+		#print(input.action_name)
+	#print("==================")
 
 	var current_node := root
 
@@ -129,9 +129,9 @@ func get_current_special_move() -> String:
 		var input = input_buffer.buffer[i]
 		var action = input.action_name
 
-		print("--------------------------------")
-		print("Lendo:",action)
-		print("Nós disponíveis:",current_node.children.keys())
+		#print("--------------------------------")
+		#print("Lendo:",action)
+		#print("Nós disponíveis:",current_node.children.keys())
 
 		if current_node.children.has(action):
 
@@ -139,17 +139,17 @@ func get_current_special_move() -> String:
 
 			matched.append(action)
 
-			print("Passou.")
+			#print("Passou.")
 
 			if current_node.resulting_move != "":
 
-				print()
-
-				print("================================")
-				print("MOVIMENTO ENCONTRADO")
-				print(current_node.resulting_move)
-				print("Sequência:",matched)
-				print("================================")
+				#print()
+#
+				#print("================================")
+				#print("MOVIMENTO ENCONTRADO")
+				#print(current_node.resulting_move)
+				#print("Sequência:",matched)
+				#print("================================")
 
 				input_buffer.buffer.clear()
 
@@ -157,7 +157,7 @@ func get_current_special_move() -> String:
 
 		else:
 
-			print("Falhou em:",action)
+			#print("Falhou em:",action)
 
 			# --------------------------------------------------
 			# ALTERAÇÃO IMPORTANTE

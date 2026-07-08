@@ -46,12 +46,12 @@ func _ready() -> void:
 		if action not in actions:
 			actions.append(action)
 
-	print("\n===== INPUTS REGISTRADOS =====")
+	#print("\n===== INPUTS REGISTRADOS =====")
 
-	for action in actions:
-		print(action)
+	#for action in actions:
+		#print(action)
 
-	print("==============================")
+	#print("==============================")
 
 	for input in InputMap.get_actions():
 		if input.begins_with(input_prefix):
@@ -62,35 +62,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	_clean_input()
 	_capture_input()
-	#print("buffer:", buffer)
-		
-#func _capture_input() -> void:
-	#var current_frame : int = Engine.get_physics_frames()
-	#
-	#for action : String in actions:
-		#if Input.is_action_just_pressed(action):
-			#var raw_action : String = _input_to_resource_action(action)
-			##print("raw_action: ", raw_action)
-			#var p_action_frame = \
-			#ActionTimeFrame.new(raw_action, current_frame)
-			#buffer.append(p_action_frame)
-#func _capture_input() -> void:
-	#var current_frame : int = Engine.get_physics_frames()
-	#
-	#for action : String in actions:
-		#if Input.is_action_just_pressed(action):
-			#var raw_action : String = _input_to_resource_action(action)
-			## JÁ REMOVE O PREFIXO AQUI!
-			#var p_action_frame = ActionTimeFrame.new(raw_action, current_frame)
-			#buffer.append(p_action_frame)
-			#print(
-	#"[FRAME ",
-	#current_frame,
-	#"] ",
-	#action,
-	#" -> ",
-	#raw_action
-#)
+
 func _capture_input() -> void:
 	var current_frame := Engine.get_physics_frames()
 
@@ -101,23 +73,23 @@ func _capture_input() -> void:
 
 			buffer.append(ActionTimeFrame.new(raw_action, current_frame))
 
-			print("--------------------------------")
-			print("INPUT:", raw_action)
-			print("BUFFER SIZE:", buffer.size())
+			#print("--------------------------------")
+			#print("INPUT:", raw_action)
+			#print("BUFFER SIZE:", buffer.size())
 
 			for item in buffer:
 				print(" -> ", item.action_name)
 
 func _input_to_resource_action(action:String)->String:
 
-	print("Prefixo atual:", input_prefix)
-	print("Action recebida:", action)
+	#print("Prefixo atual:", input_prefix)
+	#print("Action recebida:", action)
 
 	if action.begins_with(input_prefix):
 
 		var converted = action.trim_prefix(input_prefix)
 
-		print("Convertido:", converted)
+		#print("Convertido:", converted)
 
 		return converted
 
@@ -204,37 +176,37 @@ func has_sequence(sequence: Array[String], max_gap: int = 5) -> bool:
 	
 	return false
 
-func debug_actions():
-
-	print()
-
-	print("===== ACTIONS =====")
-
-	for action in actions:
-		print(action)
-
-	print("===================")
-
-func debug_buffer():
-
-	print()
-
-	print("=========== BUFFER ===========")
-
-	for i in range(buffer.size()-1,-1,-1):
-
-		var data = buffer[i]
-
-		print(
-			"#",
-			i,
-			" | ",
-			data.action_name,
-			" | frame ",
-			data.timeframe
-		)
-
-	print("==============================")
+#func debug_actions():
+#
+	#print()
+#
+	#print("===== ACTIONS =====")
+#
+	#for action in actions:
+		#print(action)
+#
+	#print("===================")
+#
+#func debug_buffer():
+#
+	#print()
+#
+	#print("=========== BUFFER ===========")
+#
+	#for i in range(buffer.size()-1,-1,-1):
+#
+		#var data = buffer[i]
+#
+		#print(
+			#"#",
+			#i,
+			#" | ",
+			#data.action_name,
+			#" | frame ",
+			#data.timeframe
+		#)
+#
+	#print("==============================")
 
 func cleanup(timeout_frames: int = -1):
 	var current_frame = Engine.get_physics_frames()
@@ -256,14 +228,14 @@ func add_input_direct(action_name: String) -> void:
 
 	buffer.append(input)
 
-	print("➕ Input manual:", action_name)
+	#print("➕ Input manual:", action_name)
 
-func add_test_sequence(sequence:Array[String]):
-
-	buffer.clear()
-
-	for action in sequence:
-
-		add_input_direct(action)
-
-	debug_buffer()
+#func add_test_sequence(sequence:Array[String]):
+#
+	#buffer.clear()
+#
+	#for action in sequence:
+#
+		#add_input_direct(action)
+#
+	#debug_buffer()
