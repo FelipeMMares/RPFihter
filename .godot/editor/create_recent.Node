@@ -1,9 +1,9 @@
+Node
 CollisionShape2D
 AnimatedSprite2D
 CharacterBody2D
 CollisionPolygon2D
 Area2D
-Node
 AttackState
 State
 Sprite2D
