@@ -110,10 +110,9 @@
 [ext_resource type="Texture2D" uid="uid://dbatfrioo3fh0" path="res://assets/Chun li Low Kick/SF3_3rd_Chunli_24074-removebg-preview.png" id="78_ucbn6"]
 [ext_resource type="Texture2D" uid="uid://b8tddvji4j0eh" path="res://assets/Chun li Low Kick/SF3_3rd_Chunli_24075-removebg-preview.png" id="79_kds5p"]
 [ext_resource type="Texture2D" uid="uid://ckfwovqfbnypu" path="res://assets/Chun li Low Kick/SF3_3rd_Chunli_24076-removebg-preview.png" id="80_nhj2s"]
-[ext_resource type="Script" uid="uid://dpidld84mvsy6" path="res://Cenas/Player/LighitPunch.gd" id="111_csavo"]
-[ext_resource type="Script" uid="uid://dej7fkqbhr8oe" path="res://Cenas/Player/HighPunch.gd" id="112_xdc3l"]
-[ext_resource type="Script" uid="uid://dvcsdocbxm1d5" path="res://Cenas/Player/kick.gd" id="113_kdxtf"]
-[ext_resource type="Script" uid="uid://clavty3437xf7" path="res://Cenas/Player/LowKick.gd" id="114_wgp7l"]
+[ext_resource type="Script" uid="uid://dtsgngx4yj4eu" path="res://Scripts/Player/StateMachine/States/Ground/light_punch.gd" id="111_jj3b6"]
+[ext_resource type="Script" uid="uid://do3du61yy2b2o" path="res://Scripts/Player/Hitbox/Hitboxers.gd" id="115_lmw0p"]
+[ext_resource type="Script" uid="uid://csymgsto5p2q8" path="res://Scripts/Player/Hitbox/LightPunchHitbox.gd" id="116_lmw0p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r8ryd"]
 size = Vector2(149, 171)
@@ -533,6 +532,29 @@ inputs = Array[String](["left", "left", "right"])
 is_special = true
 metadata/_custom_type_script = "uid://brg7ixgqu5kif"
 
+[sub_resource type="GDScript" id="GDScript_w3xrr"]
+script/source = "extends AttackState
+
+func _enter():
+
+	super._enter()
+
+	print(\"Soco leve\")
+"
+
+[sub_resource type="GDScript" id="GDScript_jj3b6"]
+script/source = "extends AttackState
+
+func _enter():
+
+	super._enter()
+
+	print(\"Chute baixo\")
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(68, 28)
+
 [node name="Player" type="CharacterBody2D" unique_id=1120152477]
 position = Vector2(-47, 149)
 script = ExtResource("1_htvwm")
@@ -546,9 +568,8 @@ one_way_collision = true
 position = Vector2(4, -3)
 scale = Vector2(1.6119791, 1.8772322)
 sprite_frames = SubResource("SpriteFrames_ma6wq")
-animation = &"LowKick"
-frame = 12
-frame_progress = 1.0
+animation = &"LightPunch"
+frame = 1
 
 [node name="inputBuffer" type="Node" parent="." unique_id=1159587412]
 script = ExtResource("2_q2jvu")
@@ -592,17 +613,29 @@ script = ExtResource("70_wj34k")
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="LightPunch" type="Node" parent="StateMachine" unique_id=374435888]
-script = ExtResource("111_csavo")
+script = ExtResource("111_jj3b6")
 metadata/_custom_type_script = "uid://bprajussohidd"
 
 [node name="HighPunch" type="Node" parent="StateMachine" unique_id=1255776548]
-script = ExtResource("112_xdc3l")
+script = SubResource("GDScript_w3xrr")
 metadata/_custom_type_script = "uid://bprajussohidd"
 
 [node name="Kick" type="Node" parent="StateMachine" unique_id=967590929]
-script = ExtResource("113_kdxtf")
+script = SubResource("GDScript_w3xrr")
 metadata/_custom_type_script = "uid://bprajussohidd"
 
 [node name="LowKick" type="Node" parent="StateMachine" unique_id=2026664907]
-script = ExtResource("114_wgp7l")
+script = SubResource("GDScript_jj3b6")
 metadata/_custom_type_script = "uid://bprajussohidd"
+
+[node name="Hitboxers" type="Node" parent="." unique_id=1844061744]
+script = ExtResource("115_lmw0p")
+
+[node name="LightPunch" type="Area2D" parent="Hitboxers" unique_id=143547538]
+monitoring = false
+monitorable = false
+script = ExtResource("116_lmw0p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/LightPunch" unique_id=1338770999]
+position = Vector2(51, 129)
+shape = SubResource("RectangleShape2D_g4v7s")

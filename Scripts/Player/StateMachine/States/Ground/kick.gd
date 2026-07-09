@@ -4,4 +4,4 @@ func _enter():
 
 	super._enter()
 
-	print("soco alto")
+	print("Soco alto")
