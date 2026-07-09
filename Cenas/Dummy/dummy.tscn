@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://c3j6jqqi848lx"]
 
-[ext_resource type="Texture2D" path="res://assets/SF3_3rd_Elena_12288-removebg-preview.png" id="1_vqqph"]
+[ext_resource type="Texture2D" uid="uid://co2dbqfbjkjnp" path="res://assets/Elena (dummy) Hurt/SF3_3rd_Elena_12462-removebg-preview.png" id="1_j6gfk"]
+[ext_resource type="Texture2D" uid="uid://bbwy05inpgibv" path="res://assets/elena (dummy)/SF3_3rd_Elena_12288-removebg-preview.png" id="1_u4fdy"]
+[ext_resource type="Texture2D" uid="uid://b7ftb26qwhw5d" path="res://assets/Elena (dummy) Hurt/SF3_3rd_Elena_12463-removebg-preview.png" id="2_dnvsn"]
 [ext_resource type="Texture2D" uid="uid://boum1wsvnc0pg" path="res://assets/elena (dummy)/SF3_3rd_Elena_12289-removebg-preview.png" id="2_gqsxo"]
 [ext_resource type="Texture2D" uid="uid://cksfsaowrkiw5" path="res://assets/elena (dummy)/SF3_3rd_Elena_12290-removebg-preview.png" id="3_1ipwt"]
+[ext_resource type="Texture2D" uid="uid://brhp315lvxfvs" path="res://assets/Elena (dummy) Hurt/SF3_3rd_Elena_12464-removebg-preview.png" id="3_3mxc2"]
 [ext_resource type="Texture2D" uid="uid://opiicf4stj0p" path="res://assets/elena (dummy)/SF3_3rd_Elena_12291-removebg-preview.png" id="4_lb2tm"]
 [ext_resource type="Texture2D" uid="uid://d2vupgtsfu2tg" path="res://assets/elena (dummy)/SF3_3rd_Elena_12292-removebg-preview.png" id="5_nntwn"]
 [ext_resource type="Texture2D" uid="uid://br736eg1lhymi" path="res://assets/elena (dummy)/SF3_3rd_Elena_12293-removebg-preview.png" id="6_48erc"]
@@ -70,7 +73,21 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_vqqph")
+"texture": ExtResource("1_j6gfk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_dnvsn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3mxc2")
+}],
+"loop": 0,
+"name": &"Hurt",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_u4fdy")
 }, {
 "duration": 1.0,
 "texture": ExtResource("2_gqsxo")
@@ -274,18 +291,19 @@ func _enter():
 position = Vector2(-6.0000114, -11.999996)
 scale = Vector2(1.3411459, 1.5758928)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"Idle"
+animation = &"Hurt"
+frame = 2
+frame_progress = 1.0
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1128512923]
 position = Vector2(3, 22.5)
 shape = SubResource("RectangleShape2D_vqqph")
 
-[node name="StateMachine" type="Node" parent="." unique_id=1711119882 node_paths=PackedStringArray("initial_state", "animated_sprite", "command_parser")]
+[node name="StateMachine" type="Node" parent="." unique_id=1711119882 node_paths=PackedStringArray("initial_state", "animated_sprite")]
 script = ExtResource("58_u4fdy")
 initial_state = NodePath("Idle")
 animated_sprite = NodePath("../AnimatedSprite2D")
-command_parser = NodePath("")
 on_ready = true
 
 [node name="Idle" type="Node" parent="StateMachine" unique_id=2058840451]
