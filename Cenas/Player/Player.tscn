@@ -8,21 +8,32 @@
 [ext_resource type="Script" uid="uid://bi4f41m5i0rbr" path="res://Scripts/Player/StateMachine/States/Ground/walk.gd" id="6_4ysqk"]
 [ext_resource type="Script" uid="uid://4il616qhcg6y" path="res://Scripts/Player/StateMachine/States/Ground/crouch.gd" id="7_0e5gp"]
 [ext_resource type="Texture2D" uid="uid://kwyc8ubrldp4" path="res://assets/crouch/SF3_3rd_Chunli_23136-removebg-preview.png" id="8_1h1pg"]
+[ext_resource type="Texture2D" uid="uid://d2g1acyfhxl3a" path="res://assets/Chun li High Punch/SF3_3rd_Chunli_23888-removebg-preview.png" id="8_w3xrr"]
+[ext_resource type="Texture2D" uid="uid://cytppsalikr2q" path="res://assets/Chun li High Punch/SF3_3rd_Chunli_23889-removebg-preview.png" id="9_jj3b6"]
 [ext_resource type="Texture2D" uid="uid://cea6bgoovb08u" path="res://assets/crouch/SF3_3rd_Chunli_23137-removebg-preview.png" id="9_muxrf"]
+[ext_resource type="Texture2D" uid="uid://d4eni0epahtdl" path="res://assets/Chun li High Punch/SF3_3rd_Chunli_23890-removebg-preview.png" id="10_lmw0p"]
 [ext_resource type="Texture2D" uid="uid://t2i0ymdyp613" path="res://assets/crouch/SF3_3rd_Chunli_23138-removebg-preview.png" id="10_xf2w6"]
 [ext_resource type="Texture2D" uid="uid://cvx5qpnjgkk77" path="res://assets/crouch/SF3_3rd_Chunli_23139-removebg-preview.png" id="11_7t34q"]
+[ext_resource type="Texture2D" uid="uid://ddtx03tsbbvsa" path="res://assets/Chun li High Punch/SF3_3rd_Chunli_23891-removebg-preview.png" id="11_u6yic"]
 [ext_resource type="Texture2D" uid="uid://feavkrnl82y8" path="res://assets/crouch/SF3_3rd_Chunli_23140-removebg-preview.png" id="12_vfndq"]
+[ext_resource type="Texture2D" uid="uid://bl36pvn6g7cl3" path="res://assets/Chun li High Punch/SF3_3rd_Chunli_23892-removebg-preview.png" id="12_wakpi"]
+[ext_resource type="Texture2D" uid="uid://cwvvja2x16h52" path="res://assets/Chun li High Punch/SF3_3rd_Chunli_23893-removebg-preview.png" id="13_1ckkg"]
 [ext_resource type="Texture2D" uid="uid://l6eitwn6kr03" path="res://assets/crouch/SF3_3rd_Chunli_23141-removebg-preview.png" id="13_4wbdy"]
 [ext_resource type="Texture2D" uid="uid://q6vew0t4dxao" path="res://assets/Chun li Idle/SF3_3rd_Chunli_23056-removebg-preview.png" id="14_1h1pg"]
+[ext_resource type="Texture2D" uid="uid://dxpftv3duwksx" path="res://assets/Chun li High Punch/SF3_3rd_Chunli_23894-removebg-preview.png" id="14_ombku"]
 [ext_resource type="Texture2D" uid="uid://dea3mspcdterf" path="res://assets/chun li walk/SF3_3rd_Chunli_23072-removebg-preview.png" id="14_paebk"]
+[ext_resource type="Texture2D" uid="uid://bbfmxg47h27bo" path="res://assets/Chun li High Punch/SF3_3rd_Chunli_23895-removebg-preview.png" id="15_2pc8c"]
 [ext_resource type="Texture2D" uid="uid://dba7upeqjx3w7" path="res://assets/chun li walk/SF3_3rd_Chunli_23073-removebg-preview.png" id="15_4ysqk"]
 [ext_resource type="Texture2D" uid="uid://ccxkkmcyuu5v6" path="res://assets/Chun li Idle/SF3_3rd_Chunli_23057-removebg-preview.png" id="15_muxrf"]
 [ext_resource type="Texture2D" uid="uid://buhuii8js83k6" path="res://assets/chun li walk/SF3_3rd_Chunli_23074-removebg-preview.png" id="16_0e5gp"]
+[ext_resource type="Texture2D" uid="uid://c5p18wkkisxsw" path="res://assets/Chun li High Punch/SF3_3rd_Chunli_23896-removebg-preview.png" id="16_nxw2p"]
 [ext_resource type="Texture2D" uid="uid://fefgevm0uo0t" path="res://assets/Chun li Idle/SF3_3rd_Chunli_23058-removebg-preview.png" id="16_xf2w6"]
 [ext_resource type="Texture2D" uid="uid://bde418vpjs5cd" path="res://assets/Chun li Idle/SF3_3rd_Chunli_23059-removebg-preview.png" id="17_7t34q"]
+[ext_resource type="Texture2D" uid="uid://dw6t1trxfvee1" path="res://assets/Chun li High Punch/SF3_3rd_Chunli_23897-removebg-preview.png" id="17_bk2bu"]
 [ext_resource type="Texture2D" uid="uid://cspyvxi7j60m0" path="res://assets/chun li walk/SF3_3rd_Chunli_23075-removebg-preview.png" id="17_yklbd"]
 [ext_resource type="Texture2D" uid="uid://obwfvel86unu" path="res://assets/chun li walk/SF3_3rd_Chunli_23076-removebg-preview.png" id="18_r6xnt"]
 [ext_resource type="Texture2D" uid="uid://dhr0piokaaxa3" path="res://assets/Chun li Idle/SF3_3rd_Chunli_23060-removebg-preview.png" id="18_vfndq"]
+[ext_resource type="Texture2D" uid="uid://dg2cyl6s00xwu" path="res://assets/Chun li High Punch/SF3_3rd_Chunli_23898-removebg-preview.png" id="18_vqvcg"]
 [ext_resource type="Texture2D" uid="uid://byt5qs7k501tt" path="res://assets/Chun li Idle/SF3_3rd_Chunli_23061-removebg-preview.png" id="19_4wbdy"]
 [ext_resource type="Texture2D" uid="uid://by2cj3x5t3suo" path="res://assets/chun li walk/SF3_3rd_Chunli_23077-removebg-preview.png" id="19_le7h4"]
 [ext_resource type="Texture2D" uid="uid://ch1c7id7oikau" path="res://assets/chun li walk/SF3_3rd_Chunli_23078-removebg-preview.png" id="20_d4xyl"]
@@ -67,9 +78,42 @@
 [ext_resource type="Script" uid="uid://byslak2i1ykxe" path="res://Scripts/Player/PlayerControls/PlayerControls.gd" id="42_7t34q"]
 [ext_resource type="Script" uid="uid://brg7ixgqu5kif" path="res://Scripts/Player/CommandParser/CommandSequence.gd" id="43_xf2w6"]
 [ext_resource type="Script" uid="uid://dbu8ihntj2ffr" path="res://Scripts/Player/CommandParser/commandParse.gd" id="47_muxrf"]
+[ext_resource type="Texture2D" uid="uid://ckvjjv4h7x4i1" path="res://assets/Chun li Kick/SF3_3rd_Chunli_24016-removebg-preview.png" id="52_lee77"]
+[ext_resource type="Texture2D" uid="uid://cbatcfbal4fk5" path="res://assets/Chun li Kick/SF3_3rd_Chunli_24017-removebg-preview.png" id="53_48w2k"]
+[ext_resource type="Texture2D" uid="uid://cywqa28ln4mdt" path="res://assets/Chun li Kick/SF3_3rd_Chunli_24018-removebg-preview.png" id="54_lqkme"]
+[ext_resource type="Texture2D" uid="uid://cd2mq745lo8t3" path="res://assets/Chun li Kick/SF3_3rd_Chunli_24019-removebg-preview.png" id="55_p1g0t"]
+[ext_resource type="Texture2D" uid="uid://ckpig3enmycjw" path="res://assets/Chun li Kick/SF3_3rd_Chunli_24020-removebg-preview.png" id="56_renor"]
+[ext_resource type="Texture2D" uid="uid://bkhm4cq8soyui" path="res://assets/Chun li Kick/SF3_3rd_Chunli_24021-removebg-preview.png" id="57_q3c4e"]
+[ext_resource type="Texture2D" uid="uid://3d1o3v5a8bj" path="res://assets/Chun li Kick/SF3_3rd_Chunli_24022-removebg-preview.png" id="58_7uf2q"]
+[ext_resource type="Texture2D" uid="uid://b177i7v0ntlhe" path="res://assets/Chun li Kick/SF3_3rd_Chunli_24023-removebg-preview.png" id="59_db6c7"]
+[ext_resource type="Texture2D" uid="uid://bw4x4hpwmemdq" path="res://assets/Chun li Kick/SF3_3rd_Chunli_24024-removebg-preview.png" id="60_t14si"]
+[ext_resource type="Texture2D" uid="uid://bx0ujyd42lqn4" path="res://assets/Chun li Kick/SF3_3rd_Chunli_24025-removebg-preview.png" id="61_3g5ly"]
+[ext_resource type="Texture2D" uid="uid://cqe1kw31vfhco" path="res://assets/Chun li Kick/SF3_3rd_Chunli_24026-removebg-preview.png" id="62_pygg7"]
+[ext_resource type="Texture2D" uid="uid://2y3gghenee1v" path="res://assets/Chun li Light Punch/SF3_3rd_Chunli_23872-removebg-preview.png" id="63_o27f5"]
+[ext_resource type="Texture2D" uid="uid://rgm85bl4rsxs" path="res://assets/Chun li Light Punch/SF3_3rd_Chunli_23873-removebg-preview.png" id="64_0rl66"]
+[ext_resource type="Texture2D" uid="uid://c2umuxisf76v5" path="res://assets/Chun li Light Punch/SF3_3rd_Chunli_23874-removebg-preview.png" id="65_2lsds"]
+[ext_resource type="Texture2D" uid="uid://o0m7pqk0rol2" path="res://assets/Chun li Light Punch/SF3_3rd_Chunli_23875-removebg-preview.png" id="66_sme7s"]
+[ext_resource type="Texture2D" uid="uid://q1cwucj1dvfj" path="res://assets/Chun li Light Punch/SF3_3rd_Chunli_23876-removebg-preview.png" id="67_votha"]
+[ext_resource type="Texture2D" uid="uid://db4cjbydjnqih" path="res://assets/Chun li Low Kick/SF3_3rd_Chunli_24064-removebg-preview.png" id="68_dt0ue"]
 [ext_resource type="Script" uid="uid://c0vg4x7xgk1qp" path="res://Scripts/Player/StateMachine/States/Air/jump.gd" id="68_tj5lq"]
+[ext_resource type="Texture2D" uid="uid://psrpn1kcs0in" path="res://assets/Chun li Low Kick/SF3_3rd_Chunli_24065-removebg-preview.png" id="69_g12mf"]
 [ext_resource type="Script" uid="uid://c3ookyq3ypabc" path="res://Scripts/Player/StateMachine/States/Air/start_jump.gd" id="69_vao2x"]
+[ext_resource type="Texture2D" uid="uid://w5fwsgw3m86w" path="res://assets/Chun li Low Kick/SF3_3rd_Chunli_24066-removebg-preview.png" id="70_ic1gc"]
 [ext_resource type="Script" uid="uid://julkhtuc7ncf" path="res://Scripts/Player/StateMachine/States/Ground/IdleCrouched.gd" id="70_wj34k"]
+[ext_resource type="Texture2D" uid="uid://dsdsh3b6xmy1a" path="res://assets/Chun li Low Kick/SF3_3rd_Chunli_24067-removebg-preview.png" id="71_cpxax"]
+[ext_resource type="Texture2D" uid="uid://bq3vpome35jet" path="res://assets/Chun li Low Kick/SF3_3rd_Chunli_24068-removebg-preview.png" id="72_xuvnb"]
+[ext_resource type="Texture2D" uid="uid://6dsyawb05rwp" path="res://assets/Chun li Low Kick/SF3_3rd_Chunli_24069-removebg-preview.png" id="73_g0vc4"]
+[ext_resource type="Texture2D" uid="uid://c6t5cp56gmhah" path="res://assets/Chun li Low Kick/SF3_3rd_Chunli_24070-removebg-preview.png" id="74_glxmw"]
+[ext_resource type="Texture2D" uid="uid://bckvf000ghfve" path="res://assets/Chun li Low Kick/SF3_3rd_Chunli_24071-removebg-preview.png" id="75_n0xbd"]
+[ext_resource type="Texture2D" uid="uid://cihssbd4q82v3" path="res://assets/Chun li Low Kick/SF3_3rd_Chunli_24072-removebg-preview.png" id="76_ymbbm"]
+[ext_resource type="Texture2D" uid="uid://b5s5vfrcb5p8f" path="res://assets/Chun li Low Kick/SF3_3rd_Chunli_24073-removebg-preview.png" id="77_kjtrx"]
+[ext_resource type="Texture2D" uid="uid://dbatfrioo3fh0" path="res://assets/Chun li Low Kick/SF3_3rd_Chunli_24074-removebg-preview.png" id="78_ucbn6"]
+[ext_resource type="Texture2D" uid="uid://b8tddvji4j0eh" path="res://assets/Chun li Low Kick/SF3_3rd_Chunli_24075-removebg-preview.png" id="79_kds5p"]
+[ext_resource type="Texture2D" uid="uid://ckfwovqfbnypu" path="res://assets/Chun li Low Kick/SF3_3rd_Chunli_24076-removebg-preview.png" id="80_nhj2s"]
+[ext_resource type="Script" uid="uid://dpidld84mvsy6" path="res://Cenas/Player/LighitPunch.gd" id="111_csavo"]
+[ext_resource type="Script" uid="uid://dej7fkqbhr8oe" path="res://Cenas/Player/HighPunch.gd" id="112_xdc3l"]
+[ext_resource type="Script" uid="uid://dvcsdocbxm1d5" path="res://Cenas/Player/kick.gd" id="113_kdxtf"]
+[ext_resource type="Script" uid="uid://clavty3437xf7" path="res://Cenas/Player/LowKick.gd" id="114_wgp7l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r8ryd"]
 size = Vector2(149, 171)
@@ -98,6 +142,44 @@ animations = [{
 "loop": 0,
 "name": &"Crouch",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_w3xrr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jj3b6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_lmw0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_u6yic")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_wakpi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_1ckkg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ombku")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_2pc8c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_nxw2p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_bk2bu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_vqvcg")
+}],
+"loop": 0,
+"name": &"HighPunch",
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -257,6 +339,108 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("52_lee77")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_48w2k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_lqkme")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_p1g0t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_renor")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_q3c4e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_7uf2q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_db6c7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_t14si")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_3g5ly")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_pygg7")
+}],
+"loop": 0,
+"name": &"Kick",
+"speed": 14.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("63_o27f5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_0rl66")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_2lsds")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_sme7s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_votha")
+}],
+"loop": 0,
+"name": &"LightPunch",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("68_dt0ue")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_g12mf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_ic1gc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_cpxax")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_xuvnb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_g0vc4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_glxmw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_n0xbd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_ymbbm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_kjtrx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_ucbn6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_kds5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80_nhj2s")
+}],
+"loop": 0,
+"name": &"LowKick",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("24_tj5lq")
 }, {
 "duration": 1.0,
@@ -362,8 +546,9 @@ one_way_collision = true
 position = Vector2(4, -3)
 scale = Vector2(1.6119791, 1.8772322)
 sprite_frames = SubResource("SpriteFrames_ma6wq")
-animation = &"IdleCrouched"
-frame_progress = 0.08261333
+animation = &"LowKick"
+frame = 12
+frame_progress = 1.0
 
 [node name="inputBuffer" type="Node" parent="." unique_id=1159587412]
 script = ExtResource("2_q2jvu")
@@ -405,3 +590,19 @@ metadata/_custom_type_script = "uid://bkklrvtapkren"
 [node name="IdleCrouched" type="Node" parent="StateMachine" unique_id=25288478]
 script = ExtResource("70_wj34k")
 metadata/_custom_type_script = "uid://bkklrvtapkren"
+
+[node name="LightPunch" type="Node" parent="StateMachine" unique_id=374435888]
+script = ExtResource("111_csavo")
+metadata/_custom_type_script = "uid://bprajussohidd"
+
+[node name="HighPunch" type="Node" parent="StateMachine" unique_id=1255776548]
+script = ExtResource("112_xdc3l")
+metadata/_custom_type_script = "uid://bprajussohidd"
+
+[node name="Kick" type="Node" parent="StateMachine" unique_id=967590929]
+script = ExtResource("113_kdxtf")
+metadata/_custom_type_script = "uid://bprajussohidd"
+
+[node name="LowKick" type="Node" parent="StateMachine" unique_id=2026664907]
+script = ExtResource("114_wgp7l")
+metadata/_custom_type_script = "uid://bprajussohidd"

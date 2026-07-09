@@ -10,7 +10,7 @@ func _enter():
 func _physics_process(delta):
 
 	check_special_move()
-
+	move.emit(Vector2.ZERO)
 	# opcional:
 	# permitir virar para o lado durante o ataque
 

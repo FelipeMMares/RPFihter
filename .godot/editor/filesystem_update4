@@ -10,3 +10,9 @@ res://Scripts/Player/StateMachine/State.gd
 res://Scripts/Player/StateMachine/States/crouch.gd
 res://Scripts/Player/StateMachine/States/IdleCrouched.gd
 res://Scripts/Player/StateMachine/AttackState.gd
+res://Cenas/Player/HighPunch.gd
+res://Cenas/Player/kick.gd
+res://Cenas/Player/LighitPunch.gd
+res://Cenas/Player/LowKick.gd
+res://Scripts/Player/StateMachine/States/Ground/Idle.gd
+res://Scripts/Player/StateMachine/States/Ground/walk.gd
