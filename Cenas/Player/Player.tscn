@@ -111,8 +111,8 @@
 [ext_resource type="Texture2D" uid="uid://b8tddvji4j0eh" path="res://assets/Chun li Low Kick/SF3_3rd_Chunli_24075-removebg-preview.png" id="79_kds5p"]
 [ext_resource type="Texture2D" uid="uid://ckfwovqfbnypu" path="res://assets/Chun li Low Kick/SF3_3rd_Chunli_24076-removebg-preview.png" id="80_nhj2s"]
 [ext_resource type="Script" uid="uid://dtsgngx4yj4eu" path="res://Scripts/Player/StateMachine/States/Ground/light_punch.gd" id="111_jj3b6"]
+[ext_resource type="Script" uid="uid://do3du61yy2b2o" path="res://Scripts/Player/Hitbox/Hitboxers.gd" id="112_lmw0p"]
 [ext_resource type="Script" uid="uid://c48umgmbmjtf1" path="res://Scripts/Dummy/HitData.gd" id="114_w3xrr"]
-[ext_resource type="Script" uid="uid://csymgsto5p2q8" path="res://Scripts/Player/Hitbox/LightPunchHitbox.gd" id="116_lmw0p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r8ryd"]
 size = Vector2(157, 171)
@@ -178,7 +178,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"HighPunch",
-"speed": 9.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -436,7 +436,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"LowKick",
-"speed": 12.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -552,12 +552,33 @@ func _enter():
 	print(\"Chute baixo\")
 "
 
-[sub_resource type="Resource" id="Resource_80p4o"]
+[sub_resource type="Resource" id="Resource_lmw0p"]
 script = ExtResource("114_w3xrr")
 metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(72, 35)
+
+[sub_resource type="Resource" id="Resource_jj3b6"]
+script = ExtResource("114_w3xrr")
+metadata/_custom_type_script = "uid://c48umgmbmjtf1"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(54.5, 67)
+
+[sub_resource type="Resource" id="Resource_w3xrr"]
+script = ExtResource("114_w3xrr")
+metadata/_custom_type_script = "uid://c48umgmbmjtf1"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
+size = Vector2(76.5, 59)
+
+[sub_resource type="Resource" id="Resource_80p4o"]
+script = ExtResource("114_w3xrr")
+metadata/_custom_type_script = "uid://c48umgmbmjtf1"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0u6y"]
+size = Vector2(105.5, 231)
 
 [node name="Player" type="CharacterBody2D" unique_id=1120152477]
 position = Vector2(-47, 149)
@@ -572,8 +593,9 @@ one_way_collision = true
 position = Vector2(-7, 9)
 scale = Vector2(1.6119791, 1.8772322)
 sprite_frames = SubResource("SpriteFrames_ma6wq")
-animation = &"LightPunch"
-frame = 1
+animation = &"LowKick"
+frame = 12
+frame_progress = 1.0
 
 [node name="inputBuffer" type="Node" parent="." unique_id=1159587412]
 script = ExtResource("2_q2jvu")
@@ -619,20 +641,27 @@ metadata/_custom_type_script = "uid://bkklrvtapkren"
 [node name="LightPunch" type="Node" parent="StateMachine" unique_id=374435888 node_paths=PackedStringArray("hitbox")]
 script = ExtResource("111_jj3b6")
 hitbox = NodePath("../../Hitboxers/LightPunch")
-active_start_frame = 1
-active_end_frame = 3
 metadata/_custom_type_script = "uid://bprajussohidd"
 
-[node name="HighPunch" type="Node" parent="StateMachine" unique_id=1255776548]
+[node name="HighPunch" type="Node" parent="StateMachine" unique_id=1255776548 node_paths=PackedStringArray("hitbox")]
 script = SubResource("GDScript_w3xrr")
+hitbox = NodePath("../../Hitboxers/HighPunch")
+active_start_frame = 3
+active_end_frame = 5
 metadata/_custom_type_script = "uid://bprajussohidd"
 
-[node name="Kick" type="Node" parent="StateMachine" unique_id=967590929]
+[node name="Kick" type="Node" parent="StateMachine" unique_id=967590929 node_paths=PackedStringArray("hitbox")]
 script = SubResource("GDScript_w3xrr")
+hitbox = NodePath("../../Hitboxers/Kick")
+active_start_frame = 3
+active_end_frame = 4
 metadata/_custom_type_script = "uid://bprajussohidd"
 
-[node name="LowKick" type="Node" parent="StateMachine" unique_id=2026664907]
+[node name="LowKick" type="Node" parent="StateMachine" unique_id=2026664907 node_paths=PackedStringArray("hitbox")]
 script = SubResource("GDScript_jj3b6")
+hitbox = NodePath("../../Hitboxers/LowKick")
+active_start_frame = 4
+active_end_frame = 11
 metadata/_custom_type_script = "uid://bprajussohidd"
 
 [node name="Hitboxers" type="Node2D" parent="." unique_id=997661732]
@@ -642,9 +671,33 @@ collision_layer = 0
 collision_mask = 3
 monitoring = false
 monitorable = false
-script = ExtResource("116_lmw0p")
-hit_data = SubResource("Resource_80p4o")
+script = ExtResource("112_lmw0p")
+hit_data = SubResource("Resource_lmw0p")
 
-[node name="LightPunchColision" type="CollisionShape2D" parent="Hitboxers/LightPunch" unique_id=1338770999]
+[node name="HitColision" type="CollisionShape2D" parent="Hitboxers/LightPunch" unique_id=1338770999]
 position = Vector2(109, -10)
 shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="HighPunch" type="Area2D" parent="Hitboxers" unique_id=957797969]
+script = ExtResource("112_lmw0p")
+hit_data = SubResource("Resource_jj3b6")
+
+[node name="HitColision" type="CollisionShape2D" parent="Hitboxers/HighPunch" unique_id=1307253413]
+position = Vector2(69.75, -6)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="Kick" type="Area2D" parent="Hitboxers" unique_id=985651623]
+script = ExtResource("112_lmw0p")
+hit_data = SubResource("Resource_w3xrr")
+
+[node name="HitColision" type="CollisionShape2D" parent="Hitboxers/Kick" unique_id=579778566]
+position = Vector2(97.75, -47)
+shape = SubResource("RectangleShape2D_57qmd")
+
+[node name="LowKick" type="Area2D" parent="Hitboxers" unique_id=1254227919]
+script = ExtResource("112_lmw0p")
+hit_data = SubResource("Resource_80p4o")
+
+[node name="HitColision" type="CollisionShape2D" parent="Hitboxers/LowKick" unique_id=1641637369]
+position = Vector2(70.25, 24.5)
+shape = SubResource("RectangleShape2D_d0u6y")

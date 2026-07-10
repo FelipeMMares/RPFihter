@@ -13,7 +13,7 @@ class_name HitData
 # travado após ser atingido.
 # ============================
 
-@export var hitstun: int = 12
+@export var hitstun: int = 20
 
 # ============================
 # EMPURRÃO
