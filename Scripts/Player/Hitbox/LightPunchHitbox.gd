@@ -1,17 +1,49 @@
 extends Area2D
 class_name HitBox
 
-@export var damage := 10
-@export var hitstun := 12
-@export var pushback := 25.0
+@export var hit_data: HitData
 
-func _ready():
-	disable()
+@onready var collision_shape: CollisionShape2D = $LightPunchColision
 
-func enable():
-	monitoring = true
+var _already_hit: Array[Area2D] = []
+
+func _ready() -> void:
+	monitoring = false
 	monitorable = true
 
-func disable():
-	monitoring = false
-	monitorable = false
+	collision_layer = 0
+	collision_mask = 2
+
+	collision_shape.disabled = true
+
+	area_entered.connect(_on_area_entered)
+
+	print("HitBox pronta: ", name, " hit_data: ", hit_data)
+
+func enable() -> void:
+	print("HitBox ligada: ", name)
+
+	_already_hit.clear()
+
+	collision_shape.set_deferred("disabled", false)
+	set_deferred("monitoring", true)
+
+func disable() -> void:
+	print("HitBox desligada: ", name)
+
+	set_deferred("monitoring", false)
+	collision_shape.set_deferred("disabled", true)
+
+func _on_area_entered(area: Area2D) -> void:
+	print("Área detectada: ", area.name)
+
+	if not area is HurtBox:
+		return
+
+	if area in _already_hit:
+		return
+
+	_already_hit.append(area)
+
+	print("HitBox acertou HurtBox")
+	area.receive_hit(hit_data)

@@ -1,16 +1,21 @@
 [gd_scene format=3 uid="uid://c3j6jqqi848lx"]
 
-[ext_resource type="Texture2D" uid="uid://co2dbqfbjkjnp" path="res://assets/Elena (dummy) Hurt/SF3_3rd_Elena_12462-removebg-preview.png" id="1_j6gfk"]
+[ext_resource type="Script" uid="uid://bh8thk6d1rsr6" path="res://Cenas/Dummy/Dummy.gd" id="1_7u85y"]
 [ext_resource type="Texture2D" uid="uid://bbwy05inpgibv" path="res://assets/elena (dummy)/SF3_3rd_Elena_12288-removebg-preview.png" id="1_u4fdy"]
-[ext_resource type="Texture2D" uid="uid://b7ftb26qwhw5d" path="res://assets/Elena (dummy) Hurt/SF3_3rd_Elena_12463-removebg-preview.png" id="2_dnvsn"]
 [ext_resource type="Texture2D" uid="uid://boum1wsvnc0pg" path="res://assets/elena (dummy)/SF3_3rd_Elena_12289-removebg-preview.png" id="2_gqsxo"]
+[ext_resource type="Texture2D" uid="uid://j0ifuy2fyb5" path="res://assets/Elena (dummy) Hurt/SF3_3rd_Elena_12465-removebg-preview.png" id="2_v50a7"]
+[ext_resource type="Texture2D" uid="uid://d0pjjhomjmq3u" path="res://assets/Elena (dummy) Hurt/SF3_3rd_Elena_12466-removebg-preview.png" id="3_0tpov"]
 [ext_resource type="Texture2D" uid="uid://cksfsaowrkiw5" path="res://assets/elena (dummy)/SF3_3rd_Elena_12290-removebg-preview.png" id="3_1ipwt"]
-[ext_resource type="Texture2D" uid="uid://brhp315lvxfvs" path="res://assets/Elena (dummy) Hurt/SF3_3rd_Elena_12464-removebg-preview.png" id="3_3mxc2"]
+[ext_resource type="Texture2D" uid="uid://8g7dqvj1d8bj" path="res://assets/Elena (dummy) Hurt/SF3_3rd_Elena_12467-removebg-preview.png" id="4_7i3rb"]
 [ext_resource type="Texture2D" uid="uid://opiicf4stj0p" path="res://assets/elena (dummy)/SF3_3rd_Elena_12291-removebg-preview.png" id="4_lb2tm"]
 [ext_resource type="Texture2D" uid="uid://d2vupgtsfu2tg" path="res://assets/elena (dummy)/SF3_3rd_Elena_12292-removebg-preview.png" id="5_nntwn"]
+[ext_resource type="Texture2D" uid="uid://2ybktoa1wup6" path="res://assets/Elena (dummy) Hurt/SF3_3rd_Elena_12468-removebg-preview.png" id="5_tm5c4"]
 [ext_resource type="Texture2D" uid="uid://br736eg1lhymi" path="res://assets/elena (dummy)/SF3_3rd_Elena_12293-removebg-preview.png" id="6_48erc"]
+[ext_resource type="Texture2D" uid="uid://moc04sm0u6y7" path="res://assets/Elena (dummy) Hurt/SF3_3rd_Elena_12469-removebg-preview.png" id="6_phren"]
+[ext_resource type="Texture2D" uid="uid://dic2mdjf2s8uj" path="res://assets/Elena (dummy) Hurt/SF3_3rd_Elena_12470-removebg-preview.png" id="7_3ud4v"]
 [ext_resource type="Texture2D" uid="uid://gjyx8j4yib3e" path="res://assets/elena (dummy)/SF3_3rd_Elena_12294-removebg-preview.png" id="7_lcb1f"]
 [ext_resource type="Texture2D" uid="uid://c7a1jmobjbc7t" path="res://assets/elena (dummy)/SF3_3rd_Elena_12295-removebg-preview.png" id="8_6mob7"]
+[ext_resource type="Texture2D" uid="uid://da048h4mf86vo" path="res://assets/Elena (dummy) Hurt/SF3_3rd_Elena_12471-removebg-preview.png" id="8_ba4g4"]
 [ext_resource type="Texture2D" uid="uid://crfi7xiujti1s" path="res://assets/elena (dummy)/SF3_3rd_Elena_12296-removebg-preview.png" id="9_u4fdy"]
 [ext_resource type="Texture2D" uid="uid://e7eli7jbhhas" path="res://assets/elena (dummy)/SF3_3rd_Elena_12297-removebg-preview.png" id="10_8yuib"]
 [ext_resource type="Texture2D" uid="uid://c7b2p427sov2n" path="res://assets/elena (dummy)/SF3_3rd_Elena_12298-removebg-preview.png" id="11_pbjwv"]
@@ -68,22 +73,36 @@
 [ext_resource type="Script" uid="uid://c3ookyq3ypabc" path="res://Scripts/Player/StateMachine/States/Air/start_jump.gd" id="63_3mxc2"]
 [ext_resource type="Script" uid="uid://julkhtuc7ncf" path="res://Scripts/Player/StateMachine/States/Ground/IdleCrouched.gd" id="64_7u85y"]
 [ext_resource type="Script" uid="uid://dtsgngx4yj4eu" path="res://Scripts/Player/StateMachine/States/Ground/light_punch.gd" id="65_1qwri"]
+[ext_resource type="Script" uid="uid://docbt7ybhit04" path="res://Scripts/Player/StateMachine/States/hurt.gd" id="69_3mxc2"]
+[ext_resource type="Script" uid="uid://yv74ok4maffr" path="res://Scripts/Combat/Hurtbox.gd" id="69_dnvsn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_j6gfk")
+"texture": ExtResource("2_v50a7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_dnvsn")
+"texture": ExtResource("3_0tpov")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_3mxc2")
+"texture": ExtResource("4_7i3rb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tm5c4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_phren")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3ud4v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ba4g4")
 }],
 "loop": 0,
 "name": &"Hurt",
-"speed": 9.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -263,7 +282,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqqph"]
-size = Vector2(176, 159)
+size = Vector2(200, 173)
 
 [sub_resource type="GDScript" id="GDScript_wutc1"]
 script/source = "extends AttackState
@@ -285,19 +304,23 @@ func _enter():
 	print(\"Chute baixo\")
 "
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(216, 190)
+
 [node name="Dummy" type="CharacterBody2D" unique_id=597853256]
+script = ExtResource("1_7u85y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1082718433]
-position = Vector2(-6.0000114, -11.999996)
-scale = Vector2(1.3411459, 1.5758928)
+position = Vector2(2.9999962, 5.000001)
+scale = Vector2(1.6914063, 1.8638393)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"Hurt"
-frame = 2
+frame = 6
 frame_progress = 1.0
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1128512923]
-position = Vector2(3, 22.5)
+position = Vector2(12, 57.5)
 shape = SubResource("RectangleShape2D_vqqph")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1711119882 node_paths=PackedStringArray("initial_state", "animated_sprite")]
@@ -344,3 +367,15 @@ metadata/_custom_type_script = "uid://bprajussohidd"
 [node name="LowKick" type="Node" parent="StateMachine" unique_id=613343175]
 script = SubResource("GDScript_40vv7")
 metadata/_custom_type_script = "uid://bprajussohidd"
+
+[node name="Hurt" type="Node" parent="StateMachine" unique_id=523801568]
+script = ExtResource("69_3mxc2")
+metadata/_custom_type_script = "uid://bkklrvtapkren"
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1276732752]
+collision_layer = 3
+script = ExtResource("69_dnvsn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1233750611]
+position = Vector2(13, 57)
+shape = SubResource("RectangleShape2D_g4v7s")

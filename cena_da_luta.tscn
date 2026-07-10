@@ -33,8 +33,8 @@ shape = SubResource("RectangleShape2D_e813m")
 [node name="HUD" parent="." unique_id=434548975 instance=ExtResource("3_hvrgt")]
 
 [node name="Player1" parent="." unique_id=1120152477 instance=ExtResource("4_oi066")]
-position = Vector2(88, 452)
+position = Vector2(86, 437)
 disable_mode = 2
 
 [node name="Dummy" parent="." unique_id=597853256 instance=ExtResource("5_hvrgt")]
-position = Vector2(1021, 471)
+position = Vector2(970, 432)

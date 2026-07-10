@@ -75,9 +75,7 @@ func _transition_to(new_state: String, previous_state: String) -> void:
 	
 	_current_state = new_state_node
 	
-	print("TRANSIÇÃO:", previous_state, " -> ", new_state)
-#func _physics_process(delta: float) -> void:
-	#print("current_state: ", _current_state.name)
+
 
 func start() -> void:
 
@@ -97,32 +95,70 @@ func _on_request_move_direction(direction: Vector2) -> void:
 		_character.call(move_method, direction)
 
 func _on_request_jump() -> void:
-	print("STATE MACHINE PEDIU PULO")
+	#print("STATE MACHINE PEDIU PULO")
 
 	if _character.has_method(jump_method):
 		_character.call(jump_method)
 
-func _on_request_play_animation(anim_name: String,
-								backwards: bool = false,
-								state: State = null) -> void:
-	print("TOCANDO:", anim_name)
-	print(animated_sprite.sprite_frames.get_animation_names())
+#func _on_request_play_animation(anim_name: String,
+								#backwards: bool = false,
+								#state: State = null) -> void:
+	#
+	#print("TOCANDO:", anim_name)
+	#print(animated_sprite.sprite_frames.get_animation_names())
 
-	if backwards:
-		animated_sprite.play_backwards(anim_name)
-	else:
-		animated_sprite.play(anim_name)
+	#if backwards:
+		#animated_sprite.play_backwards(anim_name)
+	#else:
+		#animated_sprite.play(anim_name)
+	#if not animated_sprite:
+		#return
+#
+	#_anim_request_id += 1
+	#var request_id := _anim_request_id
+#
+	#if backwards:
+		#animated_sprite.play_backwards(anim_name)
+	#else:
+		#animated_sprite.play(anim_name)
+#
+	#await  animated_sprite.animation_finished
+	#if state and state.has_method("_animation_finished"):
+		#state._animation_finished()
+func _on_request_play_animation(
+	anim_name: String,
+	backwards: bool = false,
+	state: State = null
+) -> void:
 	if not animated_sprite:
+		printerr("AnimatedSprite2D não configurado")
 		return
 
-	_anim_request_id += 1
-	var request_id := _anim_request_id
+	print("StateMachine recebeu animação: ", anim_name)
+
+	if not animated_sprite.sprite_frames.has_animation(anim_name):
+		printerr("Animação não encontrada: ", anim_name)
+		return
 
 	if backwards:
 		animated_sprite.play_backwards(anim_name)
 	else:
 		animated_sprite.play(anim_name)
 
-	await  animated_sprite.animation_finished
+	await animated_sprite.animation_finished
+
 	if state and state.has_method("_animation_finished"):
 		state._animation_finished()
+
+func receive_hit(hit_data: HitData) -> void:
+	var hurt_state = get_node_or_null("Hurt")
+
+	if hurt_state == null:
+		printerr("StateMachine: estado Hurt não encontrado.")
+		return
+
+	if hurt_state.has_method("set_hit_data"):
+		hurt_state.set_hit_data(hit_data)
+
+	if _current_state:
+		_transition_to("Hurt", _current_state.name)

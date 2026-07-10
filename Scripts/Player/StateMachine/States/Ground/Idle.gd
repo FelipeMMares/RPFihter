@@ -6,6 +6,11 @@ func _enter() -> void:
 func _physics_process(delta: float) -> void:
 	move.emit(Vector2.ZERO)
 	check_special_move()
+	
+		# Dummy não possui controles
+	if player_controls == null:
+		return
+	
 	if player_controls.is_walking():
 		transition_to.emit("Walk")
 		

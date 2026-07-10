@@ -111,11 +111,11 @@
 [ext_resource type="Texture2D" uid="uid://b8tddvji4j0eh" path="res://assets/Chun li Low Kick/SF3_3rd_Chunli_24075-removebg-preview.png" id="79_kds5p"]
 [ext_resource type="Texture2D" uid="uid://ckfwovqfbnypu" path="res://assets/Chun li Low Kick/SF3_3rd_Chunli_24076-removebg-preview.png" id="80_nhj2s"]
 [ext_resource type="Script" uid="uid://dtsgngx4yj4eu" path="res://Scripts/Player/StateMachine/States/Ground/light_punch.gd" id="111_jj3b6"]
-[ext_resource type="Script" uid="uid://do3du61yy2b2o" path="res://Scripts/Player/Hitbox/Hitboxers.gd" id="115_lmw0p"]
+[ext_resource type="Script" uid="uid://c48umgmbmjtf1" path="res://Scripts/Dummy/HitData.gd" id="114_w3xrr"]
 [ext_resource type="Script" uid="uid://csymgsto5p2q8" path="res://Scripts/Player/Hitbox/LightPunchHitbox.gd" id="116_lmw0p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r8ryd"]
-size = Vector2(149, 171)
+size = Vector2(157, 171)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ma6wq"]
 animations = [{
@@ -552,20 +552,24 @@ func _enter():
 	print(\"Chute baixo\")
 "
 
+[sub_resource type="Resource" id="Resource_80p4o"]
+script = ExtResource("114_w3xrr")
+metadata/_custom_type_script = "uid://c48umgmbmjtf1"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(68, 28)
+size = Vector2(72, 35)
 
 [node name="Player" type="CharacterBody2D" unique_id=1120152477]
 position = Vector2(-47, 149)
 script = ExtResource("1_htvwm")
 
 [node name="Colisao" type="CollisionShape2D" parent="." unique_id=1334167780]
-position = Vector2(-8.5, 32.5)
+position = Vector2(-4.5, 32.5)
 shape = SubResource("RectangleShape2D_r8ryd")
 one_way_collision = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=75413742]
-position = Vector2(4, -3)
+position = Vector2(-7, 9)
 scale = Vector2(1.6119791, 1.8772322)
 sprite_frames = SubResource("SpriteFrames_ma6wq")
 animation = &"LightPunch"
@@ -612,8 +616,11 @@ metadata/_custom_type_script = "uid://bkklrvtapkren"
 script = ExtResource("70_wj34k")
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
-[node name="LightPunch" type="Node" parent="StateMachine" unique_id=374435888]
+[node name="LightPunch" type="Node" parent="StateMachine" unique_id=374435888 node_paths=PackedStringArray("hitbox")]
 script = ExtResource("111_jj3b6")
+hitbox = NodePath("../../Hitboxers/LightPunch")
+active_start_frame = 1
+active_end_frame = 3
 metadata/_custom_type_script = "uid://bprajussohidd"
 
 [node name="HighPunch" type="Node" parent="StateMachine" unique_id=1255776548]
@@ -628,14 +635,16 @@ metadata/_custom_type_script = "uid://bprajussohidd"
 script = SubResource("GDScript_jj3b6")
 metadata/_custom_type_script = "uid://bprajussohidd"
 
-[node name="Hitboxers" type="Node" parent="." unique_id=1844061744]
-script = ExtResource("115_lmw0p")
+[node name="Hitboxers" type="Node2D" parent="." unique_id=997661732]
 
 [node name="LightPunch" type="Area2D" parent="Hitboxers" unique_id=143547538]
+collision_layer = 0
+collision_mask = 3
 monitoring = false
 monitorable = false
 script = ExtResource("116_lmw0p")
+hit_data = SubResource("Resource_80p4o")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/LightPunch" unique_id=1338770999]
-position = Vector2(51, 129)
+[node name="LightPunchColision" type="CollisionShape2D" parent="Hitboxers/LightPunch" unique_id=1338770999]
+position = Vector2(109, -10)
 shape = SubResource("RectangleShape2D_g4v7s")

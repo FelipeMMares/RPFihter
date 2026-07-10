@@ -37,7 +37,7 @@ class_name HitData
 # executada no oponente.
 # ============================
 
-@export var hurt_animation: String = "Hurt"
+@export var hurt_animation: StringName = &"Hurt"
 
 # ============================
 # DURAÇÃO DA HITBOX

@@ -1,0 +1,9 @@
+res://cena_da_luta.tscn
+res://Scripts/Player/StateMachine/AttackState.gd
+res://Cenas/Player/Player.tscn
+res://Scripts/Player/Hitbox/LightPunchHitbox.gd
+res://Cenas/Dummy/dummy.tscn
+res://Scripts/Combat/Hurtbox.gd
+res://Scripts/Player/StateMachine/States/hurt.gd
+res://Scripts/Dummy/HitData.gd
+res://Scripts/Player/StateMachine/StateMachine.gd
