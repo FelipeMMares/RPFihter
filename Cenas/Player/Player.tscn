@@ -112,6 +112,7 @@
 [ext_resource type="Texture2D" uid="uid://ckfwovqfbnypu" path="res://assets/Chun li Low Kick/SF3_3rd_Chunli_24076-removebg-preview.png" id="80_nhj2s"]
 [ext_resource type="Script" uid="uid://dtsgngx4yj4eu" path="res://Scripts/Player/StateMachine/States/Ground/light_punch.gd" id="111_jj3b6"]
 [ext_resource type="Script" uid="uid://do3du61yy2b2o" path="res://Scripts/Player/Hitbox/Hitboxers.gd" id="112_lmw0p"]
+[ext_resource type="Script" uid="uid://bmcu27nb7ioun" path="res://Scripts/Components/Health.gd" id="114_jj3b6"]
 [ext_resource type="Script" uid="uid://c48umgmbmjtf1" path="res://Scripts/Dummy/HitData.gd" id="114_w3xrr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r8ryd"]
@@ -561,6 +562,7 @@ size = Vector2(72, 35)
 
 [sub_resource type="Resource" id="Resource_jj3b6"]
 script = ExtResource("114_w3xrr")
+damage = 140
 metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
@@ -568,6 +570,7 @@ size = Vector2(54.5, 67)
 
 [sub_resource type="Resource" id="Resource_w3xrr"]
 script = ExtResource("114_w3xrr")
+damage = 180
 metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
@@ -575,10 +578,11 @@ size = Vector2(76.5, 59)
 
 [sub_resource type="Resource" id="Resource_80p4o"]
 script = ExtResource("114_w3xrr")
+damage = 110
 metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d0u6y"]
-size = Vector2(105.5, 231)
+size = Vector2(101.75, 190.5)
 
 [node name="Player" type="CharacterBody2D" unique_id=1120152477]
 position = Vector2(-47, 149)
@@ -594,8 +598,7 @@ position = Vector2(-7, 9)
 scale = Vector2(1.6119791, 1.8772322)
 sprite_frames = SubResource("SpriteFrames_ma6wq")
 animation = &"LowKick"
-frame = 12
-frame_progress = 1.0
+frame = 2
 
 [node name="inputBuffer" type="Node" parent="." unique_id=1159587412]
 script = ExtResource("2_q2jvu")
@@ -699,5 +702,8 @@ script = ExtResource("112_lmw0p")
 hit_data = SubResource("Resource_80p4o")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/LowKick" unique_id=1641637369]
-position = Vector2(70.25, 24.5)
+position = Vector2(88.125, -49.75)
 shape = SubResource("RectangleShape2D_d0u6y")
+
+[node name="Health" type="Node" parent="." unique_id=229046517]
+script = ExtResource("114_jj3b6")

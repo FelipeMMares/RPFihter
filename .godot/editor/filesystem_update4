@@ -1,7 +1,5 @@
-res://Cenas/Dummy/dummy.tscn
-res://Scripts/Dummy/HitData.gd
+res://Cenas/HUD/HUD.tscn
+res://Cenas/HUD/hud.gd
 res://Cenas/Player/Player.tscn
-res://Scripts/Player/Hitbox/highPunchHitbox.gd
-res://Scripts/Player/Hitbox/LightPunchHitbox.gd
-res://Scripts/Player/Hitbox/LowKickHitbox.gd
-res://Scripts/Player/Hitbox/Hitboxers.gd
+res://Cenas/Dummy/dummy.tscn
+res://Scripts/Player/StateMachine/StateMachine.gd

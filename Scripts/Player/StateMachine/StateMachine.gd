@@ -134,7 +134,7 @@ func _on_request_play_animation(
 		printerr("AnimatedSprite2D não configurado")
 		return
 
-	print("StateMachine recebeu animação: ", anim_name)
+	#print("StateMachine recebeu animação: ", anim_name)
 
 	if not animated_sprite.sprite_frames.has_animation(anim_name):
 		printerr("Animação não encontrada: ", anim_name)

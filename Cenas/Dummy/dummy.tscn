@@ -75,6 +75,7 @@
 [ext_resource type="Script" uid="uid://dtsgngx4yj4eu" path="res://Scripts/Player/StateMachine/States/Ground/light_punch.gd" id="65_1qwri"]
 [ext_resource type="Script" uid="uid://docbt7ybhit04" path="res://Scripts/Player/StateMachine/States/hurt.gd" id="69_3mxc2"]
 [ext_resource type="Script" uid="uid://yv74ok4maffr" path="res://Scripts/Combat/Hurtbox.gd" id="69_dnvsn"]
+[ext_resource type="Script" uid="uid://bmcu27nb7ioun" path="res://Scripts/Components/Health.gd" id="76_0tpov"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
@@ -379,3 +380,6 @@ script = ExtResource("69_dnvsn")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1233750611]
 position = Vector2(13, 57)
 shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Health" type="Node" parent="." unique_id=1105559145]
+script = ExtResource("76_0tpov")
