@@ -1,3 +1,11 @@
+res://assets/
+res://assets/Elena (Demmy) FallDefeated/
+res://assets/Elena (Dummy) Defeated/
+res://assets/Elena (Dummy) Victory/
+res://assets/Chun li FallDefeated/
+res://assets/Chun li Defeated/
+res://assets/Chun li victory/
+res://Scripts/Player/StateMachine/States/Ground/
 res://Cenas/Cenarios/
 res://Scripts/Player/Hitbox/
 res://Scripts/Dummy/
@@ -6,17 +14,9 @@ res://Scripts/
 res://Scripts/Player/StateMachine/States/
 res://Scripts/Combat/
 res://assets/elena (dummy)/
-res://assets/
 res://Cenas/Dummy/
-res://Scripts/Player/StateMachine/States/Ground/
 res://assets/Chun li Low Kick/
 res://assets/Chun li Kick/
 res://assets/Chun li High Punch/
 res://assets/Chun li Light Punch/
 res://assets/Chun li jump/
-res://assets/crouch/
-res://assets/Chun li Idle/
-res://assets/while couch chun li/
-res://assets/chun li walk/
-res://Scripts/Player/PlayerControls/
-res://Cenas/

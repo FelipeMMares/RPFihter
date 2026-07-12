@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://qbsfhc72tmiq"]
 
 [ext_resource type="Texture2D" uid="uid://bct1lgojrdvxs" path="res://assets/ChatGPT Image 6 de mai. de 2026, 20_59_51.png" id="1_btc7l"]
-[ext_resource type="Script" uid="uid://ddiy85ue532f" path="res://Cenas/Cenarios/CenaDeLuta.gd" id="1_oi066"]
+[ext_resource type="Script" uid="uid://cda2qv106s50p" path="res://Scripts/Fight/FightManager.gd" id="1_oi066"]
 [ext_resource type="Texture2D" uid="uid://c3ggcoutar7gl" path="res://icon.svg" id="2_umdng"]
 [ext_resource type="PackedScene" uid="uid://cxwujt80wiqyw" path="res://Cenas/HUD/HUD.tscn" id="3_hvrgt"]
 [ext_resource type="PackedScene" uid="uid://cifi2eaq8od35" path="res://Cenas/Player/Player.tscn" id="4_oi066"]

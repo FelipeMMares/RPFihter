@@ -1,8 +1,10 @@
+HBoxContainer
+TextureRect
+State
 Node
 CollisionShape2D
 Area2D
 Node2D
-State
 AnimatedSprite2D
 CharacterBody2D
 CollisionPolygon2D
@@ -10,5 +12,3 @@ AttackState
 Sprite2D
 AnimationPlayer
 Label
-ProgressBar
-VBoxContainer

@@ -4,16 +4,29 @@ class_name FightHUD
 @onready var player_1_hp: ProgressBar = %Player1HP
 @onready var player_2_hp: ProgressBar = %Player2HP
 
-@onready var player_1_wins: Label = %Player1Wins
-@onready var player_2_wins: Label = %Player2Wins
+@export var empty_win_texture: Texture2D
+@export var filled_win_texture: Texture2D
+
+@onready var player_1_win_icons: Array[TextureRect] = [
+	%Player1Win1,
+	%Player1Win2
+]
+
+@onready var player_2_win_icons: Array[TextureRect] = [
+	%Player2Win2,
+	%Player2Win2
+]
+
 @onready var timer_label: Label = %Timer
 @export var hp_animation_speed: float = 800.0
+
+signal time_over
 
 var player_health: Health
 var dummy_health: Health
 
-var round_time: float = 99.0
-var remaining_time: float = 99.0
+var round_time: float = 90.0
+var remaining_time: float = 90.0
 var round_running: bool = false
 
 var wins_player_1: int = 0
@@ -52,6 +65,7 @@ func setup(
 
 
 func _process(delta: float) -> void:
+	# Mantém a animação suave das barras, caso você esteja usando.
 	player_1_hp.value = move_toward(
 		player_1_hp.value,
 		target_player_1_hp,
@@ -67,11 +81,17 @@ func _process(delta: float) -> void:
 	if not round_running:
 		return
 
-	remaining_time = maxf(remaining_time - delta, 0.0)
+	remaining_time = maxf(
+		remaining_time - delta,
+		0.0
+	)
+
 	timer_label.text = str(ceili(remaining_time))
 
 	if remaining_time <= 0.0:
-		_finish_round_by_time()
+		round_running = false
+		timer_label.text = "TIME"
+		time_over.emit()
 
 func _setup_bars() -> void:
 	if player_1_hp == null:
@@ -110,7 +130,7 @@ func start_round() -> void:
 	dummy_health.reset_health()
 
 	timer_label.text = str(ceili(remaining_time))
-	_update_wins()
+
 
 
 func _on_player_health_changed(
@@ -140,7 +160,7 @@ func _on_player_defeated() -> void:
 
 	wins_player_2 += 1
 	round_running = false
-	_update_wins()
+
 
 
 func _on_dummy_defeated() -> void:
@@ -149,7 +169,7 @@ func _on_dummy_defeated() -> void:
 
 	wins_player_1 += 1
 	round_running = false
-	_update_wins()
+
 
 
 func _finish_round_by_time() -> void:
@@ -160,9 +180,37 @@ func _finish_round_by_time() -> void:
 	elif dummy_health.current_health > player_health.current_health:
 		wins_player_2 += 1
 
-	_update_wins()
 
 
-func _update_wins() -> void:
-	player_1_wins.text = str(wins_player_1)
-	player_2_wins.text = str(wins_player_2)
+func stop_round_timer() -> void:
+	round_running = false
+
+
+func show_round_message(message: String) -> void:
+	timer_label.text = message
+
+
+func update_wins(
+	player_1_victories: int,
+	player_2_victories: int
+) -> void:
+	_update_win_icons(
+		player_1_win_icons,
+		player_1_victories
+	)
+
+	_update_win_icons(
+		player_2_win_icons,
+		player_2_victories
+	)
+
+
+func _update_win_icons(
+	icons: Array[TextureRect],
+	victories: int
+) -> void:
+	for i in range(icons.size()):
+		if i < victories:
+			icons[i].texture = filled_win_texture
+		else:
+			icons[i].texture = empty_win_texture

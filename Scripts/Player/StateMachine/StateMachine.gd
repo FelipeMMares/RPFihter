@@ -162,3 +162,26 @@ func receive_hit(hit_data: HitData) -> void:
 
 	if _current_state:
 		_transition_to("Hurt", _current_state.name)
+
+func force_transition(new_state: StringName) -> void:
+	if _current_state == null:
+		printerr("StateMachine: estado atual é nulo.")
+		return
+
+	var new_state_node := get_node_or_null(NodePath(new_state)) as State
+
+	if new_state_node == null:
+		printerr(
+			"StateMachine: estado ",
+			new_state,
+			" não encontrado."
+		)
+		return
+
+	if _current_state == new_state_node:
+		return
+
+	_transition_to(
+		String(new_state),
+		String(_current_state.name)
+	)

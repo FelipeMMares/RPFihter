@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://qbsfhc72tmiq"]
+
+[ext_resource type="Texture2D" uid="uid://bct1lgojrdvxs" path="res://assets/ChatGPT Image 6 de mai. de 2026, 20_59_51.png" id="1_btc7l"]
+[ext_resource type="Script" uid="uid://cda2qv106s50p" path="res://Scripts/Fight/FightManager.gd" id="1_oi066"]
+[ext_resource type="Texture2D" uid="uid://c3ggcoutar7gl" path="res://icon.svg" id="2_umdng"]
+[ext_resource type="PackedScene" uid="uid://cxwujt80wiqyw" path="res://Cenas/HUD/HUD.tscn" id="3_hvrgt"]
+[ext_resource type="PackedScene" uid="uid://cifi2eaq8od35" path="res://Cenas/Player/Player.tscn" id="4_oi066"]
+[ext_resource type="PackedScene" uid="uid://c3j6jqqi848lx" path="res://Cenas/Dummy/dummy.tscn" id="5_hvrgt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e813m"]
+size = Vector2(1585.959, 128.5924)
+
+[node name="CenaDaLuta" type="Node2D" unique_id=111988353]
+script = ExtResource("1_oi066")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1922729996]
+position = Vector2(565, 310)
+texture = ExtResource("1_btc7l")
+
+[node name="Chão" type="StaticBody2D" parent="." unique_id=43905329]
+position = Vector2(693, 315)
+scale = Vector2(0.9453125, 0.8769531)
+
+[node name="textura" type="Sprite2D" parent="Chão" unique_id=821571757]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-21.15704, 348.93546)
+scale = Vector2(12.454545, 1.1403118)
+texture = ExtResource("2_umdng")
+
+[node name="colisão" type="CollisionShape2D" parent="Chão" unique_id=655591213]
+position = Vector2(-20.09916, 342.09354)
+scale = Vector2(0.9999998, 1)
+shape = SubResource("RectangleShape2D_e813m")
+
+[node name="HUD" parent="." unique_id=434548975 instance=ExtResource("3_hvrgt")]
+hp_animation_speed = null
+
+[node name="Player1" parent="." unique_id=1120152477 instance=ExtResource("4_oi066")]
+position = Vector2(86, 437)
+disable_mode = 2
+
+[node name="Dummy" parent="." unique_id=597853256 instance=ExtResource("5_hvrgt")]
+position = Vector2(970, 432)

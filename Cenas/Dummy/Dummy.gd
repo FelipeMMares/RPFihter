@@ -10,10 +10,17 @@ func _ready() -> void:
 
 func _on_hurt(hit_data: HitData) -> void:
 	if hit_data == null:
-		printerr("Dummy recebeu HitData nulo.")
+		return
+
+	if health.is_defeated():
 		return
 
 	health.take_damage(hit_data.damage)
+
+	# Se este golpe zerou a vida, o FightManager cuidará
+	# da transição para FallDefeated.
+	if health.is_defeated():
+		return
 
 	state_machine.receive_hit(hit_data)
 
