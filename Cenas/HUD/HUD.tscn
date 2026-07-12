@@ -57,6 +57,7 @@ theme_override_constants/separation = 6
 
 [node name="Player1Win1" type="TextureRect" parent="__/_/Player 1/WinContainer" unique_id=1309712647]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 offset_transform_scale = Vector2(-1, -1)
@@ -66,6 +67,7 @@ stretch_mode = 5
 
 [node name="Player1Win2" type="TextureRect" parent="__/_/Player 1/WinContainer" unique_id=40264898]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 offset_transform_scale = Vector2(-1, -1)
@@ -104,6 +106,7 @@ theme_override_constants/separation = 7
 
 [node name="Player2Win2" type="TextureRect" parent="__/_/Player 2/WinContainer" unique_id=1144994881]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -113,6 +116,7 @@ stretch_mode = 5
 
 [node name="Player2Win1" type="TextureRect" parent="__/_/Player 2/WinContainer" unique_id=1555609428]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 8

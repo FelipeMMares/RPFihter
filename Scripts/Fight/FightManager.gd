@@ -31,7 +31,6 @@ func _ready() -> void:
 	player_1_start_position = player_1.global_position
 	player_2_start_position = player_2.global_position
 
-	# HP zerado.
 	player_1_health.defeated.connect(
 		_on_player_1_health_depleted
 	)
@@ -40,18 +39,19 @@ func _ready() -> void:
 		_on_player_2_health_depleted
 	)
 
-	# Cronômetro zerado.
 	hud.time_over.connect(_on_time_over)
 
+	# Primeiro configura as referências da HUD.
 	hud.setup(
 		player_1_health,
 		player_2_health
 	)
 
-	hud.update_wins(
+	# Depois inicia imediatamente o primeiro round.
+	hud.start_round(
 		player_1_wins,
 		player_2_wins
-)
+	)
 
 func _on_player_1_health_depleted() -> void:
 	if round_finished or match_finished:
@@ -82,19 +82,21 @@ func _finish_round_by_health(
 	loser_state_machine: StateMachine,
 	winner_number: int
 ) -> void:
-	round_finished = true
-	hud.stop_round_timer()
+	if round_finished:
+		return
 
-	# HP zerado usa FallDefeated.
+	round_finished = true
+
+	# KO aparece apenas quando alguém perdeu todo o HP.
+	hud.show_ko()
+
 	winner_state_machine.force_transition(&"Victory")
 	loser_state_machine.force_transition(&"FallDefeated")
 
 	if winner_number == 1:
 		player_1_wins += 1
-		hud.show_round_message("PLAYER 1 WINS")
 	else:
 		player_2_wins += 1
-		hud.show_round_message("PLAYER 2 WINS")
 
 	hud.update_wins(
 		player_1_wins,
@@ -177,5 +179,7 @@ func _start_next_round() -> void:
 	player_1_state_machine.force_transition(&"Idle")
 	player_2_state_machine.force_transition(&"Idle")
 
-	# Reinicia cronômetro e barras.
-	hud.start_round()
+	hud.start_round(
+		player_1_wins,
+		player_2_wins
+	)

@@ -33,6 +33,7 @@ scale = Vector2(0.9999998, 1)
 shape = SubResource("RectangleShape2D_e813m")
 
 [node name="HUD" parent="." unique_id=434548975 instance=ExtResource("3_hvrgt")]
+hp_animation_speed = 500.0
 
 [node name="Player1" parent="." unique_id=1120152477 instance=ExtResource("4_oi066")]
 position = Vector2(86, 437)
