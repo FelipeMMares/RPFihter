@@ -7,6 +7,7 @@ class_name CommandParser
 
 var root := CommandNode.new()
 
+var _last_charge_command_frame: int = -1
 
 func _ready() -> void:
 	if input_buffer == null:
@@ -238,3 +239,91 @@ func is_combo(
 	move_name: String
 ) -> bool:
 	return not is_special_move(move_name)
+
+func consume_charge_command(
+	back_action: String,
+	forward_action: String,
+	attack_action: String,
+	minimum_charge_frames: int = 45,
+	input_window: int = 8,
+	release_window: int = 12
+) -> bool:
+	if input_buffer == null:
+		return false
+
+	input_buffer.cleanup()
+
+	var forward_input := input_buffer.get_last_input_of_type(
+		forward_action
+	)
+
+	var attack_input := input_buffer.get_last_input_of_type(
+		attack_action
+	)
+
+	if forward_input == null or attack_input == null:
+		return false
+
+	var first_command_frame: int = mini(
+		forward_input.timeframe,
+		attack_input.timeframe
+	)
+
+	var last_command_frame: int = maxi(
+		forward_input.timeframe,
+		attack_input.timeframe
+	)
+
+	# Frente e soco precisam acontecer próximos.
+	if (
+		last_command_frame - first_command_frame
+		> input_window
+	):
+		return false
+
+	var release_frame: int = (
+		input_buffer.get_last_release_frame(back_action)
+	)
+
+	if release_frame < 0:
+		return false
+
+	# O botão "para trás" precisa ter sido solto
+	# antes de frente + soco.
+	if first_command_frame < release_frame:
+		return false
+
+	# Frente + soco precisam acontecer logo após soltar.
+	if (
+		first_command_frame - release_frame
+		> release_window
+	):
+		return false
+
+	if not input_buffer.had_recent_charge(
+		back_action,
+		minimum_charge_frames,
+		release_window
+	):
+		return false
+
+	# Impede reconhecer o mesmo comando várias vezes.
+	if last_command_frame == _last_charge_command_frame:
+		return false
+
+	_last_charge_command_frame = last_command_frame
+
+	print(
+		"KIKOKEN RECONHECIDO | carga: ",
+		minimum_charge_frames,
+		" frames | ",
+		back_action,
+		" → ",
+		forward_action,
+		" + ",
+		attack_action
+	)
+
+	input_buffer.clear_buffer()
+
+	return true

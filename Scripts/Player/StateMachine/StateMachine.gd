@@ -8,11 +8,25 @@ class_name StateMachine
 @export var player_controls : PlayerControls
 @export var command_parser : CommandParser
 @export var on_ready : bool = false
+@export_group("Kikoken")
+@export var kikoken_charge_frames: int = 45
+@export var kikoken_input_window: int = 8
+@export var kikoken_release_window: int = 12
 
 var _started : bool = false
 var _current_state : State = null
 var _character : CharacterBody2D
 var _anim_request_id : int = 0
+
+const KIKOKEN_STATE: StringName = &"Kikoken"
+
+const KIKOKEN_ALLOWED_STATES: Array[StringName] = [
+	&"Idle",
+	&"Walk",
+	&"Crouch",
+	&"IdleCrouched",
+	&"LightPunch"
+]
 
 func _ready() -> void:
 	
@@ -89,6 +103,58 @@ func start() -> void:
 		_current_state._enter()
 		_current_state.set_process(true)
 		_current_state.set_physics_process(true)
+
+func _physics_process(_delta: float) -> void:
+	if not _started:
+		return
+
+	if _current_state == null:
+		return
+
+	if command_parser == null:
+		return
+
+	if animated_sprite == null:
+		return
+
+	if _current_state.name not in KIKOKEN_ALLOWED_STATES:
+		return
+
+	_try_detect_kikoken()
+
+func _try_detect_kikoken() -> void:
+	var back_action: String = "left"
+	var forward_action: String = "right"
+
+	# Considerando que flip_h = false significa que
+	# a Chun-Li está olhando para a direita.
+	if animated_sprite.flip_h:
+		back_action = "right"
+		forward_action = "left"
+
+	var kikoken_detected: bool = (
+		command_parser.consume_charge_command(
+			back_action,
+			forward_action,
+			"lightPunch",
+			kikoken_charge_frames,
+			kikoken_input_window,
+			kikoken_release_window
+		)
+	)
+
+	if not kikoken_detected:
+		return
+
+	print(
+		"StateMachine: Kikoken detectado | ",
+		back_action,
+		" carregado → ",
+		forward_action,
+		" + lightPunch"
+	)
+
+	force_transition(KIKOKEN_STATE)
 
 func _on_request_move_direction(direction: Vector2) -> void:
 	if _character and _character.has_method(move_method):

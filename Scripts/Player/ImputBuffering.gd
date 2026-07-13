@@ -28,6 +28,14 @@ class ActionTimeFrame:
 var actions: Array[String] = []
 var buffer: Array[ActionTimeFrame] = []
 
+# Frame em que cada botão começou a ser segurado.
+var _hold_start_frames: Dictionary = {}
+
+# Duração do último botão que foi solto.
+var _last_hold_duration: Dictionary = {}
+
+# Frame em que o botão foi solto.
+var _last_release_frame: Dictionary = {}
 
 func _ready() -> void:
 	if player_controls == null:
@@ -79,6 +87,7 @@ func _register_action(action_name: String) -> void:
 
 func _physics_process(_delta: float) -> void:
 	_clean_input()
+	_update_hold_tracking()
 	_capture_input()
 
 
@@ -314,3 +323,82 @@ func debug_buffer() -> void:
 		)
 
 	print("====================================")
+
+func _update_hold_tracking() -> void:
+	var current_frame := Engine.get_physics_frames()
+
+	for action in actions:
+		var raw_action := _input_to_resource_action(action)
+
+		if Input.is_action_just_pressed(action):
+			_hold_start_frames[raw_action] = current_frame
+
+		elif (
+			Input.is_action_pressed(action)
+			and not _hold_start_frames.has(raw_action)
+		):
+			_hold_start_frames[raw_action] = current_frame
+
+		if Input.is_action_just_released(action):
+			if _hold_start_frames.has(raw_action):
+				var start_frame: int = int(
+					_hold_start_frames[raw_action]
+				)
+
+				_last_hold_duration[raw_action] = (
+					current_frame - start_frame
+				)
+
+				_last_release_frame[raw_action] = current_frame
+
+			_hold_start_frames.erase(raw_action)
+
+
+func get_current_hold_frames(action_name: String) -> int:
+	if not _hold_start_frames.has(action_name):
+		return 0
+
+	var current_frame := Engine.get_physics_frames()
+	var start_frame: int = int(
+		_hold_start_frames[action_name]
+	)
+
+	return current_frame - start_frame
+
+
+func get_last_release_frame(action_name: String) -> int:
+	if not _last_release_frame.has(action_name):
+		return -1
+
+	return int(_last_release_frame[action_name])
+
+
+func had_recent_charge(
+	action_name: String,
+	minimum_frames: int,
+	release_window: int = 12
+) -> bool:
+	# Ainda está segurando o botão.
+	if get_current_hold_frames(action_name) >= minimum_frames:
+		return true
+
+	if not _last_hold_duration.has(action_name):
+		return false
+
+	if not _last_release_frame.has(action_name):
+		return false
+
+	var held_frames: int = int(
+		_last_hold_duration[action_name]
+	)
+
+	var released_at: int = int(
+		_last_release_frame[action_name]
+	)
+
+	var current_frame := Engine.get_physics_frames()
+
+	return (
+		held_frames >= minimum_frames
+		and current_frame - released_at <= release_window
+	)

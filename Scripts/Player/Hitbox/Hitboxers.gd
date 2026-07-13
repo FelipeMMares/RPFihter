@@ -1,6 +1,8 @@
 extends Area2D
 class_name HitBox
 
+signal hit_confirmed(target: Area2D)
+
 @export var hit_data: HitData
 
 @onready var collision_shape: CollisionShape2D = $HitColision
@@ -47,6 +49,9 @@ func _on_area_entered(area: Area2D) -> void:
 
 	print("HitBox acertou HurtBox")
 	area.receive_hit(hit_data)
+
+	# Avisa que o ataque acertou.
+	hit_confirmed.emit(area)
 
 func begin_attack(new_hit_data: HitData) -> void:
 	hit_data = new_hit_data

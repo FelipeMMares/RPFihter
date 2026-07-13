@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://cqtct8mtwx1yi"]
+
+[ext_resource type="Script" uid="uid://cel6v4mrhqug4" path="res://Cenas/Player/KikokenProjectile.gd" id="1_0d1mn"]
+[ext_resource type="Texture2D" uid="uid://csk3d0bry02hw" path="res://assets/Chun li Kikkousen/SF3_3S_Chunli_39400-removebg-preview.png" id="1_n8rk6"]
+[ext_resource type="Texture2D" uid="uid://cgq0ed0wmdsi1" path="res://assets/Chun li Kikkousen/SF3_3S_Chunli_39401-removebg-preview.png" id="2_0d1mn"]
+[ext_resource type="Texture2D" uid="uid://byo6cvcxjc5bc" path="res://assets/Chun li Kikkousen/SF3_3S_Chunli_39402-removebg-preview.png" id="3_g5x46"]
+[ext_resource type="Texture2D" uid="uid://jrkqm2vm1ap" path="res://assets/Chun li Kikkousen/SF3_3S_Chunli_39403-removebg-preview.png" id="4_ay2os"]
+[ext_resource type="Texture2D" uid="uid://cj0iawsgjvy8l" path="res://assets/Chun li Kikkousen/SF3_3S_Chunli_39404-removebg-preview.png" id="5_j2fr6"]
+[ext_resource type="Texture2D" uid="uid://byiptnk0t5ank" path="res://assets/Chun li Kikkousen/SF3_3S_Chunli_39405-removebg-preview.png" id="6_ve0v3"]
+[ext_resource type="Texture2D" uid="uid://cos2ngre2d6uw" path="res://assets/Chun li Kikkousen/SF3_3S_Chunli_39406-removebg-preview.png" id="7_o6da4"]
+[ext_resource type="Texture2D" uid="uid://hvospk7fpcep" path="res://assets/Chun li Kikkousen/SF3_3S_Chunli_39407-removebg-preview.png" id="8_wy1qr"]
+[ext_resource type="Texture2D" uid="uid://ds01ntsddceee" path="res://assets/Chun li Kikkousen/SF3_3S_Chunli_39408-removebg-preview.png" id="9_nbrhj"]
+[ext_resource type="Texture2D" uid="uid://bup0k6uwx1e" path="res://assets/Chun li Kikkousen/SF3_3S_Chunli_39409-removebg-preview.png" id="10_16jfm"]
+[ext_resource type="Texture2D" uid="uid://dmkl24upp5oy6" path="res://assets/Chun li Kikkousen/SF3_3S_Chunli_39410-removebg-preview.png" id="11_p48kn"]
+[ext_resource type="Texture2D" uid="uid://cd4rgwvpianms" path="res://assets/Chun li Kikkousen/SF3_3S_Chunli_39411-removebg-preview.png" id="12_chxt7"]
+[ext_resource type="Texture2D" uid="uid://bp6styn2hcmel" path="res://assets/Chun li Kikkousen/SF3_3S_Chunli_39412-removebg-preview.png" id="13_8jtfa"]
+[ext_resource type="Texture2D" uid="uid://c3wdu4jtnw5gb" path="res://assets/Chun li Kikkousen/SF3_3S_Chunli_39413-removebg-preview.png" id="14_iwjle"]
+[ext_resource type="Texture2D" uid="uid://hdrqjtwv4bv8" path="res://assets/Chun li Kikkousen/SF3_3S_Chunli_39414-removebg-preview.png" id="15_b8hui"]
+[ext_resource type="Texture2D" uid="uid://bppcnic41ct85" path="res://assets/Chun li Kikkousen/SF3_3S_Chunli_39415-removebg-preview.png" id="16_qy8a1"]
+[ext_resource type="Texture2D" uid="uid://br3eitdahkqq5" path="res://assets/Chun li Kikkousen/SF3_3S_Chunli_39416-removebg-preview.png" id="17_8my5r"]
+[ext_resource type="Texture2D" uid="uid://jo57agdvlxp4" path="res://assets/Chun li Kikkousen/SF3_3S_Chunli_39417-removebg-preview.png" id="18_g5igq"]
+[ext_resource type="Texture2D" uid="uid://dkhbdlbfa6ssk" path="res://assets/Chun li Kikkousen/SF3_3S_Chunli_39418-removebg-preview.png" id="19_y1a5k"]
+[ext_resource type="Texture2D" uid="uid://dt6r68p1jisfj" path="res://assets/Chun li Kikkousen/SF3_3S_Chunli_39419-removebg-preview.png" id="20_2neon"]
+[ext_resource type="Texture2D" uid="uid://cenadr12u42uh" path="res://assets/Chun li Kikkousen/SF3_3S_Chunli_39420-removebg-preview.png" id="21_3yvvg"]
+[ext_resource type="Texture2D" uid="uid://sto4mx016dy4" path="res://assets/Chun li Kikkousen/SF3_3S_Chunli_39421-removebg-preview.png" id="22_q6yn2"]
+[ext_resource type="Texture2D" uid="uid://dldt44dwbr8li" path="res://assets/Chun li Kikkousen/SF3_3S_Chunli_39422-removebg-preview.png" id="23_qp5ng"]
+[ext_resource type="Texture2D" uid="uid://cf61h33ktgeds" path="res://assets/Chun li Kikkousen/SF3_3S_Chunli_39423-removebg-preview.png" id="24_j0ywr"]
+[ext_resource type="Texture2D" uid="uid://bvtjq3gm14yru" path="res://assets/Chun li Kikkousen/SF3_3S_Chunli_39424-removebg-preview.png" id="25_g4dpg"]
+[ext_resource type="Script" uid="uid://do3du61yy2b2o" path="res://Scripts/Player/Hitbox/Hitboxers.gd" id="26_bjscw"]
+[ext_resource type="Resource" uid="uid://c7nitndijsqn2" path="res://Scripts/Combat/new_resource.tres" id="27_n8rk6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_n8rk6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0d1mn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_g5x46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ay2os")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_j2fr6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ve0v3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_o6da4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wy1qr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_nbrhj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_16jfm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_p48kn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_chxt7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_8jtfa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_iwjle")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_b8hui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_qy8a1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_8my5r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_g5igq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_y1a5k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_2neon")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_3yvvg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_q6yn2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_qp5ng")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_j0ywr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_g4dpg")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jiukm"]
+radius = 43.104523
+
+[node name="KikokenProjectile" type="Node2D" unique_id=1668696652]
+script = ExtResource("1_0d1mn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=896450100]
+position = Vector2(-1, 4)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+frame_progress = 0.03576064
+
+[node name="HitBox" type="Area2D" parent="." unique_id=368523084]
+position = Vector2(-7, 9)
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("26_bjscw")
+hit_data = ExtResource("27_n8rk6")
+
+[node name="HitColision" type="CollisionShape2D" parent="HitBox" unique_id=2092198823]
+position = Vector2(-94, 62)
+shape = SubResource("CircleShape2D_jiukm")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1560552095]
+position = Vector2(-125, 42)
+rect = Rect2(-23, -20, 92, 96)
