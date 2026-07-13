@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CommandSequence" format=3 uid="uid://b6n12fa2it8d4"]
+
+[ext_resource type="Script" uid="uid://brg7ixgqu5kif" path="res://Scripts/Player/CommandParser/CommandSequence.gd" id="1_gi4xh"]
+
+[resource]
+script = ExtResource("1_gi4xh")
+name = " light_punch_2"
+inputs = Array[String](["light_punch", "light_punch"])
+metadata/_custom_type_script = "uid://brg7ixgqu5kif"

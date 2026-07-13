@@ -1,3 +1,6 @@
+res://Scripts/Combat/
+res://assets/Chun li combo simples/
+res://assets/Chun li Low Kick/
 res://assets/
 res://assets/Elena (Demmy) FallDefeated/
 res://assets/Elena (Dummy) Defeated/
@@ -12,11 +15,8 @@ res://Scripts/Dummy/
 res://assets/Elena (dummy) Hurt/
 res://Scripts/
 res://Scripts/Player/StateMachine/States/
-res://Scripts/Combat/
 res://assets/elena (dummy)/
 res://Cenas/Dummy/
-res://assets/Chun li Low Kick/
 res://assets/Chun li Kick/
 res://assets/Chun li High Punch/
 res://assets/Chun li Light Punch/
-res://assets/Chun li jump/

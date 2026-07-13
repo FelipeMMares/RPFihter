@@ -39,6 +39,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
+[node name="Player1Name" type="Label" parent="__/_/Player 1" unique_id=1976358777]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Chun Li"
+
 [node name="Player1HP" type="ProgressBar" parent="__/_/Player 1" unique_id=961687590]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 50)
@@ -88,6 +94,13 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
+
+[node name="Player2Name" type="Label" parent="__/_/Player 2" unique_id=2045191674]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Elena"
+horizontal_alignment = 2
 
 [node name="Player2HP" type="ProgressBar" parent="__/_/Player 2" unique_id=1075165494]
 unique_name_in_owner = true

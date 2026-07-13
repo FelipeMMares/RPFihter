@@ -20,3 +20,6 @@ func is_jumping() -> bool:
 	
 func just_crouched() -> bool:
 	return Input.is_action_just_pressed(down)
+
+func just_light_punch() -> bool:
+	return Input.is_action_just_pressed(light_punch)

@@ -1,4 +1,3 @@
-res://Cenas/HUD/HUD.tscn
-res://Cenas/HUD/hud.gd
-res://cena_da_luta.tscn
-res://Scripts/Fight/FightManager.gd
+res://Cenas/Player/Player.tscn
+res://Scripts/Player/CommandParser/commandParse.gd
+res://Scripts/Player/StateMachine/States/Ground/light_punch.gd

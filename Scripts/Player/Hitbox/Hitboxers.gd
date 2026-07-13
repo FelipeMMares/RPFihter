@@ -47,3 +47,23 @@ func _on_area_entered(area: Area2D) -> void:
 
 	print("HitBox acertou HurtBox")
 	area.receive_hit(hit_data)
+
+func begin_attack(new_hit_data: HitData) -> void:
+	hit_data = new_hit_data
+
+	# Limpa os personagens já atingidos na ativação anterior.
+	_already_hit.clear()
+
+	set_deferred("monitoring", true)
+
+	for child in get_children():
+		if child is CollisionShape2D:
+			child.set_deferred("disabled", false)
+
+
+func end_attack() -> void:
+	set_deferred("monitoring", false)
+
+	for child in get_children():
+		if child is CollisionShape2D:
+			child.set_deferred("disabled", true)

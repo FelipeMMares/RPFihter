@@ -1,9 +1,10 @@
-HBoxContainer
-TextureRect
-State
-Node
 CollisionShape2D
 Area2D
+State
+Label
+HBoxContainer
+TextureRect
+Node
 Node2D
 AnimatedSprite2D
 CharacterBody2D
@@ -11,4 +12,3 @@ CollisionPolygon2D
 AttackState
 Sprite2D
 AnimationPlayer
-Label
