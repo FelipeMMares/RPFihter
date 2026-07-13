@@ -1,5 +1,7 @@
 extends AttackState
 
+var _last_buffer_size: int = -1
+var _parser_error_printed: bool = false
 
 # Nomes exatos das animações no SpriteFrames.
 const COMBO_ANIMATIONS: Array[StringName] = [
@@ -12,7 +14,7 @@ const COMBO_ANIMATIONS: Array[StringName] = [
 # Frames em que a hitbox começa em cada animação.
 const ACTIVE_START_FRAMES: Array[int] = [
 	1, # LightPunch
-	1, # LightPunch2
+	2, # LightPunch2
 	2  # LightPunch3
 ]
 
@@ -20,7 +22,7 @@ const ACTIVE_START_FRAMES: Array[int] = [
 # Frames em que a hitbox termina em cada animação.
 const ACTIVE_END_FRAMES: Array[int] = [
 	3, # LightPunch
-	3, # LightPunch2
+	4, # LightPunch2
 	4  # LightPunch3
 ]
 
@@ -54,6 +56,23 @@ var state_active: bool = false
 
 
 func _enter() -> void:
+	
+	print("")
+	print("================================")
+	print("ENTROU NO LIGHTPUNCH.GD")
+	print("command_parser: ", command_parser)
+	print("player_controls: ", player_controls)
+	print("================================")
+
+	state_active = true
+	combo_stage = 0
+	second_attack_buffered = false
+	third_attack_buffered = false
+
+	_apply_hitbox_frames(0)
+
+	super._enter()
+	
 	state_active = true
 
 	combo_stage = 0
@@ -75,18 +94,56 @@ func _physics_process(delta: float) -> void:
 	if not state_active:
 		return
 
-	# Mantém o funcionamento original do AttackState.
-	# Essa chamada controla a hitbox usando
-	# active_start_frame e active_end_frame.
 	super._physics_process(delta)
+
+	if command_parser == null:
+		if not _parser_error_printed:
+			_parser_error_printed = true
+			printerr(
+				"LightPunch: command_parser está NULO."
+			)
+		return
+
+	if command_parser.input_buffer == null:
+		if not _parser_error_printed:
+			_parser_error_printed = true
+			printerr(
+				"LightPunch: input_buffer está NULO."
+			)
+		return
+
+	var current_buffer_size: int = (
+		command_parser.input_buffer.buffer.size()
+	)
+
+	# Só imprime quando um novo input entra ou sai do buffer.
+	if current_buffer_size != _last_buffer_size:
+		_last_buffer_size = current_buffer_size
+
+		var input_names: Array[String] = []
+
+		for item in command_parser.input_buffer.buffer:
+			input_names.append(item.action_name)
+
+		print(
+			"BUFFER DURANTE LIGHTPUNCH: ",
+			input_names
+		)
+
+		var detected_move: String = (
+			command_parser.peek_current_move(60)
+		)
+
+		print(
+			"PEEK RETORNOU: '",
+			detected_move,
+			"'"
+		)
+
+	_read_combo_command()
 
 	if animated_sprite == null:
 		return
-
-	if command_parser == null:
-		return
-
-	_read_combo_command()
 
 	var current_frame: int = animated_sprite.frame
 

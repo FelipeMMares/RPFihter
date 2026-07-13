@@ -1,3 +1,6 @@
 res://Cenas/Player/Player.tscn
-res://Scripts/Player/CommandParser/commandParse.gd
 res://Scripts/Player/StateMachine/States/Ground/light_punch.gd
+res://Scripts/Player/StateMachine/States/Ground/Idle.gd
+res://Scripts/Combat/LightPunch2Command.tres
+res://Scripts/Combat/LightPunch3Command.tres
+res://cena_da_luta.tscn

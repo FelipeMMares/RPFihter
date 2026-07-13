@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_gi4xh")
-name = " light_punch_2"
-inputs = Array[String](["light_punch", "light_punch"])
+name = "light_punch_2"
+inputs = Array[String](["lightPunch", "lightPunch"])
 metadata/_custom_type_script = "uid://brg7ixgqu5kif"

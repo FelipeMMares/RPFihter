@@ -537,7 +537,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"LightPunch2",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -569,7 +569,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"LightPunch3",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -865,7 +865,7 @@ one_way_collision = true
 position = Vector2(-7, 9)
 scale = Vector2(1.6119791, 1.8772322)
 sprite_frames = SubResource("SpriteFrames_ma6wq")
-animation = &"LightPunch3"
+animation = &"LightPunch"
 frame = 4
 
 [node name="inputBuffer" type="Node" parent="." unique_id=1159587412]
