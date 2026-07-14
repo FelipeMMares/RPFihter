@@ -1,3 +1,6 @@
+res://Cenas/Cenarios/
+res://assets/Promps/tochas/
+res://assets/
 res://Scripts/Player/StateMachine/States/Ground/
 res://assets/Chun li Kikkosen pose/
 res://Scripts/Combat/
@@ -5,18 +8,15 @@ res://assets/Chun li Kikkousen/
 res://Cenas/Player/
 res://assets/Chun li combo simples/
 res://assets/Chun li Low Kick/
-res://assets/
 res://assets/Elena (Demmy) FallDefeated/
 res://assets/Elena (Dummy) Defeated/
 res://assets/Elena (Dummy) Victory/
 res://assets/Chun li FallDefeated/
 res://assets/Chun li Defeated/
 res://assets/Chun li victory/
-res://Cenas/Cenarios/
 res://Scripts/Player/Hitbox/
 res://Scripts/Dummy/
 res://assets/Elena (dummy) Hurt/
 res://Scripts/
 res://Scripts/Player/StateMachine/States/
 res://assets/elena (dummy)/
-res://Cenas/Dummy/

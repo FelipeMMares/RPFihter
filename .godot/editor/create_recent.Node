@@ -1,14 +1,14 @@
+Node2D
+AnimatedSprite2D
+Node
 State
 Marker2D
 VisibleOnScreenNotifier2D
 CollisionShape2D
 Area2D
-AnimatedSprite2D
-Node2D
 Label
 HBoxContainer
 TextureRect
-Node
 CharacterBody2D
 CollisionPolygon2D
 AttackState

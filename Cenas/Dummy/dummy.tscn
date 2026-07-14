@@ -729,9 +729,7 @@ script = ExtResource("1_7u85y")
 position = Vector2(2.9999962, 5.000001)
 scale = Vector2(1.6914063, 1.8638393)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"FallDefeated"
-frame = 17
-frame_progress = 1.0
+animation = &"Idle"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1128512923]

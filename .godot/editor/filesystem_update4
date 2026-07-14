@@ -7,3 +7,7 @@ res://Cenas/Player/Player.tscn
 res://Cenas/Player/KikokenProjectile.gd
 res://Scripts/Player/StateMachine/States/Ground/Kikoken.gd
 res://Scripts/Player/Hitbox/Hitboxers.gd
+res://Cenas/Dummy/dummy.tscn
+res://Cenas/Cenarios/Torch.tscn
+res://Cenas/Cenarios/Promps/Torch.tscn
+res://Cenas/Cenarios/Promps/torch.gd
