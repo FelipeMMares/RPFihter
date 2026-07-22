@@ -201,6 +201,13 @@
 [ext_resource type="Script" uid="uid://d4dnk2rxxx4ue" path="res://Scripts/Player/StateMachine/States/Ground/Defeated.gd" id="175_usvrd"]
 [ext_resource type="Script" uid="uid://dyhvl7vyac2qc" path="res://Scripts/Player/StateMachine/States/Ground/FallDefeated.gd" id="176_ndu3r"]
 [ext_resource type="Script" uid="uid://b08hbttop7cej" path="res://Scripts/Dummy/DummyAI.gd" id="179_twm28"]
+[ext_resource type="Texture2D" uid="uid://c5edvhw8l7xlj" path="res://assets/Elena (Dummy) Walk/SF3_3rd_Elena_12377-removebg-preview.png" id="187_ia373"]
+[ext_resource type="Texture2D" uid="uid://b8sw66365k2x4" path="res://assets/Elena (Dummy) Walk/SF3_3rd_Elena_12378-removebg-preview.png" id="188_4os6k"]
+[ext_resource type="Texture2D" uid="uid://du87jqv0eser" path="res://assets/Elena (Dummy) Walk/SF3_3rd_Elena_12380-removebg-preview.png" id="189_b1y26"]
+[ext_resource type="Texture2D" uid="uid://d0hdhw2oydvtu" path="res://assets/Elena (Dummy) Walk/SF3_3rd_Elena_12381-removebg-preview.png" id="190_vbhik"]
+[ext_resource type="Texture2D" uid="uid://dixiyhsrbidog" path="res://assets/Elena (Dummy) Walk/SF3_3rd_Elena_12382-removebg-preview.png" id="191_ftcj5"]
+[ext_resource type="Texture2D" uid="uid://bdtyry7h1m47f" path="res://assets/Elena (Dummy) Walk/SF3_3rd_Elena_12383-removebg-preview.png" id="192_w3jlc"]
+[ext_resource type="Texture2D" uid="uid://cort64w7h4klf" path="res://assets/Elena (Dummy) Walk/SF3_3rd_Elena_12384-removebg-preview.png" id="193_ivwpd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
@@ -788,6 +795,32 @@ animations = [{
 "loop": 0,
 "name": &"Victory",
 "speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("187_ia373")
+}, {
+"duration": 1.0,
+"texture": ExtResource("188_4os6k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("189_b1y26")
+}, {
+"duration": 1.0,
+"texture": ExtResource("190_vbhik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("191_ftcj5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("192_w3jlc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("193_ivwpd")
+}],
+"loop": 1,
+"name": &"Walk",
+"speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqqph"]
@@ -823,9 +856,8 @@ script = ExtResource("1_7u85y")
 position = Vector2(2.9999962, 5.000001)
 scale = Vector2(1.6914063, 1.8638393)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"LightPunch"
-frame = 21
-frame_progress = 1.0
+animation = &"Walk"
+frame_progress = 0.39826673
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1128512923]
