@@ -959,8 +959,7 @@ one_way_collision = true
 position = Vector2(-7, 9)
 scale = Vector2(1.6119791, 1.8772322)
 sprite_frames = SubResource("SpriteFrames_ma6wq")
-animation = &"Kikoken"
-frame = 8
+animation = &"Walk"
 
 [node name="KikokenSpawn" type="Marker2D" parent="." unique_id=1453849635]
 position = Vector2(99, 4)

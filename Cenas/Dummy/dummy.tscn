@@ -824,7 +824,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqqph"]
-size = Vector2(200, 173)
+size = Vector2(133, 186)
 
 [sub_resource type="GDScript" id="GDScript_wutc1"]
 script/source = "extends AttackState
@@ -847,7 +847,7 @@ func _enter():
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(216, 190)
+size = Vector2(129, 217)
 
 [node name="Dummy" type="CharacterBody2D" unique_id=597853256]
 script = ExtResource("1_7u85y")
@@ -856,12 +856,12 @@ script = ExtResource("1_7u85y")
 position = Vector2(2.9999962, 5.000001)
 scale = Vector2(1.6914063, 1.8638393)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"Walk"
-frame_progress = 0.39826673
+animation = &"Idle"
+frame_progress = 0.86595434
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1128512923]
-position = Vector2(12, 57.5)
+position = Vector2(-21.5, 51)
 shape = SubResource("RectangleShape2D_vqqph")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1711119882 node_paths=PackedStringArray("initial_state", "animated_sprite")]
@@ -930,11 +930,13 @@ collision_layer = 3
 script = ExtResource("69_dnvsn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1233750611]
-position = Vector2(13, 57)
+position = Vector2(-19.5, 43.5)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="Health" type="Node" parent="." unique_id=1105559145]
 script = ExtResource("76_0tpov")
 
-[node name="DummyAI" type="Node" parent="." unique_id=388336217]
+[node name="DummyAI" type="Node" parent="." unique_id=388336217 node_paths=PackedStringArray("state_machine", "animated_sprite")]
 script = ExtResource("179_twm28")
+state_machine = NodePath("../StateMachine")
+animated_sprite = NodePath("../AnimatedSprite2D")

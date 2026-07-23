@@ -191,7 +191,7 @@ func _physics_process(delta: float) -> void:
 		return
 
 	_schedule_attack()
-	
+
 
 func _move_toward_target(
 	horizontal_difference: float
@@ -227,16 +227,10 @@ func _stop_character() -> void:
 
 
 func _move_character(direction: Vector2) -> void:
-	if not character.has_method(
-		state_machine.move_method
-	):
+	if state_machine == null:
 		return
 
-	character.call(
-		state_machine.move_method,
-		direction
-	)
-
+	state_machine.request_move(direction)
 
 func _schedule_attack() -> void:
 	if _reaction_time_left >= 0.0:

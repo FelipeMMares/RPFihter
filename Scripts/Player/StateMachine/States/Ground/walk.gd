@@ -1,35 +1,28 @@
 extends State
 
+func _enter() -> void:
+	# Usa o nome do próprio estado para tocar a animação.
+	# Como o nó se chama Walk, toca "Walk".
+	play_animation.emit(name, false)
+
 func _physics_process(delta: float) -> void:
 	check_special_move()
-	
-	
-	var direction : float = \
-	Input.get_axis(player_controls.left, player_controls.right)
-	
-	var detected_move := command_parser.get_current_special_move()
+	# O Dummy não possui PlayerControls.
+	# A direção dele será controlada pelo DummyAI.
+	if player_controls == null:
+		return
 
-	if detected_move != "":
-		print("🔥 Movimento detectado:", detected_move)
+	var direction: float = Input.get_axis(
+		player_controls.left,
+		player_controls.right
+	)
 
-		match detected_move:
-			"teste_combo":
-				print("Combo detectado!")
-			"hadouken":
-				print("Hadouken!")
-			"shoryuken":
-				print("Shoryuken!")
-			"tatsumaki":
-				print("Tatsumaki!")
-	
-	if direction != 0:
-		play_animation.emit(name, direction < 0)
-		move.emit(Vector2(direction, 0))
-	
-	else:
+	if is_zero_approx(direction):
 		move.emit(Vector2.ZERO)
 		transition_to.emit("Idle")
-	
+		return
+
+	move.emit(Vector2(direction, 0.0))
 	if player_controls.is_jumping():
 		transition_to.emit("Jump")
 		return

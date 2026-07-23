@@ -251,3 +251,19 @@ func force_transition(new_state: StringName) -> void:
 		String(new_state),
 		String(_current_state.name)
 	)
+
+func get_current_state_name() -> StringName:
+	if _current_state == null:
+		return &""
+
+	return StringName(_current_state.name)
+
+
+func has_state(state_name: StringName) -> bool:
+	return (
+		get_node_or_null(NodePath(state_name))
+		is State
+	)
+
+func request_move(direction: Vector2) -> void:
+	_on_request_move_direction(direction)

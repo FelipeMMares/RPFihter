@@ -7,6 +7,7 @@ class_name FightManager
 @onready var player_1: CharacterBody2D = $Player1
 @onready var player_2: CharacterBody2D = $Dummy
 @onready var hud: FightHUD = $HUD
+@onready var dummy_ai: DummyAI = $Dummy/DummyAI
 
 @onready var player_1_health: Health = $Player1/Health
 @onready var player_2_health: Health = $Dummy/Health
@@ -28,6 +29,14 @@ var match_finished: bool = false
 
 
 func _ready() -> void:
+
+	if dummy_ai != null:
+		dummy_ai.setup(player_1)
+	else:
+		printerr(
+			"CenaDaLuta: DummyAI não encontrada."
+		)
+
 	player_1_start_position = player_1.global_position
 	player_2_start_position = player_2.global_position
 
