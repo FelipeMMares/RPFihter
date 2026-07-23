@@ -1,8 +1,3 @@
-res://Cenas/Dummy/dummy.tscn
-res://Scripts/Player/StateMachine/StateMachine.gd
-res://Scripts/Dummy/DummyAI.gd
 res://cena_da_luta.tscn
-res://Scripts/Fight/FightManager.gd
-res://Scripts/Player/StateMachine/States/Ground/walk.gd
 res://Cenas/Player/Player.tscn
-res://Cenas/Dummy/Dummy.gd
+res://Scripts/Player/Player.gd

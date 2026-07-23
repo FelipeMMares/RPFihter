@@ -11,6 +11,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e813m"]
 size = Vector2(1585.959, 128.5924)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(102, 556.5)
+
 [node name="CenaDaLuta" type="Node2D" unique_id=111988353]
 script = ExtResource("1_oi066")
 
@@ -29,6 +32,7 @@ texture = ExtResource("2_oi066")
 z_index = -10
 position = Vector2(693, 315)
 scale = Vector2(0.9453125, 0.8769531)
+collision_mask = 0
 
 [node name="textura" type="Sprite2D" parent="Stage/Chão" unique_id=821571757]
 modulate = Color(0, 0, 0, 1)
@@ -40,6 +44,17 @@ texture = ExtResource("2_umdng")
 position = Vector2(-20.09916, 342.09354)
 scale = Vector2(0.9999998, 1)
 shape = SubResource("RectangleShape2D_e813m")
+
+[node name="StageBounds" type="StaticBody2D" parent="Stage" unique_id=589947994]
+collision_mask = 0
+
+[node name="LeftWall" type="CollisionShape2D" parent="Stage/StageBounds" unique_id=1885973326]
+position = Vector2(-53, 278.75)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="RightWall" type="CollisionShape2D" parent="Stage/StageBounds" unique_id=750170843]
+position = Vector2(1208, 279)
+shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="Crowd" type="Node2D" parent="Stage" unique_id=1567276566]
 z_index = -40

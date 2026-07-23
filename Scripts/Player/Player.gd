@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed : float = 150
-@export var jump_force : float = 450.0
+@export var jump_force : float = 700.0
 @export var gravity : float = 1200.0
 @onready var light_punch_hitbox: HitBox = $Hitboxers/LightPunch
 
