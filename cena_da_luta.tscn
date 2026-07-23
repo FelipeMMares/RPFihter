@@ -12,7 +12,7 @@
 size = Vector2(1585.959, 128.5924)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(102, 556.5)
+size = Vector2(121, 556.5)
 
 [node name="CenaDaLuta" type="Node2D" unique_id=111988353]
 script = ExtResource("1_oi066")
@@ -49,11 +49,11 @@ shape = SubResource("RectangleShape2D_e813m")
 collision_mask = 0
 
 [node name="LeftWall" type="CollisionShape2D" parent="Stage/StageBounds" unique_id=1885973326]
-position = Vector2(-53, 278.75)
+position = Vector2(-43.5, 278.75)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="RightWall" type="CollisionShape2D" parent="Stage/StageBounds" unique_id=750170843]
-position = Vector2(1208, 279)
+position = Vector2(1198, 279)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="Crowd" type="Node2D" parent="Stage" unique_id=1567276566]
@@ -74,8 +74,8 @@ position = Vector2(989, 306)
 [node name="HUD" parent="." unique_id=434548975 instance=ExtResource("3_hvrgt")]
 
 [node name="Player1" parent="." unique_id=1120152477 instance=ExtResource("4_oi066")]
-position = Vector2(90, 441)
+position = Vector2(110, 437)
 disable_mode = 2
 
 [node name="Dummy" parent="." unique_id=597853256 instance=ExtResource("5_hvrgt")]
-position = Vector2(948, 425)
+position = Vector2(917, 425)

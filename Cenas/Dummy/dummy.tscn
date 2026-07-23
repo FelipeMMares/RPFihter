@@ -940,3 +940,4 @@ script = ExtResource("76_0tpov")
 script = ExtResource("179_twm28")
 state_machine = NodePath("../StateMachine")
 animated_sprite = NodePath("../AnimatedSprite2D")
+attack_range = 25.0

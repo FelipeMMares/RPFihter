@@ -1,3 +1,5 @@
 res://cena_da_luta.tscn
 res://Cenas/Player/Player.tscn
 res://Scripts/Player/Player.gd
+res://Cenas/Dummy/dummy.tscn
+res://Scripts/Dummy/DummyAI.gd

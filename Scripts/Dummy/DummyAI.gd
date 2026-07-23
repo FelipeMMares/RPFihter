@@ -41,7 +41,8 @@ class_name DummyAI
 	get_parent() as CharacterBody2D
 )
 
-
+var _character_body_shape: CollisionShape2D
+var _target_body_shape: CollisionShape2D
 var _reaction_time_left: float = -1.0
 var _cooldown_time_left: float = 0.0
 
@@ -104,9 +105,23 @@ func _ready() -> void:
 			attack_state
 		)
 
+	_character_body_shape = _find_body_collision(character)
+
+	if _character_body_shape == null:
+		printerr(
+			"DummyAI: CollisionShape2D corporal do Dummy não encontrada."
+		)
 
 func setup(new_target: CharacterBody2D) -> void:
 	target = new_target
+
+	if target != null:
+		_target_body_shape = _find_body_collision(target)
+
+	if _target_body_shape == null:
+		printerr(
+			"DummyAI: CollisionShape2D corporal do Player não encontrada."
+		)
 
 	print(
 		"DummyAI configurada. Alvo: ",
@@ -151,8 +166,8 @@ func _physics_process(delta: float) -> void:
 		- character.global_position.x
 	)
 
-	var horizontal_distance: float = absf(
-		horizontal_difference
+	var attack_distance: float = (
+		_get_horizontal_attack_distance()
 	)
 
 	_face_target(horizontal_difference)
@@ -165,7 +180,7 @@ func _physics_process(delta: float) -> void:
 		_reaction_time_left -= delta
 
 		# O jogador saiu do alcance durante a espera.
-		if horizontal_distance > attack_range:
+		if attack_distance > attack_range:
 			_reaction_time_left = -1.0
 			return
 
@@ -176,7 +191,7 @@ func _physics_process(delta: float) -> void:
 		return
 
 	# Fora do alcance: aproxima-se do jogador.
-	if horizontal_distance > attack_range:
+	if attack_distance > attack_range:
 		_move_toward_target(horizontal_difference)
 		return
 
@@ -252,14 +267,11 @@ func _perform_attack() -> void:
 	if target == null:
 		return
 
-	var horizontal_distance: float = absf(
-		target.global_position.x
-		- character.global_position.x
+	var attack_distance: float = (
+		_get_horizontal_attack_distance()
 	)
 
-	# Confere novamente porque o Player pode ter
-	# se afastado durante o tempo de reação.
-	if horizontal_distance > attack_range:
+	if attack_distance > attack_range:
 		return
 
 	if (
@@ -279,7 +291,9 @@ func _perform_attack() -> void:
 
 	print(
 		"DummyAI: executando ",
-		attack_state
+		attack_state,
+		" | distância entre corpos: ",
+		attack_distance
 	)
 
 	state_machine.force_transition(
@@ -295,6 +309,7 @@ func _perform_attack() -> void:
 func _face_target(
 	horizontal_difference: float
 ) -> void:
+
 	if animated_sprite == null:
 		return
 
@@ -309,3 +324,78 @@ func _face_target(
 		animated_sprite.flip_h = target_is_left
 	else:
 		animated_sprite.flip_h = not target_is_left
+
+func _find_body_collision(
+	body: CharacterBody2D
+) -> CollisionShape2D:
+	if body == null:
+		return null
+
+	# Procura somente nos filhos diretos do CharacterBody2D.
+	# Isso evita pegar a forma da HurtBox.
+	for child in body.get_children():
+		if child is CollisionShape2D:
+			return child as CollisionShape2D
+
+	return null
+
+func _get_shape_half_width(
+	collision_shape: CollisionShape2D
+) -> float:
+	if collision_shape == null:
+		return 0.0
+
+	if collision_shape.shape == null:
+		return 0.0
+
+	var scale_x: float = absf(
+		collision_shape.global_scale.x
+	)
+
+	var shape: Shape2D = collision_shape.shape
+
+	if shape is RectangleShape2D:
+		var rectangle := shape as RectangleShape2D
+
+		return (
+			rectangle.size.x
+			* 0.5
+			* scale_x
+		)
+
+	if shape is CapsuleShape2D:
+		var capsule := shape as CapsuleShape2D
+
+		return capsule.radius * scale_x
+
+	if shape is CircleShape2D:
+		var circle := shape as CircleShape2D
+
+		return circle.radius * scale_x
+
+	return 0.0
+
+func _get_horizontal_attack_distance() -> float:
+	if character == null or target == null:
+		return INF
+
+	var center_distance: float = absf(
+		target.global_position.x
+		- character.global_position.x
+	)
+
+	var character_half_width := _get_shape_half_width(
+		_character_body_shape
+	)
+
+	var target_half_width := _get_shape_half_width(
+		_target_body_shape
+	)
+
+	# Distância real entre as bordas dos corpos.
+	return maxf(
+		center_distance
+		- character_half_width
+		- target_half_width,
+		0.0
+	)
