@@ -208,6 +208,7 @@
 [ext_resource type="Texture2D" uid="uid://dixiyhsrbidog" path="res://assets/Elena (Dummy) Walk/SF3_3rd_Elena_12382-removebg-preview.png" id="191_ftcj5"]
 [ext_resource type="Texture2D" uid="uid://bdtyry7h1m47f" path="res://assets/Elena (Dummy) Walk/SF3_3rd_Elena_12383-removebg-preview.png" id="192_w3jlc"]
 [ext_resource type="Texture2D" uid="uid://cort64w7h4klf" path="res://assets/Elena (Dummy) Walk/SF3_3rd_Elena_12384-removebg-preview.png" id="193_ivwpd"]
+[ext_resource type="Script" uid="uid://dprlu31ukgm8l" path="res://Scripts/Components/FacingController.gd" id="209_4os6k"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
@@ -824,7 +825,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqqph"]
-size = Vector2(133, 186)
+size = Vector2(201.5, 186)
 
 [sub_resource type="GDScript" id="GDScript_wutc1"]
 script/source = "extends AttackState
@@ -847,7 +848,7 @@ func _enter():
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(129, 217)
+size = Vector2(192.5, 201.5)
 
 [node name="Dummy" type="CharacterBody2D" unique_id=597853256]
 script = ExtResource("1_7u85y")
@@ -861,7 +862,7 @@ frame_progress = 0.86595434
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1128512923]
-position = Vector2(-21.5, 51)
+position = Vector2(14, 58)
 shape = SubResource("RectangleShape2D_vqqph")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1711119882 node_paths=PackedStringArray("initial_state", "animated_sprite")]
@@ -930,7 +931,7 @@ collision_layer = 3
 script = ExtResource("69_dnvsn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1233750611]
-position = Vector2(-19.5, 43.5)
+position = Vector2(16.75, 43.25)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="Health" type="Node" parent="." unique_id=1105559145]
@@ -941,3 +942,8 @@ script = ExtResource("179_twm28")
 state_machine = NodePath("../StateMachine")
 animated_sprite = NodePath("../AnimatedSprite2D")
 attack_range = 25.0
+
+[node name="FacingController" type="Node" parent="." unique_id=1706716404 node_paths=PackedStringArray("character", "animated_sprite")]
+script = ExtResource("209_4os6k")
+character = NodePath("..")
+animated_sprite = NodePath("../AnimatedSprite2D")

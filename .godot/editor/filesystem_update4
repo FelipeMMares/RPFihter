@@ -3,3 +3,5 @@ res://Cenas/Player/Player.tscn
 res://Scripts/Player/Player.gd
 res://Cenas/Dummy/dummy.tscn
 res://Scripts/Dummy/DummyAI.gd
+res://Scripts/Components/FacingController.gd
+res://Scripts/Fight/FightManager.gd

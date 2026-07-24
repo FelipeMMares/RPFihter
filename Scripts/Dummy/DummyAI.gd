@@ -170,7 +170,7 @@ func _physics_process(delta: float) -> void:
 		_get_horizontal_attack_distance()
 	)
 
-	_face_target(horizontal_difference)
+	#_face_target(horizontal_difference)
 
 	# A IA já decidiu atacar e está aguardando
 	# o tempo de reação.

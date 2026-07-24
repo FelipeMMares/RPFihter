@@ -9,6 +9,14 @@ class_name FightManager
 @onready var hud: FightHUD = $HUD
 @onready var dummy_ai: DummyAI = $Dummy/DummyAI
 
+@onready var player_facing: FacingController = (
+	$Player1/FacingController
+)
+
+@onready var dummy_facing: FacingController = (
+	$Dummy/FacingController
+)
+
 @onready var player_1_health: Health = $Player1/Health
 @onready var player_2_health: Health = $Dummy/Health
 
@@ -61,6 +69,20 @@ func _ready() -> void:
 		player_1_wins,
 		player_2_wins
 	)
+
+	if player_facing != null:
+		player_facing.setup(player_2)
+	else:
+		printerr(
+			"CenaDaLuta: FacingController do Player não encontrado."
+		)
+
+	if dummy_facing != null:
+		dummy_facing.setup(player_1)
+	else:
+		printerr(
+			"CenaDaLuta: FacingController do Dummy não encontrado."
+		)
 
 func _on_player_1_health_depleted() -> void:
 	if round_finished or match_finished:

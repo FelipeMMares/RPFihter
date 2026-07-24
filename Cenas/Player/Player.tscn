@@ -198,6 +198,7 @@
 [ext_resource type="Resource" uid="uid://chm6utc5wjlqk" path="res://Scripts/Combat/LightPunch3Command.tres" id="161_4gxf6"]
 [ext_resource type="Script" uid="uid://bkklrvtapkren" path="res://Scripts/Player/StateMachine/State.gd" id="169_233ir"]
 [ext_resource type="Script" uid="uid://vq1kftbt323x" path="res://Scripts/Player/StateMachine/States/Ground/Kikoken.gd" id="195_maa41"]
+[ext_resource type="Script" uid="uid://dprlu31ukgm8l" path="res://Scripts/Components/FacingController.gd" id="199_prhga"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r8ryd"]
 size = Vector2(157, 171)
@@ -956,7 +957,7 @@ shape = SubResource("RectangleShape2D_r8ryd")
 one_way_collision = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=75413742]
-position = Vector2(-7, 9)
+position = Vector2(2, -28)
 scale = Vector2(1.6119791, 1.8772322)
 sprite_frames = SubResource("SpriteFrames_ma6wq")
 animation = &"Walk"
@@ -1112,3 +1113,9 @@ shape = SubResource("RectangleShape2D_d0u6y")
 
 [node name="Health" type="Node" parent="." unique_id=229046517]
 script = ExtResource("114_jj3b6")
+
+[node name="FacingController" type="Node" parent="." unique_id=311191531 node_paths=PackedStringArray("character", "animated_sprite", "hitboxes_root")]
+script = ExtResource("199_prhga")
+character = NodePath("..")
+animated_sprite = NodePath("../AnimatedSprite2D")
+hitboxes_root = NodePath("../Hitboxers")

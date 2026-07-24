@@ -78,4 +78,4 @@ position = Vector2(110, 437)
 disable_mode = 2
 
 [node name="Dummy" parent="." unique_id=597853256 instance=ExtResource("5_hvrgt")]
-position = Vector2(917, 425)
+position = Vector2(937, 435)
