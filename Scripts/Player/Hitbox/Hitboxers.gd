@@ -127,22 +127,13 @@ func _try_hit(area: Area2D) -> void:
 		)
 
 	if target_character == null:
-		printerr(
-			"HitBox: a área ",
-			area.get_path(),
-			" não retornou seu personagem."
-		)
 		return
 
-	# Impede dano no próprio personagem.
+	# Impede dano próprio.
 	if (
 		_owner_character != null
 		and target_character == _owner_character
 	):
-		print(
-			"HitBox ignorou a HurtBox do próprio dono: ",
-			area.get_path()
-		)
 		return
 
 	if area in _already_hit:
@@ -160,9 +151,7 @@ func _try_hit(area: Area2D) -> void:
 
 	print(
 		"ACERTO CONFIRMADO | atacante: ",
-		_owner_character.name
-			if _owner_character != null
-			else "desconhecido",
+		_owner_character.name,
 		" | alvo: ",
 		target_character.name,
 		" | dano: ",

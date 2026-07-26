@@ -1183,10 +1183,13 @@ metadata/_custom_type_script = "uid://bkklrvtapkren"
 script = ExtResource("176_ndu3r")
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
-[node name="Hurtbox" type="Area2D" parent="." unique_id=1276732752]
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1276732752 node_paths=PackedStringArray("health", "state_machine")]
 collision_layer = 2
 collision_mask = 0
+monitoring = false
 script = ExtResource("69_dnvsn")
+health = NodePath("../Health")
+state_machine = NodePath("../StateMachine")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1233750611]
 position = Vector2(16.75, 38.25)

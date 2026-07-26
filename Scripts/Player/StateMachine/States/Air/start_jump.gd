@@ -1,13 +1,20 @@
 extends State
 
-func _enter():
 
-	#print("ENTROU NO JUMPSTART")
+@export var next_state: StringName = &"Jump"
 
-	play_animation.emit(name, false)
 
-func _animation_finished():
+func _enter() -> void:
+	print(name, ": solicitando salto")
 
-	#print("JUMPSTART TERMINOU")
+	# Com move() corrigido, isso para somente o eixo X.
+	move.emit(Vector2.ZERO)
 
-	transition_to.emit("Jump")
+	# Chama jump() no CharacterBody2D.
+	jump.emit()
+
+	play_animation.emit("StartJump", false)
+
+
+func _animation_finished() -> void:
+	transition_to.emit(next_state)

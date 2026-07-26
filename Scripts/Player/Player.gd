@@ -11,20 +11,10 @@ extends CharacterBody2D
 	$Hitboxers/LightPunch
 )
 
+
 @export var speed: float = 150.0
 @export var jump_force: float = 700.0
 @export var gravity: float = 1200.0
-
-
-func _ready() -> void:
-	if health == null:
-		printerr("Player: componente Health não encontrado.")
-		return
-
-	if state_machine == null:
-		printerr("Player: StateMachine não encontrada.")
-		return
-
 
 
 func _physics_process(delta: float) -> void:
@@ -34,14 +24,32 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func jump() -> void:
-	if is_on_floor():
-		velocity.y = -jump_force
-
-
 func move(direction: Vector2) -> void:
+	# Nunca altere velocity.y aqui.
 	velocity.x = direction.x * speed
 
 
 func stop() -> void:
+	# Nunca use velocity = Vector2.ZERO.
 	velocity.x = 0.0
+
+
+func jump() -> void:
+	print(
+		name,
+		" tentou pular | chão: ",
+		is_on_floor(),
+		" | velocidade antes: ",
+		velocity
+	)
+
+	if not is_on_floor():
+		return
+
+	velocity.y = -jump_force
+
+	print(
+		name,
+		" pulou | velocidade depois: ",
+		velocity
+	)

@@ -5,7 +5,6 @@ extends CharacterBody2D
 @export var jump_force: float = 700.0
 @export var gravity: float = 1200.0
 
-
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -26,9 +25,10 @@ func stop() -> void:
 
 func jump() -> void:
 	print(
-		"Dummy.jump() chamado | no chão: ",
+		name,
+		" tentou pular | chão: ",
 		is_on_floor(),
-		" | velocidade anterior: ",
+		" | velocidade antes: ",
 		velocity
 	)
 
@@ -38,6 +38,7 @@ func jump() -> void:
 	velocity.y = -jump_force
 
 	print(
-		"Dummy iniciou salto | velocidade: ",
+		name,
+		" pulou | velocidade depois: ",
 		velocity
 	)

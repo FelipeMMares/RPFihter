@@ -209,7 +209,7 @@
 [ext_resource type="Script" uid="uid://vq1kftbt323x" path="res://Scripts/Player/StateMachine/States/Ground/Kikoken.gd" id="195_maa41"]
 [ext_resource type="Script" uid="uid://dprlu31ukgm8l" path="res://Scripts/Components/FacingController.gd" id="199_prhga"]
 [ext_resource type="Script" uid="uid://docbt7ybhit04" path="res://Scripts/Player/StateMachine/States/hurt.gd" id="205_xohad"]
-[ext_resource type="Script" uid="uid://r8ipgsiwpjk5" path="res://Scripts/Player/Hurtbox/PlayerHurtBox.gd" id="209_msvo8"]
+[ext_resource type="Script" uid="uid://yv74ok4maffr" path="res://Scripts/Combat/Hurtbox.gd" id="210_xohad"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r8ryd"]
 size = Vector2(127, 161)
@@ -1183,7 +1183,8 @@ hitboxes_root = NodePath("../Hitboxers")
 [node name="Hurtbox" type="Area2D" parent="." unique_id=330639822 node_paths=PackedStringArray("health", "state_machine")]
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("209_msvo8")
+monitoring = false
+script = ExtResource("210_xohad")
 health = NodePath("../Health")
 state_machine = NodePath("../StateMachine")
 
