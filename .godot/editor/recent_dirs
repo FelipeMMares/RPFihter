@@ -1,3 +1,15 @@
+res://assets/Elena (dummy) startJump/
+res://Scripts/Dummy/States/
+res://assets/Elena (dummy) crounch/end/
+res://assets/Elena (dummy) crounch/while/
+res://assets/Elena (dummy) crounch/entry/
+res://assets/Elena (dummy) Jump/
+res://assets/Elena (dummy) LowKick/
+res://assets/Elena (dummy) Kick/
+res://assets/Elena (dummy) HighPunch/
+res://assets/Elena (Dummy) Victory/
+res://Scripts/Player/Hurtbox/
+res://assets/Chun li Hurt/
 res://assets/Elena (Dummy) Walk/
 res://assets/Elena (dummy) lightPunch/
 res://Scripts/Dummy/
@@ -8,15 +20,3 @@ res://Scripts/Player/StateMachine/States/Ground/
 res://assets/Chun li Kikkosen pose/
 res://Scripts/Combat/
 res://assets/Chun li Kikkousen/
-res://Cenas/Player/
-res://assets/Chun li combo simples/
-res://assets/Chun li Low Kick/
-res://assets/Elena (Demmy) FallDefeated/
-res://assets/Elena (Dummy) Defeated/
-res://assets/Elena (Dummy) Victory/
-res://assets/Chun li FallDefeated/
-res://assets/Chun li Defeated/
-res://assets/Chun li victory/
-res://Scripts/Player/Hitbox/
-res://assets/Elena (dummy) Hurt/
-res://Scripts/

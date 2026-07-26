@@ -2,51 +2,95 @@ extends Node
 class_name DummyAI
 
 
+enum AIAction {
+	NONE,
+	APPROACH,
+	RETREAT,
+	WAIT,
+	CROUCH
+}
+
+
 @export_group("Referências")
 @export var state_machine: StateMachine
 @export var target: CharacterBody2D
-@export var animated_sprite: AnimatedSprite2D
-
-
-@export_group("Comportamento")
 @export var active: bool = true
-
-# Distância em que o Dummy para de andar e tenta atacar.
-@export var attack_range: float = 100.0
-
-
-@export_group("Tempo de reação")
-@export var minimum_reaction_time: float = 0.15
-@export var maximum_reaction_time: float = 0.35
-
-
-@export_group("Intervalo entre ataques")
-@export var minimum_attack_cooldown: float = 0.75
-@export var maximum_attack_cooldown: float = 1.25
-
-
-@export_group("Orientação do sprite")
-
-# Deixe true se o sprite original olha para a direita.
-@export var sprite_faces_right: bool = true
 
 
 @export_group("Estados")
 @export var idle_state: StringName = &"Idle"
 @export var walk_state: StringName = &"Walk"
-@export var attack_state: StringName = &"LightPunch"
+@export var jump_state: StringName = &"StartJump"
+@export_group("Estados de agachamento")
+@export var crouch_start_state: StringName = &"CrouchStart"
+@export var crouch_while_state: StringName = &"CrouchWhile"
+@export var crouch_end_state: StringName = &"CrouchEnd"
+
+@export_group("Duração do agachamento")
+
+# Este tempo começa somente depois que a animação
+# CrouchStart terminar e CrouchWhile começar.
+@export var minimum_crouch_duration: float = 0.40
+@export var maximum_crouch_duration: float = 1.40
+
+@export var attack_states: Array[StringName] = [
+	&"LightPunch",
+	&"HighPunch",
+	&"Kick",
+	&"LowKick"
+]
+
+
+@export_group("Distância")
+@export var attack_range: float = 25.0
+
+
+@export_group("Duração das ações")
+@export var minimum_approach_duration: float = 0.20
+@export var maximum_approach_duration: float = 0.60
+
+@export var minimum_retreat_duration: float = 0.25
+@export var maximum_retreat_duration: float = 0.70
+
+@export var minimum_wait_duration: float = 0.20
+@export var maximum_wait_duration: float = 0.80
+
+@export var minimum_decision_delay: float = 0.10
+@export var maximum_decision_delay: float = 0.30
+
+
+@export_group("Pesos quando está perto")
+@export var close_attack_weight: int = 55
+@export var close_retreat_weight: int = 20
+@export var close_jump_weight: int = 10
+@export var close_wait_weight: int = 15
+@export var close_crouch_weight: int = 15
+
+
+@export_group("Pesos quando está longe")
+@export var far_approach_weight: int = 65
+@export var far_retreat_weight: int = 5
+@export var far_jump_weight: int = 10
+@export var far_wait_weight: int = 20
+@export var far_crouch_weight: int = 10
 
 
 @onready var character: CharacterBody2D = (
 	get_parent() as CharacterBody2D
 )
 
-var _character_body_shape: CollisionShape2D
-var _target_body_shape: CollisionShape2D
-var _reaction_time_left: float = -1.0
-var _cooldown_time_left: float = 0.0
 
 var _rng := RandomNumberGenerator.new()
+
+var _current_action: int = AIAction.NONE
+var _action_time_left: float = 0.0
+var _decision_delay: float = 0.0
+
+var _character_body_shape: CollisionShape2D
+var _target_body_shape: CollisionShape2D
+
+var _crouch_hold_started: bool = false
+var _crouch_release_requested: bool = false
 
 
 func _ready() -> void:
@@ -54,78 +98,33 @@ func _ready() -> void:
 
 	if character == null:
 		printerr(
-			"DummyAI: o nó pai precisa ser um CharacterBody2D."
+			"DummyAI: o nó pai não é um CharacterBody2D."
 		)
-
 		set_physics_process(false)
 		return
 
-	if state_machine == null:
-		state_machine = character.get_node_or_null(
-			"StateMachine"
-		) as StateMachine
+	_character_body_shape = _find_body_collision(
+		character
+	)
 
-	if animated_sprite == null:
-		animated_sprite = character.get_node_or_null(
-			"AnimatedSprite2D"
-		) as AnimatedSprite2D
-
-	if state_machine == null:
-		printerr(
-			"DummyAI: StateMachine não encontrada."
+	if target != null:
+		_target_body_shape = _find_body_collision(
+			target
 		)
 
-		set_physics_process(false)
-		return
-
-	if not character.has_method(state_machine.move_method):
-		printerr(
-			"DummyAI: o Dummy não possui o método de movimento: ",
-			state_machine.move_method
-		)
-
-		set_physics_process(false)
-		return
-
-	if not state_machine.has_state(idle_state):
-		printerr(
-			"DummyAI: estado não encontrado: ",
-			idle_state
-		)
-
-	if not state_machine.has_state(walk_state):
-		printerr(
-			"DummyAI: estado não encontrado: ",
-			walk_state
-		)
-
-	if not state_machine.has_state(attack_state):
-		printerr(
-			"DummyAI: estado não encontrado: ",
-			attack_state
-		)
-
-	_character_body_shape = _find_body_collision(character)
-
-	if _character_body_shape == null:
-		printerr(
-			"DummyAI: CollisionShape2D corporal do Dummy não encontrada."
-		)
 
 func setup(new_target: CharacterBody2D) -> void:
 	target = new_target
 
-	if target != null:
-		_target_body_shape = _find_body_collision(target)
+	if target == null:
+		printerr("DummyAI: alvo recebido é nulo.")
+		return
 
-	if _target_body_shape == null:
-		printerr(
-			"DummyAI: CollisionShape2D corporal do Player não encontrada."
-		)
+	_target_body_shape = _find_body_collision(target)
 
 	print(
-		"DummyAI configurada. Alvo: ",
-		target.name if target != null else "nulo"
+		"DummyAI configurada | alvo: ",
+		target.name
 	)
 
 
@@ -143,17 +142,24 @@ func _physics_process(delta: float) -> void:
 	if state_machine == null:
 		return
 
-	_cooldown_time_left = maxf(
-		_cooldown_time_left - delta,
-		0.0
-	)
+	if _decision_delay > 0.0:
+		_decision_delay = maxf(
+			_decision_delay - delta,
+			0.0
+		)
 
 	var current_state: StringName = (
 		state_machine.get_current_state_name()
 	)
 
-	# Durante ataque, dano, derrota e outros estados,
-	# a IA não pode tomar uma nova decisão.
+	# O agachamento possui três fases e precisa continuar
+	# sendo processado mesmo fora de Idle e Walk.
+	if _current_action == AIAction.CROUCH:
+		if _process_crouch_action(delta, current_state):
+			return
+
+	# Durante ataques, Hurt, pulo e outras animações,
+	# não toma uma nova decisão.
 	if (
 		current_state != idle_state
 		and current_state != walk_state
@@ -161,169 +167,314 @@ func _physics_process(delta: float) -> void:
 		_stop_character()
 		return
 
+	if _action_time_left > 0.0:
+		_action_time_left -= delta
+		_process_current_action()
+
+		if _action_time_left <= 0.0:
+			_finish_current_action()
+
+		return
+
+	if _decision_delay > 0.0:
+		_ensure_idle()
+		_stop_character()
+		return
+
+	_choose_next_action()
+
+
+func _choose_next_action() -> void:
+	var distance: float = (
+		_get_horizontal_attack_distance()
+	)
+
+	if distance <= attack_range:
+		_choose_close_action()
+	else:
+		_choose_far_action()
+
+
+func _choose_close_action() -> void:
+	var weights: Array[int] = [
+		close_attack_weight,
+		close_retreat_weight,
+		close_jump_weight,
+		close_crouch_weight,
+		close_wait_weight
+	]
+
+	var selected_action: int = _weighted_index(weights)
+
+	match selected_action:
+		0:
+			_perform_random_attack()
+
+		1:
+			_start_retreat()
+
+		2:
+			_perform_jump()
+
+		3:
+			_start_crouch()
+
+		4:
+			_start_wait()
+
+
+func _choose_far_action() -> void:
+	var weights: Array[int] = [
+		far_approach_weight,
+		far_retreat_weight,
+		far_jump_weight,
+		far_crouch_weight,
+		far_wait_weight
+	]
+
+	var selected_action: int = _weighted_index(weights)
+
+	match selected_action:
+		0:
+			_start_approach()
+
+		1:
+			_start_retreat()
+
+		2:
+			_perform_jump()
+
+		3:
+			_start_crouch()
+
+		4:
+			_start_wait()
+
+
+func _weighted_index(weights: Array[int]) -> int:
+	var total_weight: int = 0
+
+	for weight in weights:
+		total_weight += maxi(weight, 0)
+
+	if total_weight <= 0:
+		return weights.size() - 1
+
+	var roll: int = _rng.randi_range(
+		1,
+		total_weight
+	)
+
+	var accumulated_weight: int = 0
+
+	for index in range(weights.size()):
+		accumulated_weight += maxi(
+			weights[index],
+			0
+		)
+
+		if roll <= accumulated_weight:
+			return index
+
+	return weights.size() - 1
+
+
+func _start_approach() -> void:
+	_current_action = AIAction.APPROACH
+
+	_action_time_left = _rng.randf_range(
+		minimum_approach_duration,
+		maximum_approach_duration
+	)
+
+	print(
+		"DummyAI decidiu avançar por ",
+		_action_time_left,
+		" segundos."
+	)
+
+
+func _start_retreat() -> void:
+	_current_action = AIAction.RETREAT
+
+	_action_time_left = _rng.randf_range(
+		minimum_retreat_duration,
+		maximum_retreat_duration
+	)
+
+	print(
+		"DummyAI decidiu recuar por ",
+		_action_time_left,
+		" segundos."
+	)
+
+
+func _start_wait() -> void:
+	_current_action = AIAction.WAIT
+
+	_action_time_left = _rng.randf_range(
+		minimum_wait_duration,
+		maximum_wait_duration
+	)
+
+	_ensure_idle()
+	_stop_character()
+
+	print(
+		"DummyAI decidiu esperar por ",
+		_action_time_left,
+		" segundos."
+	)
+
+
+func _process_current_action() -> void:
 	var horizontal_difference: float = (
 		target.global_position.x
 		- character.global_position.x
 	)
 
-	var attack_distance: float = (
-		_get_horizontal_attack_distance()
-	)
+	match _current_action:
+		AIAction.APPROACH:
+			if (
+				_get_horizontal_attack_distance()
+				<= attack_range
+			):
+				_action_time_left = 0.0
+				return
 
-	#_face_target(horizontal_difference)
+			_ensure_walk()
 
-	# A IA já decidiu atacar e está aguardando
-	# o tempo de reação.
-	if _reaction_time_left >= 0.0:
-		_stop_character()
+			_move_character(
+				Vector2(
+					signf(horizontal_difference),
+					0.0
+				)
+			)
 
-		_reaction_time_left -= delta
+		AIAction.RETREAT:
+			_ensure_walk()
 
-		# O jogador saiu do alcance durante a espera.
-		if attack_distance > attack_range:
-			_reaction_time_left = -1.0
-			return
+			_move_character(
+				Vector2(
+					-signf(horizontal_difference),
+					0.0
+				)
+			)
 
-		if _reaction_time_left <= 0.0:
-			_reaction_time_left = -1.0
-			_perform_attack()
+		AIAction.WAIT:
+			_ensure_idle()
+			_stop_character()
 
-		return
 
-	# Fora do alcance: aproxima-se do jogador.
-	if attack_distance > attack_range:
-		_move_toward_target(horizontal_difference)
-		return
+func _finish_current_action() -> void:
+	_current_action = AIAction.NONE
+	_action_time_left = 0.0
 
-	# Dentro do alcance: para de andar.
 	_stop_character()
+	_ensure_idle()
 
-	if current_state == walk_state:
-		state_machine.force_transition(idle_state)
-
-	# Ainda está no intervalo entre ataques.
-	if _cooldown_time_left > 0.0:
-		return
-
-	_schedule_attack()
-
-
-func _move_toward_target(
-	horizontal_difference: float
-) -> void:
-	var direction_x: float = signf(
-		horizontal_difference
-	)
-
-	if direction_x == 0.0:
-		_stop_character()
-		return
-
-	var current_state: StringName = (
-		state_machine.get_current_state_name()
-	)
-
-	if current_state != walk_state:
-		state_machine.force_transition(walk_state)
-
-	_move_character(
-		Vector2(direction_x, 0.0)
+	_decision_delay = _rng.randf_range(
+		minimum_decision_delay,
+		maximum_decision_delay
 	)
 
 
-func _stop_character() -> void:
-	if character == null:
+func _perform_random_attack() -> void:
+	var valid_attacks: Array[StringName] = []
+
+	for attack_state in attack_states:
+		if state_machine.has_state(attack_state):
+			valid_attacks.append(attack_state)
+		else:
+			printerr(
+				"DummyAI: estado de ataque não encontrado: ",
+				attack_state
+			)
+
+	if valid_attacks.is_empty():
+		_start_wait()
 		return
 
-	if state_machine == null:
-		return
-
-	_move_character(Vector2.ZERO)
-
-
-func _move_character(direction: Vector2) -> void:
-	if state_machine == null:
-		return
-
-	state_machine.request_move(direction)
-
-func _schedule_attack() -> void:
-	if _reaction_time_left >= 0.0:
-		return
-
-	_reaction_time_left = _rng.randf_range(
-		minimum_reaction_time,
-		maximum_reaction_time
+	var selected_index: int = _rng.randi_range(
+		0,
+		valid_attacks.size() - 1
 	)
 
-	print(
-		"DummyAI: ataque preparado em ",
-		_reaction_time_left,
-		" segundos."
+	var selected_attack: StringName = (
+		valid_attacks[selected_index]
 	)
-
-
-func _perform_attack() -> void:
-	if target == null:
-		return
-
-	var attack_distance: float = (
-		_get_horizontal_attack_distance()
-	)
-
-	if attack_distance > attack_range:
-		return
-
-	if (
-		state_machine.get_current_state_name()
-		!= idle_state
-	):
-		return
-
-	if not state_machine.has_state(attack_state):
-		printerr(
-			"DummyAI: ataque não encontrado: ",
-			attack_state
-		)
-		return
 
 	_stop_character()
 
 	print(
-		"DummyAI: executando ",
-		attack_state,
-		" | distância entre corpos: ",
-		attack_distance
+		"DummyAI escolheu o ataque: ",
+		selected_attack
 	)
 
 	state_machine.force_transition(
-		attack_state
+		selected_attack
 	)
 
-	_cooldown_time_left = _rng.randf_range(
-		minimum_attack_cooldown,
-		maximum_attack_cooldown
+	_decision_delay = _rng.randf_range(
+		minimum_decision_delay,
+		maximum_decision_delay
 	)
 
 
-func _face_target(
-	horizontal_difference: float
-) -> void:
+func _perform_jump() -> void:
+	_stop_character()
 
-	if animated_sprite == null:
+	if not state_machine.has_state(jump_state):
+		printerr(
+			"DummyAI: estado de pulo não encontrado: ",
+			jump_state
+		)
+
+		_start_wait()
 		return
 
-	if horizontal_difference == 0.0:
-		return
-
-	var target_is_left: bool = (
-		horizontal_difference < 0.0
+	print(
+		"DummyAI decidiu pular | estado: ",
+		jump_state
 	)
 
-	if sprite_faces_right:
-		animated_sprite.flip_h = target_is_left
-	else:
-		animated_sprite.flip_h = not target_is_left
+	state_machine.force_transition(
+		jump_state
+	)
+
+	_decision_delay = _rng.randf_range(
+		minimum_decision_delay,
+		maximum_decision_delay
+	)
+
+
+func _move_character(direction: Vector2) -> void:
+	state_machine.request_move(direction)
+
+
+func _stop_character() -> void:
+	state_machine.request_move(Vector2.ZERO)
+
+
+func _ensure_walk() -> void:
+	if (
+		state_machine.get_current_state_name()
+		!= walk_state
+	):
+		state_machine.force_transition(
+			walk_state
+		)
+
+
+func _ensure_idle() -> void:
+	if (
+		state_machine.get_current_state_name()
+		== walk_state
+	):
+		state_machine.force_transition(
+			idle_state
+		)
+
 
 func _find_body_collision(
 	body: CharacterBody2D
@@ -331,13 +482,41 @@ func _find_body_collision(
 	if body == null:
 		return null
 
-	# Procura somente nos filhos diretos do CharacterBody2D.
-	# Isso evita pegar a forma da HurtBox.
 	for child in body.get_children():
 		if child is CollisionShape2D:
 			return child as CollisionShape2D
 
 	return null
+
+
+func _get_horizontal_attack_distance() -> float:
+	if character == null or target == null:
+		return INF
+
+	var center_distance: float = absf(
+		target.global_position.x
+		- character.global_position.x
+	)
+
+	var character_half_width: float = (
+		_get_shape_half_width(
+			_character_body_shape
+		)
+	)
+
+	var target_half_width: float = (
+		_get_shape_half_width(
+			_target_body_shape
+		)
+	)
+
+	return maxf(
+		center_distance
+		- character_half_width
+		- target_half_width,
+		0.0
+	)
+
 
 func _get_shape_half_width(
 	collision_shape: CollisionShape2D
@@ -375,27 +554,140 @@ func _get_shape_half_width(
 
 	return 0.0
 
-func _get_horizontal_attack_distance() -> float:
-	if character == null or target == null:
-		return INF
+func _start_crouch() -> void:
+	if not state_machine.has_state(crouch_start_state):
+		printerr(
+			"DummyAI: estado não encontrado: ",
+			crouch_start_state
+		)
+		_start_wait()
+		return
 
-	var center_distance: float = absf(
-		target.global_position.x
-		- character.global_position.x
+	if not state_machine.has_state(crouch_while_state):
+		printerr(
+			"DummyAI: estado não encontrado: ",
+			crouch_while_state
+		)
+		_start_wait()
+		return
+
+	if not state_machine.has_state(crouch_end_state):
+		printerr(
+			"DummyAI: estado não encontrado: ",
+			crouch_end_state
+		)
+		_start_wait()
+		return
+
+	_current_action = AIAction.CROUCH
+
+	# Representa o tempo em que o "botão" ficará pressionado
+	# durante CrouchWhile.
+	_action_time_left = _rng.randf_range(
+		minimum_crouch_duration,
+		maximum_crouch_duration
 	)
 
-	var character_half_width := _get_shape_half_width(
-		_character_body_shape
+	_crouch_hold_started = false
+	_crouch_release_requested = false
+
+	_stop_character()
+
+	print(
+		"DummyAI decidiu agachar por ",
+		_action_time_left,
+		" segundos."
 	)
 
-	var target_half_width := _get_shape_half_width(
-		_target_body_shape
+	# Equivalente ao momento em que o botão é pressionado.
+	state_machine.force_transition(crouch_start_state)
+	
+func _process_crouch_action(
+	delta: float,
+	current_state: StringName
+) -> bool:
+	# Fase de pressionar o botão.
+	if current_state == crouch_start_state:
+		_stop_character()
+		return true
+
+	# Fase em que o botão permanece pressionado.
+	if current_state == crouch_while_state:
+		_stop_character()
+
+		if not _crouch_hold_started:
+			_crouch_hold_started = true
+
+			print(
+				"DummyAI começou a manter o agachamento."
+			)
+
+		if not _crouch_release_requested:
+			_action_time_left = maxf(
+				_action_time_left - delta,
+				0.0
+			)
+
+			if _action_time_left <= 0.0:
+				_release_crouch()
+
+		return true
+
+	# Fase de soltar o botão.
+	if current_state == crouch_end_state:
+		_stop_character()
+		return true
+
+	# CrouchEnd terminou e retornou ao Idle.
+	if (
+		_crouch_release_requested
+		and current_state == idle_state
+	):
+		_finish_crouch_action()
+		return false
+
+	# O agachamento foi interrompido por Hurt, derrota
+	# ou outra transição externa.
+	_cancel_crouch_action()
+	return false
+
+func _release_crouch() -> void:
+	if _crouch_release_requested:
+		return
+
+	_crouch_release_requested = true
+	_stop_character()
+
+	print(
+		"DummyAI decidiu soltar o agachamento."
 	)
 
-	# Distância real entre as bordas dos corpos.
-	return maxf(
-		center_distance
-		- character_half_width
-		- target_half_width,
-		0.0
+	# Equivalente ao botão deixando de ser pressionado.
+	state_machine.force_transition(crouch_end_state)
+
+func _finish_crouch_action() -> void:
+	print("DummyAI terminou o agachamento.")
+
+	_current_action = AIAction.NONE
+	_action_time_left = 0.0
+
+	_crouch_hold_started = false
+	_crouch_release_requested = false
+
+	_decision_delay = _rng.randf_range(
+		minimum_decision_delay,
+		maximum_decision_delay
 	)
+
+
+func _cancel_crouch_action() -> void:
+	print(
+		"DummyAI: agachamento interrompido no estado ",
+		state_machine.get_current_state_name()
+	)
+
+	_current_action = AIAction.NONE
+	_action_time_left = 0.0
+
+	_crouch_hold_started = false
+	_crouch_release_requested = false

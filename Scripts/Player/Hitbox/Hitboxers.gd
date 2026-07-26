@@ -1,74 +1,185 @@
 extends Area2D
 class_name HitBox
 
+
 signal hit_confirmed(target: Area2D)
 
 @export var hit_data: HitData
 
-@onready var collision_shape: CollisionShape2D = $HitColision
-
+var _owner_character: CharacterBody2D
 var _already_hit: Array[Area2D] = []
+var _enabled: bool = false
+
 
 func _ready() -> void:
-	monitoring = false
-	monitorable = true
+	_owner_character = _find_owner_character()
 
+	# A HitBox não ocupa nenhuma camada.
 	collision_layer = 0
-	collision_mask = 2
 
-	collision_shape.disabled = true
+	# Detecta exclusivamente a camada 2.
+	collision_mask = 0
+	set_collision_mask_value(2, true)
 
-	area_entered.connect(_on_area_entered)
+	monitoring = false
+	monitorable = false
 
-	print("HitBox pronta: ", name, " hit_data: ", hit_data)
+	# Deixe as formas permanentemente habilitadas.
+	# Quem controla o golpe é a propriedade monitoring.
+	for child in get_children():
+		if child is CollisionShape2D:
+			var collision_shape := child as CollisionShape2D
+
+			if collision_shape.shape == null:
+				printerr(
+					"HitBox ",
+					get_path(),
+					": CollisionShape2D sem Shape."
+				)
+			else:
+				collision_shape.disabled = false
+
+	if not area_entered.is_connected(_on_area_entered):
+		area_entered.connect(_on_area_entered)
+
+	print(
+		"HitBox pronta: ",
+		get_path(),
+		" | dono: ",
+		_owner_character.name
+			if _owner_character != null
+			else "não encontrado",
+		" | mask: ",
+		collision_mask
+	)
+
 
 func enable() -> void:
-	print("HitBox ligada: ", name)
-
+	_enabled = true
 	_already_hit.clear()
 
-	collision_shape.set_deferred("disabled", false)
 	set_deferred("monitoring", true)
 
-func disable() -> void:
-	print("HitBox desligada: ", name)
+	print(
+		"HitBox ativada: ",
+		get_path()
+	)
 
+	# Verifica também as áreas que já estavam sobrepostas
+	# quando a HitBox foi ligada.
+	call_deferred("_scan_current_overlaps")
+
+
+func disable() -> void:
+	_enabled = false
 	set_deferred("monitoring", false)
-	collision_shape.set_deferred("disabled", true)
+
+
+func _scan_current_overlaps() -> void:
+	# Aguarda o servidor de física atualizar as colisões.
+	await get_tree().physics_frame
+
+	if not _enabled:
+		return
+
+	var overlapping_areas: Array[Area2D] = (
+		get_overlapping_areas()
+	)
+
+	print(
+		"HitBox ",
+		get_path(),
+		" encontrou ",
+		overlapping_areas.size(),
+		" áreas sobrepostas."
+	)
+
+	for area in overlapping_areas:
+		print("Área sobreposta: ", area.get_path())
+		_try_hit(area)
+
 
 func _on_area_entered(area: Area2D) -> void:
-	print("Área detectada: ", area.name)
+	if not _enabled:
+		return
 
-	if not area is HurtBox:
+	print(
+		"area_entered recebido: ",
+		area.get_path()
+	)
+
+	_try_hit(area)
+
+
+func _try_hit(area: Area2D) -> void:
+	if area == null:
+		return
+
+	if not area.has_method("receive_hit"):
+		return
+
+	var target_character: CharacterBody2D = null
+
+	if area.has_method("get_character"):
+		target_character = (
+			area.call("get_character")
+			as CharacterBody2D
+		)
+
+	if target_character == null:
+		printerr(
+			"HitBox: a área ",
+			area.get_path(),
+			" não retornou seu personagem."
+		)
+		return
+
+	# Impede dano no próprio personagem.
+	if (
+		_owner_character != null
+		and target_character == _owner_character
+	):
+		print(
+			"HitBox ignorou a HurtBox do próprio dono: ",
+			area.get_path()
+		)
 		return
 
 	if area in _already_hit:
 		return
 
+	if hit_data == null:
+		printerr(
+			"HitBox ",
+			get_path(),
+			": HitData não configurado."
+		)
+		return
+
 	_already_hit.append(area)
 
-	print("HitBox acertou HurtBox")
-	area.receive_hit(hit_data)
+	print(
+		"ACERTO CONFIRMADO | atacante: ",
+		_owner_character.name
+			if _owner_character != null
+			else "desconhecido",
+		" | alvo: ",
+		target_character.name,
+		" | dano: ",
+		hit_data.damage
+	)
 
-	# Avisa que o ataque acertou.
+	area.call("receive_hit", hit_data)
 	hit_confirmed.emit(area)
 
-func begin_attack(new_hit_data: HitData) -> void:
-	hit_data = new_hit_data
 
-	# Limpa os personagens já atingidos na ativação anterior.
-	_already_hit.clear()
+func _find_owner_character() -> CharacterBody2D:
+	var current_node: Node = get_parent()
 
-	set_deferred("monitoring", true)
+	while current_node != null:
+		if current_node is CharacterBody2D:
+			return current_node as CharacterBody2D
 
-	for child in get_children():
-		if child is CollisionShape2D:
-			child.set_deferred("disabled", false)
+		current_node = current_node.get_parent()
 
-
-func end_attack() -> void:
-	set_deferred("monitoring", false)
-
-	for child in get_children():
-		if child is CollisionShape2D:
-			child.set_deferred("disabled", true)
+	return null

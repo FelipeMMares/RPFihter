@@ -1,37 +1,37 @@
 extends State
 
-var left_ground := false
 
-func _enter():
+@export var landing_state: StringName = &"Idle"
 
-	left_ground = false
 
-	# Aplica o impulso
-	jump.emit()
+func _enter() -> void:
+	play_animation.emit("Jump", false)
 
-	# Toca a animação de pulo
-	play_animation.emit(name, false)
 
-func _physics_process(delta):
+func _physics_process(_delta: float) -> void:
+	var character := get_parent().get_parent() as CharacterBody2D
 
-	check_special_move()
+	if character == null:
+		return
 
-	var player = get_parent().get_parent()
+	# Somente o Player lê teclado/controle durante o pulo.
+	if player_controls != null:
+		_process_player_air_movement()
 
-	# Movimento horizontal no ar
-	if player_controls.is_walking():
+	# O Dummy não possui player_controls.
+	# Ele simplesmente mantém o movimento já aplicado pela IA.
 
-		var direction = Input.get_axis(
-			player_controls.left,
-			player_controls.right
-		)
+	if character.is_on_floor() and character.velocity.y >= 0.0:
+		transition_to.emit(landing_state)
 
-		move.emit(Vector2(direction,0))
 
-	# Detecta quando realmente saiu do chão
-	if !player.is_on_floor():
-		left_ground = true
+func _process_player_air_movement() -> void:
+	if not player_controls.is_walking():
+		return
 
-	# Quando pousar, volta para Idle
-	if left_ground and player.is_on_floor():
-		transition_to.emit("Idle")
+	var direction: float = Input.get_axis(
+		player_controls.left,
+		player_controls.right
+	)
+
+	move.emit(Vector2(direction, 0.0))

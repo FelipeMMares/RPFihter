@@ -74,8 +74,8 @@ position = Vector2(989, 306)
 [node name="HUD" parent="." unique_id=434548975 instance=ExtResource("3_hvrgt")]
 
 [node name="Player1" parent="." unique_id=1120152477 instance=ExtResource("4_oi066")]
-position = Vector2(110, 437)
+position = Vector2(126, 456)
 disable_mode = 2
 
 [node name="Dummy" parent="." unique_id=597853256 instance=ExtResource("5_hvrgt")]
-position = Vector2(937, 435)
+position = Vector2(919, 433)

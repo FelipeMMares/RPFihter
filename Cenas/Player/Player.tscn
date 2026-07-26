@@ -84,13 +84,22 @@
 [ext_resource type="Texture2D" uid="uid://dngomx4i3o0ae" path="res://assets/Chun li jump/SF3_3rd_Chunli_23216-removebg-preview.png" id="32_m7th6"]
 [ext_resource type="Texture2D" uid="uid://mfd42ei0cywt" path="res://assets/Chun li jump/SF3_3rd_Chunli_23215-removebg-preview.png" id="33_u26fn"]
 [ext_resource type="Texture2D" uid="uid://dd18c8n3qjga7" path="res://assets/Chun li jump/SF3_3rd_Chunli_23214-removebg-preview.png" id="34_ba4cv"]
+[ext_resource type="Texture2D" uid="uid://dlthx632xti0p" path="res://assets/Chun li Hurt/SF3_3rd_Chunli_23440-removebg-preview.png" id="34_msvo8"]
 [ext_resource type="Texture2D" uid="uid://c1dxjxbtx2hqn" path="res://assets/Chun li jump/SF3_3rd_Chunli_23213-removebg-preview.png" id="35_fbagf"]
+[ext_resource type="Texture2D" uid="uid://0f0guxxeafd3" path="res://assets/Chun li Hurt/SF3_3rd_Chunli_23441-removebg-preview.png" id="35_xohad"]
+[ext_resource type="Texture2D" uid="uid://bqripnpjrr1dq" path="res://assets/Chun li Hurt/SF3_3rd_Chunli_23442-removebg-preview.png" id="36_4m0yg"]
 [ext_resource type="Texture2D" uid="uid://0rormykk2ojb" path="res://assets/Chun li jump/SF3_3rd_Chunli_23212-removebg-preview.png" id="36_geuhb"]
+[ext_resource type="Texture2D" uid="uid://blflyrlba5w3y" path="res://assets/Chun li Hurt/SF3_3rd_Chunli_23443-removebg-preview.png" id="37_6u6l6"]
 [ext_resource type="Texture2D" uid="uid://d24s3hhsw2mwx" path="res://assets/Chun li jump/SF3_3rd_Chunli_23211-removebg-preview.png" id="37_cpe6a"]
+[ext_resource type="Texture2D" uid="uid://dwa27ix7tu8ei" path="res://assets/Chun li Hurt/SF3_3rd_Chunli_23444-removebg-preview.png" id="38_8cwyj"]
 [ext_resource type="Texture2D" uid="uid://mr872ht3blni" path="res://assets/Chun li jump/SF3_3rd_Chunli_23210-removebg-preview.png" id="38_41gv1"]
+[ext_resource type="Texture2D" uid="uid://b8baawta1u3bv" path="res://assets/Chun li Hurt/SF3_3rd_Chunli_23445-removebg-preview.png" id="39_livxd"]
 [ext_resource type="Texture2D" uid="uid://n1ct7kyw2bhx" path="res://assets/Chun li jump/SF3_3rd_Chunli_23209-removebg-preview.png" id="39_ukkjq"]
+[ext_resource type="Texture2D" uid="uid://cy6jlkmfwnytd" path="res://assets/Chun li Hurt/SF3_3rd_Chunli_23446-removebg-preview.png" id="40_tc0yc"]
 [ext_resource type="Texture2D" uid="uid://jicxge28dhbv" path="res://assets/Chun li jump/SF3_3rd_Chunli_23208-removebg-preview.png" id="40_wjtr3"]
+[ext_resource type="Texture2D" uid="uid://cl32jjqou6i46" path="res://assets/Chun li Hurt/SF3_3rd_Chunli_23447-removebg-preview.png" id="41_nbm0v"]
 [ext_resource type="Script" uid="uid://byslak2i1ykxe" path="res://Scripts/Player/PlayerControls/PlayerControls.gd" id="42_7t34q"]
+[ext_resource type="Texture2D" uid="uid://bpxodv0i7lfuo" path="res://assets/Chun li Hurt/SF3_3rd_Chunli_23448-removebg-preview.png" id="42_vy1b1"]
 [ext_resource type="Script" uid="uid://brg7ixgqu5kif" path="res://Scripts/Player/CommandParser/CommandSequence.gd" id="43_xf2w6"]
 [ext_resource type="Script" uid="uid://dbu8ihntj2ffr" path="res://Scripts/Player/CommandParser/commandParse.gd" id="47_muxrf"]
 [ext_resource type="Texture2D" uid="uid://ckvjjv4h7x4i1" path="res://assets/Chun li Kick/SF3_3rd_Chunli_24016-removebg-preview.png" id="52_lee77"]
@@ -199,9 +208,11 @@
 [ext_resource type="Script" uid="uid://bkklrvtapkren" path="res://Scripts/Player/StateMachine/State.gd" id="169_233ir"]
 [ext_resource type="Script" uid="uid://vq1kftbt323x" path="res://Scripts/Player/StateMachine/States/Ground/Kikoken.gd" id="195_maa41"]
 [ext_resource type="Script" uid="uid://dprlu31ukgm8l" path="res://Scripts/Components/FacingController.gd" id="199_prhga"]
+[ext_resource type="Script" uid="uid://docbt7ybhit04" path="res://Scripts/Player/StateMachine/States/hurt.gd" id="205_xohad"]
+[ext_resource type="Script" uid="uid://r8ipgsiwpjk5" path="res://Scripts/Player/Hurtbox/PlayerHurtBox.gd" id="209_msvo8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r8ryd"]
-size = Vector2(157, 171)
+size = Vector2(127, 161)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ma6wq"]
 animations = [{
@@ -319,6 +330,38 @@ animations = [{
 }],
 "loop": 0,
 "name": &"HighPunch",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34_msvo8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_xohad")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_4m0yg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_6u6l6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_8cwyj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_livxd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_tc0yc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_nbm0v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_vy1b1")
+}],
+"loop": 0,
+"name": &"Hurt",
 "speed": 12.0
 }, {
 "frames": [{
@@ -947,20 +990,25 @@ metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d0u6y"]
 size = Vector2(58.4375, 117.625)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xt60r"]
+size = Vector2(150.25, 206)
+
 [node name="Player" type="CharacterBody2D" unique_id=1120152477]
 position = Vector2(-47, 149)
 script = ExtResource("1_htvwm")
 
 [node name="Colisao" type="CollisionShape2D" parent="." unique_id=1334167780]
-position = Vector2(-4.5, 32.5)
+position = Vector2(-8.5, 7.5)
 shape = SubResource("RectangleShape2D_r8ryd")
 one_way_collision = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=75413742]
 position = Vector2(2, -28)
-scale = Vector2(1.6119791, 1.8772322)
+scale = Vector2(1.632, 1.9)
 sprite_frames = SubResource("SpriteFrames_ma6wq")
-animation = &"Walk"
+animation = &"Hurt"
+frame = 8
+frame_progress = 1.0
 
 [node name="KikokenSpawn" type="Marker2D" parent="." unique_id=1453849635]
 position = Vector2(99, 4)
@@ -1056,14 +1104,16 @@ metadata/_custom_type_script = "uid://bkklrvtapkren"
 script = ExtResource("195_maa41")
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
+[node name="Hurt" type="Node" parent="StateMachine" unique_id=1552523557]
+script = ExtResource("205_xohad")
+metadata/_custom_type_script = "uid://bkklrvtapkren"
+
 [node name="Hitboxers" type="Node2D" parent="." unique_id=997661732]
 visible = false
 
 [node name="LightPunch" type="Area2D" parent="Hitboxers" unique_id=143547538]
 collision_layer = 0
-collision_mask = 3
-monitoring = false
-monitorable = false
+collision_mask = 2
 script = ExtResource("112_lmw0p")
 hit_data = SubResource("Resource_lmw0p")
 
@@ -1072,6 +1122,8 @@ position = Vector2(109, -10)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="LightPunch2" type="Area2D" parent="Hitboxers" unique_id=926362734]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("112_lmw0p")
 hit_data = SubResource("Resource_57qmd")
 
@@ -1080,6 +1132,8 @@ position = Vector2(58, -29.5)
 shape = SubResource("RectangleShape2D_3gngh")
 
 [node name="LightPunch3" type="Area2D" parent="Hitboxers" unique_id=450667432]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("112_lmw0p")
 hit_data = SubResource("Resource_d0u6y")
 
@@ -1088,6 +1142,8 @@ position = Vector2(58.25, -29)
 shape = SubResource("RectangleShape2D_fcnqv")
 
 [node name="HighPunch" type="Area2D" parent="Hitboxers" unique_id=957797969]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("112_lmw0p")
 hit_data = SubResource("Resource_jj3b6")
 
@@ -1096,6 +1152,8 @@ position = Vector2(69.75, -6)
 shape = SubResource("RectangleShape2D_yf5fn")
 
 [node name="Kick" type="Area2D" parent="Hitboxers" unique_id=985651623]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("112_lmw0p")
 hit_data = SubResource("Resource_w3xrr")
 
@@ -1104,6 +1162,8 @@ position = Vector2(97.75, -47)
 shape = SubResource("RectangleShape2D_57qmd")
 
 [node name="LowKick" type="Area2D" parent="Hitboxers" unique_id=1254227919]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("112_lmw0p")
 hit_data = SubResource("Resource_80p4o")
 
@@ -1119,3 +1179,14 @@ script = ExtResource("199_prhga")
 character = NodePath("..")
 animated_sprite = NodePath("../AnimatedSprite2D")
 hitboxes_root = NodePath("../Hitboxers")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=330639822 node_paths=PackedStringArray("health", "state_machine")]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("209_msvo8")
+health = NodePath("../Health")
+state_machine = NodePath("../StateMachine")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=985798301]
+position = Vector2(-6.125, 13)
+shape = SubResource("RectangleShape2D_xt60r")

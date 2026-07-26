@@ -1,7 +1,13 @@
-res://cena_da_luta.tscn
 res://Cenas/Player/Player.tscn
-res://Scripts/Player/Player.gd
+res://Scripts/Player/StateMachine/AttackState.gd
 res://Cenas/Dummy/dummy.tscn
+res://Scripts/Player/Hitbox/Hitboxers.gd
+res://Scripts/Player/Hurtbox/PlayerHurtBox.gd
+res://Scripts/Player/Player.gd
+res://cena_da_luta.tscn
 res://Scripts/Dummy/DummyAI.gd
-res://Scripts/Components/FacingController.gd
-res://Scripts/Fight/FightManager.gd
+res://Scripts/Dummy/States/CrouchStart.gd
+res://Scripts/Dummy/States/CrouchWhile.gd
+res://Scripts/Dummy/States/CrouchEnd.gd
+res://Scripts/Player/StateMachine/States/Air/jump.gd
+res://Cenas/Dummy/Dummy.gd

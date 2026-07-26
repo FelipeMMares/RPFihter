@@ -56,7 +56,6 @@ var state_active: bool = false
 
 
 func _enter() -> void:
-	
 	print("")
 	print("================================")
 	print("ENTROU NO LIGHTPUNCH.GD")
@@ -71,20 +70,7 @@ func _enter() -> void:
 
 	_apply_hitbox_frames(0)
 
-	super._enter()
-	
-	state_active = true
-
-	combo_stage = 0
-	second_attack_buffered = false
-	third_attack_buffered = false
-
-	# Configura os frames ativos do primeiro soco.
-	_apply_hitbox_frames(0)
-
-	# O AttackState:
-	# - desativa a hitbox;
-	# - toca a animação com o nome do nó, LightPunch.
+	# Apenas uma vez.
 	super._enter()
 
 	print("Combo: iniciou LightPunch")

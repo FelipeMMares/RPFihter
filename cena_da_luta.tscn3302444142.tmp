@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://qbsfhc72tmiq"]
+
+[ext_resource type="Script" uid="uid://cda2qv106s50p" path="res://Scripts/Fight/FightManager.gd" id="1_oi066"]
+[ext_resource type="Texture2D" uid="uid://b4iea0uj2fjg8" path="res://assets/394e7524-426c-4abd-beb3-0546d7a8ee5d_scaled.jpg" id="2_oi066"]
+[ext_resource type="Texture2D" uid="uid://c3ggcoutar7gl" path="res://icon.svg" id="2_umdng"]
+[ext_resource type="PackedScene" uid="uid://cxwujt80wiqyw" path="res://Cenas/HUD/HUD.tscn" id="3_hvrgt"]
+[ext_resource type="PackedScene" uid="uid://cv466kjlqkxim" path="res://Cenas/Cenarios/Torch.tscn" id="4_6p52y"]
+[ext_resource type="PackedScene" uid="uid://cifi2eaq8od35" path="res://Cenas/Player/Player.tscn" id="4_oi066"]
+[ext_resource type="PackedScene" uid="uid://c3j6jqqi848lx" path="res://Cenas/Dummy/dummy.tscn" id="5_hvrgt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e813m"]
+size = Vector2(1585.959, 128.5924)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(121, 556.5)
+
+[node name="CenaDaLuta" type="Node2D" unique_id=111988353]
+script = ExtResource("1_oi066")
+
+[node name="Stage" type="Node2D" parent="." unique_id=1094057888]
+
+[node name="BackgroundAnimated" type="Node2D" parent="Stage" unique_id=1033208626]
+z_index = -100
+
+[node name="BackgroundBase" type="Sprite2D" parent="Stage" unique_id=1922729996]
+z_index = -80
+position = Vector2(559.5, 320.25)
+scale = Vector2(1.0608332, 0.9696297)
+texture = ExtResource("2_oi066")
+
+[node name="Chão" type="StaticBody2D" parent="Stage" unique_id=43905329]
+z_index = -10
+position = Vector2(693, 315)
+scale = Vector2(0.9453125, 0.8769531)
+collision_mask = 0
+
+[node name="textura" type="Sprite2D" parent="Stage/Chão" unique_id=821571757]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-21.15704, 348.93546)
+scale = Vector2(12.454545, 1.1403118)
+texture = ExtResource("2_umdng")
+
+[node name="colisão" type="CollisionShape2D" parent="Stage/Chão" unique_id=655591213]
+position = Vector2(-20.09916, 342.09354)
+scale = Vector2(0.9999998, 1)
+shape = SubResource("RectangleShape2D_e813m")
+
+[node name="StageBounds" type="StaticBody2D" parent="Stage" unique_id=589947994]
+collision_mask = 0
+
+[node name="LeftWall" type="CollisionShape2D" parent="Stage/StageBounds" unique_id=1885973326]
+position = Vector2(-43.5, 278.75)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="RightWall" type="CollisionShape2D" parent="Stage/StageBounds" unique_id=750170843]
+position = Vector2(1198, 279)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Crowd" type="Node2D" parent="Stage" unique_id=1567276566]
+z_index = -40
+
+[node name="Foreground" type="Node2D" parent="Stage" unique_id=743953322]
+z_index = 20
+
+[node name="PropsAnimated" type="Node2D" parent="Stage" unique_id=1149718785]
+z_index = -20
+
+[node name="TorchRight" parent="Stage/PropsAnimated" unique_id=1865611145 instance=ExtResource("4_6p52y")]
+position = Vector2(77, 303)
+
+[node name="TorchLeft" parent="Stage/PropsAnimated" unique_id=1493876210 instance=ExtResource("4_6p52y")]
+position = Vector2(989, 306)
+
+[node name="HUD" parent="." unique_id=434548975 instance=ExtResource("3_hvrgt")]
+
+[node name="Player1" parent="." unique_id=1120152477 instance=ExtResource("4_oi066")]
+position = Vector2(126, 456)
+disable_mode = 2
+speed = 150.0
+jump_force = 700.0
+gravity = 1200.0
+
+[node name="Dummy" parent="." unique_id=597853256 instance=ExtResource("5_hvrgt")]
+position = Vector2(919, 433)

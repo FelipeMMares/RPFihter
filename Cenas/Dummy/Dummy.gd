@@ -1,30 +1,43 @@
 extends CharacterBody2D
 
-@onready var state_machine = $StateMachine
-@onready var hurt_box = $Hurtbox
+
 @export var speed: float = 150.0
-@onready var health: Health = $Health
+@export var jump_force: float = 700.0
+@export var gravity: float = 1200.0
 
-func _ready() -> void:
-	hurt_box.hurt.connect(_on_hurt)
 
-func _on_hurt(hit_data: HitData) -> void:
-	if hit_data == null:
-		return
+func _physics_process(delta: float) -> void:
+	if not is_on_floor():
+		velocity.y += gravity * delta
 
-	if health.is_defeated():
-		return
-
-	health.take_damage(hit_data.damage)
-
-	# Se este golpe zerou a vida, o FightManager cuidará
-	# da transição para FallDefeated.
-	if health.is_defeated():
-		return
-
-	state_machine.receive_hit(hit_data)
+	move_and_slide()
 
 
 func move(direction: Vector2) -> void:
+	# Altera apenas o movimento horizontal.
+	# Não apaga a velocidade vertical do salto.
 	velocity.x = direction.x * speed
-	move_and_slide()
+
+
+func stop() -> void:
+	# Também interrompe apenas o movimento horizontal.
+	velocity.x = 0.0
+
+
+func jump() -> void:
+	print(
+		"Dummy.jump() chamado | no chão: ",
+		is_on_floor(),
+		" | velocidade anterior: ",
+		velocity
+	)
+
+	if not is_on_floor():
+		return
+
+	velocity.y = -jump_force
+
+	print(
+		"Dummy iniciou salto | velocidade: ",
+		velocity
+	)
