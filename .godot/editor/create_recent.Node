@@ -1,3 +1,9 @@
+Control
+Label
+Button
+VBoxContainer
+ColorRect
+CanvasLayer
 State
 Node
 CollisionShape2D
@@ -6,9 +12,3 @@ Node2D
 AnimatedSprite2D
 Marker2D
 VisibleOnScreenNotifier2D
-Area2D
-Label
-HBoxContainer
-TextureRect
-CharacterBody2D
-CollisionPolygon2D

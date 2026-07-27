@@ -89,6 +89,11 @@ text = "KO"
 label_settings = SubResource("LabelSettings_efote")
 vertical_alignment = 1
 
+[node name="SuddenDeathLabel" type="Label" parent="__/_" unique_id=1465914921]
+visible = false
+layout_mode = 2
+text = "MORTE SÚBITA!"
+
 [node name="Player 2" type="VBoxContainer" parent="__/_" unique_id=152278363]
 unique_name_in_owner = true
 layout_mode = 2

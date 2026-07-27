@@ -6,6 +6,7 @@ signal time_over
 @onready var player_1_hp: ProgressBar = %Player1HP
 @onready var player_2_hp: ProgressBar = %Player2HP
 @onready var timer_label: Label = %Timer
+@onready var sudden_death_label: Label = $__/_/SuddenDeathLabel
 
 @onready var player_1_win_icons: Array[TextureRect] = [
 	%Player1Win1,
@@ -28,10 +29,13 @@ var round_running: bool = false
 
 var target_player_1_hp: float = 0.0
 var target_player_2_hp: float = 0.0
-
+var timer_enabled: bool = true
 
 func _ready() -> void:
 	update_wins(0, 0)
+
+	if sudden_death_label != null:
+		sudden_death_label.visible = false
 
 	if player_1_hp == null:
 		printerr("HUD: Player1HP não foi encontrado.")
@@ -72,6 +76,8 @@ func setup(
 
 
 func _process(delta: float) -> void:
+	# As barras de vida devem continuar sendo atualizadas
+	# mesmo quando o cronômetro estiver desativado.
 	player_1_hp.value = move_toward(
 		player_1_hp.value,
 		target_player_1_hp,
@@ -84,7 +90,13 @@ func _process(delta: float) -> void:
 		hp_animation_speed * delta
 	)
 
+	# Se o round terminou, não conta o tempo.
 	if not round_running:
+		return
+
+	# Durante a morte súbita, o round continua ativo,
+	# mas o tempo não diminui.
+	if not timer_enabled:
 		return
 
 	remaining_time = maxf(
@@ -92,12 +104,15 @@ func _process(delta: float) -> void:
 		0.0
 	)
 
-	timer_label.text = str(ceili(remaining_time))
+	timer_label.text = str(
+		ceili(remaining_time)
+	)
 
 	if remaining_time <= 0.0:
 		round_running = false
 		timer_label.text = "TIME"
 		time_over.emit()
+
 
 func show_ko() -> void:
 	round_running = false
@@ -133,9 +148,15 @@ func start_round(
 		return
 
 	remaining_time = round_time
+
+	# O round continua ativo mesmo durante a morte súbita.
+	# Apenas o cronômetro fica desativado.
 	round_running = true
 
-	timer_label.text = str(ceili(remaining_time))
+	if timer_enabled:
+		timer_label.text = str(ceili(remaining_time))
+	else:
+		timer_label.text = "∞"
 
 	target_player_1_hp = player_health.current_health
 	target_player_2_hp = dummy_health.current_health
@@ -148,7 +169,14 @@ func start_round(
 		player_2_victories
 	)
 
-	print("HUD: round iniciado com ", remaining_time, " segundos")
+	if timer_enabled:
+		print(
+			"HUD: round iniciado com ",
+			remaining_time,
+			" segundos."
+		)
+	else:
+		print("HUD: round de morte súbita iniciado sem tempo.")
 
 func _on_player_health_changed(
 	current_health: int,
@@ -212,3 +240,32 @@ func _update_win_icons(
 			continue
 
 		icons[i].visible = i < victories
+
+func set_timer_enabled(enabled: bool) -> void:
+	timer_enabled = enabled
+
+	if timer_enabled:
+		timer_label.visible = true
+
+		print("HUD: cronômetro ativado.")
+	else:
+		timer_label.text = "∞"
+
+		print("HUD: cronômetro desativado.")
+
+func set_sudden_death_mode(active: bool) -> void:
+	sudden_death_label.visible = active
+
+	if active:
+		timer_label.text = "∞"
+
+		sudden_death_label.text = (
+			"MORTE SÚBITA\n"
+			+ "PRIMEIRO GOLPE VENCE"
+		)
+
+		print("HUD: modo de morte súbita ativado.")
+	else:
+		sudden_death_label.visible = false
+
+		print("HUD: modo de morte súbita desativado.")

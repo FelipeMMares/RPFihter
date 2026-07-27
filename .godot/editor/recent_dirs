@@ -1,3 +1,6 @@
+res://assets/fontes/
+res://Scripts/Components/
+res://Cenas/Cenarios/
 res://assets/Elena (dummy) startJump/
 res://Scripts/Dummy/States/
 res://assets/Elena (dummy) crounch/end/
@@ -13,10 +16,7 @@ res://assets/Chun li Hurt/
 res://assets/Elena (Dummy) Walk/
 res://assets/Elena (dummy) lightPunch/
 res://Scripts/Dummy/
-res://Cenas/Cenarios/
 res://assets/Promps/tochas/
 res://assets/
 res://Scripts/Player/StateMachine/States/Ground/
 res://assets/Chun li Kikkosen pose/
-res://Scripts/Combat/
-res://assets/Chun li Kikkousen/

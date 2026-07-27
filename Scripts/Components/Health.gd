@@ -85,3 +85,21 @@ func get_health_percentage() -> float:
 		return 0.0
 
 	return float(current_health) / float(max_health)
+
+func set_health(new_health: int) -> void:
+	current_health = clampi(
+		new_health,
+		0,
+		max_health
+	)
+
+	health_changed.emit(
+		current_health,
+		max_health
+	)
+
+func get_health() -> int:
+	return current_health
+
+func restore_full_health() -> void:
+	set_health(max_health)

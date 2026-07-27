@@ -1102,8 +1102,10 @@ position = Vector2(2.9999962, 5.000001)
 scale = Vector2(1.724, 1.9)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"LowKick"
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1128512923]
+visible = false
 position = Vector2(22.875, 44)
 shape = SubResource("RectangleShape2D_vqqph")
 
@@ -1184,6 +1186,7 @@ script = ExtResource("176_ndu3r")
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1276732752 node_paths=PackedStringArray("health", "state_machine")]
+visible = false
 collision_layer = 2
 collision_mask = 0
 monitoring = false
@@ -1209,6 +1212,7 @@ animated_sprite = NodePath("../AnimatedSprite2D")
 hitboxes_root = NodePath("../Hitboxers")
 
 [node name="Hitboxers" type="Node2D" parent="." unique_id=1619144084]
+visible = false
 
 [node name="LightPunch" type="Area2D" parent="Hitboxers" unique_id=1321307900]
 collision_layer = 0
