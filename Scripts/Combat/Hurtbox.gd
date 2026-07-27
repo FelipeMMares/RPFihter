@@ -1,12 +1,18 @@
 extends Area2D
 class_name HurtBox
 
-
 @export var health: Health
 @export var state_machine: StateMachine
 
-var character: CharacterBody2D
+@export_group("Formas da HurtBox")
 
+@export var head_shape: CollisionShape2D
+@export var torso_shape: CollisionShape2D
+@export var feet_shape: CollisionShape2D
+@export var crouch_shape: CollisionShape2D
+
+var character: CharacterBody2D
+var crouching: bool = false
 
 func _ready() -> void:
 	character = _find_character()
@@ -37,21 +43,8 @@ func _ready() -> void:
 
 	var found_shape := false
 
-	for child in get_children():
-		if child is CollisionShape2D:
-			var collision_shape := child as CollisionShape2D
-			found_shape = true
-
-			if collision_shape.shape == null:
-				printerr(
-					"HurtBox sem Shape: ",
-					collision_shape.get_path()
-				)
-			else:
-				collision_shape.set_deferred(
-					"disabled",
-					false
-				)
+	_validate_hurtbox_shapes()
+	set_crouching(false)
 
 	if not found_shape:
 		printerr(
@@ -70,6 +63,20 @@ func _ready() -> void:
 		monitorable
 	)
 
+	set_crouching(false)
+
+func _validate_hurtbox_shapes() -> void:
+	if head_shape == null:
+		printerr("HurtBox: HeadShape não configurada.")
+
+	if torso_shape == null:
+		printerr("HurtBox: TorsoShape não configurada.")
+
+	if feet_shape == null:
+		printerr("HurtBox: FeetShape não configurada.")
+
+	if crouch_shape == null:
+		printerr("HurtBox: CrouchShape não configurada.")
 
 func receive_hit(hit_data: HitData) -> void:
 	if hit_data == null:
@@ -135,3 +142,43 @@ func _find_character() -> CharacterBody2D:
 		current_node = current_node.get_parent()
 
 	return null
+
+func set_crouching(active: bool) -> void:
+	crouching = active
+
+	# Em pé: cabeça, torso e pés ficam ativos.
+	_set_shape_active(
+		head_shape,
+		not crouching
+	)
+
+	_set_shape_active(
+		torso_shape,
+		not crouching
+	)
+
+	_set_shape_active(
+		feet_shape,
+		not crouching
+	)
+
+	# Agachado: somente a forma reduzida fica ativa.
+	_set_shape_active(
+		crouch_shape,
+		crouching
+	)
+
+
+func _set_shape_active(
+	collision_shape: CollisionShape2D,
+	active: bool
+) -> void:
+	if collision_shape == null:
+		return
+
+	# Mudanças em formas de colisão durante a física
+	# devem ser feitas de forma deferred.
+	collision_shape.set_deferred(
+		"disabled",
+		not active
+	)

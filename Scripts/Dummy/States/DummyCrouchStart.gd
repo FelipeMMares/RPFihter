@@ -6,9 +6,13 @@ extends State
 
 func _enter() -> void:
 	move.emit(Vector2.ZERO)
-	play_animation.emit("CrouchStart", false)
 
-	print("Dummy iniciou o agachamento.")
+	set_crouching_hurtbox(true)
+
+	play_animation.emit(
+		"CrouchStart",
+		false
+	)
 
 
 func _animation_finished() -> void:

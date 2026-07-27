@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
+@onready var hurt_box: HurtBox = $Hurtbox
 
 @export var speed: float = 150.0
 @export var jump_force: float = 700.0
 @export var gravity: float = 1200.0
+
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -42,3 +44,13 @@ func jump() -> void:
 		" pulou | velocidade depois: ",
 		velocity
 	)
+
+func set_crouching(active: bool) -> void:
+	if hurt_box == null:
+		printerr(
+			name,
+			": HurtBox não encontrada."
+		)
+		return
+
+	hurt_box.set_crouching(active)

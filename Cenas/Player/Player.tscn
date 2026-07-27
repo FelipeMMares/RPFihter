@@ -990,8 +990,17 @@ metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d0u6y"]
 size = Vector2(58.4375, 117.625)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xt60r"]
-size = Vector2(150.25, 206)
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 18.601076
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7numd"]
+size = Vector2(114, 76)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1u0y"]
+size = Vector2(123.5, 84)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5s0fj"]
+size = Vector2(165, 117)
 
 [node name="Player" type="CharacterBody2D" unique_id=1120152477]
 position = Vector2(-47, 149)
@@ -1007,9 +1016,8 @@ one_way_collision = true
 position = Vector2(2, -28)
 scale = Vector2(1.632, 1.9)
 sprite_frames = SubResource("SpriteFrames_ma6wq")
-animation = &"Hurt"
-frame = 8
-frame_progress = 1.0
+animation = &"IdleCrouched"
+frame_progress = 0.93372995
 
 [node name="KikokenSpawn" type="Marker2D" parent="." unique_id=1453849635]
 position = Vector2(99, 4)
@@ -1181,15 +1189,30 @@ character = NodePath("..")
 animated_sprite = NodePath("../AnimatedSprite2D")
 hitboxes_root = NodePath("../Hitboxers")
 
-[node name="Hurtbox" type="Area2D" parent="." unique_id=330639822 node_paths=PackedStringArray("health", "state_machine")]
-visible = false
+[node name="Hurtbox" type="Area2D" parent="." unique_id=330639822 node_paths=PackedStringArray("health", "state_machine", "head_shape", "torso_shape", "feet_shape", "crouch_shape")]
 collision_layer = 2
 collision_mask = 0
 monitoring = false
 script = ExtResource("210_xohad")
 health = NodePath("../Health")
 state_machine = NodePath("../StateMachine")
+head_shape = NodePath("HeadShape")
+torso_shape = NodePath("TorsoShape")
+feet_shape = NodePath("FeetShape")
+crouch_shape = NodePath("CrouchShape")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=985798301]
-position = Vector2(-6.125, 13)
-shape = SubResource("RectangleShape2D_xt60r")
+[node name="HeadShape" type="CollisionShape2D" parent="Hurtbox" unique_id=985798301]
+position = Vector2(-18, -55)
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="TorsoShape" type="CollisionShape2D" parent="Hurtbox" unique_id=1032085780]
+position = Vector2(-3, -6)
+shape = SubResource("RectangleShape2D_7numd")
+
+[node name="FeetShape" type="CollisionShape2D" parent="Hurtbox" unique_id=1660669564]
+position = Vector2(1.25, 75)
+shape = SubResource("RectangleShape2D_p1u0y")
+
+[node name="CrouchShape" type="CollisionShape2D" parent="Hurtbox" unique_id=2101384888]
+position = Vector2(-41.5, 60.5)
+shape = SubResource("RectangleShape2D_5s0fj")

@@ -3,11 +3,16 @@ extends State
 
 func _enter() -> void:
 	move.emit(Vector2.ZERO)
-	play_animation.emit("CrouchWhile", false)
 
-	print("Dummy está mantendo o agachamento.")
+	# Proteção adicional caso o estado tenha sido
+	# acessado diretamente.
+	set_crouching_hurtbox(true)
+
+	play_animation.emit(
+		"CrouchWhile",
+		false
+	)
 
 
 func _physics_process(_delta: float) -> void:
-	# Permanece parado enquanto a IA mantém este estado.
 	move.emit(Vector2.ZERO)

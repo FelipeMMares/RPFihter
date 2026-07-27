@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 @onready var health: Health = $Health
 @onready var state_machine: StateMachine = $StateMachine
+@onready var hurt_box: HurtBox = $Hurtbox
 
 
 # Confira se o nome na árvore é realmente "Hitboxers".
@@ -53,3 +54,13 @@ func jump() -> void:
 		" pulou | velocidade depois: ",
 		velocity
 	)
+
+func set_crouching(active: bool) -> void:
+	if hurt_box == null:
+		printerr(
+			name,
+			": HurtBox não encontrada."
+		)
+		return
+
+	hurt_box.set_crouching(active)

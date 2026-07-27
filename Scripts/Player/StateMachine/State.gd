@@ -40,3 +40,28 @@ func check_special_move():
 
 		"shoryuken":
 			print("Executar Shoryuken")
+
+func set_crouching_hurtbox(active: bool) -> void:
+	var character := (
+		get_parent().get_parent()
+		as CharacterBody2D
+	)
+
+	if character == null:
+		printerr(
+			name,
+			": personagem não encontrado."
+		)
+		return
+
+	if not character.has_method("set_crouching"):
+		printerr(
+			character.name,
+			" não possui set_crouching()."
+		)
+		return
+
+	character.call(
+		"set_crouching",
+		active
+	)
