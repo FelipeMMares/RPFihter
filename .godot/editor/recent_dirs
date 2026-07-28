@@ -1,3 +1,7 @@
+res://assets/Chun li jump/Attacks/AirLowKick/
+res://assets/Chun li jump/Attacks/AirKick/
+res://assets/Chun li jump/Attacks/AirHighPunch/
+res://assets/Chun li jump/Attacks/AirLightPunch/
 res://assets/Elena (dummy) crounch/attacks/LowKick/
 res://assets/Elena (dummy) crounch/attacks/Kick/
 res://assets/Elena (dummy) crounch/attacks/HighPunch/
@@ -16,7 +20,3 @@ res://assets/Elena (dummy) crounch/while/
 res://assets/Elena (dummy) crounch/entry/
 res://assets/Elena (dummy) Jump/
 res://assets/Elena (dummy) LowKick/
-res://assets/Elena (dummy) Kick/
-res://assets/Elena (dummy) HighPunch/
-res://assets/Elena (Dummy) Victory/
-res://Scripts/Player/Hurtbox/
