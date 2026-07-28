@@ -1,14 +1,14 @@
+State
 CollisionShape2D
+Area2D
 Control
 Label
 Button
 VBoxContainer
 ColorRect
 CanvasLayer
-State
 Node
 StaticBody2D
 Node2D
 AnimatedSprite2D
 Marker2D
-VisibleOnScreenNotifier2D

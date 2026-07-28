@@ -40,6 +40,20 @@ enum AIAction {
 	&"LowKick"
 ]
 
+@export_group("Ataques agachados")
+
+@export var crouch_attack_states: Array[StringName] = [
+	&"CrouchLightPunch",
+	&"CrouchHighPunch",
+	&"CrouchKick",
+	&"CrouchLowKick"
+]
+
+@export_range(0.0, 1.0, 0.05)
+var crouch_attack_chance: float = 0.65
+
+@export var crouch_attack_delay_min: float = 0.25
+@export var crouch_attack_delay_max: float = 0.75
 
 @export_group("Distância")
 @export var attack_range: float = 25.0
@@ -92,6 +106,8 @@ var _target_body_shape: CollisionShape2D
 var _crouch_hold_started: bool = false
 var _crouch_release_requested: bool = false
 
+var _crouch_attack_timer: float = 0.0
+var _crouch_attack_attempted: bool = false
 
 func _ready() -> void:
 	_rng.randomize()
@@ -130,9 +146,8 @@ func setup(new_target: CharacterBody2D) -> void:
 
 func _physics_process(delta: float) -> void:
 	if not active:
-		_stop_character()
 		return
-
+	
 	if character == null:
 		return
 
@@ -148,16 +163,19 @@ func _physics_process(delta: float) -> void:
 			0.0
 		)
 
-	var current_state: StringName = (
+	var current_state := (
 		state_machine.get_current_state_name()
 	)
 
-	# O agachamento possui três fases e precisa continuar
-	# sendo processado mesmo fora de Idle e Walk.
 	if _current_action == AIAction.CROUCH:
-		if _process_crouch_action(delta, current_state):
-			return
+		_process_crouch_action(
+			delta,
+			current_state
+		)
+		return
 
+	# Depois vêm as verificações gerais de ataques,
+	# Hurt, Jump e outros estados.
 	# Durante ataques, Hurt, pulo e outras animações,
 	# não toma uma nova decisão.
 	if (
@@ -581,8 +599,8 @@ func _start_crouch() -> void:
 
 	_current_action = AIAction.CROUCH
 
-	# Representa o tempo em que o "botão" ficará pressionado
-	# durante CrouchWhile.
+	# Essa duração será descontada somente quando
+	# o Dummy estiver efetivamente em CrouchWhile.
 	_action_time_left = _rng.randf_range(
 		minimum_crouch_duration,
 		maximum_crouch_duration
@@ -590,6 +608,13 @@ func _start_crouch() -> void:
 
 	_crouch_hold_started = false
 	_crouch_release_requested = false
+
+	_crouch_attack_attempted = false
+
+	_crouch_attack_timer = _rng.randf_range(
+		crouch_attack_delay_min,
+		crouch_attack_delay_max
+	)
 
 	_stop_character()
 
@@ -599,71 +624,103 @@ func _start_crouch() -> void:
 		" segundos."
 	)
 
-	# Equivalente ao momento em que o botão é pressionado.
-	state_machine.force_transition(crouch_start_state)
-	
+	state_machine.force_transition(
+		crouch_start_state
+	)
+
+
 func _process_crouch_action(
 	delta: float,
 	current_state: StringName
-) -> bool:
-	# Fase de pressionar o botão.
+) -> void:
+	_stop_character()
+
+	# Espera a animação inicial de agachamento terminar.
 	if current_state == crouch_start_state:
-		_stop_character()
-		return true
+		return
 
-	# Fase em que o botão permanece pressionado.
+	# Enquanto estiver executando um ataque agachado,
+	# não diminui a duração e não solicita outra transição.
+	if _is_crouch_attack_state(current_state):
+		return
+
 	if current_state == crouch_while_state:
-		_stop_character()
-
 		if not _crouch_hold_started:
 			_crouch_hold_started = true
 
 			print(
-				"DummyAI começou a manter o agachamento."
+				"DummyAI entrou em ",
+				crouch_while_state
 			)
 
-		if not _crouch_release_requested:
-			_action_time_left = maxf(
-				_action_time_left - delta,
+		# Tenta realizar no máximo um ataque durante
+		# esta ação de agachamento.
+		if not _crouch_attack_attempted:
+			_crouch_attack_timer = maxf(
+				_crouch_attack_timer - delta,
 				0.0
 			)
 
-			if _action_time_left <= 0.0:
-				_release_crouch()
+			if _crouch_attack_timer <= 0.0:
+				_crouch_attack_attempted = true
 
-		return true
+				if (
+					_rng.randf()
+					<= crouch_attack_chance
+				):
+					if _start_random_crouch_attack():
+						return
 
-	# Fase de soltar o botão.
+		# Usa a variável que já existe no seu script.
+		_action_time_left = maxf(
+			_action_time_left - delta,
+			0.0
+		)
+
+		if _action_time_left <= 0.0:
+			_release_crouch()
+
+		return
+
+	# Espera a animação de levantar terminar.
 	if current_state == crouch_end_state:
-		_stop_character()
-		return true
+		return
 
-	# CrouchEnd terminou e retornou ao Idle.
-	if (
-		_crouch_release_requested
-		and current_state == idle_state
-	):
+	# Após CrouchEnd, o estado deve retornar para Idle.
+	if current_state == idle_state:
 		_finish_crouch_action()
-		return false
+		return
 
-	# O agachamento foi interrompido por Hurt, derrota
-	# ou outra transição externa.
+	# Hurt, derrota, pulo ou qualquer interrupção externa.
 	_cancel_crouch_action()
+
+
+func _is_crouch_attack_state(
+	state_name: StringName
+) -> bool:
+	for attack_state in crouch_attack_states:
+		if state_name == attack_state:
+			return true
+
 	return false
+
 
 func _release_crouch() -> void:
 	if _crouch_release_requested:
 		return
 
 	_crouch_release_requested = true
+
 	_stop_character()
 
 	print(
 		"DummyAI decidiu soltar o agachamento."
 	)
 
-	# Equivalente ao botão deixando de ser pressionado.
-	state_machine.force_transition(crouch_end_state)
+	state_machine.force_transition(
+		crouch_end_state
+	)
+
 
 func _finish_crouch_action() -> void:
 	print("DummyAI terminou o agachamento.")
@@ -673,6 +730,11 @@ func _finish_crouch_action() -> void:
 
 	_crouch_hold_started = false
 	_crouch_release_requested = false
+
+	_crouch_attack_timer = 0.0
+	_crouch_attack_attempted = false
+
+	_stop_character()
 
 	_decision_delay = _rng.randf_range(
 		minimum_decision_delay,
@@ -691,3 +753,57 @@ func _cancel_crouch_action() -> void:
 
 	_crouch_hold_started = false
 	_crouch_release_requested = false
+
+	_crouch_attack_timer = 0.0
+	_crouch_attack_attempted = false
+
+	_stop_character()
+
+	# Evita que a IA tome uma nova decisão
+	# imediatamente após uma interrupção.
+	_decision_delay = _rng.randf_range(
+		minimum_decision_delay,
+		maximum_decision_delay
+	)
+
+
+func _start_random_crouch_attack() -> bool:
+	var valid_attacks: Array[StringName] = []
+
+	for attack_state in crouch_attack_states:
+		if state_machine.has_state(attack_state):
+			valid_attacks.append(attack_state)
+		else:
+			printerr(
+				"DummyAI: estado de ataque agachado "
+				+ "não encontrado: ",
+				attack_state
+			)
+
+	if valid_attacks.is_empty():
+		printerr(
+			"DummyAI: nenhum ataque agachado válido."
+		)
+		return false
+
+	var selected_index: int = _rng.randi_range(
+		0,
+		valid_attacks.size() - 1
+	)
+
+	var selected_attack: StringName = (
+		valid_attacks[selected_index]
+	)
+
+	_stop_character()
+
+	print(
+		"DummyAI: ataque agachado escolhido: ",
+		selected_attack
+	)
+
+	state_machine.force_transition(
+		selected_attack
+	)
+
+	return true

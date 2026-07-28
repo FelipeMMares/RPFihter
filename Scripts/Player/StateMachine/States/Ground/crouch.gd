@@ -1,23 +1,51 @@
 extends State
 
-var leaving := false
 
-func _enter():
+@export var crouch_while_state: StringName = &"CrouchWhile"
+@export var idle_state: StringName = &"Idle"
 
-	leaving = false
-	play_animation.emit(name, false)
+var _leaving_crouch: bool = false
 
-func _physics_process(delta):
 
-	if !leaving and !Input.is_action_pressed(player_controls.down):
+func _enter() -> void:
+	move.emit(Vector2.ZERO)
 
-		leaving = true
+	if player_controls == null:
+		return
 
-		play_animation.emit(name, true)
+	# Se Down ainda está pressionado, o personagem
+	# está começando a se agachar.
+	if Input.is_action_pressed(player_controls.down):
+		_leaving_crouch = false
 
-func _animation_finished():
+		set_crouching_hurtbox(true)
 
-	if leaving:
-		transition_to.emit("Idle")
+		# Reproduz a animação normalmente.
+		play_animation.emit(&"Crouch", false)
+
+	# Se Down não está mais pressionado, o personagem
+	# está se levantando.
 	else:
-		transition_to.emit("IdleCrouched")
+		_leaving_crouch = true
+
+		# Mantém a HurtBox reduzida enquanto a animação
+		# de levantar ainda está acontecendo.
+		set_crouching_hurtbox(true)
+
+		# Reproduz a animação Crouch ao contrário.
+		play_animation.emit(&"Crouch", true)
+
+
+func _physics_process(_delta: float) -> void:
+	move.emit(Vector2.ZERO)
+
+
+func _animation_finished() -> void:
+	if _leaving_crouch:
+		# Somente após terminar de levantar a HurtBox
+		# volta ao tamanho normal.
+		set_crouching_hurtbox(false)
+
+		transition_to.emit(idle_state)
+	else:
+		transition_to.emit(crouch_while_state)

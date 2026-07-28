@@ -1,3 +1,11 @@
+res://assets/Elena (dummy) crounch/attacks/LowKick/
+res://assets/Elena (dummy) crounch/attacks/Kick/
+res://assets/Elena (dummy) crounch/attacks/HighPunch/
+res://assets/Elena (dummy) crounch/attacks/LightPunch/
+res://assets/crouch/attacks/LowKick/
+res://assets/crouch/attacks/Kick/
+res://assets/crouch/attacks/HighPunch/
+res://assets/crouch/attacks/LightPunch/
 res://assets/fontes/
 res://Scripts/Components/
 res://Cenas/Cenarios/
@@ -12,11 +20,3 @@ res://assets/Elena (dummy) Kick/
 res://assets/Elena (dummy) HighPunch/
 res://assets/Elena (Dummy) Victory/
 res://Scripts/Player/Hurtbox/
-res://assets/Chun li Hurt/
-res://assets/Elena (Dummy) Walk/
-res://assets/Elena (dummy) lightPunch/
-res://Scripts/Dummy/
-res://assets/Promps/tochas/
-res://assets/
-res://Scripts/Player/StateMachine/States/Ground/
-res://assets/Chun li Kikkosen pose/

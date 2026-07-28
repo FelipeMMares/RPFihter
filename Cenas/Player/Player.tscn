@@ -9,83 +9,111 @@
 [ext_resource type="Script" uid="uid://4il616qhcg6y" path="res://Scripts/Player/StateMachine/States/Ground/crouch.gd" id="7_0e5gp"]
 [ext_resource type="Texture2D" uid="uid://kwyc8ubrldp4" path="res://assets/crouch/SF3_3rd_Chunli_23136-removebg-preview.png" id="8_1h1pg"]
 [ext_resource type="Texture2D" uid="uid://c3p3tc01x1hg4" path="res://assets/Chun li Defeated/SF3_3rd_Chunli_23568-removebg-preview.png" id="8_5eypo"]
+[ext_resource type="Texture2D" uid="uid://cj02f7b5beqvw" path="res://assets/crouch/attacks/HighPunch/SF3_3rd_Chunli_24128-removebg-preview.png" id="8_af2tb"]
 [ext_resource type="Texture2D" uid="uid://d2g1acyfhxl3a" path="res://assets/Chun li High Punch/SF3_3rd_Chunli_23888-removebg-preview.png" id="8_w3xrr"]
+[ext_resource type="Texture2D" uid="uid://bsgb15yt2xebl" path="res://assets/crouch/attacks/HighPunch/SF3_3rd_Chunli_24129-removebg-preview.png" id="9_at21e"]
 [ext_resource type="Texture2D" uid="uid://cytppsalikr2q" path="res://assets/Chun li High Punch/SF3_3rd_Chunli_23889-removebg-preview.png" id="9_jj3b6"]
 [ext_resource type="Texture2D" uid="uid://dreqywol5w818" path="res://assets/Chun li Defeated/SF3_3rd_Chunli_23569-removebg-preview.png" id="9_kgcb6"]
 [ext_resource type="Texture2D" uid="uid://cea6bgoovb08u" path="res://assets/crouch/SF3_3rd_Chunli_23137-removebg-preview.png" id="9_muxrf"]
+[ext_resource type="Texture2D" uid="uid://dwla63tydvinj" path="res://assets/crouch/attacks/HighPunch/SF3_3rd_Chunli_24130-removebg-preview.png" id="10_eoug7"]
 [ext_resource type="Texture2D" uid="uid://citxvlf4xv0c5" path="res://assets/Chun li Defeated/SF3_3rd_Chunli_23570-removebg-preview.png" id="10_hpyof"]
 [ext_resource type="Texture2D" uid="uid://d4eni0epahtdl" path="res://assets/Chun li High Punch/SF3_3rd_Chunli_23890-removebg-preview.png" id="10_lmw0p"]
 [ext_resource type="Texture2D" uid="uid://t2i0ymdyp613" path="res://assets/crouch/SF3_3rd_Chunli_23138-removebg-preview.png" id="10_xf2w6"]
+[ext_resource type="Texture2D" uid="uid://cxlahffgp2vcs" path="res://assets/crouch/attacks/HighPunch/SF3_3rd_Chunli_24131-removebg-preview.png" id="11_2n0bx"]
 [ext_resource type="Texture2D" uid="uid://cvx5qpnjgkk77" path="res://assets/crouch/SF3_3rd_Chunli_23139-removebg-preview.png" id="11_7t34q"]
 [ext_resource type="Texture2D" uid="uid://dksb45c64te8u" path="res://assets/Chun li Defeated/SF3_3rd_Chunli_23572-removebg-preview.png" id="11_6613k"]
 [ext_resource type="Texture2D" uid="uid://ddtx03tsbbvsa" path="res://assets/Chun li High Punch/SF3_3rd_Chunli_23891-removebg-preview.png" id="11_u6yic"]
+[ext_resource type="Texture2D" uid="uid://wk5gdqq2v0qg" path="res://assets/crouch/attacks/HighPunch/SF3_3rd_Chunli_24132-removebg-preview.png" id="12_1e70i"]
 [ext_resource type="Texture2D" uid="uid://bf7dsq7h7kuwr" path="res://assets/Chun li Defeated/SF3_3rd_Chunli_23573-removebg-preview.png" id="12_n10g2"]
 [ext_resource type="Texture2D" uid="uid://feavkrnl82y8" path="res://assets/crouch/SF3_3rd_Chunli_23140-removebg-preview.png" id="12_vfndq"]
 [ext_resource type="Texture2D" uid="uid://bl36pvn6g7cl3" path="res://assets/Chun li High Punch/SF3_3rd_Chunli_23892-removebg-preview.png" id="12_wakpi"]
 [ext_resource type="Texture2D" uid="uid://dxq7wodxcwv7s" path="res://assets/Chun li Defeated/SF3_3rd_Chunli_23574-removebg-preview.png" id="13_0qjnx"]
 [ext_resource type="Texture2D" uid="uid://cwvvja2x16h52" path="res://assets/Chun li High Punch/SF3_3rd_Chunli_23893-removebg-preview.png" id="13_1ckkg"]
 [ext_resource type="Texture2D" uid="uid://l6eitwn6kr03" path="res://assets/crouch/SF3_3rd_Chunli_23141-removebg-preview.png" id="13_4wbdy"]
+[ext_resource type="Texture2D" uid="uid://bxbuvu61u2an1" path="res://assets/crouch/attacks/HighPunch/SF3_3rd_Chunli_24133-removebg-preview.png" id="13_8au1r"]
 [ext_resource type="Texture2D" uid="uid://q6vew0t4dxao" path="res://assets/Chun li Idle/SF3_3rd_Chunli_23056-removebg-preview.png" id="14_1h1pg"]
 [ext_resource type="Texture2D" uid="uid://m4clkx50lf7w" path="res://assets/Chun li Defeated/SF3_3rd_Chunli_23575-removebg-preview.png" id="14_es1q7"]
+[ext_resource type="Texture2D" uid="uid://y3xqbgly7dh4" path="res://assets/crouch/attacks/HighPunch/SF3_3rd_Chunli_24134-removebg-preview.png" id="14_fbrb0"]
 [ext_resource type="Texture2D" uid="uid://dxpftv3duwksx" path="res://assets/Chun li High Punch/SF3_3rd_Chunli_23894-removebg-preview.png" id="14_ombku"]
 [ext_resource type="Texture2D" uid="uid://dea3mspcdterf" path="res://assets/chun li walk/SF3_3rd_Chunli_23072-removebg-preview.png" id="14_paebk"]
 [ext_resource type="Texture2D" uid="uid://bbfmxg47h27bo" path="res://assets/Chun li High Punch/SF3_3rd_Chunli_23895-removebg-preview.png" id="15_2pc8c"]
 [ext_resource type="Texture2D" uid="uid://dba7upeqjx3w7" path="res://assets/chun li walk/SF3_3rd_Chunli_23073-removebg-preview.png" id="15_4ysqk"]
+[ext_resource type="Texture2D" uid="uid://w46rtfhb681s" path="res://assets/crouch/attacks/HighPunch/SF3_3rd_Chunli_24135-removebg-preview.png" id="15_82yrn"]
 [ext_resource type="Texture2D" uid="uid://c6317glgrkxme" path="res://assets/Chun li Defeated/SF3_3rd_Chunli_23576-removebg-preview.png" id="15_g5l10"]
 [ext_resource type="Texture2D" uid="uid://ccxkkmcyuu5v6" path="res://assets/Chun li Idle/SF3_3rd_Chunli_23057-removebg-preview.png" id="15_muxrf"]
 [ext_resource type="Texture2D" uid="uid://buhuii8js83k6" path="res://assets/chun li walk/SF3_3rd_Chunli_23074-removebg-preview.png" id="16_0e5gp"]
+[ext_resource type="Texture2D" uid="uid://b4q3lp5a352pk" path="res://assets/crouch/attacks/HighPunch/SF3_3rd_Chunli_24136-removebg-preview.png" id="16_g2m7t"]
 [ext_resource type="Texture2D" uid="uid://dr8fdsebn73ex" path="res://assets/Chun li FallDefeated/SF3_3rd_Chunli_23616-removebg-preview.png" id="16_h7m7b"]
 [ext_resource type="Texture2D" uid="uid://c5p18wkkisxsw" path="res://assets/Chun li High Punch/SF3_3rd_Chunli_23896-removebg-preview.png" id="16_nxw2p"]
 [ext_resource type="Texture2D" uid="uid://fefgevm0uo0t" path="res://assets/Chun li Idle/SF3_3rd_Chunli_23058-removebg-preview.png" id="16_xf2w6"]
 [ext_resource type="Texture2D" uid="uid://b24wuw0al0qh4" path="res://assets/Chun li FallDefeated/SF3_3rd_Chunli_23617-removebg-preview.png" id="17_4opeq"]
 [ext_resource type="Texture2D" uid="uid://bde418vpjs5cd" path="res://assets/Chun li Idle/SF3_3rd_Chunli_23059-removebg-preview.png" id="17_7t34q"]
 [ext_resource type="Texture2D" uid="uid://dw6t1trxfvee1" path="res://assets/Chun li High Punch/SF3_3rd_Chunli_23897-removebg-preview.png" id="17_bk2bu"]
+[ext_resource type="Texture2D" uid="uid://cg6wcfbxiwl3a" path="res://assets/crouch/attacks/Kick/SF3_3rd_Chunli_24160-removebg-preview.png" id="17_qifdg"]
 [ext_resource type="Texture2D" uid="uid://cspyvxi7j60m0" path="res://assets/chun li walk/SF3_3rd_Chunli_23075-removebg-preview.png" id="17_yklbd"]
 [ext_resource type="Texture2D" uid="uid://bjg4hcndpcba3" path="res://assets/Chun li FallDefeated/SF3_3rd_Chunli_23618-removebg-preview.png" id="18_hyift"]
+[ext_resource type="Texture2D" uid="uid://dk8q6kjo1v2ma" path="res://assets/crouch/attacks/Kick/SF3_3rd_Chunli_24161-removebg-preview.png" id="18_mvdjw"]
 [ext_resource type="Texture2D" uid="uid://obwfvel86unu" path="res://assets/chun li walk/SF3_3rd_Chunli_23076-removebg-preview.png" id="18_r6xnt"]
 [ext_resource type="Texture2D" uid="uid://dhr0piokaaxa3" path="res://assets/Chun li Idle/SF3_3rd_Chunli_23060-removebg-preview.png" id="18_vfndq"]
 [ext_resource type="Texture2D" uid="uid://dg2cyl6s00xwu" path="res://assets/Chun li High Punch/SF3_3rd_Chunli_23898-removebg-preview.png" id="18_vqvcg"]
 [ext_resource type="Texture2D" uid="uid://byt5qs7k501tt" path="res://assets/Chun li Idle/SF3_3rd_Chunli_23061-removebg-preview.png" id="19_4wbdy"]
+[ext_resource type="Texture2D" uid="uid://dyp4yqkchbar4" path="res://assets/crouch/attacks/Kick/SF3_3rd_Chunli_24162-removebg-preview.png" id="19_l8i8w"]
 [ext_resource type="Texture2D" uid="uid://by2cj3x5t3suo" path="res://assets/chun li walk/SF3_3rd_Chunli_23077-removebg-preview.png" id="19_le7h4"]
 [ext_resource type="Texture2D" uid="uid://dkmfhbyspecyr" path="res://assets/Chun li FallDefeated/SF3_3rd_Chunli_23619-removebg-preview.png" id="19_vs8ov"]
 [ext_resource type="Texture2D" uid="uid://f8plnyjdy86f" path="res://assets/Chun li FallDefeated/SF3_3rd_Chunli_23620-removebg-preview.png" id="20_4g2ce"]
 [ext_resource type="Texture2D" uid="uid://ch1c7id7oikau" path="res://assets/chun li walk/SF3_3rd_Chunli_23078-removebg-preview.png" id="20_d4xyl"]
+[ext_resource type="Texture2D" uid="uid://unu83x2bglgs" path="res://assets/crouch/attacks/Kick/SF3_3rd_Chunli_24163-removebg-preview.png" id="20_isplx"]
 [ext_resource type="Texture2D" uid="uid://j4sqrbsmqrky" path="res://assets/Chun li Idle/SF3_3rd_Chunli_23062-removebg-preview.png" id="20_rm342"]
+[ext_resource type="Texture2D" uid="uid://bwh5mvyqtlweq" path="res://assets/crouch/attacks/Kick/SF3_3rd_Chunli_24164-removebg-preview.png" id="21_03pex"]
 [ext_resource type="Texture2D" uid="uid://b8gm75q7law2o" path="res://assets/chun li walk/SF3_3rd_Chunli_23079-removebg-preview.png" id="21_5kex2"]
 [ext_resource type="Texture2D" uid="uid://gmgfohy3c6ys" path="res://assets/Chun li FallDefeated/SF3_3rd_Chunli_23621-removebg-preview.png" id="21_i2xuh"]
 [ext_resource type="Texture2D" uid="uid://cgrvtof5j6prv" path="res://assets/Chun li Idle/SF3_3rd_Chunli_23063-removebg-preview.png" id="21_ybk73"]
 [ext_resource type="Texture2D" uid="uid://c3k7qd8uv8vd4" path="res://assets/Chun li FallDefeated/SF3_3rd_Chunli_23622-removebg-preview.png" id="22_1amkq"]
 [ext_resource type="Texture2D" uid="uid://dl6fyi4pks0p8" path="res://assets/chun li walk/SF3_3rd_Chunli_23080-removebg-preview.png" id="22_brfeo"]
+[ext_resource type="Texture2D" uid="uid://xk6ool5rd2bl" path="res://assets/crouch/attacks/LightPunch/SF3_3rd_Chunli_24112-removebg-preview.png" id="22_joj7w"]
 [ext_resource type="Texture2D" uid="uid://do2civmrowdg8" path="res://assets/while couch chun li/SF3_3rd_Chunli_23168-removebg-preview.png" id="22_rm342"]
 [ext_resource type="Texture2D" uid="uid://bh874d4xhie5t" path="res://assets/chun li walk/SF3_3rd_Chunli_23081-removebg-preview.png" id="23_3pw7r"]
+[ext_resource type="Texture2D" uid="uid://j5blr8j88t5t" path="res://assets/crouch/attacks/LightPunch/SF3_3rd_Chunli_24113-removebg-preview.png" id="23_piwae"]
 [ext_resource type="Texture2D" uid="uid://dmu2qqk83ub8x" path="res://assets/Chun li jump/SF3_3rd_Chunli_23225-removebg-preview.png" id="23_ttbwf"]
 [ext_resource type="Texture2D" uid="uid://c55hewsqvlxsn" path="res://assets/while couch chun li/SF3_3rd_Chunli_23169-removebg-preview.png" id="23_ybk73"]
 [ext_resource type="Texture2D" uid="uid://boya5ngwm4onp" path="res://assets/chun li walk/SF3_3rd_Chunli_23082-removebg-preview.png" id="24_6opnp"]
 [ext_resource type="Texture2D" uid="uid://dww1si56q7dwi" path="res://assets/while couch chun li/SF3_3rd_Chunli_23170-removebg-preview.png" id="24_mw5mv"]
+[ext_resource type="Texture2D" uid="uid://d0yai6604qtnj" path="res://assets/crouch/attacks/LightPunch/SF3_3rd_Chunli_24114-removebg-preview.png" id="24_sqr77"]
 [ext_resource type="Texture2D" uid="uid://dryop8fmn3y7r" path="res://assets/Chun li jump/SF3_3rd_Chunli_23224-removebg-preview.png" id="24_tj5lq"]
 [ext_resource type="Texture2D" uid="uid://dq2mxerb3i2th" path="res://assets/chun li walk/SF3_3rd_Chunli_23083-removebg-preview.png" id="25_1a66w"]
 [ext_resource type="Texture2D" uid="uid://ta5a0ly22k24" path="res://assets/while couch chun li/SF3_3rd_Chunli_23171-removebg-preview.png" id="25_5g1c5"]
+[ext_resource type="Texture2D" uid="uid://doi171vjcxupy" path="res://assets/crouch/attacks/LightPunch/SF3_3rd_Chunli_24115-removebg-preview.png" id="25_lifbn"]
 [ext_resource type="Texture2D" uid="uid://cv5se4qquh3qq" path="res://assets/Chun li jump/SF3_3rd_Chunli_23223-removebg-preview.png" id="25_vao2x"]
+[ext_resource type="Texture2D" uid="uid://dqajcgvot5531" path="res://assets/crouch/attacks/LightPunch/SF3_3rd_Chunli_24116-removebg-preview.png" id="26_i275b"]
 [ext_resource type="Texture2D" uid="uid://b46ll4pvwbxgi" path="res://assets/while couch chun li/SF3_3rd_Chunli_23172-removebg-preview.png" id="26_ok0yd"]
 [ext_resource type="Texture2D" uid="uid://bxnw62x50uv28" path="res://assets/Chun li jump/SF3_3rd_Chunli_23221-removebg-preview.png" id="26_wj34k"]
 [ext_resource type="Texture2D" uid="uid://cc0qnxhyp0x2n" path="res://assets/chun li walk/SF3_3rd_Chunli_23084-removebg-preview.png" id="26_xu23s"]
+[ext_resource type="Texture2D" uid="uid://iypvci837r06" path="res://assets/crouch/attacks/LowKick/SF3_3rd_Chunli_24176-removebg-preview.png" id="27_7ntil"]
 [ext_resource type="Texture2D" uid="uid://xfom6liwr0sn" path="res://assets/chun li walk/SF3_3rd_Chunli_23085-removebg-preview.png" id="27_l0vo0"]
 [ext_resource type="Texture2D" uid="uid://sss21788mxf4" path="res://assets/while couch chun li/SF3_3rd_Chunli_23173-removebg-preview.png" id="27_laead"]
 [ext_resource type="Texture2D" uid="uid://ciofqirmm2nyh" path="res://assets/Chun li jump/SF3_3rd_Chunli_23220-removebg-preview.png" id="27_o8hur"]
+[ext_resource type="Texture2D" uid="uid://q6qmtrhgoi7t" path="res://assets/crouch/attacks/LowKick/SF3_3rd_Chunli_24177-removebg-preview.png" id="28_b2ycl"]
 [ext_resource type="Texture2D" uid="uid://bu8y7r6ldeemr" path="res://assets/while couch chun li/SF3_3rd_Chunli_23174-removebg-preview.png" id="28_d6u6l"]
 [ext_resource type="Texture2D" uid="uid://d1hlnmdw7adnh" path="res://assets/Chun li jump/SF3_3rd_Chunli_23222-removebg-preview.png" id="28_f0bps"]
 [ext_resource type="Texture2D" uid="uid://h5kvknlshuqn" path="res://assets/chun li walk/SF3_3rd_Chunli_23086-removebg-preview.png" id="28_rstdr"]
 [ext_resource type="Texture2D" uid="uid://qft2r1giqogj" path="res://assets/chun li walk/SF3_3rd_Chunli_23087-removebg-preview.png" id="29_1h1pg"]
+[ext_resource type="Texture2D" uid="uid://d0lkb0u34lk7" path="res://assets/crouch/attacks/LowKick/SF3_3rd_Chunli_24178-removebg-preview.png" id="29_2nelu"]
 [ext_resource type="Texture2D" uid="uid://btg8yvke160y8" path="res://assets/Chun li jump/SF3_3rd_Chunli_23219-removebg-preview.png" id="29_kseou"]
 [ext_resource type="Texture2D" uid="uid://dsscbyvtjtg88" path="res://assets/chun li walk/SF3_3rd_Chunli_23088-removebg-preview.png" id="30_muxrf"]
 [ext_resource type="Texture2D" uid="uid://c2fay680oc73r" path="res://assets/Chun li jump/SF3_3rd_Chunli_23218-removebg-preview.png" id="30_wnvrb"]
+[ext_resource type="Texture2D" uid="uid://fxahkw6art35" path="res://assets/crouch/attacks/LowKick/SF3_3rd_Chunli_24179-removebg-preview.png" id="30_xp7g5"]
 [ext_resource type="Texture2D" uid="uid://c4q0a4ttl6q8i" path="res://assets/Chun li jump/SF3_3rd_Chunli_23217-removebg-preview.png" id="31_adv4n"]
+[ext_resource type="Texture2D" uid="uid://b6o6uxgndd405" path="res://assets/crouch/attacks/LowKick/SF3_3rd_Chunli_24180-removebg-preview.png" id="31_o63rp"]
 [ext_resource type="Texture2D" uid="uid://cqtq7obipnnfr" path="res://assets/chun li walk/SF3_3rd_Chunli_23089-removebg-preview.png" id="31_xf2w6"]
 [ext_resource type="Texture2D" uid="uid://dngomx4i3o0ae" path="res://assets/Chun li jump/SF3_3rd_Chunli_23216-removebg-preview.png" id="32_m7th6"]
+[ext_resource type="Texture2D" uid="uid://dvwquhr2oagdd" path="res://assets/crouch/attacks/LowKick/SF3_3rd_Chunli_24181-removebg-preview.png" id="32_qnd4r"]
+[ext_resource type="Texture2D" uid="uid://m2pde6xqf6xo" path="res://assets/crouch/attacks/LowKick/SF3_3rd_Chunli_24182-removebg-preview.png" id="33_snvxx"]
 [ext_resource type="Texture2D" uid="uid://mfd42ei0cywt" path="res://assets/Chun li jump/SF3_3rd_Chunli_23215-removebg-preview.png" id="33_u26fn"]
+[ext_resource type="Texture2D" uid="uid://6r7bg3w4lkoc" path="res://assets/crouch/attacks/LowKick/SF3_3rd_Chunli_24183-removebg-preview.png" id="34_15bn8"]
 [ext_resource type="Texture2D" uid="uid://dd18c8n3qjga7" path="res://assets/Chun li jump/SF3_3rd_Chunli_23214-removebg-preview.png" id="34_ba4cv"]
 [ext_resource type="Texture2D" uid="uid://dlthx632xti0p" path="res://assets/Chun li Hurt/SF3_3rd_Chunli_23440-removebg-preview.png" id="34_msvo8"]
 [ext_resource type="Texture2D" uid="uid://c1dxjxbtx2hqn" path="res://assets/Chun li jump/SF3_3rd_Chunli_23213-removebg-preview.png" id="35_fbagf"]
+[ext_resource type="Texture2D" uid="uid://eev06bjf30l7" path="res://assets/crouch/attacks/LowKick/SF3_3rd_Chunli_24184-removebg-preview.png" id="35_oasna"]
 [ext_resource type="Texture2D" uid="uid://0f0guxxeafd3" path="res://assets/Chun li Hurt/SF3_3rd_Chunli_23441-removebg-preview.png" id="35_xohad"]
 [ext_resource type="Texture2D" uid="uid://bqripnpjrr1dq" path="res://assets/Chun li Hurt/SF3_3rd_Chunli_23442-removebg-preview.png" id="36_4m0yg"]
 [ext_resource type="Texture2D" uid="uid://0rormykk2ojb" path="res://assets/Chun li jump/SF3_3rd_Chunli_23212-removebg-preview.png" id="36_geuhb"]
@@ -210,6 +238,7 @@
 [ext_resource type="Script" uid="uid://dprlu31ukgm8l" path="res://Scripts/Components/FacingController.gd" id="199_prhga"]
 [ext_resource type="Script" uid="uid://docbt7ybhit04" path="res://Scripts/Player/StateMachine/States/hurt.gd" id="205_xohad"]
 [ext_resource type="Script" uid="uid://yv74ok4maffr" path="res://Scripts/Combat/Hurtbox.gd" id="210_xohad"]
+[ext_resource type="Script" uid="uid://bgxa7hy42shv" path="res://Scripts/Combat/CrouchAttackState.gd" id="234_at21e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r8ryd"]
 size = Vector2(127, 161)
@@ -238,6 +267,139 @@ animations = [{
 "loop": 0,
 "name": &"Crouch",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_af2tb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_at21e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_eoug7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_2n0bx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_1e70i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_8au1r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_fbrb0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_82yrn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_g2m7t")
+}],
+"loop": 0,
+"name": &"CrouchHighPunch",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_qifdg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_mvdjw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_l8i8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_isplx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_03pex")
+}],
+"loop": 0,
+"name": &"CrouchKick",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_joj7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_piwae")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_sqr77")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_lifbn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_i275b")
+}],
+"loop": 0,
+"name": &"CrouchLightPunch",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("27_7ntil")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_b2ycl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_2nelu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_xp7g5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_o63rp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_qnd4r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_snvxx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_15bn8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_oasna")
+}],
+"loop": 0,
+"name": &"CrouchLowKick",
+"speed": 14.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_rm342")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_ybk73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_mw5mv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_5g1c5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_ok0yd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_laead")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_d6u6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_laead")
+}],
+"loop": 1,
+"name": &"CrouchWhile",
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -419,35 +581,6 @@ animations = [{
 "loop": 1,
 "name": &"Idle",
 "speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("22_rm342")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_ybk73")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_mw5mv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25_5g1c5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("26_ok0yd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("27_laead")
-}, {
-"duration": 1.0,
-"texture": ExtResource("28_d6u6l")
-}, {
-"duration": 1.0,
-"texture": ExtResource("27_laead")
-}],
-"loop": 1,
-"name": &"IdleCrouched",
-"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -990,6 +1123,34 @@ metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d0u6y"]
 size = Vector2(58.4375, 117.625)
 
+[sub_resource type="Resource" id="Resource_g5c5a"]
+script = ExtResource("114_w3xrr")
+metadata/_custom_type_script = "uid://c48umgmbmjtf1"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_en5lu"]
+size = Vector2(54, 32)
+
+[sub_resource type="Resource" id="Resource_11k48"]
+script = ExtResource("114_w3xrr")
+metadata/_custom_type_script = "uid://c48umgmbmjtf1"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vwldn"]
+size = Vector2(70, 30)
+
+[sub_resource type="Resource" id="Resource_w356g"]
+script = ExtResource("114_w3xrr")
+metadata/_custom_type_script = "uid://c48umgmbmjtf1"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1l51"]
+size = Vector2(125.25726, 32.611847)
+
+[sub_resource type="Resource" id="Resource_yl5c5"]
+script = ExtResource("114_w3xrr")
+metadata/_custom_type_script = "uid://c48umgmbmjtf1"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y05ww"]
+size = Vector2(140.81989, 34.523033)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 18.601076
 
@@ -1016,8 +1177,7 @@ one_way_collision = true
 position = Vector2(2, -28)
 scale = Vector2(1.632, 1.9)
 sprite_frames = SubResource("SpriteFrames_ma6wq")
-animation = &"IdleCrouched"
-frame_progress = 0.93372995
+animation = &"CrouchWhile"
 
 [node name="KikokenSpawn" type="Marker2D" parent="." unique_id=1453849635]
 position = Vector2(99, 4)
@@ -1059,7 +1219,7 @@ metadata/_custom_type_script = "uid://bkklrvtapkren"
 script = ExtResource("69_vao2x")
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
-[node name="IdleCrouched" type="Node" parent="StateMachine" unique_id=25288478]
+[node name="CrouchWhile" type="Node" parent="StateMachine" unique_id=25288478]
 script = ExtResource("70_wj34k")
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
@@ -1117,8 +1277,31 @@ metadata/_custom_type_script = "uid://bkklrvtapkren"
 script = ExtResource("205_xohad")
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
+[node name="CrouchLightPunch" type="Node" parent="StateMachine" unique_id=1635412615 node_paths=PackedStringArray("hitbox")]
+script = ExtResource("234_at21e")
+hitbox = NodePath("../../Hitboxers/CrouchLightPunch")
+metadata/_custom_type_script = "uid://bkklrvtapkren"
+
+[node name="CrouchHighPunch" type="Node" parent="StateMachine" unique_id=1376390472 node_paths=PackedStringArray("hitbox")]
+script = ExtResource("234_at21e")
+hitbox = NodePath("../../Hitboxers/CrouchHighPunch")
+active_start_frame = 2
+active_end_frame = 4
+metadata/_custom_type_script = "uid://bkklrvtapkren"
+
+[node name="CrouchKick" type="Node" parent="StateMachine" unique_id=1423207407 node_paths=PackedStringArray("hitbox")]
+script = ExtResource("234_at21e")
+hitbox = NodePath("../../Hitboxers/CrouchKick")
+metadata/_custom_type_script = "uid://bkklrvtapkren"
+
+[node name="CrouchLowKick" type="Node" parent="StateMachine" unique_id=1883283713 node_paths=PackedStringArray("hitbox")]
+script = ExtResource("234_at21e")
+hitbox = NodePath("../../Hitboxers/CrouchLowKick")
+active_start_frame = 3
+active_end_frame = 4
+metadata/_custom_type_script = "uid://bkklrvtapkren"
+
 [node name="Hitboxers" type="Node2D" parent="." unique_id=997661732]
-visible = false
 
 [node name="LightPunch" type="Area2D" parent="Hitboxers" unique_id=143547538]
 collision_layer = 0
@@ -1127,40 +1310,48 @@ script = ExtResource("112_lmw0p")
 hit_data = SubResource("Resource_lmw0p")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/LightPunch" unique_id=1338770999]
+visible = false
 position = Vector2(109, -10)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="LightPunch2" type="Area2D" parent="Hitboxers" unique_id=926362734]
+visible = false
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("112_lmw0p")
 hit_data = SubResource("Resource_57qmd")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/LightPunch2" unique_id=525755394]
+visible = false
 position = Vector2(58, -29.5)
 shape = SubResource("RectangleShape2D_3gngh")
 
 [node name="LightPunch3" type="Area2D" parent="Hitboxers" unique_id=450667432]
+visible = false
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("112_lmw0p")
 hit_data = SubResource("Resource_d0u6y")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/LightPunch3" unique_id=89265239]
+visible = false
 position = Vector2(58.25, -29)
 shape = SubResource("RectangleShape2D_fcnqv")
 
 [node name="HighPunch" type="Area2D" parent="Hitboxers" unique_id=957797969]
+visible = false
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("112_lmw0p")
 hit_data = SubResource("Resource_jj3b6")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/HighPunch" unique_id=1307253413]
+visible = false
 position = Vector2(69.75, -6)
 shape = SubResource("RectangleShape2D_yf5fn")
 
 [node name="Kick" type="Area2D" parent="Hitboxers" unique_id=985651623]
+visible = false
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("112_lmw0p")
@@ -1171,6 +1362,7 @@ position = Vector2(97.75, -47)
 shape = SubResource("RectangleShape2D_57qmd")
 
 [node name="LowKick" type="Area2D" parent="Hitboxers" unique_id=1254227919]
+visible = false
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("112_lmw0p")
@@ -1179,6 +1371,51 @@ hit_data = SubResource("Resource_80p4o")
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/LowKick" unique_id=1641637369]
 position = Vector2(76.78125, 103.8125)
 shape = SubResource("RectangleShape2D_d0u6y")
+
+[node name="CrouchLightPunch" type="Area2D" parent="Hitboxers" unique_id=1361228611]
+visible = false
+monitoring = false
+script = ExtResource("112_lmw0p")
+hit_data = SubResource("Resource_g5c5a")
+
+[node name="HitColision" type="CollisionShape2D" parent="Hitboxers/CrouchLightPunch" unique_id=1263359872]
+position = Vector2(81, 41)
+shape = SubResource("RectangleShape2D_en5lu")
+
+[node name="CrouchHighPunch" type="Area2D" parent="Hitboxers" unique_id=664287134]
+visible = false
+monitoring = false
+script = ExtResource("112_lmw0p")
+hit_data = SubResource("Resource_11k48")
+
+[node name="HitColision" type="CollisionShape2D" parent="Hitboxers/CrouchHighPunch" unique_id=1280855474]
+position = Vector2(111, 105)
+shape = SubResource("RectangleShape2D_vwldn")
+
+[node name="CrouchKick" type="Area2D" parent="Hitboxers" unique_id=2043537044]
+visible = false
+position = Vector2(-4, -30)
+monitoring = false
+script = ExtResource("112_lmw0p")
+hit_data = SubResource("Resource_w356g")
+
+[node name="HitColision" type="CollisionShape2D" parent="Hitboxers/CrouchKick" unique_id=1011138526]
+position = Vector2(70.41847, 132.10033)
+rotation = 0.2687807
+shape = SubResource("RectangleShape2D_h1l51")
+
+[node name="CrouchLowKick" type="Area2D" parent="Hitboxers" unique_id=1673505795]
+visible = false
+position = Vector2(-29, 2)
+monitoring = false
+script = ExtResource("112_lmw0p")
+hit_data = SubResource("Resource_yl5c5")
+
+[node name="HitColision" type="CollisionShape2D" parent="Hitboxers/CrouchLowKick" unique_id=1844945783]
+position = Vector2(122.5141, 97.55107)
+rotation = 0.34906584
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_y05ww")
 
 [node name="Health" type="Node" parent="." unique_id=229046517]
 script = ExtResource("114_jj3b6")
@@ -1190,6 +1427,7 @@ animated_sprite = NodePath("../AnimatedSprite2D")
 hitboxes_root = NodePath("../Hitboxers")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=330639822 node_paths=PackedStringArray("health", "state_machine", "head_shape", "torso_shape", "feet_shape", "crouch_shape")]
+visible = false
 collision_layer = 2
 collision_mask = 0
 monitoring = false
