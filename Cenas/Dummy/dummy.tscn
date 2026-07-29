@@ -412,19 +412,19 @@ animations = [{
 "texture": ExtResource("5_uve0t")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_svma1")
-}, {
-"duration": 1.0,
 "texture": ExtResource("3_k3spr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_jv7xr")
 }, {
 "duration": 1.0,
 "texture": ExtResource("8_pmtit")
 }, {
 "duration": 1.0,
 "texture": ExtResource("9_xfj2m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_svma1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jv7xr")
 }],
 "loop": 0,
 "name": &"AirLightPunch",
@@ -1498,6 +1498,21 @@ size = Vector2(125, 22.236992)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2n0bx"]
 size = Vector2(150.08823, 26.493317)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(151.52924, 34.583866)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(159.31342, 39.034557)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
+size = Vector2(32, 136.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0u6y"]
+size = Vector2(168.99886, 28.977777)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gngh"]
+size = Vector2(159.06714, 47.24742)
+
 [node name="Dummy" type="CharacterBody2D" unique_id=597853256]
 script = ExtResource("1_7u85y")
 
@@ -1786,3 +1801,49 @@ hit_data = SubResource("Resource_11k48")
 position = Vector2(65, 110.00001)
 rotation = 0.2687807
 shape = SubResource("RectangleShape2D_2n0bx")
+
+[node name="AirLightPunch" type="Area2D" parent="Hitboxers" unique_id=69126125]
+script = ExtResource("210_vbhik")
+
+[node name="HitColision" type="CollisionShape2D" parent="Hitboxers/AirLightPunch" unique_id=1226994177]
+visible = false
+position = Vector2(112.371346, 34.321934)
+rotation = 0.26179937
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="AirHighPunch" type="Area2D" parent="Hitboxers" unique_id=280905653]
+script = ExtResource("210_vbhik")
+
+[node name="HitColision" type="CollisionShape2D" parent="Hitboxers/AirHighPunch" unique_id=2036806365]
+visible = false
+position = Vector2(103.83494, 30.482048)
+rotation = 0.26179934
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="HitColision2" type="CollisionShape2D" parent="Hitboxers/AirHighPunch" unique_id=483928182]
+visible = false
+position = Vector2(12, -75.75)
+shape = SubResource("RectangleShape2D_57qmd")
+
+[node name="AirKick" type="Area2D" parent="Hitboxers" unique_id=108560398]
+position = Vector2(-66, -21)
+script = ExtResource("210_vbhik")
+
+[node name="HitColision" type="CollisionShape2D" parent="Hitboxers/AirKick" unique_id=747664144]
+visible = false
+position = Vector2(182.43112, 46.52706)
+rotation = 0.26179937
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_d0u6y")
+
+[node name="AirLowKick" type="Area2D" parent="Hitboxers" unique_id=1595672063]
+position = Vector2(-89, 2)
+script = ExtResource("210_vbhik")
+
+[node name="HitColision" type="CollisionShape2D" parent="Hitboxers/AirLowKick" unique_id=161671631]
+position = Vector2(201.49875, 24.748375)
+rotation = 0.26179937
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_3gngh")

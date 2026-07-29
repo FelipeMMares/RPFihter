@@ -1,6 +1,6 @@
-State
 CollisionShape2D
 Area2D
+State
 Control
 Label
 Button
