@@ -4,62 +4,88 @@
 [ext_resource type="Texture2D" uid="uid://bbwy05inpgibv" path="res://assets/elena (dummy)/SF3_3rd_Elena_12288-removebg-preview.png" id="1_u4fdy"]
 [ext_resource type="Texture2D" uid="uid://boum1wsvnc0pg" path="res://assets/elena (dummy)/SF3_3rd_Elena_12289-removebg-preview.png" id="2_gqsxo"]
 [ext_resource type="Texture2D" uid="uid://ybl8bb6tgrdg" path="res://assets/Elena (Dummy) Defeated/SF3_3rd_Elena_12718-removebg-preview.png" id="2_hqm7o"]
+[ext_resource type="Texture2D" uid="uid://dfqurho8tsi30" path="res://assets/Elena (dummy) Jump/Attaks/AirLightPunch/SF3_3rd_Elena_12576-removebg-preview.png" id="2_mkcs3"]
 [ext_resource type="Texture2D" uid="uid://j0ifuy2fyb5" path="res://assets/Elena (dummy) Hurt/SF3_3rd_Elena_12465-removebg-preview.png" id="2_v50a7"]
+[ext_resource type="Texture2D" uid="uid://btv644hybbnh1" path="res://assets/Elena (dummy) Jump/Attaks/AirHighPunch/SF3_3rd_Elena_12583-removebg-preview.png" id="2_wl7gm"]
 [ext_resource type="Texture2D" uid="uid://d0pjjhomjmq3u" path="res://assets/Elena (dummy) Hurt/SF3_3rd_Elena_12466-removebg-preview.png" id="3_0tpov"]
 [ext_resource type="Texture2D" uid="uid://cksfsaowrkiw5" path="res://assets/elena (dummy)/SF3_3rd_Elena_12290-removebg-preview.png" id="3_1ipwt"]
+[ext_resource type="Texture2D" uid="uid://3uqgdal4tgha" path="res://assets/Elena (dummy) Jump/Attaks/AirLightPunch/SF3_3rd_Elena_12575-removebg-preview.png" id="3_k3spr"]
+[ext_resource type="Texture2D" uid="uid://culc175ajxa1n" path="res://assets/Elena (dummy) Jump/Attaks/AirHighPunch/SF3_3rd_Elena_12584-removebg-preview.png" id="3_qesbf"]
 [ext_resource type="Texture2D" uid="uid://c3hpukk5ecxog" path="res://assets/Elena (Dummy) Defeated/SF3_3rd_Elena_12720-removebg-preview.png" id="3_twm28"]
 [ext_resource type="Texture2D" uid="uid://8g7dqvj1d8bj" path="res://assets/Elena (dummy) Hurt/SF3_3rd_Elena_12467-removebg-preview.png" id="4_7i3rb"]
+[ext_resource type="Texture2D" uid="uid://b1if6mf4eewmt" path="res://assets/Elena (dummy) Jump/Attaks/AirLightPunch/SF3_3rd_Elena_12577-removebg-preview.png" id="4_j58t3"]
 [ext_resource type="Texture2D" uid="uid://opiicf4stj0p" path="res://assets/elena (dummy)/SF3_3rd_Elena_12291-removebg-preview.png" id="4_lb2tm"]
 [ext_resource type="Texture2D" uid="uid://rvbbfy8mcl7h" path="res://assets/Elena (Dummy) Defeated/SF3_3rd_Elena_12721-removebg-preview.png" id="4_n6dig"]
+[ext_resource type="Texture2D" uid="uid://bypxag2i1grhs" path="res://assets/Elena (dummy) Jump/Attaks/AirHighPunch/SF3_3rd_Elena_12585-removebg-preview.png" id="4_oxtta"]
+[ext_resource type="Texture2D" uid="uid://cj2567jgup77l" path="res://assets/Elena (dummy) Jump/Attaks/AirHighPunch/SF3_3rd_Elena_12586-removebg-preview.png" id="5_0tgmc"]
 [ext_resource type="Texture2D" uid="uid://u558rcap2r03" path="res://assets/Elena (Dummy) Defeated/SF3_3rd_Elena_12722-removebg-preview.png" id="5_egigk"]
 [ext_resource type="Texture2D" uid="uid://d2vupgtsfu2tg" path="res://assets/elena (dummy)/SF3_3rd_Elena_12292-removebg-preview.png" id="5_nntwn"]
 [ext_resource type="Texture2D" uid="uid://2ybktoa1wup6" path="res://assets/Elena (dummy) Hurt/SF3_3rd_Elena_12468-removebg-preview.png" id="5_tm5c4"]
+[ext_resource type="Texture2D" uid="uid://pxtvmf5isoqt" path="res://assets/Elena (dummy) Jump/Attaks/AirLightPunch/SF3_3rd_Elena_12578-removebg-preview.png" id="5_uve0t"]
+[ext_resource type="Texture2D" uid="uid://bm6gwbtdrldom" path="res://assets/Elena (dummy) Jump/Attaks/AirHighPunch/SF3_3rd_Elena_12587-removebg-preview.png" id="6_6ygma"]
 [ext_resource type="Texture2D" uid="uid://br736eg1lhymi" path="res://assets/elena (dummy)/SF3_3rd_Elena_12293-removebg-preview.png" id="6_48erc"]
 [ext_resource type="Texture2D" uid="uid://moc04sm0u6y7" path="res://assets/Elena (dummy) Hurt/SF3_3rd_Elena_12469-removebg-preview.png" id="6_phren"]
+[ext_resource type="Texture2D" uid="uid://cl2my51miu4yh" path="res://assets/Elena (dummy) Jump/Attaks/AirLightPunch/SF3_3rd_Elena_12579-removebg-preview.png" id="6_svma1"]
 [ext_resource type="Texture2D" uid="uid://cb5186osgx5fj" path="res://assets/Elena (Dummy) Defeated/SF3_3rd_Elena_12723-removebg-preview.png" id="6_t5fcm"]
 [ext_resource type="Texture2D" uid="uid://dic2mdjf2s8uj" path="res://assets/Elena (dummy) Hurt/SF3_3rd_Elena_12470-removebg-preview.png" id="7_3ud4v"]
 [ext_resource type="Texture2D" uid="uid://c8v5fwggg0rv5" path="res://assets/Elena (Dummy) Defeated/SF3_3rd_Elena_12724-removebg-preview.png" id="7_82mhx"]
 [ext_resource type="Texture2D" uid="uid://bafvtjqdamp07" path="res://assets/Elena (dummy) crounch/attacks/HighPunch/SF3_3rd_Elena_13013-removebg-preview.png" id="7_g5c5a"]
+[ext_resource type="Texture2D" uid="uid://bw2yrc6lfxxbt" path="res://assets/Elena (dummy) Jump/Attaks/AirLightPunch/SF3_3rd_Elena_12580-removebg-preview.png" id="7_jv7xr"]
 [ext_resource type="Texture2D" uid="uid://gjyx8j4yib3e" path="res://assets/elena (dummy)/SF3_3rd_Elena_12294-removebg-preview.png" id="7_lcb1f"]
+[ext_resource type="Texture2D" uid="uid://72mdey061af5" path="res://assets/Elena (dummy) Jump/Attaks/AirHighPunch/SF3_3rd_Elena_12588-removebg-preview.png" id="7_ychtx"]
 [ext_resource type="Texture2D" uid="uid://c7a1jmobjbc7t" path="res://assets/elena (dummy)/SF3_3rd_Elena_12295-removebg-preview.png" id="8_6mob7"]
 [ext_resource type="Texture2D" uid="uid://c1n6qvq5562ys" path="res://assets/Elena (dummy) crounch/attacks/HighPunch/SF3_3rd_Elena_13014-removebg-preview.png" id="8_11k48"]
 [ext_resource type="Texture2D" uid="uid://da048h4mf86vo" path="res://assets/Elena (dummy) Hurt/SF3_3rd_Elena_12471-removebg-preview.png" id="8_ba4g4"]
+[ext_resource type="Texture2D" uid="uid://brnuvv1uxl5ih" path="res://assets/Elena (dummy) Jump/Attaks/AirHighPunch/SF3_3rd_Elena_12589-removebg-preview.png" id="8_l2oic"]
 [ext_resource type="Texture2D" uid="uid://che6raoj5yeaf" path="res://assets/Elena (Dummy) Defeated/SF3_3rd_Elena_12725-removebg-preview.png" id="8_m7s4y"]
+[ext_resource type="Texture2D" uid="uid://cqk514r11ii6h" path="res://assets/Elena (dummy) Jump/Attaks/AirLightPunch/SF3_3rd_Elena_12581-removebg-preview.png" id="8_pmtit"]
+[ext_resource type="Texture2D" uid="uid://ddhpd7lsn006x" path="res://assets/Elena (dummy) Jump/Attaks/AirHighPunch/SF3_3rd_Elena_12590-removebg-preview.png" id="9_26s36"]
 [ext_resource type="Texture2D" uid="uid://berkaqibjnlsq" path="res://assets/Elena (Dummy) Defeated/SF3_3rd_Elena_12726-removebg-preview.png" id="9_igu4o"]
 [ext_resource type="Texture2D" uid="uid://crfi7xiujti1s" path="res://assets/elena (dummy)/SF3_3rd_Elena_12296-removebg-preview.png" id="9_u4fdy"]
 [ext_resource type="Texture2D" uid="uid://be84a374yof4p" path="res://assets/Elena (dummy) crounch/attacks/HighPunch/SF3_3rd_Elena_13015-removebg-preview.png" id="9_w356g"]
+[ext_resource type="Texture2D" uid="uid://biba3kn1qfebo" path="res://assets/Elena (dummy) Jump/Attaks/AirLightPunch/SF3_3rd_Elena_12582-removebg-preview.png" id="9_xfj2m"]
 [ext_resource type="Texture2D" uid="uid://e7eli7jbhhas" path="res://assets/elena (dummy)/SF3_3rd_Elena_12297-removebg-preview.png" id="10_8yuib"]
+[ext_resource type="Texture2D" uid="uid://csyytm0j3u6ic" path="res://assets/Elena (dummy) Jump/Attaks/AirHighPunch/SF3_3rd_Elena_12591-removebg-preview.png" id="10_gbptc"]
 [ext_resource type="Texture2D" uid="uid://io1smbt2bm87" path="res://assets/Elena (Dummy) Defeated/SF3_3rd_Elena_12727-removebg-preview.png" id="10_jsx6q"]
 [ext_resource type="Texture2D" uid="uid://cpdotiaaldfot" path="res://assets/Elena (dummy) crounch/attacks/HighPunch/SF3_3rd_Elena_13016-removebg-preview.png" id="10_yl5c5"]
+[ext_resource type="Texture2D" uid="uid://dlirdb8mg5m6f" path="res://assets/Elena (dummy) Jump/Attaks/AirHighPunch/SF3_3rd_Elena_12592-removebg-preview.png" id="11_62ra8"]
 [ext_resource type="Texture2D" uid="uid://d3fyppnaqgnmf" path="res://assets/Elena (dummy) crounch/attacks/HighPunch/SF3_3rd_Elena_13017-removebg-preview.png" id="11_en5lu"]
 [ext_resource type="Texture2D" uid="uid://c7b2p427sov2n" path="res://assets/elena (dummy)/SF3_3rd_Elena_12298-removebg-preview.png" id="11_pbjwv"]
 [ext_resource type="Texture2D" uid="uid://b0bfohvoiolaa" path="res://assets/Elena (Dummy) Defeated/SF3_3rd_Elena_12728-removebg-preview.png" id="11_tky73"]
 [ext_resource type="Texture2D" uid="uid://dkvihrgh2how7" path="res://assets/elena (dummy)/SF3_3rd_Elena_12299-removebg-preview.png" id="12_j6gfk"]
 [ext_resource type="Texture2D" uid="uid://lfyjoudqtrju" path="res://assets/Elena (Demmy) FallDefeated/SF3_3rd_Elena_12718-removebg-preview.png" id="12_mueu1"]
 [ext_resource type="Texture2D" uid="uid://vhoc2khhahud" path="res://assets/Elena (dummy) crounch/end/SF3_3rd_Elena_12352-removebg-preview.png" id="12_nv75n"]
+[ext_resource type="Texture2D" uid="uid://b3lu76bb6m0fo" path="res://assets/Elena (dummy) Jump/Attaks/AirKick/SF3_3rd_Elena_12568-removebg-preview (1).png" id="12_tsewf"]
 [ext_resource type="Texture2D" uid="uid://djxgmtdm0h8aa" path="res://assets/Elena (dummy) crounch/attacks/HighPunch/SF3_3rd_Elena_13018-removebg-preview.png" id="12_vwldn"]
 [ext_resource type="Texture2D" uid="uid://df2t2mimctdpr" path="res://assets/Elena (Demmy) FallDefeated/SF3_3rd_Elena_12720-removebg-preview.png" id="13_4w8ws"]
+[ext_resource type="Texture2D" uid="uid://dpeb20bfkq676" path="res://assets/Elena (dummy) Jump/Attaks/AirKick/SF3_3rd_Elena_12568-removebg-preview.png" id="13_8enkv"]
 [ext_resource type="Texture2D" uid="uid://bq4l8e0yjdapq" path="res://assets/elena (dummy)/SF3_3rd_Elena_12300-removebg-preview.png" id="13_dnvsn"]
 [ext_resource type="Texture2D" uid="uid://dcowdql2vkggr" path="res://assets/Elena (dummy) crounch/attacks/HighPunch/SF3_3rd_Elena_13019-removebg-preview.png" id="13_h1l51"]
 [ext_resource type="Texture2D" uid="uid://diffghk8p3bq1" path="res://assets/Elena (dummy) crounch/end/SF3_3rd_Elena_12353-removebg-preview.png" id="13_o7w7h"]
 [ext_resource type="Texture2D" uid="uid://ccd8vxftyf2tl" path="res://assets/elena (dummy)/SF3_3rd_Elena_12301-removebg-preview.png" id="14_3mxc2"]
 [ext_resource type="Texture2D" uid="uid://bc2n3c77wx2e7" path="res://assets/Elena (dummy) crounch/end/SF3_3rd_Elena_12354-removebg-preview.png" id="14_fy8lm"]
+[ext_resource type="Texture2D" uid="uid://db0c8v4njbj01" path="res://assets/Elena (dummy) Jump/Attaks/AirKick/SF3_3rd_Elena_12569-removebg-preview.png" id="14_hrjuy"]
 [ext_resource type="Texture2D" uid="uid://dh7kvlxe3av48" path="res://assets/Elena (Demmy) FallDefeated/SF3_3rd_Elena_12721-removebg-preview.png" id="14_ldlq4"]
 [ext_resource type="Texture2D" uid="uid://c7jcd6twc12ry" path="res://assets/Elena (dummy) crounch/attacks/HighPunch/SF3_3rd_Elena_13020-removebg-preview.png" id="14_y05ww"]
 [ext_resource type="Texture2D" uid="uid://dh1pn0s53vrls" path="res://assets/elena (dummy)/SF3_3rd_Elena_12302-removebg-preview.png" id="15_7u85y"]
 [ext_resource type="Texture2D" uid="uid://be6qv8ssidydw" path="res://assets/Elena (dummy) crounch/attacks/HighPunch/SF3_3rd_Elena_13021-removebg-preview.png" id="15_dmijm"]
 [ext_resource type="Texture2D" uid="uid://ddrmxm142obxr" path="res://assets/Elena (dummy) crounch/end/SF3_3rd_Elena_12355-removebg-preview.png" id="15_l57yj"]
+[ext_resource type="Texture2D" uid="uid://lnstya7w2yjh" path="res://assets/Elena (dummy) Jump/Attaks/AirKick/SF3_3rd_Elena_12570-removebg-preview.png" id="15_pvwnl"]
 [ext_resource type="Texture2D" uid="uid://bjmy101hwkqcy" path="res://assets/Elena (Demmy) FallDefeated/SF3_3rd_Elena_12722-removebg-preview.png" id="15_y0efp"]
 [ext_resource type="Texture2D" uid="uid://dp0fuc173q0f6" path="res://assets/elena (dummy)/SF3_3rd_Elena_12303-removebg-preview.png" id="16_1qwri"]
 [ext_resource type="Texture2D" uid="uid://b2nw8yfx1hnow" path="res://assets/Elena (dummy) crounch/end/SF3_3rd_Elena_12356-removebg-preview.png" id="16_3r0ly"]
 [ext_resource type="Texture2D" uid="uid://bj533653qcit0" path="res://assets/Elena (dummy) crounch/attacks/HighPunch/SF3_3rd_Elena_13022-removebg-preview.png" id="16_mkcs3"]
+[ext_resource type="Texture2D" uid="uid://cpf60q8uvrvsg" path="res://assets/Elena (dummy) Jump/Attaks/AirKick/SF3_3rd_Elena_12571-removebg-preview.png" id="16_qknmf"]
 [ext_resource type="Texture2D" uid="uid://mjttmt6smmh5" path="res://assets/Elena (Demmy) FallDefeated/SF3_3rd_Elena_12723-removebg-preview.png" id="16_rwy5j"]
 [ext_resource type="Texture2D" uid="uid://dr72jeu8ipjcq" path="res://assets/Elena (Demmy) FallDefeated/SF3_3rd_Elena_12724-removebg-preview.png" id="17_gh28v"]
 [ext_resource type="Texture2D" uid="uid://ponq358ticvl" path="res://assets/Elena (dummy) crounch/attacks/HighPunch/SF3_3rd_Elena_13023-removebg-preview.png" id="17_k3spr"]
+[ext_resource type="Texture2D" uid="uid://6jwccc8hhom6" path="res://assets/Elena (dummy) Jump/Attaks/AirKick/SF3_3rd_Elena_12572-removebg-preview.png" id="17_osujl"]
 [ext_resource type="Texture2D" uid="uid://u44rwjrsafbg" path="res://assets/elena (dummy)/SF3_3rd_Elena_12304-removebg-preview.png" id="17_wutc1"]
 [ext_resource type="Texture2D" uid="uid://pxt8t4do3sx0" path="res://assets/elena (dummy)/SF3_3rd_Elena_12305-removebg-preview.png" id="18_40vv7"]
 [ext_resource type="Texture2D" uid="uid://bwff78c6p3lwa" path="res://assets/Elena (dummy) crounch/attacks/HighPunch/SF3_3rd_Elena_13024-removebg-preview.png" id="18_j58t3"]
 [ext_resource type="Texture2D" uid="uid://cygpp8g160wpx" path="res://assets/Elena (Demmy) FallDefeated/SF3_3rd_Elena_12725-removebg-preview.png" id="18_lvosg"]
+[ext_resource type="Texture2D" uid="uid://dkhxgyl0cic15" path="res://assets/Elena (dummy) Jump/Attaks/AirKick/SF3_3rd_Elena_12573-removebg-preview.png" id="18_s2n8t"]
+[ext_resource type="Texture2D" uid="uid://hqvooypqrwyo" path="res://assets/Elena (dummy) Jump/Attaks/AirKick/SF3_3rd_Elena_12574-removebg-preview.png" id="19_hawmn"]
 [ext_resource type="Texture2D" uid="uid://wbowg27br8mc" path="res://assets/Elena (Demmy) FallDefeated/SF3_3rd_Elena_12726-removebg-preview.png" id="19_o12jv"]
 [ext_resource type="Texture2D" uid="uid://dhekwqhkoufhl" path="res://assets/Elena (dummy) crounch/attacks/HighPunch/SF3_3rd_Elena_13025-removebg-preview.png" id="19_uve0t"]
 [ext_resource type="Texture2D" uid="uid://co31uf0y18wa5" path="res://assets/elena (dummy)/SF3_3rd_Elena_12306-removebg-preview.png" id="19_v50a7"]
@@ -89,18 +115,23 @@
 [ext_resource type="Texture2D" uid="uid://dtga723xekcyv" path="res://assets/Elena (dummy) crounch/attacks/Kick/SF3_3rd_Elena_13005-removebg-preview.png" id="27_nxey5"]
 [ext_resource type="Texture2D" uid="uid://bxw0iym1igpg6" path="res://assets/elena (dummy)/SF3_3rd_Elena_12315-removebg-preview.png" id="28_4qyii"]
 [ext_resource type="Texture2D" uid="uid://dk6o4uuontbjd" path="res://assets/Elena (Demmy) FallDefeated/SF3_3rd_Elena_12735-removebg-preview.png" id="28_cqkvl"]
+[ext_resource type="Texture2D" uid="uid://b6ee6yqyadtx5" path="res://assets/Elena (dummy) Jump/Attaks/AirLowKick/SF3_3rd_Elena_12556-removebg-preview.png" id="28_lkfxa"]
 [ext_resource type="Texture2D" uid="uid://c6dxb1d6sb56t" path="res://assets/Elena (dummy) crounch/attacks/Kick/SF3_3rd_Elena_13006-removebg-preview.png" id="28_xdbra"]
+[ext_resource type="Texture2D" uid="uid://c6l2xtbyrdclw" path="res://assets/Elena (dummy) Jump/Attaks/AirLowKick/SF3_3rd_Elena_12557-removebg-preview.png" id="29_g64je"]
 [ext_resource type="Texture2D" uid="uid://bj7d1pexnotc" path="res://assets/Elena (dummy) crounch/attacks/Kick/SF3_3rd_Elena_13007-removebg-preview.png" id="29_hajly"]
 [ext_resource type="Texture2D" uid="uid://btc12sn1d0al8" path="res://assets/elena (dummy)/SF3_3rd_Elena_12316-removebg-preview.png" id="29_jtfg5"]
 [ext_resource type="Texture2D" uid="uid://cohi3bw57t52a" path="res://assets/Elena (Demmy) FallDefeated/SF3_3rd_Elena_12736-removebg-preview.png" id="29_tjr31"]
 [ext_resource type="Texture2D" uid="uid://b4isl6wgfb5mx" path="res://assets/Elena (dummy) HighPunch/SF3_3rd_Elena_12445-removebg-preview.png" id="30_ftcj5"]
 [ext_resource type="Texture2D" uid="uid://dl8a8faley5yp" path="res://assets/elena (dummy)/SF3_3rd_Elena_12317-removebg-preview.png" id="30_q2y3e"]
+[ext_resource type="Texture2D" uid="uid://wyr8j2d2qj05" path="res://assets/Elena (dummy) Jump/Attaks/AirLowKick/SF3_3rd_Elena_12558-removebg-preview.png" id="30_tum87"]
 [ext_resource type="Texture2D" uid="uid://bpxxjsmvonwxc" path="res://assets/Elena (dummy) crounch/attacks/Kick/SF3_3rd_Elena_13008-removebg-preview.png" id="30_vxh6u"]
 [ext_resource type="Texture2D" uid="uid://dmyg3cowl0un0" path="res://assets/elena (dummy)/SF3_3rd_Elena_12318-removebg-preview.png" id="31_6t8ex"]
+[ext_resource type="Texture2D" uid="uid://c4pfxr4oey2ss" path="res://assets/Elena (dummy) Jump/Attaks/AirLowKick/SF3_3rd_Elena_12560-removebg-preview.png" id="31_h4g6l"]
 [ext_resource type="Texture2D" uid="uid://d1wjyrbl8fmve" path="res://assets/Elena (dummy) HighPunch/SF3_3rd_Elena_12446-removebg-preview.png" id="31_w3jlc"]
 [ext_resource type="Texture2D" uid="uid://rtgvfjc1cto3" path="res://assets/Elena (dummy) crounch/attacks/Kick/SF3_3rd_Elena_13009-removebg-preview.png" id="31_y3n6h"]
 [ext_resource type="Texture2D" uid="uid://dbgim2ig8284t" path="res://assets/Elena (dummy) HighPunch/SF3_3rd_Elena_12447-removebg-preview.png" id="32_ivwpd"]
 [ext_resource type="Texture2D" uid="uid://crnnglihnb01k" path="res://assets/Elena (dummy) crounch/attacks/Kick/SF3_3rd_Elena_13010-removebg-preview.png" id="32_kw8us"]
+[ext_resource type="Texture2D" uid="uid://b000t415q7ld2" path="res://assets/Elena (dummy) Jump/Attaks/AirLowKick/SF3_3rd_Elena_12561-removebg-preview.png" id="32_t7yrf"]
 [ext_resource type="Texture2D" uid="uid://cpqaswtqfiel8" path="res://assets/elena (dummy)/SF3_3rd_Elena_12319-removebg-preview.png" id="32_yhpbs"]
 [ext_resource type="Texture2D" uid="uid://xtwthre8nq4c" path="res://assets/Elena (dummy) HighPunch/SF3_3rd_Elena_12448-removebg-preview.png" id="33_g6tcy"]
 [ext_resource type="Texture2D" uid="uid://b5fhck11vp00i" path="res://assets/Elena (dummy) crounch/attacks/Kick/SF3_3rd_Elena_13011-removebg-preview.png" id="33_gpi05"]
@@ -305,6 +336,119 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wl7gm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qesbf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_oxtta")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0tgmc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6ygma")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ychtx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_l2oic")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_26s36")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_gbptc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_62ra8")
+}],
+"loop": 0,
+"name": &"AirHighPunch",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_tsewf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_8enkv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_hrjuy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_pvwnl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_qknmf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_osujl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_s2n8t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_hawmn")
+}],
+"loop": 0,
+"name": &"AirKick",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_j58t3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mkcs3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_uve0t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_svma1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_k3spr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jv7xr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_pmtit")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xfj2m")
+}],
+"loop": 0,
+"name": &"AirLightPunch",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_lkfxa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_g64je")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_tum87")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_h4g6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_t7yrf")
+}],
+"loop": 0,
+"name": &"AirLowKick",
+"speed": 15.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("12_nv75n")
@@ -1360,7 +1504,9 @@ script = ExtResource("1_7u85y")
 position = Vector2(2.9999962, 5.000001)
 scale = Vector2(1.724, 1.9)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"CrouchLowKick"
+animation = &"AirLowKick"
+frame = 4
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1128512923]
 visible = false

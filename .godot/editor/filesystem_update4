@@ -1,13 +1,2 @@
-res://Cenas/Player/Player.tscn
 res://Cenas/Dummy/dummy.tscn
-res://Scripts/Combat/Hurtbox.gd
-res://Scripts/Player/Player.gd
-res://Cenas/Dummy/Dummy.gd
-res://Scripts/Player/StateMachine/State.gd
-res://Scripts/Dummy/States/DummyCrouchStart.gd
-res://Scripts/Dummy/States/CrouchWhile.gd
-res://Scripts/Dummy/States/CrouchEnd.gd
-res://Scripts/Combat/CrouchAttackState.gd
-res://Scripts/Player/StateMachine/States/Ground/IdleCrouched.gd
-res://Scripts/Dummy/DummyAI.gd
-res://Scripts/Player/StateMachine/States/Ground/crouch.gd
+res://cena_da_luta.tscn
