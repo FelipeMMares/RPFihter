@@ -1,1 +1,5 @@
+res://Cenas/Player/Player.tscn
+res://Scripts/Player/StateMachine/States/Air/jump.gd
+res://Scripts/Dummy/DummyAI.gd
 res://Cenas/Dummy/dummy.tscn
+res://cena_da_luta.tscn

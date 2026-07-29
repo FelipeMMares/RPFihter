@@ -55,6 +55,25 @@ var crouch_attack_chance: float = 0.65
 @export var crouch_attack_delay_min: float = 0.25
 @export var crouch_attack_delay_max: float = 0.75
 
+@export_group("Ataques aéreos")
+
+# Estado em que o personagem já está no ar.
+# Não é StartJump.
+@export var airborne_state: StringName = &"Jump"
+
+@export var air_attack_states: Array[StringName] = [
+	&"AirLightPunch",
+	&"AirHighPunch",
+	&"AirKick",
+	&"AirLowKick"
+]
+
+@export_range(0.0, 1.0, 0.05)
+var air_attack_chance: float = 0.65
+
+@export var air_attack_delay_min: float = 0.10
+@export var air_attack_delay_max: float = 0.40
+
 @export_group("Distância")
 @export var attack_range: float = 25.0
 
@@ -108,6 +127,9 @@ var _crouch_release_requested: bool = false
 
 var _crouch_attack_timer: float = 0.0
 var _crouch_attack_attempted: bool = false
+
+var _air_attack_timer: float = 0.0
+var _air_attack_attempted: bool = false
 
 func _ready() -> void:
 	_rng.randomize()
@@ -174,6 +196,17 @@ func _physics_process(delta: float) -> void:
 		)
 		return
 
+	# Enquanto está no estado Jump, pode decidir
+	# realizar um ataque aéreo.
+	if current_state == airborne_state:
+		_process_air_attack(delta)
+		return
+
+	# Durante um ataque aéreo, a própria State controla
+	# o retorno para Idle ao tocar no chão.
+	if _is_air_attack_state(current_state):
+		return
+
 	# Depois vêm as verificações gerais de ataques,
 	# Hurt, Jump e outros estados.
 	# Durante ataques, Hurt, pulo e outras animações,
@@ -198,6 +231,8 @@ func _physics_process(delta: float) -> void:
 		_ensure_idle()
 		_stop_character()
 		return
+
+
 
 	_choose_next_action()
 
@@ -450,6 +485,13 @@ func _perform_jump() -> void:
 
 		_start_wait()
 		return
+
+	_air_attack_attempted = false
+
+	_air_attack_timer = _rng.randf_range(
+		air_attack_delay_min,
+		air_attack_delay_max
+	)
 
 	print(
 		"DummyAI decidiu pular | estado: ",
@@ -807,3 +849,81 @@ func _start_random_crouch_attack() -> bool:
 	)
 
 	return true
+
+func _process_air_attack(delta: float) -> void:
+	if _air_attack_attempted:
+		return
+
+	if character == null:
+		return
+
+	# Evita iniciar um ataque quando já estiver
+	# tocando o chão.
+	if character.is_on_floor():
+		return
+
+	_air_attack_timer = maxf(
+		_air_attack_timer - delta,
+		0.0
+	)
+
+	if _air_attack_timer > 0.0:
+		return
+
+	# Faz somente uma tentativa por salto.
+	_air_attack_attempted = true
+
+	if _rng.randf() > air_attack_chance:
+		return
+
+	_start_random_air_attack()
+
+
+func _start_random_air_attack() -> bool:
+	var valid_attacks: Array[StringName] = []
+
+	for attack_state in air_attack_states:
+		if state_machine.has_state(attack_state):
+			valid_attacks.append(attack_state)
+		else:
+			printerr(
+				"DummyAI: estado de ataque aéreo "
+				+ "não encontrado: ",
+				attack_state
+			)
+
+	if valid_attacks.is_empty():
+		printerr(
+			"DummyAI: nenhum ataque aéreo válido."
+		)
+		return false
+
+	var selected_index: int = _rng.randi_range(
+		0,
+		valid_attacks.size() - 1
+	)
+
+	var selected_attack: StringName = (
+		valid_attacks[selected_index]
+	)
+
+	print(
+		"DummyAI escolheu ataque aéreo: ",
+		selected_attack
+	)
+
+	state_machine.force_transition(
+		selected_attack
+	)
+
+	return true
+
+
+func _is_air_attack_state(
+	state_name: StringName
+) -> bool:
+	for attack_state in air_attack_states:
+		if state_name == attack_state:
+			return true
+
+	return false
