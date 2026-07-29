@@ -1,5 +1,9 @@
 extends State
 
+@export var jump_state: StringName = &"StartJump"
+@export var walk_state: StringName = &"Walk"
+@export var crouch_state: StringName = &"Crouch"
+
 func _enter() -> void:
 	play_animation.emit(name, false)
 
@@ -11,15 +15,17 @@ func _physics_process(delta: float) -> void:
 	if player_controls == null:
 		return
 	
+	if player_controls.is_jumping():
+		print("PEDIU PULO")
+		transition_to.emit("StartJump")
+	
 	if player_controls.is_walking():
 		transition_to.emit("Walk")
 		
 	if player_controls.just_crouched():
 		transition_to.emit("Crouch")
 	
-	if player_controls.is_jumping():
-		print("PEDIU PULO")
-		transition_to.emit("StartJump")
+
 	if Input.is_action_just_pressed(player_controls.light_punch):
 		transition_to.emit("LightPunch")
 		return
