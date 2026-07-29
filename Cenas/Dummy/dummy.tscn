@@ -333,6 +333,7 @@
 [ext_resource type="Script" uid="uid://bypbdgv23selr" path="res://Scripts/Dummy/States/CrouchWhile.gd" id="229_o7w7h"]
 [ext_resource type="Script" uid="uid://rup4bo6gvffh" path="res://Scripts/Dummy/States/CrouchEnd.gd" id="230_o7w7h"]
 [ext_resource type="Script" uid="uid://bgxa7hy42shv" path="res://Scripts/Combat/CrouchAttackState.gd" id="296_11k48"]
+[ext_resource type="Script" uid="uid://cvfgoxh838ivm" path="res://Scripts/Combat/AirAttackState.gd" id="328_qesbf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
@@ -1615,6 +1616,22 @@ script = ExtResource("296_11k48")
 hitbox = NodePath("../../Hitboxers/CrouchLowKick")
 active_start_frame = 4
 active_end_frame = 7
+metadata/_custom_type_script = "uid://bkklrvtapkren"
+
+[node name="AirLightPunch" type="Node" parent="StateMachine" unique_id=538039677]
+script = ExtResource("328_qesbf")
+metadata/_custom_type_script = "uid://bkklrvtapkren"
+
+[node name="AirHighPunch" type="Node" parent="StateMachine" unique_id=2112530438]
+script = ExtResource("328_qesbf")
+metadata/_custom_type_script = "uid://bkklrvtapkren"
+
+[node name="AirKick" type="Node" parent="StateMachine" unique_id=771732905]
+script = ExtResource("328_qesbf")
+metadata/_custom_type_script = "uid://bkklrvtapkren"
+
+[node name="AirLowKick" type="Node" parent="StateMachine" unique_id=907767305]
+script = ExtResource("328_qesbf")
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1276732752 node_paths=PackedStringArray("health", "state_machine", "head_shape", "torso_shape", "feet_shape", "crouch_shape")]

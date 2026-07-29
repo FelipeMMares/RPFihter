@@ -143,32 +143,32 @@
 [ext_resource type="Texture2D" uid="uid://mfd42ei0cywt" path="res://assets/Chun li jump/SF3_3rd_Chunli_23215-removebg-preview.png" id="33_u26fn"]
 [ext_resource type="Texture2D" uid="uid://6r7bg3w4lkoc" path="res://assets/crouch/attacks/LowKick/SF3_3rd_Chunli_24183-removebg-preview.png" id="34_15bn8"]
 [ext_resource type="Texture2D" uid="uid://dd18c8n3qjga7" path="res://assets/Chun li jump/SF3_3rd_Chunli_23214-removebg-preview.png" id="34_ba4cv"]
-[ext_resource type="Texture2D" uid="uid://dlthx632xti0p" path="res://assets/Chun li Hurt/SF3_3rd_Chunli_23440-removebg-preview.png" id="34_msvo8"]
+[ext_resource type="Texture2D" uid="uid://dlthx632xti0p" path="res://assets/Chun li hurt/SF3_3rd_Chunli_23440-removebg-preview.png" id="34_msvo8"]
 [ext_resource type="Texture2D" uid="uid://bd2hn7p00b8a3" path="res://assets/Chun li jump/Attacks/AirLightPunch/SF3_3rd_Chunli_24259-removebg-preview.png" id="34_x2xoi"]
 [ext_resource type="Texture2D" uid="uid://c1dxjxbtx2hqn" path="res://assets/Chun li jump/SF3_3rd_Chunli_23213-removebg-preview.png" id="35_fbagf"]
 [ext_resource type="Texture2D" uid="uid://dxypsuy2iqc8m" path="res://assets/Chun li jump/Attacks/AirLowKick/SF3_3rd_Chunli_24320-removebg-preview.png" id="35_iq3tf"]
 [ext_resource type="Texture2D" uid="uid://eev06bjf30l7" path="res://assets/crouch/attacks/LowKick/SF3_3rd_Chunli_24184-removebg-preview.png" id="35_oasna"]
-[ext_resource type="Texture2D" uid="uid://0f0guxxeafd3" path="res://assets/Chun li Hurt/SF3_3rd_Chunli_23441-removebg-preview.png" id="35_xohad"]
-[ext_resource type="Texture2D" uid="uid://bqripnpjrr1dq" path="res://assets/Chun li Hurt/SF3_3rd_Chunli_23442-removebg-preview.png" id="36_4m0yg"]
+[ext_resource type="Texture2D" uid="uid://0f0guxxeafd3" path="res://assets/Chun li hurt/SF3_3rd_Chunli_23441-removebg-preview.png" id="35_xohad"]
+[ext_resource type="Texture2D" uid="uid://bqripnpjrr1dq" path="res://assets/Chun li hurt/SF3_3rd_Chunli_23442-removebg-preview.png" id="36_4m0yg"]
 [ext_resource type="Texture2D" uid="uid://dl06npaxaxyok" path="res://assets/Chun li jump/Attacks/AirLowKick/SF3_3rd_Chunli_24321-removebg-preview.png" id="36_53i2j"]
 [ext_resource type="Texture2D" uid="uid://0rormykk2ojb" path="res://assets/Chun li jump/SF3_3rd_Chunli_23212-removebg-preview.png" id="36_geuhb"]
-[ext_resource type="Texture2D" uid="uid://blflyrlba5w3y" path="res://assets/Chun li Hurt/SF3_3rd_Chunli_23443-removebg-preview.png" id="37_6u6l6"]
+[ext_resource type="Texture2D" uid="uid://blflyrlba5w3y" path="res://assets/Chun li hurt/SF3_3rd_Chunli_23443-removebg-preview.png" id="37_6u6l6"]
 [ext_resource type="Texture2D" uid="uid://d24s3hhsw2mwx" path="res://assets/Chun li jump/SF3_3rd_Chunli_23211-removebg-preview.png" id="37_cpe6a"]
 [ext_resource type="Texture2D" uid="uid://tnifdbupw7o4" path="res://assets/Chun li jump/Attacks/AirLowKick/SF3_3rd_Chunli_24322-removebg-preview.png" id="37_n2728"]
-[ext_resource type="Texture2D" uid="uid://dwa27ix7tu8ei" path="res://assets/Chun li Hurt/SF3_3rd_Chunli_23444-removebg-preview.png" id="38_8cwyj"]
+[ext_resource type="Texture2D" uid="uid://dwa27ix7tu8ei" path="res://assets/Chun li hurt/SF3_3rd_Chunli_23444-removebg-preview.png" id="38_8cwyj"]
 [ext_resource type="Texture2D" uid="uid://mr872ht3blni" path="res://assets/Chun li jump/SF3_3rd_Chunli_23210-removebg-preview.png" id="38_41gv1"]
 [ext_resource type="Texture2D" uid="uid://klgde2qq4myb" path="res://assets/Chun li jump/Attacks/AirLowKick/SF3_3rd_Chunli_24323-removebg-preview.png" id="38_h3tyr"]
-[ext_resource type="Texture2D" uid="uid://b8baawta1u3bv" path="res://assets/Chun li Hurt/SF3_3rd_Chunli_23445-removebg-preview.png" id="39_livxd"]
+[ext_resource type="Texture2D" uid="uid://b8baawta1u3bv" path="res://assets/Chun li hurt/SF3_3rd_Chunli_23445-removebg-preview.png" id="39_livxd"]
 [ext_resource type="Texture2D" uid="uid://n1ct7kyw2bhx" path="res://assets/Chun li jump/SF3_3rd_Chunli_23209-removebg-preview.png" id="39_ukkjq"]
 [ext_resource type="Texture2D" uid="uid://vvr7dj7o3vh2" path="res://assets/Chun li jump/Attacks/AirLowKick/SF3_3rd_Chunli_24318-removebg-preview.png" id="39_usajm"]
 [ext_resource type="Texture2D" uid="uid://cee1s3msqwp88" path="res://assets/Chun li jump/Attacks/AirLowKick/SF3_3rd_Chunli_24324-removebg-preview.png" id="40_crp82"]
-[ext_resource type="Texture2D" uid="uid://cy6jlkmfwnytd" path="res://assets/Chun li Hurt/SF3_3rd_Chunli_23446-removebg-preview.png" id="40_tc0yc"]
+[ext_resource type="Texture2D" uid="uid://cy6jlkmfwnytd" path="res://assets/Chun li hurt/SF3_3rd_Chunli_23446-removebg-preview.png" id="40_tc0yc"]
 [ext_resource type="Texture2D" uid="uid://jicxge28dhbv" path="res://assets/Chun li jump/SF3_3rd_Chunli_23208-removebg-preview.png" id="40_wjtr3"]
 [ext_resource type="Texture2D" uid="uid://gj7l26ef3o57" path="res://assets/Chun li jump/Attacks/AirLowKick/SF3_3rd_Chunli_24325-removebg-preview.png" id="41_57lhq"]
-[ext_resource type="Texture2D" uid="uid://cl32jjqou6i46" path="res://assets/Chun li Hurt/SF3_3rd_Chunli_23447-removebg-preview.png" id="41_nbm0v"]
+[ext_resource type="Texture2D" uid="uid://cl32jjqou6i46" path="res://assets/Chun li hurt/SF3_3rd_Chunli_23447-removebg-preview.png" id="41_nbm0v"]
 [ext_resource type="Script" uid="uid://byslak2i1ykxe" path="res://Scripts/Player/PlayerControls/PlayerControls.gd" id="42_7t34q"]
 [ext_resource type="Texture2D" uid="uid://dhv4yk7bafj3p" path="res://assets/Chun li jump/Attacks/AirLowKick/SF3_3rd_Chunli_24319-removebg-preview.png" id="42_hhil0"]
-[ext_resource type="Texture2D" uid="uid://bpxodv0i7lfuo" path="res://assets/Chun li Hurt/SF3_3rd_Chunli_23448-removebg-preview.png" id="42_vy1b1"]
+[ext_resource type="Texture2D" uid="uid://bpxodv0i7lfuo" path="res://assets/Chun li hurt/SF3_3rd_Chunli_23448-removebg-preview.png" id="42_vy1b1"]
 [ext_resource type="Texture2D" uid="uid://cbxnq8nldyf6k" path="res://assets/Chun li jump/Attacks/AirLowKick/SF3_3rd_Chunli_24326-removebg-preview.png" id="43_1od2v"]
 [ext_resource type="Script" uid="uid://brg7ixgqu5kif" path="res://Scripts/Player/CommandParser/CommandSequence.gd" id="43_xf2w6"]
 [ext_resource type="Texture2D" uid="uid://d2kvdjcrp36fp" path="res://assets/Chun li jump/Attacks/AirLowKick/SF3_3rd_Chunli_24327-removebg-preview.png" id="44_ufjy0"]
@@ -286,6 +286,7 @@
 [ext_resource type="Script" uid="uid://docbt7ybhit04" path="res://Scripts/Player/StateMachine/States/hurt.gd" id="205_xohad"]
 [ext_resource type="Script" uid="uid://yv74ok4maffr" path="res://Scripts/Combat/Hurtbox.gd" id="210_xohad"]
 [ext_resource type="Script" uid="uid://bgxa7hy42shv" path="res://Scripts/Combat/CrouchAttackState.gd" id="234_at21e"]
+[ext_resource type="Script" uid="uid://cvfgoxh838ivm" path="res://Scripts/Combat/AirAttackState.gd" id="282_yt5hj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r8ryd"]
 size = Vector2(127, 161)
@@ -1509,6 +1510,22 @@ script = ExtResource("234_at21e")
 hitbox = NodePath("../../Hitboxers/CrouchLowKick")
 active_start_frame = 3
 active_end_frame = 4
+metadata/_custom_type_script = "uid://bkklrvtapkren"
+
+[node name="AirLightPunch" type="Node" parent="StateMachine" unique_id=2036817972]
+script = ExtResource("282_yt5hj")
+metadata/_custom_type_script = "uid://bkklrvtapkren"
+
+[node name="AirHighPunch" type="Node" parent="StateMachine" unique_id=1126382899]
+script = ExtResource("282_yt5hj")
+metadata/_custom_type_script = "uid://bkklrvtapkren"
+
+[node name="AirKick" type="Node" parent="StateMachine" unique_id=1262075872]
+script = ExtResource("282_yt5hj")
+metadata/_custom_type_script = "uid://bkklrvtapkren"
+
+[node name="AirLowKick" type="Node" parent="StateMachine" unique_id=2085493865]
+script = ExtResource("282_yt5hj")
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="Hitboxers" type="Node2D" parent="." unique_id=997661732]

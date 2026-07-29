@@ -1,2 +1,4 @@
 res://Cenas/Dummy/dummy.tscn
 res://cena_da_luta.tscn
+res://Scripts/Combat/AirAttackState.gd
+res://Cenas/Player/Player.tscn
