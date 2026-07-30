@@ -55,6 +55,14 @@ var crouch_attack_chance: float = 0.65
 @export var crouch_attack_delay_min: float = 0.25
 @export var crouch_attack_delay_max: float = 0.75
 
+@export_group("Salto")
+
+@export_range(0.0, 1.0, 0.05)
+var diagonal_jump_chance: float = 0.75
+
+@export_range(0.0, 1.0, 0.05)
+var jump_toward_target_chance: float = 0.75
+
 @export_group("Ataques aéreos")
 
 # Estado em que o personagem já está no ar.
@@ -73,6 +81,7 @@ var air_attack_chance: float = 0.65
 
 @export var air_attack_delay_min: float = 0.10
 @export var air_attack_delay_max: float = 0.40
+
 
 @export_group("Distância")
 @export var attack_range: float = 25.0
@@ -475,8 +484,6 @@ func _perform_random_attack() -> void:
 
 
 func _perform_jump() -> void:
-	_stop_character()
-
 	if not state_machine.has_state(jump_state):
 		printerr(
 			"DummyAI: estado de pulo não encontrado: ",
@@ -486,6 +493,28 @@ func _perform_jump() -> void:
 		_start_wait()
 		return
 
+	var jump_direction: float = 0.0
+
+	if _rng.randf() <= diagonal_jump_chance:
+		var direction_to_target: float = signf(
+			target.global_position.x
+			- character.global_position.x
+		)
+
+		if _rng.randf() <= jump_toward_target_chance:
+			# Salta na direção do adversário.
+			jump_direction = direction_to_target
+		else:
+			# Salta para longe do adversário.
+			jump_direction = -direction_to_target
+
+	_move_character(
+		Vector2(
+			jump_direction,
+			0.0
+		)
+	)
+
 	_air_attack_attempted = false
 
 	_air_attack_timer = _rng.randf_range(
@@ -494,13 +523,11 @@ func _perform_jump() -> void:
 	)
 
 	print(
-		"DummyAI decidiu pular | estado: ",
-		jump_state
+		"DummyAI decidiu pular | direção: ",
+		jump_direction
 	)
 
-	state_machine.force_transition(
-		jump_state
-	)
+	state_machine.force_transition(jump_state)
 
 	_decision_delay = _rng.randf_range(
 		minimum_decision_delay,

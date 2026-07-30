@@ -1,5 +1,9 @@
 extends State
 
+@export var idle_state: StringName = &"Idle"
+@export var jump_state: StringName = &"StartJump"
+@export var crouch_state: StringName = &"Crouch"
+
 func _enter() -> void:
 	# Usa o nome do próprio estado para tocar a animação.
 	# Como o nó se chama Walk, toca "Walk".
@@ -23,9 +27,30 @@ func _physics_process(delta: float) -> void:
 		return
 
 	move.emit(Vector2(direction, 0.0))
+
+	# Primeiro verifica o salto.
 	if player_controls.is_jumping():
-		transition_to.emit("Jump")
+		transition_to.emit(jump_state)
 		return
+
+	if player_controls.just_crouched():
+		transition_to.emit(crouch_state)
+		return
+
+	var horizontal_direction: float = Input.get_axis(
+		player_controls.left,
+		player_controls.right
+	)
+
+	move.emit(
+		Vector2(
+			horizontal_direction,
+			0.0
+		)
+	)
+
+	if is_zero_approx(horizontal_direction):
+		transition_to.emit(idle_state)
 
 	if Input.is_action_just_pressed(player_controls.light_punch):
 		transition_to.emit("LightPunch")

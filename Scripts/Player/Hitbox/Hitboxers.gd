@@ -149,14 +149,14 @@ func _try_hit(area: Area2D) -> void:
 
 	_already_hit.append(area)
 
-	print(
-		"ACERTO CONFIRMADO | atacante: ",
-		_owner_character.name,
-		" | alvo: ",
-		target_character.name,
-		" | dano: ",
-		hit_data.damage
-	)
+	#print(
+		#"ACERTO CONFIRMADO | atacante: ",
+		#_owner_character.name,
+		#" | alvo: ",
+		#target_character.name,
+		#" | dano: ",
+		#hit_data.damage
+	#)
 
 	area.call("receive_hit", hit_data)
 	hit_confirmed.emit(area)

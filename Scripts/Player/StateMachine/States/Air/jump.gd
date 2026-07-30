@@ -11,8 +11,16 @@ extends State
 @export var low_kick_state: StringName = &"AirLowKick"
 
 
+var _has_left_ground: bool = false
+
+
 func _enter() -> void:
-	play_animation.emit(&"Jump", false)
+	_has_left_ground = false
+
+	play_animation.emit(
+		&"Jump",
+		false
+	)
 
 
 func _physics_process(_delta: float) -> void:
@@ -21,14 +29,18 @@ func _physics_process(_delta: float) -> void:
 	if character == null:
 		return
 
-	# Somente o Player possui PlayerControls.
-	# Os ataques do Dummy são decididos pelo DummyAI.
+	# Impede que o estado considere que aterrissou
+	# antes de realmente sair do chão.
+	if not character.is_on_floor():
+		_has_left_ground = true
+
 	if player_controls != null:
 		var horizontal_direction: float = Input.get_axis(
 			player_controls.left,
 			player_controls.right
 		)
 
+		# Mantém o controle horizontal durante o salto.
 		move.emit(
 			Vector2(
 				horizontal_direction,
@@ -36,17 +48,16 @@ func _physics_process(_delta: float) -> void:
 			)
 		)
 
-		# Não permite iniciar um ataque aéreo já no chão.
-		if not character.is_on_floor():
+		if _has_left_ground:
 			if _try_air_attack():
 				return
 
-	# Caso não tenha atacado, Jump retorna para Idle
-	# normalmente quando tocar no chão.
 	if (
-		character.is_on_floor()
+		_has_left_ground
+		and character.is_on_floor()
 		and character.velocity.y >= 0.0
 	):
+		move.emit(Vector2.ZERO)
 		transition_to.emit(landing_state)
 
 

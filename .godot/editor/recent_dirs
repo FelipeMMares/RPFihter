@@ -1,3 +1,5 @@
+res://assets/Elena Throws/
+res://assets/Chun li Throws/
 res://assets/Elena (dummy) Jump/Attaks/AirLowKick/
 res://assets/Elena (dummy) Jump/Attaks/AirKick/
 res://assets/Elena (dummy) Jump/Attaks/AirHighPunch/
@@ -18,5 +20,3 @@ res://assets/fontes/
 res://Scripts/Components/
 res://Cenas/Cenarios/
 res://assets/Elena (dummy) startJump/
-res://Scripts/Dummy/States/
-res://assets/Elena (dummy) crounch/end/

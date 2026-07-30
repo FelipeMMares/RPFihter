@@ -1,7 +1,7 @@
 res://Cenas/Player/Player.tscn
+res://Scripts/Player/StateMachine/States/Ground/walk.gd
 res://Scripts/Player/StateMachine/States/Air/jump.gd
-res://Scripts/Dummy/DummyAI.gd
 res://Cenas/Dummy/dummy.tscn
+res://Scripts/Dummy/DummyAI.gd
 res://cena_da_luta.tscn
-res://Scripts/Player/StateMachine/States/Ground/Idle.gd
-res://Scripts/Player/StateMachine/States/Air/start_jump.gd
+res://Scripts/Player/Hitbox/Hitboxers.gd
