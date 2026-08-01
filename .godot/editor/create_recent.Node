@@ -1,7 +1,8 @@
-CollisionPolygon2D
+State
+Marker2D
 CollisionShape2D
 Area2D
-State
+CollisionPolygon2D
 Control
 Label
 Button
@@ -11,4 +12,3 @@ CanvasLayer
 Node
 StaticBody2D
 Node2D
-AnimatedSprite2D

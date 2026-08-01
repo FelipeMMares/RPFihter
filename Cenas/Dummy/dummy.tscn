@@ -273,16 +273,25 @@
 [ext_resource type="Texture2D" uid="uid://batfs6nwwawn2" path="res://assets/Elena (dummy) Jump/SF3_3rd_Elena_12444-removebg-preview.png" id="126_l57yj"]
 [ext_resource type="Texture2D" uid="uid://dgcmtimr11iej" path="res://assets/Elena (Dummy) Victory/SF3_3rd_Elena_13523-removebg-preview.png" id="126_m7s4y"]
 [ext_resource type="Texture2D" uid="uid://b5tk7kdh6nx1j" path="res://assets/Elena (dummy) Jump/SF3_3rd_Elena_12445-removebg-preview.png" id="127_3r0ly"]
+[ext_resource type="Texture2D" uid="uid://uxub7ugotoiq" path="res://assets/Elena (Demmy) FallDefeated/raised/SF3_3rd_Elena_12735-removebg-preview.png" id="127_gdy7f"]
 [ext_resource type="Texture2D" uid="uid://m0ensx63pgtl" path="res://assets/Elena (Dummy) Victory/SF3_3rd_Elena_13524-removebg-preview.png" id="127_igu4o"]
 [ext_resource type="Texture2D" uid="uid://dsq6uocxbfmwf" path="res://assets/Elena (dummy) Kick/SF3_3rd_Elena_12543-removebg-preview.png" id="127_l57yj"]
 [ext_resource type="Texture2D" uid="uid://cjfmebxfygh61" path="res://assets/Elena (Dummy) Victory/SF3_3rd_Elena_13525-removebg-preview.png" id="128_jsx6q"]
+[ext_resource type="Texture2D" uid="uid://dairmmeg8xaib" path="res://assets/Elena (Demmy) FallDefeated/raised/SF3_3rd_Elena_12734-removebg-preview.png" id="128_msxmn"]
+[ext_resource type="Texture2D" uid="uid://u4ayjdd7ykd4" path="res://assets/Elena (Demmy) FallDefeated/raised/SF3_3rd_Elena_12733-removebg-preview.png" id="129_6063t"]
 [ext_resource type="Texture2D" uid="uid://bbqb7vtr0r8g1" path="res://assets/Elena (Dummy) Victory/SF3_3rd_Elena_13526-removebg-preview.png" id="129_tky73"]
+[ext_resource type="Texture2D" uid="uid://cxa2eevf3a4jx" path="res://assets/Elena (Demmy) FallDefeated/raised/SF3_3rd_Elena_12732-removebg-preview.png" id="130_iee83"]
 [ext_resource type="Texture2D" uid="uid://dfen1tofpv1hb" path="res://assets/Elena (Dummy) Victory/SF3_3rd_Elena_13527-removebg-preview.png" id="130_mueu1"]
 [ext_resource type="Texture2D" uid="uid://bpgnv6ly3poi7" path="res://assets/Elena (Dummy) Victory/SF3_3rd_Elena_13528-removebg-preview.png" id="131_4w8ws"]
+[ext_resource type="Texture2D" uid="uid://c3727ijuvblj4" path="res://assets/Elena (Demmy) FallDefeated/raised/SF3_3rd_Elena_12731-removebg-preview.png" id="131_ynr8h"]
+[ext_resource type="Texture2D" uid="uid://de836ofq4wwml" path="res://assets/Elena (Demmy) FallDefeated/raised/SF3_3rd_Elena_12730-removebg-preview.png" id="132_gpacc"]
 [ext_resource type="Texture2D" uid="uid://cipulflpdbve0" path="res://assets/Elena (Dummy) Victory/SF3_3rd_Elena_13529-removebg-preview.png" id="132_ldlq4"]
+[ext_resource type="Texture2D" uid="uid://cvy1x60rmblqs" path="res://assets/Elena (Demmy) FallDefeated/raised/SF3_3rd_Elena_12729-removebg-preview.png" id="133_2sujs"]
 [ext_resource type="Texture2D" uid="uid://cg16mdoyao1c4" path="res://assets/Elena (Dummy) Victory/SF3_3rd_Elena_13530-removebg-preview.png" id="133_y0efp"]
+[ext_resource type="Texture2D" uid="uid://bkovxvbub8dlx" path="res://assets/Elena (Demmy) FallDefeated/raised/SF3_3rd_Elena_12728-removebg-preview.png" id="134_k4tkk"]
 [ext_resource type="Texture2D" uid="uid://1uvkl846lu3" path="res://assets/Elena (Dummy) Victory/SF3_3rd_Elena_13531-removebg-preview.png" id="134_rwy5j"]
 [ext_resource type="Texture2D" uid="uid://dpxj6hpckg6gg" path="res://assets/Elena (Dummy) Victory/SF3_3rd_Elena_13532-removebg-preview.png" id="135_gh28v"]
+[ext_resource type="Texture2D" uid="uid://b30pd1fo0y0sm" path="res://assets/Elena (Demmy) FallDefeated/raised/SF3_3rd_Elena_12348-removebg-preview.png" id="135_vil21"]
 [ext_resource type="Texture2D" uid="uid://ccdhl0hwr7ild" path="res://assets/Elena (Dummy) Victory/SF3_3rd_Elena_13533-removebg-preview.png" id="136_lvosg"]
 [ext_resource type="Texture2D" uid="uid://dwyjwv52cn517" path="res://assets/Elena (Dummy) Victory/SF3_3rd_Elena_13534-removebg-preview.png" id="137_o12jv"]
 [ext_resource type="Texture2D" uid="uid://t4ipxwkrer7r" path="res://assets/Elena (Dummy) Victory/SF3_3rd_Elena_13535-removebg-preview.png" id="138_vis3n"]
@@ -301,16 +310,43 @@
 [ext_resource type="Texture2D" uid="uid://dqtqa0cst277q" path="res://assets/Elena (dummy) LowKick/SF3_3rd_Elena_12629-removebg-preview.png" id="151_x8kut"]
 [ext_resource type="Texture2D" uid="uid://baupxi2bbog06" path="res://assets/Elena (dummy) LowKick/SF3_3rd_Elena_12630-removebg-preview (1).png" id="152_210l7"]
 [ext_resource type="Texture2D" uid="uid://bs00hhbvhfxrn" path="res://assets/Elena (dummy) LowKick/SF3_3rd_Elena_12631-removebg-preview.png" id="153_7wbgl"]
+[ext_resource type="Texture2D" uid="uid://5ivuin60vvxs" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12919-removebg-preview.png" id="160_s7sxx"]
+[ext_resource type="Texture2D" uid="uid://yhbdlicd6vf5" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12920-removebg-preview.png" id="161_s6sfl"]
+[ext_resource type="Texture2D" uid="uid://b7pe73jdy661j" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12921-removebg-preview.png" id="162_sj3sb"]
+[ext_resource type="Texture2D" uid="uid://bmxo1tho2codu" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12922-removebg-preview.png" id="163_ulm2u"]
+[ext_resource type="Texture2D" uid="uid://boumtv8m50om1" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12923-removebg-preview.png" id="164_7tvn8"]
+[ext_resource type="Texture2D" uid="uid://p22q8n1j3pqu" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12924-removebg-preview.png" id="165_t4ext"]
+[ext_resource type="Texture2D" uid="uid://cdq53w2ayva4o" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12925-removebg-preview.png" id="166_k1sp7"]
+[ext_resource type="Texture2D" uid="uid://ctkdc1yh181y6" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12926-removebg-preview.png" id="167_tlbc7"]
+[ext_resource type="Texture2D" uid="uid://dq4h331tvu6qs" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12927-removebg-preview.png" id="168_cvxjp"]
+[ext_resource type="Texture2D" uid="uid://cpehh88cxgaus" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12928-removebg-preview.png" id="169_edhy7"]
+[ext_resource type="Texture2D" uid="uid://u1wio5deqna1" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12929-removebg-preview.png" id="170_totgx"]
 [ext_resource type="Texture2D" uid="uid://cegcctpiqrjb5" path="res://assets/Elena (dummy) crounch/entry/SF3_3rd_Elena_12346-removebg-preview.png" id="171_6l7sp"]
+[ext_resource type="Texture2D" uid="uid://dm7l0shppdv44" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12930-removebg-preview.png" id="171_rcqlv"]
+[ext_resource type="Texture2D" uid="uid://cpnwmvwco3m3p" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12931-removebg-preview.png" id="172_0pd30"]
 [ext_resource type="Texture2D" uid="uid://bl4e46y0vvkos" path="res://assets/Elena (dummy) crounch/entry/SF3_3rd_Elena_12347-removebg-preview.png" id="172_xhk8l"]
 [ext_resource type="Texture2D" uid="uid://bepmcy5k13ohk" path="res://assets/Elena (dummy) crounch/entry/SF3_3rd_Elena_12348-removebg-preview.png" id="173_6ykda"]
+[ext_resource type="Texture2D" uid="uid://co18fyni3s0c0" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12932-removebg-preview.png" id="173_quhfw"]
 [ext_resource type="Script" uid="uid://b1jth3teoxqqe" path="res://Scripts/Player/StateMachine/States/Ground/Victory.gd" id="174_53088"]
+[ext_resource type="Texture2D" uid="uid://bafoe3wja5had" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12933-removebg-preview.png" id="174_pyoxd"]
+[ext_resource type="Texture2D" uid="uid://djlwoluq01xek" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12934-removebg-preview.png" id="175_iiyxk"]
 [ext_resource type="Script" uid="uid://d4dnk2rxxx4ue" path="res://Scripts/Player/StateMachine/States/Ground/Defeated.gd" id="175_usvrd"]
+[ext_resource type="Texture2D" uid="uid://bjnb8qvuvph6" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12935-removebg-preview.png" id="176_ijaro"]
 [ext_resource type="Script" uid="uid://dyhvl7vyac2qc" path="res://Scripts/Player/StateMachine/States/Ground/FallDefeated.gd" id="176_ndu3r"]
+[ext_resource type="Texture2D" uid="uid://crxu7q351v1n5" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12936-removebg-preview.png" id="177_mapjg"]
+[ext_resource type="Texture2D" uid="uid://de36cwnowoj8e" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12937-removebg-preview.png" id="178_eosw2"]
+[ext_resource type="Texture2D" uid="uid://vn06r3nthqds" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12938-removebg-preview.png" id="179_1pfxe"]
 [ext_resource type="Script" uid="uid://b08hbttop7cej" path="res://Scripts/Dummy/DummyAI.gd" id="179_twm28"]
+[ext_resource type="Texture2D" uid="uid://ctyt5kcbugdw0" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12939-removebg-preview.png" id="180_ego57"]
+[ext_resource type="Texture2D" uid="uid://brp23ouhqj3b6" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12940-removebg-preview.png" id="181_a8h1i"]
+[ext_resource type="Texture2D" uid="uid://dfak87iu6n1n8" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12941-removebg-preview.png" id="182_kxve6"]
+[ext_resource type="Texture2D" uid="uid://c6ngnsgfnut4f" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12942-removebg-preview.png" id="183_ge4em"]
 [ext_resource type="Texture2D" uid="uid://cpw1wmp4rkmqw" path="res://assets/Elena (dummy) startJump/SF3_3rd_Elena_12425-removebg-preview.png" id="184_210l7"]
+[ext_resource type="Texture2D" uid="uid://hldh0l8ub01h" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12943-removebg-preview.png" id="184_k53m4"]
 [ext_resource type="Texture2D" uid="uid://b3h4m82pbnidj" path="res://assets/Elena (dummy) startJump/SF3_3rd_Elena_12426-removebg-preview.png" id="185_7wbgl"]
+[ext_resource type="Texture2D" uid="uid://c68qpittd11nw" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12944-removebg-preview.png" id="185_nrhsv"]
 [ext_resource type="Texture2D" uid="uid://k1wkyvgcpiia" path="res://assets/Elena (dummy) startJump/SF3_3rd_Elena_12427-removebg-preview.png" id="186_h3d15"]
+[ext_resource type="Texture2D" uid="uid://bcalfmoajr4ck" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12945-removebg-preview (1).png" id="186_v38w6"]
 [ext_resource type="Texture2D" uid="uid://dfyovtvboyqr2" path="res://assets/Elena (dummy) startJump/SF3_3rd_Elena_12428-removebg-preview.png" id="187_5cxh8"]
 [ext_resource type="Texture2D" uid="uid://c5edvhw8l7xlj" path="res://assets/Elena (Dummy) Walk/SF3_3rd_Elena_12377-removebg-preview.png" id="187_ia373"]
 [ext_resource type="Texture2D" uid="uid://b8sw66365k2x4" path="res://assets/Elena (Dummy) Walk/SF3_3rd_Elena_12378-removebg-preview.png" id="188_4os6k"]
@@ -333,7 +369,30 @@
 [ext_resource type="Script" uid="uid://bypbdgv23selr" path="res://Scripts/Dummy/States/CrouchWhile.gd" id="229_o7w7h"]
 [ext_resource type="Script" uid="uid://rup4bo6gvffh" path="res://Scripts/Dummy/States/CrouchEnd.gd" id="230_o7w7h"]
 [ext_resource type="Script" uid="uid://bgxa7hy42shv" path="res://Scripts/Combat/CrouchAttackState.gd" id="296_11k48"]
+[ext_resource type="Texture2D" uid="uid://c8h242dscs8xa" path="res://assets/Elena Throws/SF3_3rd_Elena_12905-removebg-preview.png" id="309_rseid"]
+[ext_resource type="Texture2D" uid="uid://dy57chy2r44dd" path="res://assets/Elena Throws/SF3_3rd_Elena_12906-removebg-preview.png" id="310_iyoa1"]
+[ext_resource type="Texture2D" uid="uid://bkd2r2h6jm562" path="res://assets/Elena Throws/SF3_3rd_Elena_12907-removebg-preview.png" id="311_vdcm4"]
+[ext_resource type="Texture2D" uid="uid://b3wcr38sttcqa" path="res://assets/Elena Throws/SF3_3rd_Elena_12908-removebg-preview.png" id="312_rq8lr"]
+[ext_resource type="Texture2D" uid="uid://cu7aw4nqf8g3o" path="res://assets/Elena Throws/SF3_3rd_Elena_12909-removebg-preview.png" id="313_crf8d"]
+[ext_resource type="Texture2D" uid="uid://ow2wh4fweksp" path="res://assets/Elena Throws/SF3_3rd_Elena_12910-removebg-preview.png" id="314_f0b7p"]
+[ext_resource type="Texture2D" uid="uid://bnlc10nkn2b0n" path="res://assets/Elena Throws/SF3_3rd_Elena_12911-removebg-preview.png" id="315_gp55j"]
+[ext_resource type="Texture2D" uid="uid://b822o2b8qe53k" path="res://assets/Elena Throws/SF3_3rd_Elena_12912-removebg-preview.png" id="316_nup4v"]
+[ext_resource type="Texture2D" uid="uid://ti0m3sudxew7" path="res://assets/Elena Throws/SF3_3rd_Elena_12913-removebg-preview.png" id="317_6fvdx"]
+[ext_resource type="Texture2D" uid="uid://b7vldrkd0pqop" path="res://assets/Elena Throws/SF3_3rd_Elena_12914-removebg-preview.png" id="318_gebp7"]
+[ext_resource type="Texture2D" uid="uid://7u6bfe78ohn0" path="res://assets/Elena Throws/SF3_3rd_Elena_12915-removebg-preview.png" id="319_0r13d"]
+[ext_resource type="Texture2D" uid="uid://2t0uuwdey1er" path="res://assets/Elena Throws/SF3_3rd_Elena_12916-removebg-preview.png" id="320_e1kvg"]
+[ext_resource type="Texture2D" uid="uid://ciejjr5wuqnam" path="res://assets/Elena Throws/SF3_3rd_Elena_12917-removebg-preview.png" id="321_jenr8"]
+[ext_resource type="Texture2D" uid="uid://ceh0hcyevg85l" path="res://assets/Elena Throws/SF3_3rd_Elena_12918-removebg-preview.png" id="322_rnojo"]
+[ext_resource type="Texture2D" uid="uid://b88msmvaakc1y" path="res://assets/Elena (Demmy) FallDefeated/throw fall/SF3_3rd_Elena_12462-removebg-preview.png" id="323_44ykb"]
+[ext_resource type="Texture2D" uid="uid://yarha4tl3fin" path="res://assets/Elena (Demmy) FallDefeated/throw fall/SF3_3rd_Elena_12463-removebg-preview.png" id="324_yifp5"]
+[ext_resource type="Texture2D" uid="uid://d26qctk5b6dch" path="res://assets/Elena (Demmy) FallDefeated/throw fall/SF3_3rd_Elena_12464-removebg-preview.png" id="325_2bhx7"]
 [ext_resource type="Script" uid="uid://cvfgoxh838ivm" path="res://Scripts/Combat/AirAttackState.gd" id="328_qesbf"]
+[ext_resource type="Script" uid="uid://cbnv6y7dpgqcd" path="res://Cenas/Player/Throw.gd" id="382_iee83"]
+[ext_resource type="Script" uid="uid://bpffpmehlr6ee" path="res://Cenas/Player/Thrown.gd" id="383_gpacc"]
+[ext_resource type="Script" uid="uid://dfh2aelrr3488" path="res://Cenas/Player/HurtFall.gd" id="384_2sujs"]
+[ext_resource type="Script" uid="uid://t4dedtnjjcvt" path="res://Cenas/Player/Fall.gd" id="385_2sujs"]
+[ext_resource type="Script" uid="uid://ctxybaufac22m" path="res://Cenas/Player/GetUp.gd" id="386_2sujs"]
+[ext_resource type="Script" uid="uid://cgjhpb6ihl6r5" path="res://Cenas/Player/ThrowBox.gd" id="388_msxmn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
@@ -732,6 +791,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("186_v38w6")
+}],
+"loop": 0,
+"name": &"Fall",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("12_mueu1")
 }, {
 "duration": 1.0,
@@ -788,6 +855,53 @@ animations = [{
 "loop": 0,
 "name": &"FallDefeated",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("127_gdy7f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("128_msxmn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("129_6063t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("130_iee83")
+}, {
+"duration": 1.0,
+"texture": ExtResource("131_ynr8h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("132_gpacc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("133_2sujs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("134_k4tkk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_nv75n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_o7w7h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("135_vil21")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_fy8lm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_l57yj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_3r0ly")
+}],
+"loop": 0,
+"name": &"GetUp",
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -869,6 +983,92 @@ animations = [{
 }],
 "loop": 0,
 "name": &"Hurt",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("160_s7sxx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("161_s6sfl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("162_sj3sb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("163_ulm2u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("164_7tvn8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("165_t4ext")
+}, {
+"duration": 1.0,
+"texture": ExtResource("166_k1sp7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("167_tlbc7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("168_cvxjp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("169_edhy7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("170_totgx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("171_rcqlv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("172_0pd30")
+}, {
+"duration": 1.0,
+"texture": ExtResource("173_quhfw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("174_pyoxd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("175_iiyxk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("176_ijaro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("177_mapjg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("178_eosw2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("179_1pfxe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("180_ego57")
+}, {
+"duration": 1.0,
+"texture": ExtResource("181_a8h1i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("182_kxve6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("183_ge4em")
+}, {
+"duration": 1.0,
+"texture": ExtResource("184_k53m4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("185_nrhsv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("186_v38w6")
+}],
+"loop": 0,
+"name": &"HurtFall",
 "speed": 20.0
 }, {
 "frames": [{
@@ -1269,6 +1469,67 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("309_rseid")
+}, {
+"duration": 1.0,
+"texture": ExtResource("310_iyoa1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("311_vdcm4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("312_rq8lr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("313_crf8d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("314_f0b7p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("315_gp55j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("316_nup4v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("317_6fvdx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("318_gebp7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("319_0r13d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("320_e1kvg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("321_jenr8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("322_rnojo")
+}],
+"loop": 0,
+"name": &"Throw",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("323_44ykb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("324_yifp5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("325_2bhx7")
+}],
+"loop": 0,
+"name": &"Thrown",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("116_41g0m")
 }, {
 "duration": 1.0,
@@ -1517,14 +1778,18 @@ size = Vector2(168.99886, 28.977777)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3gngh"]
 size = Vector2(159.06714, 47.24742)
 
-[node name="Dummy" type="CharacterBody2D" unique_id=597853256]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pb4hy"]
+size = Vector2(84, 55)
+
+[node name="Dummy" type="CharacterBody2D" unique_id=597853256 node_paths=PackedStringArray("body_collision")]
 script = ExtResource("1_7u85y")
+body_collision = NodePath("Hurtbox/TorsoShape")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1082718433]
 position = Vector2(2.9999962, 5.000001)
 scale = Vector2(1.724, 1.9)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"AirLowKick"
+animation = &"HurtFall"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1128512923]
 visible = false
@@ -1661,6 +1926,26 @@ script = ExtResource("328_qesbf")
 hitbox = NodePath("../../Hitboxers/LowKick")
 active_start_frame = 3
 active_end_frame = 4
+metadata/_custom_type_script = "uid://bkklrvtapkren"
+
+[node name="Throw" type="Node" parent="StateMachine" unique_id=1723045807]
+script = ExtResource("382_iee83")
+metadata/_custom_type_script = "uid://bkklrvtapkren"
+
+[node name="Thrown" type="Node" parent="StateMachine" unique_id=1455275848]
+script = ExtResource("383_gpacc")
+metadata/_custom_type_script = "uid://bkklrvtapkren"
+
+[node name="HurtFall" type="Node" parent="StateMachine" unique_id=1448793875]
+script = ExtResource("384_2sujs")
+metadata/_custom_type_script = "uid://bkklrvtapkren"
+
+[node name="Fall" type="Node" parent="StateMachine" unique_id=304469209]
+script = ExtResource("385_2sujs")
+metadata/_custom_type_script = "uid://bkklrvtapkren"
+
+[node name="GetUp" type="Node" parent="StateMachine" unique_id=1616112220]
+script = ExtResource("386_2sujs")
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1276732752 node_paths=PackedStringArray("health", "state_machine", "head_shape", "torso_shape", "feet_shape", "crouch_shape")]
@@ -1869,3 +2154,14 @@ position = Vector2(201.49875, 24.748375)
 rotation = 0.26179937
 scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_3gngh")
+
+[node name="ThrowBox" type="Area2D" parent="Hitboxers" unique_id=1521699408]
+script = ExtResource("388_msxmn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/ThrowBox" unique_id=109282028]
+visible = false
+position = Vector2(99, 114.5)
+shape = SubResource("RectangleShape2D_pb4hy")
+
+[node name="ThrowAnchor" type="Marker2D" parent="Hitboxers" unique_id=298716595]
+position = Vector2(-139, 76)

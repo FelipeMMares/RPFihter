@@ -13,6 +13,7 @@ class_name HurtBox
 
 var character: CharacterBody2D
 var crouching: bool = false
+var invulnerable: bool = false
 
 func _ready() -> void:
 	character = _find_character()
@@ -79,6 +80,9 @@ func _validate_hurtbox_shapes() -> void:
 		printerr("HurtBox: CrouchShape não configurada.")
 
 func receive_hit(hit_data: HitData) -> void:
+	if invulnerable:
+		return
+	
 	if hit_data == null:
 		printerr(
 			"HurtBox de ",
@@ -182,3 +186,10 @@ func _set_shape_active(
 		"disabled",
 		not active
 	)
+
+func set_invulnerable(active: bool) -> void:
+	invulnerable = active
+
+
+func is_invulnerable() -> bool:
+	return invulnerable

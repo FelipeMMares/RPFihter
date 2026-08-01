@@ -28,7 +28,13 @@ func _physics_process(delta: float) -> void:
 
 	move.emit(Vector2(direction, 0.0))
 
-	# Primeiro verifica o salto.
+	# Primeiro verifica o agarrão.
+	if Input.is_action_just_pressed(
+		player_controls.throw
+		):
+		transition_to.emit(&"Throw")
+		return
+	
 	if player_controls.is_jumping():
 		transition_to.emit(jump_state)
 		return

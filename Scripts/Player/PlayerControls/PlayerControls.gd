@@ -9,6 +9,7 @@ class_name PlayerControls
 @export var high_punch : String
 @export var kick : String
 @export var low_kick : String
+@export var throw: StringName
 
 
 func is_walking() -> bool:

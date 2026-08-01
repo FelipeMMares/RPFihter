@@ -13,6 +13,15 @@ class_name StateMachine
 @export var kikoken_input_window: int = 8
 @export var kikoken_release_window: int = 12
 
+@export_group("Agarrões")
+
+@export var throwable_states: Array[StringName] = [
+	&"Idle",
+	&"Walk",
+	&"Crouch",
+	&"CrouchWhile"
+]
+
 var _started : bool = false
 var _current_state : State = null
 var _character : CharacterBody2D
@@ -267,3 +276,13 @@ func has_state(state_name: StringName) -> bool:
 
 func request_move(direction: Vector2) -> void:
 	_on_request_move_direction(direction)
+
+func can_be_thrown() -> bool:
+	if _current_state == null:
+		return false
+
+	var current_state_name := StringName(
+		_current_state.name
+	)
+
+	return current_state_name in throwable_states

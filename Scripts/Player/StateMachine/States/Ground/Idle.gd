@@ -15,6 +15,12 @@ func _physics_process(delta: float) -> void:
 	if player_controls == null:
 		return
 	
+	if Input.is_action_just_pressed(
+		player_controls.throw
+	):
+		transition_to.emit(&"Throw")
+		return
+	
 	if player_controls.is_jumping():
 		print("PEDIU PULO")
 		transition_to.emit("StartJump")

@@ -82,6 +82,11 @@ var air_attack_chance: float = 0.65
 @export var air_attack_delay_min: float = 0.10
 @export var air_attack_delay_max: float = 0.40
 
+@export_group("Agarrão")
+
+@export var throw_state: StringName = &"Throw"
+@export var throw_range: float = 12.0
+@export var close_throw_weight: int = 15
 
 @export_group("Distância")
 @export var attack_range: float = 25.0
@@ -260,6 +265,7 @@ func _choose_next_action() -> void:
 func _choose_close_action() -> void:
 	var weights: Array[int] = [
 		close_attack_weight,
+		close_throw_weight,
 		close_retreat_weight,
 		close_jump_weight,
 		close_crouch_weight,
@@ -273,15 +279,18 @@ func _choose_close_action() -> void:
 			_perform_random_attack()
 
 		1:
-			_start_retreat()
+			_perform_throw()
 
 		2:
-			_perform_jump()
+			_start_retreat()
 
 		3:
-			_start_crouch()
+			_perform_jump()
 
 		4:
+			_start_crouch()
+
+		5:
 			_start_wait()
 
 
@@ -954,3 +963,40 @@ func _is_air_attack_state(
 			return true
 
 	return false
+
+func _perform_throw() -> void:
+	if not state_machine.has_state(throw_state):
+		printerr(
+			"DummyAI: estado Throw não encontrado: ",
+			throw_state
+		)
+		_start_wait()
+		return
+
+	if (
+		_get_horizontal_attack_distance()
+		> throw_range
+	):
+		_perform_random_attack()
+		return
+
+	if not target.has_method("can_be_thrown"):
+		_perform_random_attack()
+		return
+
+	if not bool(target.call("can_be_thrown")):
+		_perform_random_attack()
+		return
+
+	_stop_character()
+
+	print("DummyAI decidiu tentar um Throw.")
+
+	state_machine.force_transition(
+		throw_state
+	)
+
+	_decision_delay = _rng.randf_range(
+		minimum_decision_delay,
+		maximum_decision_delay
+	)
