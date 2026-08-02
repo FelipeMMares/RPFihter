@@ -4,6 +4,10 @@ extends CharacterBody2D
 @onready var state_machine: StateMachine = $StateMachine
 @onready var health: Health = $Health
 
+@onready var animated_sprite: AnimatedSprite2D = (
+	$AnimatedSprite2D
+)
+
 @export var speed: float = 150.0
 @export var jump_force: float = 700.0
 @export var gravity: float = 1200.0

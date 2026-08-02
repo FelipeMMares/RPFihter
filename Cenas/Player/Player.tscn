@@ -1641,7 +1641,8 @@ one_way_collision = true
 position = Vector2(2, -28)
 scale = Vector2(1.632, 1.9)
 sprite_frames = SubResource("SpriteFrames_ma6wq")
-animation = &"HurtFall"
+animation = &"Throw"
+frame = 12
 
 [node name="KikokenSpawn" type="Marker2D" parent="." unique_id=1453849635]
 position = Vector2(99, 4)
@@ -1795,8 +1796,10 @@ metadata/_custom_type_script = "uid://bkklrvtapkren"
 [node name="Throw" type="Node" parent="StateMachine" unique_id=1694613826 node_paths=PackedStringArray("throw_box", "throw_anchor")]
 script = ExtResource("334_mphp3")
 throw_box = NodePath("../../Hitboxers/ThrowBox")
-throw_anchor = NodePath("../../Hitboxers/ThrowAnchor")
+throw_anchor = NodePath("../../Hitboxers/ThrowPathRoot/ThrowAnchor")
 grab_end_frame = 11
+target_path = Array[Vector2]([Vector2(450, 450), Vector2(450, 450), Vector2(450, 450), Vector2(450, 450), Vector2(450, 450), Vector2(450, 450), Vector2(450, 450), Vector2(450, 450), Vector2(450, 450), Vector2(450, 450)])
+allow_direction_choice = true
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="Thrown" type="Node" parent="StateMachine" unique_id=869654108]
@@ -1980,8 +1983,10 @@ visible = false
 position = Vector2(83, 15)
 shape = SubResource("RectangleShape2D_gdy7f")
 
-[node name="ThrowAnchor" type="Marker2D" parent="Hitboxers" unique_id=770345543]
-position = Vector2(-32, -42)
+[node name="ThrowPathRoot" type="Node" parent="Hitboxers" unique_id=230526397]
+
+[node name="ThrowAnchor" type="Marker2D" parent="Hitboxers/ThrowPathRoot" unique_id=770345543]
+position = Vector2(-79, 107)
 
 [node name="Health" type="Node" parent="." unique_id=229046517]
 script = ExtResource("114_jj3b6")

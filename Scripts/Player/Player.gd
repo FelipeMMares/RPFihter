@@ -5,6 +5,9 @@ extends CharacterBody2D
 @onready var state_machine: StateMachine = $StateMachine
 @onready var hurt_box: HurtBox = $Hurtbox
 
+@onready var animated_sprite: AnimatedSprite2D = (
+	$AnimatedSprite2D
+)
 
 # Confira se o nome na árvore é realmente "Hitboxers".
 # Caso seja "Hitboxes", corrija o caminho.
@@ -143,6 +146,8 @@ func release_from_throw(
 	if not throw_sequence_active:
 		return
 
+	reset_throw_visual_rotation()
+
 	throw_locked = false
 	throw_anchor = null
 
@@ -156,6 +161,8 @@ func release_from_throw(
 
 
 func cancel_throw_capture() -> void:
+	reset_throw_visual_rotation()
+
 	throw_locked = false
 	throw_sequence_active = false
 
@@ -205,3 +212,20 @@ func _set_body_collision_enabled(enabled: bool) -> void:
 		"disabled",
 		not enabled
 	)
+
+func set_throw_visual_rotation(
+	rotation_in_degrees: float
+) -> void:
+	if animated_sprite == null:
+		return
+
+	animated_sprite.rotation_degrees = (
+		rotation_in_degrees
+	)
+
+
+func reset_throw_visual_rotation() -> void:
+	if animated_sprite == null:
+		return
+
+	animated_sprite.rotation_degrees = 0.0
