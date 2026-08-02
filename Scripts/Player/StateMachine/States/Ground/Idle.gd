@@ -15,11 +15,29 @@ func _physics_process(delta: float) -> void:
 	if player_controls == null:
 		return
 	
-	if Input.is_action_just_pressed(
-		player_controls.throw
-	):
-		transition_to.emit(&"Throw")
-		return
+	var throw_direction: float = (
+		player_controls.get_throw_direction()
+	)
+
+	if not is_zero_approx(throw_direction):
+		var character := (
+			get_parent().get_parent()
+			as CharacterBody2D
+		)
+
+		if (
+			character != null
+			and character.has_method(
+				"queue_throw_direction"
+			)
+		):
+			character.call(
+				"queue_throw_direction",
+				throw_direction
+			)
+
+			transition_to.emit(&"Throw")
+			return
 	
 	if player_controls.is_jumping():
 		print("PEDIU PULO")

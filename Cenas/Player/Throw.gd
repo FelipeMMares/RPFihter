@@ -100,10 +100,31 @@ func _enter() -> void:
 			_original_anchor_position
 		)
 
-	_read_player_throw_direction()
+	var character := _get_character()
+
+	if (
+		allow_direction_choice
+		and character != null
+		and character.has_method(
+			"consume_throw_direction"
+		)
+	):
+		_selected_direction = float(
+			character.call(
+				"consume_throw_direction"
+			)
+		)
+
+	# O Throw do Player não pode começar sem
+	# uma direção escolhida.
+	if (
+		allow_direction_choice
+		and is_zero_approx(_selected_direction)
+	):
+		transition_to.emit(return_state)
+		return
 
 	play_animation.emit(name, false)
-
 
 func _physics_process(_delta: float) -> void:
 	move.emit(Vector2.ZERO)
@@ -228,29 +249,33 @@ func _on_target_found(
 	)
 
 
-func _apply_throw_pose(
-	current_frame: int
-) -> void:
+func _apply_throw_pose(current_frame: int) -> void:
 	if throw_anchor == null:
 		return
 
-	if not target_path.is_empty():
+	# Target Path agora representa apenas
+	# deslocamentos locais opcionais.
+	if target_path.is_empty():
+		throw_anchor.position = (
+			_original_anchor_position
+		)
+	else:
 		var path_index := clampi(
 			current_frame,
 			0,
 			target_path.size() - 1
 		)
 
-		var path_position: Vector2 = (
+		var offset: Vector2 = (
 			target_path[path_index]
 		)
 
-		# A trajetória é desenhada para a direita.
-		# Ao arremessar para a esquerda, o eixo X
-		# é invertido.
-		throw_anchor.position = Vector2(
-			path_position.x * _selected_direction,
-			path_position.y
+		throw_anchor.position = (
+			_original_anchor_position
+			+ Vector2(
+				offset.x * _selected_direction,
+				offset.y
+			)
 		)
 
 	if (
@@ -275,9 +300,8 @@ func _apply_throw_pose(
 		_grabbed_target.call(
 			"set_throw_visual_rotation",
 			rotation_value
-			* _selected_direction
+				* _selected_direction
 		)
-
 
 func _animation_finished() -> void:
 	if throw_box != null:

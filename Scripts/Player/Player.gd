@@ -24,6 +24,7 @@ var throw_anchor: Node2D
 var throw_attacker: CharacterBody2D
 
 var pending_throw_damage: int = 0
+var pending_throw_direction: float = 0.0
 
 @export var speed: float = 150.0
 @export var jump_force: float = 700.0
@@ -229,3 +230,14 @@ func reset_throw_visual_rotation() -> void:
 		return
 
 	animated_sprite.rotation_degrees = 0.0
+
+
+func queue_throw_direction(direction: float) -> void:
+	pending_throw_direction = signf(direction)
+
+
+func consume_throw_direction() -> float:
+	var direction := pending_throw_direction
+	pending_throw_direction = 0.0
+
+	return direction

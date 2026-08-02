@@ -1,5 +1,6 @@
-res://Cenas/Dummy/dummy.tscn
 res://Cenas/Player/Player.tscn
 res://Scripts/Player/Player.gd
-res://Cenas/Dummy/Dummy.gd
+res://Scripts/Player/PlayerControls/PlayerControls.gd
+res://Scripts/Player/StateMachine/States/Ground/Idle.gd
+res://Scripts/Player/StateMachine/States/Ground/walk.gd
 res://Cenas/Player/Throw.gd

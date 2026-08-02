@@ -21,20 +21,29 @@ func _physics_process(delta: float) -> void:
 		player_controls.right
 	)
 
-	if is_zero_approx(direction):
-		move.emit(Vector2.ZERO)
-		transition_to.emit("Idle")
-		return
+	var throw_direction: float = (
+		player_controls.get_throw_direction()
+	)
 
-	move.emit(Vector2(direction, 0.0))
+	if not is_zero_approx(throw_direction):
+		var character := (
+			get_parent().get_parent()
+			as CharacterBody2D
+		)
 
-	# Primeiro verifica o agarrão.
-	if Input.is_action_just_pressed(
-		player_controls.throw
+		if (
+			character != null
+			and character.has_method(
+				"queue_throw_direction"
+			)
 		):
-		transition_to.emit(&"Throw")
-		return
-	
+			character.call(
+				"queue_throw_direction",
+				throw_direction
+			)
+
+			transition_to.emit(&"Throw")
+			return
 	if player_controls.is_jumping():
 		transition_to.emit(jump_state)
 		return
