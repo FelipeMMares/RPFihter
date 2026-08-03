@@ -19,7 +19,8 @@ class_name StateMachine
 	&"Idle",
 	&"Walk",
 	&"Crouch",
-	&"CrouchWhile"
+	&"CrouchWhile",
+	&"TryGrab"
 ]
 
 var _started : bool = false
@@ -175,31 +176,6 @@ func _on_request_jump() -> void:
 	if _character.has_method(jump_method):
 		_character.call(jump_method)
 
-#func _on_request_play_animation(anim_name: String,
-								#backwards: bool = false,
-								#state: State = null) -> void:
-	#
-	#print("TOCANDO:", anim_name)
-	#print(animated_sprite.sprite_frames.get_animation_names())
-
-	#if backwards:
-		#animated_sprite.play_backwards(anim_name)
-	#else:
-		#animated_sprite.play(anim_name)
-	#if not animated_sprite:
-		#return
-#
-	#_anim_request_id += 1
-	#var request_id := _anim_request_id
-#
-	#if backwards:
-		#animated_sprite.play_backwards(anim_name)
-	#else:
-		#animated_sprite.play(anim_name)
-#
-	#await  animated_sprite.animation_finished
-	#if state and state.has_method("_animation_finished"):
-		#state._animation_finished()
 func _on_request_play_animation(
 	anim_name: String,
 	backwards: bool = false,

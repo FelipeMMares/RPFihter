@@ -1,3 +1,7 @@
+res://assets/Elena Throws/TryGrab/
+res://Scripts/Components/
+res://Scripts/Player/StateMachine/States/Ground/
+res://assets/Chun li Throws/
 res://assets/Chun li FallDefeated/hurled/
 res://assets/Elena (dummy) crounch/end/
 res://assets/elena (dummy)/
@@ -7,7 +11,6 @@ res://assets/Elena (Demmy) FallDefeated/throw fall/
 res://assets/Elena Throws/
 res://assets/Chun li FallDefeated/raised/
 res://assets/Chun li FallDefeated/Throw fall/
-res://assets/Chun li Throws/
 res://assets/Elena (dummy) Jump/Attaks/AirLowKick/
 res://assets/Elena (dummy) Jump/Attaks/AirKick/
 res://assets/Elena (dummy) Jump/Attaks/AirHighPunch/
@@ -17,6 +20,3 @@ res://assets/Chun li jump/Attacks/AirKick/
 res://assets/Chun li jump/Attacks/AirHighPunch/
 res://assets/Chun li jump/Attacks/AirLightPunch/
 res://assets/Elena (dummy) crounch/attacks/LowKick/
-res://assets/Elena (dummy) crounch/attacks/Kick/
-res://assets/Elena (dummy) crounch/attacks/HighPunch/
-res://assets/Elena (dummy) crounch/attacks/LightPunch/

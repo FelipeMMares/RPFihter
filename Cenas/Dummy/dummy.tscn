@@ -386,13 +386,23 @@
 [ext_resource type="Texture2D" uid="uid://b88msmvaakc1y" path="res://assets/Elena (Demmy) FallDefeated/throw fall/SF3_3rd_Elena_12462-removebg-preview.png" id="323_44ykb"]
 [ext_resource type="Texture2D" uid="uid://yarha4tl3fin" path="res://assets/Elena (Demmy) FallDefeated/throw fall/SF3_3rd_Elena_12463-removebg-preview.png" id="324_yifp5"]
 [ext_resource type="Texture2D" uid="uid://d26qctk5b6dch" path="res://assets/Elena (Demmy) FallDefeated/throw fall/SF3_3rd_Elena_12464-removebg-preview.png" id="325_2bhx7"]
+[ext_resource type="Texture2D" uid="uid://dennfu11mvsfe" path="res://assets/Elena Throws/TryGrab/SF3_3rd_Elena_13611-removebg-preview.png" id="326_tlbc7"]
+[ext_resource type="Texture2D" uid="uid://bdln3rpqp0wto" path="res://assets/Elena Throws/TryGrab/SF3_3rd_Elena_13612-removebg-preview.png" id="327_cvxjp"]
+[ext_resource type="Texture2D" uid="uid://de8suyeswxuht" path="res://assets/Elena Throws/TryGrab/SF3_3rd_Elena_13613-removebg-preview.png" id="328_edhy7"]
 [ext_resource type="Script" uid="uid://cvfgoxh838ivm" path="res://Scripts/Combat/AirAttackState.gd" id="328_qesbf"]
-[ext_resource type="Script" uid="uid://cbnv6y7dpgqcd" path="res://Cenas/Player/Throw.gd" id="382_iee83"]
-[ext_resource type="Script" uid="uid://bpffpmehlr6ee" path="res://Cenas/Player/Thrown.gd" id="383_gpacc"]
-[ext_resource type="Script" uid="uid://dfh2aelrr3488" path="res://Cenas/Player/HurtFall.gd" id="384_2sujs"]
-[ext_resource type="Script" uid="uid://t4dedtnjjcvt" path="res://Cenas/Player/Fall.gd" id="385_2sujs"]
-[ext_resource type="Script" uid="uid://ctxybaufac22m" path="res://Cenas/Player/GetUp.gd" id="386_2sujs"]
-[ext_resource type="Script" uid="uid://cgjhpb6ihl6r5" path="res://Cenas/Player/ThrowBox.gd" id="388_msxmn"]
+[ext_resource type="Texture2D" uid="uid://btei0how4rv4h" path="res://assets/Elena Throws/TryGrab/SF3_3rd_Elena_13614-removebg-preview.png" id="329_totgx"]
+[ext_resource type="Texture2D" uid="uid://dkvpdwj20nj7f" path="res://assets/Elena Throws/TryGrab/SF3_3rd_Elena_13615-removebg-preview.png" id="330_rcqlv"]
+[ext_resource type="Texture2D" uid="uid://wosujq8qclqq" path="res://assets/Elena Throws/TryGrab/SF3_3rd_Elena_13616-removebg-preview.png" id="331_0pd30"]
+[ext_resource type="Texture2D" uid="uid://6inupfsdpisv" path="res://assets/Elena Throws/TryGrab/SF3_3rd_Elena_13617-removebg-preview.png" id="332_quhfw"]
+[ext_resource type="Texture2D" uid="uid://b8bkwi171a1ym" path="res://assets/Elena Throws/TryGrab/SF3_3rd_Elena_13618-removebg-preview.png" id="333_pyoxd"]
+[ext_resource type="Texture2D" uid="uid://d4j34t6cm6w1j" path="res://assets/Elena Throws/TryGrab/SF3_3rd_Elena_13619-removebg-preview.png" id="334_iiyxk"]
+[ext_resource type="Script" uid="uid://cbnv6y7dpgqcd" path="res://Scripts/Player/StateMachine/States/Ground/Throw.gd" id="382_iee83"]
+[ext_resource type="Script" uid="uid://bpffpmehlr6ee" path="res://Scripts/Player/StateMachine/States/Ground/Thrown.gd" id="383_gpacc"]
+[ext_resource type="Script" uid="uid://dfh2aelrr3488" path="res://Scripts/Player/StateMachine/States/Ground/HurtFall.gd" id="384_2sujs"]
+[ext_resource type="Script" uid="uid://t4dedtnjjcvt" path="res://Scripts/Player/StateMachine/States/Ground/Fall.gd" id="385_2sujs"]
+[ext_resource type="Script" uid="uid://ctxybaufac22m" path="res://Scripts/Player/StateMachine/States/Ground/GetUp.gd" id="386_2sujs"]
+[ext_resource type="Script" uid="uid://3yswgdvmno6l" path="res://Scripts/Player/StateMachine/States/Ground/tryGrap.gd" id="387_k4tkk"]
+[ext_resource type="Script" uid="uid://cgjhpb6ihl6r5" path="res://Scripts/Player/StateMachine/States/Ground/ThrowBox.gd" id="388_msxmn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
@@ -1530,6 +1540,38 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("326_tlbc7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("327_cvxjp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("328_edhy7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("329_totgx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("330_rcqlv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("331_0pd30")
+}, {
+"duration": 1.0,
+"texture": ExtResource("332_quhfw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("333_pyoxd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("334_iiyxk")
+}],
+"loop": 0,
+"name": &"TryGrab",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("116_41g0m")
 }, {
 "duration": 1.0,
@@ -1790,9 +1832,10 @@ position = Vector2(2.9999962, 5.000001)
 scale = Vector2(1.724, 1.9)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"Throw"
-frame = 8
+frame = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1128512923]
+visible = false
 position = Vector2(24.5, 44)
 shape = SubResource("RectangleShape2D_vqqph")
 
@@ -1928,12 +1971,11 @@ active_start_frame = 3
 active_end_frame = 4
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
-[node name="Throw" type="Node" parent="StateMachine" unique_id=1723045807 node_paths=PackedStringArray("throw_box", "throw_anchor")]
+[node name="Throw" type="Node" parent="StateMachine" unique_id=1723045807]
 script = ExtResource("382_iee83")
-throw_box = NodePath("../../Hitboxers/ThrowBox")
-throw_anchor = NodePath("../../Hitboxers/ThrowPathRoot/ThrowAnchor")
-grab_start_frame = 1
-grab_end_frame = 7
+move_victim_during_throw = true
+victim_path_by_frame = Array[Vector2]([Vector2(0, 0), Vector2(-6, -12), Vector2(-14, -28), Vector2(-24, -44), Vector2(-36, -52), Vector2(-48, -38), Vector2(-58, -20), Vector2(-66, -8)])
+launch_opposite_to_target_side = true
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="Thrown" type="Node" parent="StateMachine" unique_id=1455275848]
@@ -1950,6 +1992,13 @@ metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="GetUp" type="Node" parent="StateMachine" unique_id=1616112220]
 script = ExtResource("386_2sujs")
+metadata/_custom_type_script = "uid://bkklrvtapkren"
+
+[node name="TryGrab" type="Node" parent="StateMachine" unique_id=1866719041 node_paths=PackedStringArray("throw_box")]
+script = ExtResource("387_k4tkk")
+throw_box = NodePath("../../Hitboxers/ThrowBox")
+active_start_frame = 3
+active_end_frame = 5
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1276732752 node_paths=PackedStringArray("health", "state_machine", "head_shape", "torso_shape", "feet_shape", "crouch_shape")]

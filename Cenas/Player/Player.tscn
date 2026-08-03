@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://cmprwqp560lvn" path="res://Scripts/Player/StateMachine/StateMachine.gd" id="3_4iq01"]
 [ext_resource type="Texture2D" uid="uid://dyyyeyslgh7el" path="res://assets/Chun li jump/Attacks/AirHighPunch/SF3_3rd_Chunli_24225-removebg-preview.png" id="3_yt5hj"]
 [ext_resource type="Texture2D" uid="uid://bp881e60lgjfe" path="res://assets/Chun li jump/Attacks/AirHighPunch/SF3_3rd_Chunli_24226-removebg-preview.png" id="4_68kka"]
-[ext_resource type="Resource" uid="uid://c0xesnt3643gj" path="res://Scripts/Player/PlayerControls/Player1.tres" id="4_paebk"]
 [ext_resource type="Script" uid="uid://bi6q5kxootr01" path="res://Scripts/Player/StateMachine/States/Ground/Idle.gd" id="4_q2jvu"]
 [ext_resource type="Texture2D" uid="uid://dsewlnfkls48f" path="res://assets/Chun li jump/Attacks/AirHighPunch/SF3_3rd_Chunli_24227-removebg-preview.png" id="5_d0lck"]
 [ext_resource type="Script" uid="uid://bi4f41m5i0rbr" path="res://Scripts/Player/StateMachine/States/Ground/walk.gd" id="6_4ysqk"]
@@ -338,12 +337,14 @@
 [ext_resource type="Texture2D" uid="uid://dwyuqkum4xa51" path="res://assets/Chun li FallDefeated/Throw fall/SF3_3rd_Chunli_23425-removebg-preview.png" id="262_opkcj"]
 [ext_resource type="Texture2D" uid="uid://c3tfb1act1b18" path="res://assets/Chun li FallDefeated/Throw fall/SF3_3rd_Chunli_23426-removebg-preview.png" id="263_w0845"]
 [ext_resource type="Script" uid="uid://cvfgoxh838ivm" path="res://Scripts/Combat/AirAttackState.gd" id="282_yt5hj"]
-[ext_resource type="Script" uid="uid://cbnv6y7dpgqcd" path="res://Cenas/Player/Throw.gd" id="334_mphp3"]
-[ext_resource type="Script" uid="uid://bpffpmehlr6ee" path="res://Cenas/Player/Thrown.gd" id="335_gi1fs"]
-[ext_resource type="Script" uid="uid://cgjhpb6ihl6r5" path="res://Cenas/Player/ThrowBox.gd" id="336_uyj05"]
-[ext_resource type="Script" uid="uid://dfh2aelrr3488" path="res://Cenas/Player/HurtFall.gd" id="336_xafbm"]
-[ext_resource type="Script" uid="uid://t4dedtnjjcvt" path="res://Cenas/Player/Fall.gd" id="337_6u3bu"]
-[ext_resource type="Script" uid="uid://ctxybaufac22m" path="res://Cenas/Player/GetUp.gd" id="338_66573"]
+[ext_resource type="Resource" uid="uid://dfpj86roycl3e" path="res://Scripts/Components/Player1.tres" id="318_o3onf"]
+[ext_resource type="Script" uid="uid://cbnv6y7dpgqcd" path="res://Scripts/Player/StateMachine/States/Ground/Throw.gd" id="334_mphp3"]
+[ext_resource type="Script" uid="uid://bpffpmehlr6ee" path="res://Scripts/Player/StateMachine/States/Ground/Thrown.gd" id="335_gi1fs"]
+[ext_resource type="Script" uid="uid://cgjhpb6ihl6r5" path="res://Scripts/Player/StateMachine/States/Ground/ThrowBox.gd" id="336_uyj05"]
+[ext_resource type="Script" uid="uid://dfh2aelrr3488" path="res://Scripts/Player/StateMachine/States/Ground/HurtFall.gd" id="336_xafbm"]
+[ext_resource type="Script" uid="uid://t4dedtnjjcvt" path="res://Scripts/Player/StateMachine/States/Ground/Fall.gd" id="337_6u3bu"]
+[ext_resource type="Script" uid="uid://ctxybaufac22m" path="res://Scripts/Player/StateMachine/States/Ground/GetUp.gd" id="338_66573"]
+[ext_resource type="Script" uid="uid://3yswgdvmno6l" path="res://Scripts/Player/StateMachine/States/Ground/tryGrap.gd" id="339_o3onf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r8ryd"]
 size = Vector2(127, 161)
@@ -1344,6 +1345,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("213_x2cad")
+}, {
+"duration": 1.0,
+"texture": ExtResource("214_vtyte")
+}, {
+"duration": 1.0,
+"texture": ExtResource("215_hn6l2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("216_qdp0o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("217_y41vs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("218_sqb6j")
+}],
+"loop": 0,
+"name": &"TryGrab",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("96_4ujt5")
 }, {
 "duration": 1.0,
@@ -1641,8 +1665,7 @@ one_way_collision = true
 position = Vector2(2, -28)
 scale = Vector2(1.632, 1.9)
 sprite_frames = SubResource("SpriteFrames_ma6wq")
-animation = &"Throw"
-frame = 11
+animation = &"TryGrab"
 
 [node name="KikokenSpawn" type="Marker2D" parent="." unique_id=1453849635]
 position = Vector2(99, 4)
@@ -1661,7 +1684,7 @@ input_buffer = NodePath("../inputBuffer")
 script = ExtResource("3_4iq01")
 initial_state = NodePath("Idle")
 animated_sprite = NodePath("../AnimatedSprite2D")
-player_controls = ExtResource("4_paebk")
+player_controls = ExtResource("318_o3onf")
 command_parser = NodePath("../CommandParser")
 on_ready = true
 
@@ -1793,11 +1816,8 @@ active_start_frame = 4
 active_end_frame = 7
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
-[node name="Throw" type="Node" parent="StateMachine" unique_id=1694613826 node_paths=PackedStringArray("throw_box", "throw_anchor")]
+[node name="Throw" type="Node" parent="StateMachine" unique_id=1694613826]
 script = ExtResource("334_mphp3")
-throw_box = NodePath("../../Hitboxers/ThrowBox")
-throw_anchor = NodePath("../../Hitboxers/ThrowPathRoot/ThrowAnchor")
-grab_end_frame = 11
 target_rotation_by_frame = Array[float]([0.0, 90.0, 180.0, 270.0, 360.0, 450.0, 540.0, 630.0])
 allow_direction_choice = true
 metadata/_custom_type_script = "uid://bkklrvtapkren"
@@ -1816,6 +1836,13 @@ metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="GetUp" type="Node" parent="StateMachine" unique_id=779408713]
 script = ExtResource("338_66573")
+metadata/_custom_type_script = "uid://bkklrvtapkren"
+
+[node name="TryGrab" type="Node" parent="StateMachine" unique_id=2030392576 node_paths=PackedStringArray("throw_box")]
+script = ExtResource("339_o3onf")
+throw_box = NodePath("../../Hitboxers/ThrowBox")
+active_start_frame = 2
+active_end_frame = 5
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="Hitboxers" type="Node2D" parent="." unique_id=997661732]
@@ -1984,9 +2011,10 @@ position = Vector2(83, 15)
 shape = SubResource("RectangleShape2D_gdy7f")
 
 [node name="ThrowPathRoot" type="Node2D" parent="Hitboxers" unique_id=1632511877]
+position = Vector2(-39, -14)
 
 [node name="ThrowAnchor" type="Marker2D" parent="Hitboxers/ThrowPathRoot" unique_id=770345543]
-position = Vector2(-40, -40)
+position = Vector2(1, 3)
 
 [node name="Health" type="Node" parent="." unique_id=229046517]
 script = ExtResource("114_jj3b6")

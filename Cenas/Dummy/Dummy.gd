@@ -1,5 +1,15 @@
 extends CharacterBody2D
 
+enum ThrowRole {
+	NONE,
+	ATTACKER,
+	VICTIM
+}
+
+
+var throw_role: int = ThrowRole.NONE
+
+
 @onready var hurt_box: HurtBox = $Hurtbox
 @onready var state_machine: StateMachine = $StateMachine
 @onready var health: Health = $Health
@@ -14,19 +24,42 @@ extends CharacterBody2D
 
 @export var body_collision: CollisionShape2D
 
+
+# Vítima presa durante o Throw.
 var throw_locked: bool = false
 var throw_sequence_active: bool = false
-
-var throw_anchor: Node2D
-var throw_attacker: CharacterBody2D
-
+var throw_attacker: CharacterBody2D = null
 var pending_throw_damage: int = 0
 
+# Esta era a variável que estava faltando.
+var _throw_victim_locked_position: Vector2 = Vector2.ZERO
+
+# Atacante parado durante a animação Throw.
+var throw_attacker_locked: bool = false
+var _throw_attacker_locked_position: Vector2 = Vector2.ZERO
+
+# Dados enviados do TryGrab para o Throw.
+var pending_grab_target: CharacterBody2D = null
+var pending_throw_direction: float = 0.0
+
+var grab_attempt_active: bool = false
+var grab_attempt_started_msec: int = -1
+
+var _resolving_grab_counter: bool = false
+
 func _physics_process(delta: float) -> void:
+	# Atacante executando a animação Throw.
+	if throw_attacker_locked:
+		velocity = Vector2.ZERO
+		global_position = _throw_attacker_locked_position
+		return
+
+	# Vítima presa durante o Throw.
 	if throw_locked:
 		velocity = Vector2.ZERO
+		global_position = _throw_victim_locked_position
 		return
-	
+
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
@@ -92,24 +125,26 @@ func can_be_thrown() -> bool:
 
 func begin_throw_capture(
 	attacker: CharacterBody2D,
-	anchor: Node2D
+	_anchor: Node2D = null
 ) -> bool:
+	if throw_role != ThrowRole.NONE:
+		return false
+
 	if not can_be_thrown():
 		return false
 
-	if anchor == null:
-		return false
+	throw_role = ThrowRole.VICTIM
 
 	throw_locked = true
 	throw_sequence_active = true
-
 	throw_attacker = attacker
-	throw_anchor = anchor
+
+	# Guarda exatamente onde a vítima estava.
+	_throw_victim_locked_position = global_position
 
 	pending_throw_damage = 0
 	velocity = Vector2.ZERO
 
-	# Caso tenha sido agarrado agachado.
 	if hurt_box != null:
 		hurt_box.set_crouching(false)
 
@@ -119,17 +154,15 @@ func begin_throw_capture(
 
 	return true
 
-
 func update_throw_capture() -> void:
 	if not throw_locked:
 		return
 
-	if not is_instance_valid(throw_anchor):
-		cancel_throw_capture()
-		return
-
 	velocity = Vector2.ZERO
-	global_position = throw_anchor.global_position
+
+	# Mantém a vítima exatamente na posição
+	# em que foi agarrada.
+	global_position = _throw_victim_locked_position
 
 
 func release_from_throw(
@@ -139,27 +172,39 @@ func release_from_throw(
 	if not throw_sequence_active:
 		return
 
-	throw_locked = false
-	throw_anchor = null
+	reset_throw_visual_rotation()
 
-	pending_throw_damage = maxi(damage, 0)
+	throw_locked = false
+
+	pending_throw_damage = maxi(
+		damage,
+		0
+	)
 
 	_set_body_collision_enabled(true)
 
 	velocity = launch_velocity
 
+	print(
+		name,
+		" entrou em HurtFall | velocidade: ",
+		velocity
+	)
+
 	state_machine.force_transition(&"HurtFall")
 
 
 func cancel_throw_capture() -> void:
+	reset_throw_visual_rotation()
+
 	throw_locked = false
 	throw_sequence_active = false
-
-	throw_anchor = null
 	throw_attacker = null
 
 	pending_throw_damage = 0
 	velocity = Vector2.ZERO
+
+	throw_role = ThrowRole.NONE
 
 	_set_body_collision_enabled(true)
 
@@ -182,10 +227,12 @@ func apply_pending_throw_damage() -> bool:
 func finish_throw_sequence() -> void:
 	throw_locked = false
 	throw_sequence_active = false
-
-	throw_anchor = null
 	throw_attacker = null
+
 	pending_throw_damage = 0
+
+	if throw_role == ThrowRole.VICTIM:
+		throw_role = ThrowRole.NONE
 
 
 func set_throw_invulnerable(active: bool) -> void:
@@ -201,3 +248,141 @@ func _set_body_collision_enabled(enabled: bool) -> void:
 		"disabled",
 		not enabled
 	)
+
+
+func reserve_as_throw_attacker() -> bool:
+	if throw_role != ThrowRole.NONE:
+		return false
+
+	if throw_locked or throw_sequence_active:
+		return false
+
+	throw_role = ThrowRole.ATTACKER
+	return true
+
+func release_throw_attacker_reservation() -> void:
+	if throw_role == ThrowRole.ATTACKER:
+		throw_role = ThrowRole.NONE
+
+
+func is_throw_attacker() -> bool:
+	return throw_role == ThrowRole.ATTACKER
+
+
+func is_throw_victim() -> bool:
+	return throw_role == ThrowRole.VICTIM
+
+func queue_grab_target(
+	target: CharacterBody2D
+) -> void:
+	pending_grab_target = target
+
+
+func consume_grab_target() -> CharacterBody2D:
+	var target := pending_grab_target
+	pending_grab_target = null
+
+	return target
+
+func queue_throw_direction(direction: float) -> void:
+	pending_throw_direction = signf(direction)
+
+
+func consume_throw_direction() -> float:
+	var direction := pending_throw_direction
+	pending_throw_direction = 0.0
+
+	return direction
+
+func begin_throw_attacker_lock() -> void:
+	throw_attacker_locked = true
+	_throw_attacker_locked_position = global_position
+	velocity = Vector2.ZERO
+
+
+func end_throw_attacker_lock() -> void:
+	throw_attacker_locked = false
+	velocity = Vector2.ZERO
+
+func begin_grab_attempt() -> void:
+	grab_attempt_active = true
+	grab_attempt_started_msec = Time.get_ticks_msec()
+
+
+func end_grab_attempt() -> void:
+	grab_attempt_active = false
+	grab_attempt_started_msec = -1
+
+
+func cancel_grab_attempt() -> void:
+	grab_attempt_active = false
+	grab_attempt_started_msec = -1
+
+	pending_grab_target = null
+	pending_throw_direction = 0.0
+
+	# Remove uma reserva incompleta.
+	if (
+		throw_role == ThrowRole.ATTACKER
+		and not throw_attacker_locked
+	):
+		throw_role = ThrowRole.NONE
+
+
+func is_trying_grab() -> bool:
+	return grab_attempt_active
+
+
+func get_grab_attempt_started_msec() -> int:
+	return grab_attempt_started_msec
+
+func resolve_grab_counter_with(
+	other_character: CharacterBody2D
+) -> void:
+	if _resolving_grab_counter:
+		return
+
+	_resolving_grab_counter = true
+
+	cancel_grab_attempt()
+	velocity.x = 0.0
+
+	if (
+		is_instance_valid(other_character)
+		and other_character.has_method(
+			"receive_grab_counter_cancel"
+		)
+	):
+		other_character.call(
+			"receive_grab_counter_cancel"
+		)
+
+	if state_machine != null:
+		state_machine.force_transition(&"Idle")
+
+	_resolving_grab_counter = false
+
+
+func receive_grab_counter_cancel() -> void:
+	cancel_grab_attempt()
+	velocity.x = 0.0
+
+	if state_machine != null:
+		state_machine.force_transition(&"Idle")
+
+func set_throw_visual_rotation(
+	rotation_in_degrees: float
+) -> void:
+	if animated_sprite == null:
+		return
+
+	animated_sprite.rotation_degrees = (
+		rotation_in_degrees
+	)
+
+
+func reset_throw_visual_rotation() -> void:
+	if animated_sprite == null:
+		return
+
+	animated_sprite.rotation_degrees = 0.0

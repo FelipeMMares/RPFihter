@@ -84,7 +84,7 @@ var air_attack_chance: float = 0.65
 
 @export_group("Agarrão")
 
-@export var throw_state: StringName = &"Throw"
+@export var try_grab_state: StringName = &"TryGrab"
 @export var throw_range: float = 12.0
 @export var close_throw_weight: int = 15
 
@@ -199,9 +199,27 @@ func _physics_process(delta: float) -> void:
 			0.0
 		)
 
-	var current_state := (
+	var current_state: StringName = (
 		state_machine.get_current_state_name()
 	)
+	# Durante toda a sequência de agarrão, a StateMachine
+# e a física do Dummy controlam o personagem.
+#
+# Principalmente em HurtFall, não podemos chamar
+# _stop_character(), pois isso apagaria velocity.x.
+	if current_state == &"Thrown":
+		return
+
+	if current_state == &"HurtFall":
+		return
+
+	if current_state == &"Fall":
+		_stop_character()
+		return
+
+	if current_state == &"GetUp":
+		_stop_character()
+		return
 
 	if _current_action == AIAction.CROUCH:
 		_process_crouch_action(
@@ -965,11 +983,12 @@ func _is_air_attack_state(
 	return false
 
 func _perform_throw() -> void:
-	if not state_machine.has_state(throw_state):
+	if not state_machine.has_state(try_grab_state):
 		printerr(
-			"DummyAI: estado Throw não encontrado: ",
-			throw_state
+			"DummyAI: estado TryGrab não encontrado: ",
+			try_grab_state
 		)
+
 		_start_wait()
 		return
 
@@ -993,7 +1012,7 @@ func _perform_throw() -> void:
 	print("DummyAI decidiu tentar um Throw.")
 
 	state_machine.force_transition(
-		throw_state
+		try_grab_state
 	)
 
 	_decision_delay = _rng.randf_range(

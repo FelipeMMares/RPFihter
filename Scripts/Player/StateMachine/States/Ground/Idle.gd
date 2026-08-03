@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 				throw_direction
 			)
 
-			transition_to.emit(&"Throw")
+			transition_to.emit(&"TryGrab")
 			return
 	
 	if player_controls.is_jumping():

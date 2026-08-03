@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PlayerControls" format=3 uid="uid://dfpj86roycl3e"]
+
+[ext_resource type="Script" uid="uid://byslak2i1ykxe" path="res://Scripts/Player/PlayerControls/PlayerControls.gd" id="1_1alhr"]
+
+[resource]
+script = ExtResource("1_1alhr")
+up = "Player1_up"
+down = "Player1_down"
+left = &"Player1_left"
+right = &"Player1_right"
+light_punch = "Player1_lightPunch"
+high_punch = "Player1_highPunch"
+kick = "Player1_kick"
+low_kick = "Player1_lowKick"
+throw = &"Player1_tryGrab"
+metadata/_custom_type_script = "uid://byslak2i1ykxe"
