@@ -244,15 +244,24 @@
 [ext_resource type="Texture2D" uid="uid://dv2rdse2kls5t" path="res://assets/Chun li combo simples/SF3_3rd_Chunli_23966-removebg-preview.png" id="97_cwahm"]
 [ext_resource type="Texture2D" uid="uid://80ou1567xl5s" path="res://assets/Chun li Kikkosen pose/SF3_3rd_Chunli_24547-removebg-preview.png" id="97_vy1b1"]
 [ext_resource type="Texture2D" uid="uid://cf32w3rk1fvy1" path="res://assets/Chun li victory/SF3_3rd_Chunli_23144-removebg-preview.png" id="98_4gxf6"]
+[ext_resource type="Texture2D" uid="uid://6vyruvi2yswh" path="res://assets/Chun li Hurt/defend - parry/Idle/SF3_3rd_Chunli_23280-removebg-preview.png" id="98_vdbjl"]
 [ext_resource type="Texture2D" uid="uid://c1l1hq0cpkrxg" path="res://assets/Chun li victory/SF3_3rd_Chunli_23145-removebg-preview.png" id="99_lq3gf"]
+[ext_resource type="Texture2D" uid="uid://bn70etbf3ni2c" path="res://assets/Chun li Hurt/defend - parry/Idle/SF3_3rd_Chunli_23281-removebg-preview.png" id="99_yhiqp"]
+[ext_resource type="Texture2D" uid="uid://ofrdfo37icm6" path="res://assets/Chun li Hurt/defend - parry/Idle/SF3_3rd_Chunli_23282-removebg-preview.png" id="100_8xugs"]
 [ext_resource type="Texture2D" uid="uid://b3lmbe5uhewvf" path="res://assets/Chun li victory/SF3_3rd_Chunli_23146-removebg-preview.png" id="100_dr3ry"]
 [ext_resource type="Texture2D" uid="uid://dpuwaqs4t5tbm" path="res://assets/Chun li victory/SF3_3rd_Chunli_23147-removebg-preview.png" id="101_eycey"]
+[ext_resource type="Texture2D" uid="uid://bo2jdu523js16" path="res://assets/Chun li Hurt/defend - parry/Idle/SF3_3rd_Chunli_23283-removebg-preview.png" id="101_myr7x"]
+[ext_resource type="Texture2D" uid="uid://dnkeueelky1bx" path="res://assets/Chun li Hurt/defend - parry/Idle/SF3_3rd_Chunli_23284-removebg-preview.png" id="102_1h3ya"]
 [ext_resource type="Texture2D" uid="uid://10uwi0ktln01" path="res://assets/Chun li victory/SF3_3rd_Chunli_23148-removebg-preview.png" id="102_1kdu8"]
+[ext_resource type="Texture2D" uid="uid://dls7po36htuhd" path="res://assets/Chun li Hurt/defend - parry/Idle/SF3_3rd_Chunli_23285-removebg-preview.png" id="103_7meuo"]
 [ext_resource type="Texture2D" uid="uid://td4rrj2qx8gg" path="res://assets/Chun li victory/SF3_3rd_Chunli_23149-removebg-preview.png" id="103_hxj3a"]
+[ext_resource type="Texture2D" uid="uid://hvgd7ss0cn8q" path="res://assets/Chun li Hurt/defend - parry/Idle/SF3_3rd_Chunli_23286-removebg-preview.png" id="104_u6hyx"]
 [ext_resource type="Texture2D" uid="uid://bsux58tjg0ab6" path="res://assets/Chun li victory/SF3_3rd_Chunli_23150-removebg-preview.png" id="104_yi6mq"]
+[ext_resource type="Texture2D" uid="uid://djbp5sfrf2ftd" path="res://assets/Chun li Hurt/defend - parry/Idle/SF3_3rd_Chunli_23287-removebg-preview.png" id="105_781qx"]
 [ext_resource type="Texture2D" uid="uid://hwavhlil8dvm" path="res://assets/Chun li victory/SF3_3rd_Chunli_23151-removebg-preview.png" id="105_ieatf"]
 [ext_resource type="Texture2D" uid="uid://csmg1kf5n2khx" path="res://assets/Chun li FallDefeated/raised/SF3_3rd_Chunli_23808-removebg-preview.png" id="105_pb4hy"]
 [ext_resource type="Texture2D" uid="uid://v611t7vhhk1x" path="res://assets/Chun li victory/SF3_3rd_Chunli_23157-removebg-preview.png" id="106_6c382"]
+[ext_resource type="Texture2D" uid="uid://bry4ynyaxd2r5" path="res://assets/Chun li Hurt/defend - parry/Idle/SF3_3rd_Chunli_23288-removebg-preview.png" id="106_mhjhx"]
 [ext_resource type="Texture2D" uid="uid://megykfhncw2f" path="res://assets/Chun li FallDefeated/raised/SF3_3rd_Chunli_23809-removebg-preview.png" id="106_uyj05"]
 [ext_resource type="Texture2D" uid="uid://bdp6lkdhemylv" path="res://assets/Chun li victory/SF3_3rd_Chunli_23158-removebg-preview.png" id="107_1r4t6"]
 [ext_resource type="Texture2D" uid="uid://cjoukp1tgqfur" path="res://assets/Chun li FallDefeated/raised/SF3_3rd_Chunli_23810-removebg-preview.png" id="107_mphp3"]
@@ -333,6 +342,9 @@
 [ext_resource type="Texture2D" uid="uid://binyypugcwdip" path="res://assets/Chun li Throws/SF3_3rd_Chunli_24418-removebg-preview.png" id="231_57lhq"]
 [ext_resource type="Texture2D" uid="uid://c5own1cw2wkev" path="res://assets/Chun li Throws/SF3_3rd_Chunli_24419-removebg-preview.png" id="232_hhil0"]
 [ext_resource type="Script" uid="uid://bgxa7hy42shv" path="res://Scripts/Combat/CrouchAttackState.gd" id="234_at21e"]
+[ext_resource type="Texture2D" uid="uid://cg6bkp4fs4cjt" path="res://assets/Chun li Hurt/Stun/SF3_3rd_Chunli_23475-removebg-preview.png" id="250_i2ahr"]
+[ext_resource type="Texture2D" uid="uid://d6ruquhtdkme" path="res://assets/Chun li Hurt/Stun/SF3_3rd_Chunli_23476-removebg-preview.png" id="251_opkcj"]
+[ext_resource type="Texture2D" uid="uid://ewwexmwcxgyq" path="res://assets/Chun li Hurt/Stun/SF3_3rd_Chunli_23477-removebg-preview.png" id="252_w0845"]
 [ext_resource type="Texture2D" uid="uid://yxbp8teby7mb" path="res://assets/Chun li FallDefeated/Throw fall/SF3_3rd_Chunli_23424-removebg-preview.png" id="261_i2ahr"]
 [ext_resource type="Texture2D" uid="uid://dwyuqkum4xa51" path="res://assets/Chun li FallDefeated/Throw fall/SF3_3rd_Chunli_23425-removebg-preview.png" id="262_opkcj"]
 [ext_resource type="Texture2D" uid="uid://c3tfb1act1b18" path="res://assets/Chun li FallDefeated/Throw fall/SF3_3rd_Chunli_23426-removebg-preview.png" id="263_w0845"]
@@ -696,6 +708,38 @@ animations = [{
 "loop": 0,
 "name": &"Defeated",
 "speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("98_vdbjl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("99_yhiqp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("100_8xugs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("101_myr7x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("102_1h3ya")
+}, {
+"duration": 1.0,
+"texture": ExtResource("103_7meuo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("104_u6hyx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("105_781qx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("106_mhjhx")
+}],
+"loop": 1,
+"name": &"Defend",
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1266,6 +1310,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("250_i2ahr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("251_opkcj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("252_w0845")
+}, {
+"duration": 1.0,
+"texture": ExtResource("252_w0845")
+}, {
+"duration": 1.0,
+"texture": ExtResource("251_opkcj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("250_i2ahr")
+}],
+"loop": 1,
+"name": &"Stun",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("213_x2cad")
 }, {
 "duration": 1.0,
@@ -1665,7 +1732,9 @@ one_way_collision = true
 position = Vector2(2, -28)
 scale = Vector2(1.632, 1.9)
 sprite_frames = SubResource("SpriteFrames_ma6wq")
-animation = &"TryGrab"
+animation = &"Stun"
+frame = 3
+frame_progress = 0.31768292
 
 [node name="KikokenSpawn" type="Marker2D" parent="." unique_id=1453849635]
 position = Vector2(99, 4)
