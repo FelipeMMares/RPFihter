@@ -149,16 +149,11 @@ func _try_hit(area: Area2D) -> void:
 
 	_already_hit.append(area)
 
-	#print(
-		#"ACERTO CONFIRMADO | atacante: ",
-		#_owner_character.name,
-		#" | alvo: ",
-		#target_character.name,
-		#" | dano: ",
-		#hit_data.damage
-	#)
-
-	area.call("receive_hit", hit_data)
+	area.call(
+		"receive_hit",
+		hit_data,
+		_owner_character
+	)
 	hit_confirmed.emit(area)
 
 
@@ -172,3 +167,8 @@ func _find_owner_character() -> CharacterBody2D:
 		current_node = current_node.get_parent()
 
 	return null
+
+func set_owner_character(
+	character: CharacterBody2D
+) -> void:
+	_owner_character = character

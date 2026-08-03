@@ -79,17 +79,31 @@ func _validate_hurtbox_shapes() -> void:
 	if crouch_shape == null:
 		printerr("HurtBox: CrouchShape não configurada.")
 
-func receive_hit(hit_data: HitData) -> void:
+func receive_hit(
+	hit_data: HitData,
+	attacker: CharacterBody2D = null
+) -> void:
 	if invulnerable:
 		return
-	
-	if hit_data == null:
-		printerr(
-			"HurtBox de ",
-			character.name,
-			" recebeu HitData nulo."
+
+	var character := get_character()
+
+	if character == null:
+		return
+
+	if character.has_method("receive_combat_hit"):
+		character.call(
+			"receive_combat_hit",
+			hit_data,
+			attacker
 		)
 		return
+
+	printerr(
+		"HurtBox: personagem ",
+		character.name,
+		" não possui receive_combat_hit()."
+	)
 
 	if health == null:
 		printerr(

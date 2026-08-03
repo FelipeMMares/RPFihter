@@ -1,10 +1,14 @@
-res://Scripts/Player/StateMachine/States/Ground/
-res://assets/Elena (dummy) Hurt/stun/
+res://assets/Chun li Hurt/parry recoil/
+res://assets/Elena (dummy) Hurt/parry recoil/
 res://assets/Elena (dummy) Hurt/defend - parry/idle/
+res://Scripts/Player/StateMachine/States/Ground/
 res://assets/Chun li Hurt/Stun/
+res://assets/Chun li Hurt/defend - parry/Parry/
+res://assets/Elena (dummy) Hurt/defend - parry/Parry/
+res://Scripts/Components/
+res://assets/Elena (dummy) Hurt/stun/
 res://assets/Chun li Hurt/defend - parry/Idle/
 res://assets/Elena Throws/TryGrab/
-res://Scripts/Components/
 res://assets/Chun li Throws/
 res://assets/Chun li FallDefeated/hurled/
 res://assets/Elena (dummy) crounch/end/
@@ -16,7 +20,3 @@ res://assets/Elena Throws/
 res://assets/Chun li FallDefeated/raised/
 res://assets/Chun li FallDefeated/Throw fall/
 res://assets/Elena (dummy) Jump/Attaks/AirLowKick/
-res://assets/Elena (dummy) Jump/Attaks/AirKick/
-res://assets/Elena (dummy) Jump/Attaks/AirHighPunch/
-res://assets/Elena (dummy) Jump/Attaks/AirLightPunch/
-res://assets/Chun li jump/Attacks/AirLowKick/

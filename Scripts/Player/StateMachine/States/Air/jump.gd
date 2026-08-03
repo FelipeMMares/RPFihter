@@ -29,18 +29,17 @@ func _physics_process(_delta: float) -> void:
 	if character == null:
 		return
 
-	# Impede que o estado considere que aterrissou
-	# antes de realmente sair do chão.
 	if not character.is_on_floor():
 		_has_left_ground = true
 
+	# Somente o Player lê teclado e inicia
+	# ataques aéreos por input.
 	if player_controls != null:
 		var horizontal_direction: float = Input.get_axis(
 			player_controls.left,
 			player_controls.right
 		)
 
-		# Mantém o controle horizontal durante o salto.
 		move.emit(
 			Vector2(
 				horizontal_direction,
@@ -52,6 +51,7 @@ func _physics_process(_delta: float) -> void:
 			if _try_air_attack():
 				return
 
+	# Esta parte precisa funcionar também no Dummy.
 	if (
 		_has_left_ground
 		and character.is_on_floor()
@@ -62,6 +62,9 @@ func _physics_process(_delta: float) -> void:
 
 
 func _try_air_attack() -> bool:
+	if player_controls == null:
+		return false
+
 	if Input.is_action_just_pressed(
 		player_controls.light_punch
 	):
@@ -90,12 +93,7 @@ func _try_air_attack() -> bool:
 
 
 func _get_character() -> CharacterBody2D:
-	var current_node: Node = get_parent()
-
-	while current_node != null:
-		if current_node is CharacterBody2D:
-			return current_node as CharacterBody2D
-
-		current_node = current_node.get_parent()
-
-	return null
+	return (
+		get_parent().get_parent()
+		as CharacterBody2D
+	)

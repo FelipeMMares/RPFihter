@@ -11,6 +11,8 @@ const PROJECTILE_SPAWN_FRAME: int = 8
 
 var projectile_spawned: bool = false
 
+
+
 @onready var character: CharacterBody2D = (
 	get_parent().get_parent() as CharacterBody2D
 )
@@ -58,11 +60,15 @@ func _spawn_projectile() -> void:
 	projectile_spawned = true
 
 	if character == null:
-		printerr("Kikoken: personagem não encontrado.")
+		printerr(
+			"Kikoken: personagem não encontrado."
+		)
 		return
 
 	if spawn_point == null:
-		printerr("Kikoken: KikokenSpawn não encontrado.")
+		printerr(
+			"Kikoken: KikokenSpawn não encontrado."
+		)
 		return
 
 	var projectile := (
@@ -71,7 +77,9 @@ func _spawn_projectile() -> void:
 	)
 
 	if projectile == null:
-		printerr("Kikoken: não foi possível criar o projétil.")
+		printerr(
+			"Kikoken: não foi possível criar o projétil."
+		)
 		return
 
 	var projectile_direction: float = 1.0
@@ -79,32 +87,43 @@ func _spawn_projectile() -> void:
 	if animated_sprite.flip_h:
 		projectile_direction = -1.0
 
-	# Adiciona o projétil na cena principal, e não dentro
-	# do personagem. Assim ele se move independentemente.
-	character.get_tree().current_scene.add_child(projectile)
+	# Adiciona primeiro à árvore para que os
+	# @onready do projétil sejam inicializados.
+	character.get_tree().current_scene.add_child(
+		projectile
+	)
 
-	# Espelha a posição do marcador quando estiver
-	# olhando para a esquerda.
-	var local_spawn_position: Vector2 = spawn_point.position
+	# Calcula a posição relativa ao personagem.
+	var local_spawn_position: Vector2 = (
+		spawn_point.position
+	)
 
 	local_spawn_position.x = (
 		absf(local_spawn_position.x)
 		* projectile_direction
 	)
 
-	projectile.global_position = character.to_global(
-		local_spawn_position
+	projectile.global_position = (
+		character.to_global(
+			local_spawn_position
+		)
 	)
 
-	projectile.setup(projectile_direction)
+	# Informa ao projétil quem o criou e em qual
+	# direção ele deve se mover.
+	projectile.setup(
+		character,
+		projectile_direction
+	)
 
 	print(
 		"Kikoken criado no frame ",
 		animated_sprite.frame,
+		" | dono: ",
+		character.name,
 		" | direção: ",
 		projectile_direction
 	)
-
 
 func _animation_finished() -> void:
 	transition_to.emit("Idle")

@@ -205,12 +205,23 @@ func _physics_process(delta: float) -> void:
 	# Durante toda a sequência de agarrão, a StateMachine
 # e a física do Dummy controlam o personagem.
 #
-# Principalmente em HurtFall, não podemos chamar
-# _stop_character(), pois isso apagaria velocity.x.
 	if current_state == &"Thrown":
 		return
 
 	if current_state == &"HurtFall":
+		return
+
+	if current_state == &"ParryRecoil":
+		return
+
+	if current_state == jump_state:
+		return
+
+	if current_state == airborne_state:
+		_process_air_attack(delta)
+		return
+
+	if _is_air_attack_state(current_state):
 		return
 
 	if current_state == &"Fall":
@@ -221,28 +232,6 @@ func _physics_process(delta: float) -> void:
 		_stop_character()
 		return
 
-	if _current_action == AIAction.CROUCH:
-		_process_crouch_action(
-			delta,
-			current_state
-		)
-		return
-
-	# Enquanto está no estado Jump, pode decidir
-	# realizar um ataque aéreo.
-	if current_state == airborne_state:
-		_process_air_attack(delta)
-		return
-
-	# Durante um ataque aéreo, a própria State controla
-	# o retorno para Idle ao tocar no chão.
-	if _is_air_attack_state(current_state):
-		return
-
-	# Depois vêm as verificações gerais de ataques,
-	# Hurt, Jump e outros estados.
-	# Durante ataques, Hurt, pulo e outras animações,
-	# não toma uma nova decisão.
 	if (
 		current_state != idle_state
 		and current_state != walk_state

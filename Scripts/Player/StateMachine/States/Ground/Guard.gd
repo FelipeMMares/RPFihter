@@ -2,41 +2,86 @@ extends State
 class_name GuardState
 
 
+@export_group("Transições")
+
+@export var guard_while_state: StringName = &"GuardWhile"
 @export var idle_state: StringName = &"Idle"
 
-# Quantos frames físicos após entrar em Guard
-# podem resultar em Parry.
-@export_range(1, 15, 1)
-var parry_window_frames: int = 4
+
+@export_group("Parry")
+
+# Aproximadamente 9 frames em 60 FPS.
+@export_range(0.01, 0.50, 0.01)
+var parry_window_seconds: float = 0.15
+
+
+var _leaving_guard: bool = false
+var _keep_guard_active: bool = false
 
 
 func _enter() -> void:
 	move.emit(Vector2.ZERO)
 
+	_keep_guard_active = false
+
 	var character := _get_character()
 
-	if character != null:
-		character.call(
-			"begin_guard",
-			parry_window_frames
+	_leaving_guard = _should_leave_guard(
+		character
+	)
+
+	if _leaving_guard:
+		# Ao começar a animação invertida, a defesa
+		# já deixa de negar dano.
+		if (
+			character != null
+			and character.has_method("end_guard")
+		):
+			character.call("end_guard")
+
+		play_animation.emit(
+			&"Guard",
+			true
 		)
 
-	play_animation.emit(&"Guard", false)
+	else:
+		# A janela de Parry começa no instante em que
+		# o botão de defesa é pressionado.
+		if (
+			character != null
+			and character.has_method("begin_guard")
+		):
+			character.call(
+				"begin_guard",
+				parry_window_seconds
+			)
+
+		play_animation.emit(
+			&"Guard",
+			false
+		)
 
 
 func _physics_process(_delta: float) -> void:
 	move.emit(Vector2.ZERO)
 
-	# Player: permanece defendendo enquanto
-	# o botão estiver pressionado.
-	if player_controls != null:
-		if not Input.is_action_pressed(
-			player_controls.guard
-		):
-			transition_to.emit(idle_state)
+
+func _animation_finished() -> void:
+	if _leaving_guard:
+		transition_to.emit(idle_state)
+		return
+
+	# Impede que _exit() desative a defesa ao
+	# trocar de Guard para GuardWhile.
+	_keep_guard_active = true
+
+	transition_to.emit(guard_while_state)
 
 
 func _exit() -> void:
+	if _keep_guard_active:
+		return
+
 	var character := _get_character()
 
 	if (
@@ -46,10 +91,29 @@ func _exit() -> void:
 		character.call("end_guard")
 
 
-func _animation_finished() -> void:
-	# Guard é controlado pelo botão, não pelo
-	# término da animação.
-	pass
+func _should_leave_guard(
+	character: CharacterBody2D
+) -> bool:
+	# Player: verifica diretamente o botão.
+	if player_controls != null:
+		return not Input.is_action_pressed(
+			player_controls.guard
+		)
+
+	# Dummy: a IA solicita o encerramento.
+	if (
+		character != null
+		and character.has_method(
+			"consume_guard_release_request"
+		)
+	):
+		return bool(
+			character.call(
+				"consume_guard_release_request"
+			)
+		)
+
+	return false
 
 
 func _get_character() -> CharacterBody2D:

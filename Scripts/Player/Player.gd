@@ -45,8 +45,11 @@ signal guard_hits_changed(
 
 var blocked_guard_hits: int = 0
 
+
 var guard_active: bool = false
-var parry_window_end_frame: int = -1
+
+var _parry_window_end_msec: int = -1
+var _guard_release_requested: bool = false
 
 var _pending_parry_recoil_velocity: float = 0.0
 
@@ -154,6 +157,10 @@ func begin_throw_capture(
 
 	if not can_be_thrown():
 		return false
+
+	# Garante que uma defesa anterior não permaneça
+	# ativa durante Thrown.
+	end_guard()
 
 	throw_role = ThrowRole.VICTIM
 
@@ -415,57 +422,87 @@ func set_throw_capture_position(
 	global_position = _throw_victim_locked_position
 
 func begin_guard(
-	parry_window_frames: int
+	parry_window_seconds: float
 ) -> void:
 	guard_active = true
+	_guard_release_requested = false
 
-	parry_window_end_frame = (
-		Engine.get_physics_frames()
-		+ maxi(parry_window_frames, 0)
+	var window_msec: int = roundi(
+		maxf(parry_window_seconds, 0.0)
+		* 1000.0
+	)
+
+	_parry_window_end_msec = (
+		Time.get_ticks_msec()
+		+ window_msec
 	)
 
 
 func end_guard() -> void:
 	guard_active = false
-	parry_window_end_frame = -1
+	_parry_window_end_msec = -1
+
+
+func is_guard_active() -> bool:
+	return guard_active
 
 
 func is_parry_window_active() -> bool:
 	if not guard_active:
 		return false
 
+	if _parry_window_end_msec < 0:
+		return false
+
 	return (
-		Engine.get_physics_frames()
-		<= parry_window_end_frame
+		Time.get_ticks_msec()
+		<= _parry_window_end_msec
 	)
 
 func receive_combat_hit(
 	hit_data: HitData,
-	attacker: CharacterBody2D
+	attacker: CharacterBody2D = null
 ) -> void:
+	if hit_data == null:
+		printerr(name, ": recebeu HitData nulo.")
+		return
+
 	if state_machine == null:
+		printerr(name, ": StateMachine não encontrada.")
 		return
 
 	var current_state: StringName = (
 		state_machine.get_current_state_name()
 	)
 
-	# Defesa e Parry só funcionam enquanto o
-	# personagem realmente está no estado Guard.
-	if (
+	var is_in_guard_state: bool = (
 		current_state == &"Guard"
-		and guard_active
-	):
+		or current_state == &"GuardWhile"
+	)
+
+	# Defesa e Parry negam completamente o dano,
+	# mas somente enquanto guard_active estiver ativo.
+	if is_in_guard_state and guard_active:
 		if is_parry_window_active():
 			_perform_parry(attacker)
 		else:
 			_block_attack()
 
-		# Em ambos os casos, o dano é negado.
 		return
 
-	# Fora de Guard, segue o processamento
-	# normal de dano do seu projeto.
+	# Fora da defesa, o golpe causa dano normalmente.
+	if health != null:
+		health.take_damage(
+			hit_data.damage
+		)
+	else:
+		printerr(
+			name,
+			": componente Health não encontrado."
+		)
+
+	# Depois de aplicar o dano, entra em Hurt
+	# e processa os demais dados do golpe.
 	state_machine.receive_hit(hit_data)
 
 func _block_attack() -> void:
@@ -562,3 +599,14 @@ func consume_parry_recoil_velocity() -> float:
 	_pending_parry_recoil_velocity = 0.0
 
 	return recoil_velocity
+
+func request_guard_release() -> void:
+	_guard_release_requested = true
+
+
+func consume_guard_release_request() -> bool:
+	var requested := _guard_release_requested
+
+	_guard_release_requested = false
+
+	return requested

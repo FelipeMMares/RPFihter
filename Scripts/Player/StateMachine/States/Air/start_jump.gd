@@ -1,16 +1,13 @@
 extends State
 
 
-@export var next_state: StringName = &"Jump"
+@export var jump_state: StringName = &"Jump"
 
 
 func _enter() -> void:
-	var horizontal_direction: float = 0.0
-
-	# Para o Player, lê a direção pressionada no
-	# mesmo momento em que o salto começa.
+	# Somente o Player lê o teclado aqui.
 	if player_controls != null:
-		horizontal_direction = Input.get_axis(
+		var horizontal_direction: float = Input.get_axis(
 			player_controls.left,
 			player_controls.right
 		)
@@ -22,9 +19,8 @@ func _enter() -> void:
 			)
 		)
 
-	# Para o Dummy, não enviamos Vector2.ZERO.
-	# Assim, uma direção definida pela DummyAI
-	# pode ser preservada.
+	# Precisa ficar fora do bloco player_controls.
+	# O Dummy também deve receber o impulso vertical.
 	jump.emit()
 
 	play_animation.emit(
@@ -34,4 +30,4 @@ func _enter() -> void:
 
 
 func _animation_finished() -> void:
-	transition_to.emit(next_state)
+	transition_to.emit(jump_state)

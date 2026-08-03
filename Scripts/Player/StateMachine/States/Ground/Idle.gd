@@ -38,7 +38,13 @@ func _physics_process(delta: float) -> void:
 
 			transition_to.emit(&"TryGrab")
 			return
-	
+
+	if Input.is_action_just_pressed(
+		player_controls.guard
+	):
+		transition_to.emit(&"Guard")
+		return
+
 	if player_controls.is_jumping():
 		print("PEDIU PULO")
 		transition_to.emit("StartJump")
