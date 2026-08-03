@@ -410,6 +410,7 @@
 [ext_resource type="Script" uid="uid://ctxybaufac22m" path="res://Scripts/Player/StateMachine/States/Ground/GetUp.gd" id="386_2sujs"]
 [ext_resource type="Script" uid="uid://3yswgdvmno6l" path="res://Scripts/Player/StateMachine/States/Ground/tryGrap.gd" id="387_k4tkk"]
 [ext_resource type="Script" uid="uid://cgjhpb6ihl6r5" path="res://Scripts/Player/StateMachine/States/Ground/ThrowBox.gd" id="388_msxmn"]
+[ext_resource type="Script" uid="uid://bkklrvtapkren" path="res://Scripts/Player/StateMachine/State.gd" id="404_iiyxk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
@@ -808,23 +809,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("109_pyoxd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("110_iiyxk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("111_ijaro")
-}, {
-"duration": 1.0,
-"texture": ExtResource("112_mapjg")
-}],
-"loop": 1,
-"name": &"Defend",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": ExtResource("186_v38w6")
 }],
 "loop": 0,
@@ -936,6 +920,23 @@ animations = [{
 "loop": 0,
 "name": &"GetUp",
 "speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("109_pyoxd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("110_iiyxk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("111_ijaro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("112_mapjg")
+}],
+"loop": 1,
+"name": &"Guard",
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1875,8 +1876,7 @@ body_collision = NodePath("Hurtbox/TorsoShape")
 position = Vector2(2.9999962, 5.000001)
 scale = Vector2(1.724, 1.9)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"Stun"
-frame_progress = 0.99644107
+animation = &"Guard"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1128512923]
 visible = false
@@ -2043,6 +2043,18 @@ script = ExtResource("387_k4tkk")
 throw_box = NodePath("../../Hitboxers/ThrowBox")
 active_start_frame = 3
 active_end_frame = 5
+metadata/_custom_type_script = "uid://bkklrvtapkren"
+
+[node name="Guard" type="Node" parent="StateMachine" unique_id=2075796033]
+script = ExtResource("404_iiyxk")
+metadata/_custom_type_script = "uid://bkklrvtapkren"
+
+[node name="Parry" type="Node" parent="StateMachine" unique_id=1358767886]
+script = ExtResource("404_iiyxk")
+metadata/_custom_type_script = "uid://bkklrvtapkren"
+
+[node name="Stun" type="Node" parent="StateMachine" unique_id=859020413]
+script = ExtResource("404_iiyxk")
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1276732752 node_paths=PackedStringArray("health", "state_machine", "head_shape", "torso_shape", "feet_shape", "crouch_shape")]

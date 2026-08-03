@@ -1,10 +1,10 @@
+res://Scripts/Player/StateMachine/States/Ground/
 res://assets/Elena (dummy) Hurt/stun/
 res://assets/Elena (dummy) Hurt/defend - parry/idle/
 res://assets/Chun li Hurt/Stun/
 res://assets/Chun li Hurt/defend - parry/Idle/
 res://assets/Elena Throws/TryGrab/
 res://Scripts/Components/
-res://Scripts/Player/StateMachine/States/Ground/
 res://assets/Chun li Throws/
 res://assets/Chun li FallDefeated/hurled/
 res://assets/Elena (dummy) crounch/end/

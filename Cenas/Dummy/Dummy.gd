@@ -24,6 +24,28 @@ var throw_role: int = ThrowRole.NONE
 
 @export var body_collision: CollisionShape2D
 
+signal guard_hits_changed(
+	current_hits: int,
+	maximum_hits: int
+)
+
+
+@export_group("Defesa")
+
+# Quantos golpes podem ser bloqueados antes
+# da defesa quebrar.
+@export var maximum_guard_hits: int = 5
+
+# Força aplicada ao atacante quando sofre Parry.
+@export var parry_knockback_force: float = 600.0
+
+
+var blocked_guard_hits: int = 0
+
+var guard_active: bool = false
+var parry_window_end_frame: int = -1
+
+var _pending_parry_recoil_velocity: float = 0.0
 
 # Vítima presa durante o Throw.
 var throw_locked: bool = false
@@ -386,3 +408,152 @@ func reset_throw_visual_rotation() -> void:
 		return
 
 	animated_sprite.rotation_degrees = 0.0
+
+func begin_guard(
+	parry_window_frames: int
+) -> void:
+	guard_active = true
+
+	parry_window_end_frame = (
+		Engine.get_physics_frames()
+		+ maxi(parry_window_frames, 0)
+	)
+
+
+func end_guard() -> void:
+	guard_active = false
+	parry_window_end_frame = -1
+
+
+func is_parry_window_active() -> bool:
+	if not guard_active:
+		return false
+
+	return (
+		Engine.get_physics_frames()
+		<= parry_window_end_frame
+	)
+
+func receive_combat_hit(
+	hit_data: HitData,
+	attacker: CharacterBody2D
+) -> void:
+	if state_machine == null:
+		return
+
+	var current_state: StringName = (
+		state_machine.get_current_state_name()
+	)
+
+	# Defesa e Parry só funcionam enquanto o
+	# personagem realmente está no estado Guard.
+	if (
+		current_state == &"Guard"
+		and guard_active
+	):
+		if is_parry_window_active():
+			_perform_parry(attacker)
+		else:
+			_block_attack()
+
+		# Em ambos os casos, o dano é negado.
+		return
+
+	# Fora de Guard, segue o processamento
+	# normal de dano do seu projeto.
+	state_machine.receive_hit(hit_data)
+
+func _block_attack() -> void:
+	# Os primeiros cinco ataques são bloqueados.
+	if blocked_guard_hits < maximum_guard_hits:
+		blocked_guard_hits += 1
+
+		guard_hits_changed.emit(
+			blocked_guard_hits,
+			maximum_guard_hits
+		)
+
+		print(
+			name,
+			" bloqueou | defesa: ",
+			blocked_guard_hits,
+			"/",
+			maximum_guard_hits
+		)
+
+		return
+
+	# O próximo ataque excede o limite.
+	_break_guard()
+
+func _break_guard() -> void:
+	end_guard()
+
+	print(name, " teve a defesa quebrada.")
+
+	state_machine.force_transition(&"Stun")
+
+func reset_guard_durability() -> void:
+	blocked_guard_hits = 0
+
+	guard_hits_changed.emit(
+		blocked_guard_hits,
+		maximum_guard_hits
+	)
+
+func _perform_parry(
+	attacker: CharacterBody2D
+) -> void:
+	end_guard()
+
+	print(
+		name,
+		" realizou Parry em ",
+		attacker.name if attacker != null else "null"
+	)
+
+	state_machine.force_transition(&"Parry")
+
+	if (
+		is_instance_valid(attacker)
+		and attacker.has_method(
+			"receive_parry_knockback"
+		)
+	):
+		attacker.call(
+			"receive_parry_knockback",
+			self,
+			parry_knockback_force
+		)
+
+func receive_parry_knockback(
+	defender: CharacterBody2D,
+	knockback_force: float
+) -> void:
+	if defender == null:
+		return
+
+	var recoil_direction: float = signf(
+		global_position.x
+		- defender.global_position.x
+	)
+
+	if is_zero_approx(recoil_direction):
+		recoil_direction = 1.0
+
+	_pending_parry_recoil_velocity = (
+		absf(knockback_force)
+		* recoil_direction
+	)
+
+	state_machine.force_transition(&"ParryRecoil")
+
+
+func consume_parry_recoil_velocity() -> float:
+	var recoil_velocity := (
+		_pending_parry_recoil_velocity
+	)
+
+	_pending_parry_recoil_velocity = 0.0
+
+	return recoil_velocity
