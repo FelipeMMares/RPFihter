@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_amslj")
 name = "HyakuretsuKyaku"
-inputs = Array[String](["kick", "kick", "kick"])
+inputs = Array[String](["kick", "kick"])
 is_special = true
 metadata/_custom_type_script = "uid://brg7ixgqu5kif"

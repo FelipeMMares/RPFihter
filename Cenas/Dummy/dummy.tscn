@@ -518,6 +518,7 @@
 [ext_resource type="Script" uid="uid://mpusglrs05cc" path="res://Scripts/Components/ParryRecoil.gd" id="416_rseid"]
 [ext_resource type="Script" uid="uid://dsei8tgiddvv2" path="res://Scripts/Components/RoundResultState.gd" id="471_e6tco"]
 [ext_resource type="Script" uid="uid://ccu8c3mk7qr5i" path="res://Scripts/Combat/MultiHitSpecialState.gd" id="487_insef"]
+[ext_resource type="Script" uid="uid://dscrs3ri13jd2" path="res://Scripts/Combat/FrameHitboxStep.gd" id="512_on12j"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
@@ -2230,6 +2231,39 @@ func _enter():
 	print(\"Chute baixo\")
 "
 
+[sub_resource type="Resource" id="Resource_ls5r5"]
+script = ExtResource("512_on12j")
+end_frame = 2
+metadata/_custom_type_script = "uid://dscrs3ri13jd2"
+
+[sub_resource type="Resource" id="Resource_on12j"]
+script = ExtResource("512_on12j")
+start_frame = 3
+end_frame = 4
+hitbox_indices = Array[int]([1])
+metadata/_custom_type_script = "uid://dscrs3ri13jd2"
+
+[sub_resource type="Resource" id="Resource_8n1f2"]
+script = ExtResource("512_on12j")
+start_frame = 5
+end_frame = 8
+hitbox_indices = Array[int]([2])
+metadata/_custom_type_script = "uid://dscrs3ri13jd2"
+
+[sub_resource type="Resource" id="Resource_665jr"]
+script = ExtResource("512_on12j")
+start_frame = 17
+end_frame = 22
+hitbox_indices = Array[int]([0])
+metadata/_custom_type_script = "uid://dscrs3ri13jd2"
+
+[sub_resource type="Resource" id="Resource_adrkm"]
+script = ExtResource("512_on12j")
+start_frame = 30
+end_frame = 31
+hitbox_indices = Array[int]([1])
+metadata/_custom_type_script = "uid://dscrs3ri13jd2"
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 30.870699
 
@@ -2326,6 +2360,9 @@ size = Vector2(159.06714, 47.24742)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pb4hy"]
 size = Vector2(84, 55)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fcnqv"]
+size = Vector2(107, 39)
+
 [node name="Dummy" type="CharacterBody2D" unique_id=597853256 node_paths=PackedStringArray("body_collision")]
 script = ExtResource("1_7u85y")
 body_collision = NodePath("Hurtbox/TorsoShape")
@@ -2334,7 +2371,8 @@ body_collision = NodePath("Hurtbox/TorsoShape")
 position = Vector2(-55, 43)
 scale = Vector2(1.3985853, 1.7576089)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"Idle"
+animation = &"RhinoHorn"
+frame = 22
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1128512923]
 position = Vector2(-28, 93)
@@ -2522,28 +2560,27 @@ metadata/_custom_type_script = "uid://bkklrvtapkren"
 script = ExtResource("416_rseid")
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
-[node name="ScratchWheel" type="Node" parent="StateMachine" unique_id=1298626994 node_paths=PackedStringArray("hitbox")]
+[node name="ScratchWheel" type="Node" parent="StateMachine" unique_id=1298626994 node_paths=PackedStringArray("hitboxes")]
 script = ExtResource("487_insef")
 animation_name = &"ScratchWheel"
-hitbox = NodePath("../../Hitboxers/ScratchWheel")
-active_windows = Array[Vector2i]([Vector2i(2, 3), Vector2i(4, 9), Vector2i(10, 16)])
+animation_sprite_offset = Vector2(60, -30)
+hitboxes = [NodePath("../../Hitboxers/ScratchWheelLow"), NodePath("../../Hitboxers/ScratchWheelMiddle"), NodePath("../../Hitboxers/ScratchWheelHigh")]
+hitbox_steps = Array[ExtResource("512_on12j")]([SubResource("Resource_ls5r5"), SubResource("Resource_on12j"), SubResource("Resource_8n1f2")])
 vertical_velocity_on_enter = -500.0
 return_to_jump_if_airborne = true
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
-[node name="RhinoHorn" type="Node" parent="StateMachine" unique_id=2055362738 node_paths=PackedStringArray("hitbox")]
+[node name="RhinoHorn" type="Node" parent="StateMachine" unique_id=2055362738 node_paths=PackedStringArray("hitboxes")]
 script = ExtResource("487_insef")
 animation_name = &"RhinoHorn"
-hitbox = NodePath("../../Hitboxers/RhinoHorn")
-active_windows = Array[Vector2i]([Vector2i(20, 23), Vector2i(30, 31)])
+hitboxes = [NodePath("../../Hitboxers/RhinoHornFirstKick"), NodePath("../../Hitboxers/RhinoHornFinalKick")]
+hitbox_steps = Array[ExtResource("512_on12j")]([SubResource("Resource_665jr"), SubResource("Resource_adrkm")])
 horizontal_velocity = 350.0
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
-[node name="LynxTail" type="Node" parent="StateMachine" unique_id=61704481 node_paths=PackedStringArray("hitbox")]
+[node name="LynxTail" type="Node" parent="StateMachine" unique_id=61704481]
 script = ExtResource("487_insef")
 animation_name = &"LynxTail"
-hitbox = NodePath("../../Hitboxers/LynxTail")
-active_windows = Array[Vector2i]([Vector2i(2, 4), Vector2i(6, 9), Vector2i(16, 18)])
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1276732752 node_paths=PackedStringArray("health", "state_machine", "head_shape", "torso_shape", "feet_shape", "crouch_shape")]
@@ -2769,15 +2806,44 @@ shape = SubResource("RectangleShape2D_pb4hy")
 [node name="ThrowAnchor" type="Marker2D" parent="Hitboxers/ThrowPathRoot" unique_id=298716595]
 position = Vector2(-139, 76)
 
-[node name="ScratchWheel" type="Area2D" parent="Hitboxers" unique_id=932236465]
+[node name="ScratchWheelLow" type="Area2D" parent="Hitboxers" unique_id=932236465]
 script = ExtResource("210_vbhik")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/ScratchWheel" unique_id=2119682682]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Hitboxers/ScratchWheelLow" unique_id=2044256727]
+visible = false
+position = Vector2(-45, 213)
+polygon = PackedVector2Array(70, -41, 25, -20, -46, 8, 1, 8, 53, -15)
 
-[node name="RhinoHorn" type="Area2D" parent="Hitboxers" unique_id=1665249288]
+[node name="ScratchWheelMiddle" type="Area2D" parent="Hitboxers" unique_id=567866562]
 script = ExtResource("210_vbhik")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/RhinoHorn" unique_id=1758725642]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Hitboxers/ScratchWheelMiddle" unique_id=1789750978]
+visible = false
+polygon = PackedVector2Array(60, 114, 26, 164, -37, 197, -78, 216, 4, 208, 35, 190)
+
+[node name="ScratchWheelHigh" type="Area2D" parent="Hitboxers" unique_id=260598985]
+script = ExtResource("210_vbhik")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Hitboxers/ScratchWheelHigh" unique_id=195326671]
+visible = false
+polygon = PackedVector2Array(61, 65, 55, -5, 27, -56, -28, -87, -54, -93, 7, -99, 49, -80, 75, -34, 82, 28)
+
+[node name="RhinoHornFirstKick" type="Area2D" parent="Hitboxers" unique_id=1665249288]
+position = Vector2(-165, 110)
+script = ExtResource("210_vbhik")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Hitboxers/RhinoHornFirstKick" unique_id=1812085646]
+visible = false
+polygon = PackedVector2Array(6, -5, 34, -97, 88, -154, 152, -167, 286, -141, 167, -187, 75, -190, 14, -119)
+
+[node name="RhinoHornFinalKick" type="Area2D" parent="Hitboxers" unique_id=1233218749]
+position = Vector2(0, -4)
+script = ExtResource("210_vbhik")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/RhinoHornFinalKick" unique_id=203437616]
+visible = false
+position = Vector2(56, 36)
+shape = SubResource("RectangleShape2D_fcnqv")
 
 [node name="LynxTail" type="Area2D" parent="Hitboxers" unique_id=1377368008]
 script = ExtResource("210_vbhik")

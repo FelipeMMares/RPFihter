@@ -4,31 +4,33 @@ class_name MultiHitSpecialState
 
 @export_group("Animação")
 
-# Se ficar vazio, será usado o nome do nó do estado.
+# Se estiver vazio, usa o nome do nó do estado.
 @export var animation_name: StringName = &""
 
+@export_group("Ajuste visual")
 
-@export_group("HitBox")
+# Desloca apenas o desenho da animação.
+# Não altera a posição global do personagem.
+@export var animation_sprite_offset: Vector2 = Vector2.ZERO
 
-@export var hitbox: HitBox
+# Faz o deslocamento horizontal acompanhar
+# a direção para a qual o personagem está olhando.
+@export var mirror_offset_x: bool = true
 
-# Cada Vector2i representa:
-# X = primeiro frame ativo
-# Y = último frame ativo
-#
-# Exemplo:
-# [(3, 4), (7, 8)]
-# produz dois impactos separados.
-@export var active_windows: Array[Vector2i] = []
+@export_group("HitBoxes")
+
+# Todas as HitBoxes que esse especial pode utilizar.
+@export var hitboxes: Array[HitBox] = []
+
+# Sequência de ativação das HitBoxes.
+@export var hitbox_steps: Array[FrameHitboxStep] = []
 
 
 @export_group("Movimento")
 
-# Velocidade horizontal real em pixels por segundo.
 @export var horizontal_velocity: float = 0.0
 
-# Valor negativo impulsiona para cima.
-# Zero não altera a velocidade vertical.
+# Valor negativo lança para cima.
 @export var vertical_velocity_on_enter: float = 0.0
 
 @export var stop_horizontal_on_exit: bool = true
@@ -38,8 +40,6 @@ class_name MultiHitSpecialState
 
 @export var return_state: StringName = &"Idle"
 
-# Use em golpes que podem terminar ainda no ar,
-# como Scratch Wheel.
 @export var return_to_jump_if_airborne: bool = false
 
 @export var airborne_return_state: StringName = &"Jump"
@@ -57,14 +57,35 @@ class_name MultiHitSpecialState
 
 
 var _facing_direction: float = 1.0
-var _active_window_index: int = -1
 
+# -2 representa que a sequência ainda
+# não foi processada.
+var _current_step_index: int = -2
+
+var _original_sprite_offset: Vector2 = Vector2.ZERO
+var _sprite_offset_applied: bool = false
 
 func _enter() -> void:
-	_active_window_index = -1
+	_current_step_index = -2
 
-	if hitbox != null:
-		hitbox.disable()
+	if animated_sprite != null:
+		_original_sprite_offset = animated_sprite.offset
+
+		var final_offset: Vector2 = (
+			animation_sprite_offset
+		)
+
+		if mirror_offset_x:
+			final_offset.x *= _facing_direction
+
+		animated_sprite.offset = (
+			_original_sprite_offset
+			+ final_offset
+		)
+
+		_sprite_offset_applied = true
+
+	_disable_all_hitboxes()
 
 	if animated_sprite != null:
 		_facing_direction = (
@@ -102,71 +123,125 @@ func _physics_process(_delta: float) -> void:
 	if character == null:
 		return
 
-	# Mantém a velocidade horizontal especial
-	# enquanto a animação estiver em execução.
 	character.velocity.x = (
 		horizontal_velocity
 		* _facing_direction
 	)
 
+	_update_frame_hitboxes()
+
+
+func _update_frame_hitboxes() -> void:
 	if animated_sprite == null:
+		_disable_all_hitboxes()
 		return
 
-	var new_window_index: int = (
-		_get_active_window_index(
+	var new_step_index: int = (
+		_find_step_for_frame(
 			animated_sprite.frame
 		)
 	)
 
-	if new_window_index == _active_window_index:
+	# Permanece na mesma etapa.
+	# Não chama enable() novamente.
+	if new_step_index == _current_step_index:
 		return
 
-	# Saiu da janela anterior.
-	if hitbox != null:
-		hitbox.disable()
+	_disable_all_hitboxes()
 
-	_active_window_index = new_window_index
+	_current_step_index = new_step_index
 
-	# Entrou em uma nova janela.
-	# enable() limpa _already_hit, permitindo que
-	# o próximo impacto acerte o mesmo alvo novamente.
-	if (
-		_active_window_index >= 0
-		and hitbox != null
-	):
-		hitbox.enable()
+	# Nenhuma etapa configurada para esse frame.
+	if _current_step_index < 0:
+		return
 
+	var step: FrameHitboxStep = (
+		hitbox_steps[
+			_current_step_index
+		]
+	)
 
-func _get_active_window_index(
-	current_frame: int
-) -> int:
-	for index in range(active_windows.size()):
-		var window: Vector2i = active_windows[index]
+	if step == null:
+		return
 
-		var start_frame: int = mini(
-			window.x,
-			window.y
+	for hitbox_index in step.hitbox_indices:
+		_enable_hitbox_by_index(
+			hitbox_index
 		)
 
-		var end_frame: int = maxi(
-			window.x,
-			window.y
+
+func _find_step_for_frame(
+	current_frame: int
+) -> int:
+	for index in range(
+		hitbox_steps.size()
+	):
+		var step: FrameHitboxStep = (
+			hitbox_steps[index]
+		)
+
+		if step == null:
+			continue
+
+		var first_frame: int = mini(
+			step.start_frame,
+			step.end_frame
+		)
+
+		var last_frame: int = maxi(
+			step.start_frame,
+			step.end_frame
 		)
 
 		if (
-			current_frame >= start_frame
-			and current_frame <= end_frame
+			current_frame >= first_frame
+			and current_frame <= last_frame
 		):
 			return index
 
 	return -1
 
 
-func _animation_finished() -> void:
-	if hitbox != null:
-		hitbox.disable()
+func _enable_hitbox_by_index(
+	hitbox_index: int
+) -> void:
+	if hitbox_index < 0:
+		return
 
-	_active_window_index = -1
+	if hitbox_index >= hitboxes.size():
+		printerr(
+			name,
+			": índice de HitBox inválido: ",
+			hitbox_index
+		)
+		return
+
+	var selected_hitbox: HitBox = (
+		hitboxes[hitbox_index]
+	)
+
+	if selected_hitbox == null:
+		printerr(
+			name,
+			": HitBox ",
+			hitbox_index,
+			" não configurada."
+		)
+		return
+
+	selected_hitbox.enable()
+
+
+func _disable_all_hitboxes() -> void:
+	for hitbox in hitboxes:
+		if hitbox != null:
+			hitbox.disable()
+
+
+func _animation_finished() -> void:
+	_disable_all_hitboxes()
+
+	_current_step_index = -2
 
 	if (
 		return_to_jump_if_airborne
@@ -178,15 +253,25 @@ func _animation_finished() -> void:
 		)
 		return
 
-	transition_to.emit(return_state)
+	transition_to.emit(
+		return_state
+	)
 
 
 func _exit() -> void:
-	if hitbox != null:
-		hitbox.disable()
+	_disable_all_hitboxes()
 
-	_active_window_index = -1
+	_current_step_index = -2
+	if (
+		_sprite_offset_applied
+		and animated_sprite != null
+	):
+		animated_sprite.offset = (
+			_original_sprite_offset
+		)
 
+		_sprite_offset_applied = false
+	
 	if (
 		stop_horizontal_on_exit
 		and character != null

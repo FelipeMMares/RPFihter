@@ -26,24 +26,46 @@ enum AttackPhase {
 
 @export_group("Repetição")
 
-# Ação completa do InputMap.
-# Exemplo: Player1_kick
-#
-# Se ficar vazia, será usado player_controls.kick.
+# Pode ficar vazio para usar player_controls.kick.
 @export var mash_action: StringName = &""
 
-# Quantas vezes a parte de chutes pode se repetir.
 @export_range(1, 30, 1)
 var maximum_loops: int = 10
 
 
-@export_group("HitBox")
+@export_group("HitBoxes do loop")
 
-@export var hitbox: HitBox
+# Ordem sugerida:
+# 0 = cabeça
+# 1 = torso
+# 2 = pés
+@export var loop_hitboxes: Array[HitBox] = []
 
-# Frames ativos dentro da animação Loop.
-@export var active_start_frame: int = 1
-@export var active_end_frame: int = 2
+
+# Cada posição corresponde a um frame da animação.
+#
+# -1 = nenhuma HitBox
+#  0 = loop_hitboxes[0]
+#  1 = loop_hitboxes[1]
+#  2 = loop_hitboxes[2]
+#
+# Exemplo:
+# [0, -1, 1, -1, 2, -1]
+#
+# Frame 0: cabeça
+# Frame 1: desligada
+# Frame 2: torso
+# Frame 3: desligada
+# Frame 4: pés
+# Frame 5: desligada
+@export var frame_hitbox_pattern: Array[int] = [
+	0,
+	-1,
+	1,
+	-1,
+	2,
+	-1
+]
 
 
 @export_group("Transição")
@@ -64,14 +86,14 @@ var maximum_loops: int = 10
 
 var _phase: AttackPhase = AttackPhase.START
 
-# Quantos loops ainda estão enfileirados.
 var _loops_remaining: int = 1
-
-# Total já autorizado pelo jogador.
 var _total_loops: int = 1
 
-var _hitbox_active: bool = false
 var _entry_physics_frame: int = 0
+
+# Evita chamar enable() várias vezes enquanto
+# o AnimatedSprite continua no mesmo frame.
+var _last_processed_animation_frame: int = -1
 
 
 func _enter() -> void:
@@ -80,13 +102,15 @@ func _enter() -> void:
 	_loops_remaining = 1
 	_total_loops = 1
 
-	_hitbox_active = false
-	_entry_physics_frame = Engine.get_physics_frames()
+	_entry_physics_frame = (
+		Engine.get_physics_frames()
+	)
+
+	_last_processed_animation_frame = -1
 
 	move.emit(Vector2.ZERO)
 
-	if hitbox != null:
-		hitbox.disable()
+	_disable_all_hitboxes()
 
 	play_animation.emit(
 		start_animation,
@@ -100,30 +124,34 @@ func _physics_process(_delta: float) -> void:
 	_read_additional_kick_input()
 
 	if _phase == AttackPhase.LOOP:
-		_update_loop_hitbox()
+		_update_loop_hitboxes()
 	else:
-		_disable_hitbox()
+		_disable_all_hitboxes()
 
 
 func _read_additional_kick_input() -> void:
 	if _phase == AttackPhase.END:
 		return
 
-	# Evita contar novamente o botão que ativou
-	# o comando original no mesmo frame.
+	# Não conta novamente o botão responsável
+	# por iniciar o comando.
 	if (
 		Engine.get_physics_frames()
 		<= _entry_physics_frame
 	):
 		return
 
-	var selected_action: StringName = mash_action
+	var selected_action: StringName = (
+		mash_action
+	)
 
 	if (
 		selected_action == &""
 		and player_controls != null
 	):
-		selected_action = player_controls.kick
+		selected_action = (
+			player_controls.kick
+		)
 
 	if selected_action == &"":
 		return
@@ -140,46 +168,93 @@ func _read_additional_kick_input() -> void:
 	_loops_remaining += 1
 
 	print(
-		"Hyakuretsu Kyaku ampliado | loops: ",
+		"Hyakuretsu Kyaku ampliado | repetições: ",
 		_total_loops,
 		"/",
 		maximum_loops
 	)
 
 
-func _update_loop_hitbox() -> void:
+func _update_loop_hitboxes() -> void:
 	if animated_sprite == null:
+		_disable_all_hitboxes()
 		return
 
-	var current_frame: int = animated_sprite.frame
+	if animated_sprite.animation != loop_animation:
+		_disable_all_hitboxes()
+		return
 
-	var should_be_active: bool = (
-		current_frame >= active_start_frame
-		and current_frame <= active_end_frame
+	var current_frame: int = (
+		animated_sprite.frame
 	)
 
-	if should_be_active and not _hitbox_active:
-		_hitbox_active = true
-
-		if hitbox != null:
-			hitbox.enable()
-
-	elif not should_be_active and _hitbox_active:
-		_disable_hitbox()
-
-
-func _disable_hitbox() -> void:
-	if not _hitbox_active:
+	# O mesmo frame pode durar vários ciclos de física.
+	# Só altera as HitBoxes quando o frame muda.
+	if (
+		current_frame
+		== _last_processed_animation_frame
+	):
 		return
 
-	_hitbox_active = false
+	_last_processed_animation_frame = (
+		current_frame
+	)
 
-	if hitbox != null:
-		hitbox.disable()
+	# Todo novo frame começa desligando
+	# as HitBoxes do frame anterior.
+	_disable_all_hitboxes()
+
+	if frame_hitbox_pattern.is_empty():
+		return
+
+	var pattern_position: int = (
+		current_frame
+		% frame_hitbox_pattern.size()
+	)
+
+	var hitbox_index: int = (
+		frame_hitbox_pattern[
+			pattern_position
+		]
+	)
+
+	# -1 representa um frame sem impacto.
+	if hitbox_index < 0:
+		return
+
+	if hitbox_index >= loop_hitboxes.size():
+		printerr(
+			"Hyakuretsu Kyaku: índice de HitBox inválido: ",
+			hitbox_index
+		)
+		return
+
+	var selected_hitbox: HitBox = (
+		loop_hitboxes[hitbox_index]
+	)
+
+	if selected_hitbox == null:
+		printerr(
+			"Hyakuretsu Kyaku: HitBox ",
+			hitbox_index,
+			" não configurada."
+		)
+		return
+
+	# enable() limpa _already_hit.
+	# Portanto, cada frame ativo pode gerar
+	# um novo golpe no combo.
+	selected_hitbox.enable()
+
+
+func _disable_all_hitboxes() -> void:
+	for hitbox in loop_hitboxes:
+		if hitbox != null:
+			hitbox.disable()
 
 
 func _animation_finished() -> void:
-	_disable_hitbox()
+	_disable_all_hitboxes()
 
 	match _phase:
 		AttackPhase.START:
@@ -194,15 +269,17 @@ func _animation_finished() -> void:
 				_play_end()
 
 		AttackPhase.END:
-			transition_to.emit(return_state)
+			transition_to.emit(
+				return_state
+			)
 
 
 func _play_loop() -> void:
 	_phase = AttackPhase.LOOP
-	_hitbox_active = false
 
-	if hitbox != null:
-		hitbox.disable()
+	_last_processed_animation_frame = -1
+
+	_disable_all_hitboxes()
 
 	play_animation.emit(
 		loop_animation,
@@ -212,10 +289,10 @@ func _play_loop() -> void:
 
 func _play_end() -> void:
 	_phase = AttackPhase.END
-	_hitbox_active = false
 
-	if hitbox != null:
-		hitbox.disable()
+	_last_processed_animation_frame = -1
+
+	_disable_all_hitboxes()
 
 	play_animation.emit(
 		end_animation,
@@ -224,10 +301,9 @@ func _play_end() -> void:
 
 
 func _exit() -> void:
-	_disable_hitbox()
+	_disable_all_hitboxes()
 
-	if hitbox != null:
-		hitbox.disable()
+	_last_processed_animation_frame = -1
 
 	if character != null:
 		character.velocity.x = 0.0
