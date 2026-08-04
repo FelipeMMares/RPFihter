@@ -116,7 +116,9 @@ func _process(delta: float) -> void:
 
 func show_ko() -> void:
 	round_running = false
-	timer_label.text = "KO"
+
+	if timer_label != null:
+		timer_label.text = "KO"
 
 func _setup_bars() -> void:
 	if player_1_hp == null or player_2_hp == null:
@@ -153,10 +155,15 @@ func start_round(
 	# Apenas o cronômetro fica desativado.
 	round_running = true
 
-	if timer_enabled:
-		timer_label.text = str(ceili(remaining_time))
-	else:
-		timer_label.text = "∞"
+	if timer_label != null:
+		timer_label.visible = true
+
+		if timer_enabled:
+			timer_label.text = str(
+				ceili(remaining_time)
+			)
+		else:
+			timer_label.text = "∞"
 
 	target_player_1_hp = player_health.current_health
 	target_player_2_hp = dummy_health.current_health
@@ -205,6 +212,17 @@ func stop_round_timer() -> void:
 
 
 func show_round_message(message: String) -> void:
+	# Garante que o cronômetro não continue
+	# contando atrás da mensagem.
+	round_running = false
+
+	if timer_label == null:
+		printerr(
+			"HUD: Timer não encontrado para exibir mensagem."
+		)
+		return
+
+	timer_label.visible = true
 	timer_label.text = message
 
 
@@ -244,28 +262,49 @@ func _update_win_icons(
 func set_timer_enabled(enabled: bool) -> void:
 	timer_enabled = enabled
 
+	if timer_label == null:
+		return
+
+	timer_label.visible = true
+
 	if timer_enabled:
-		timer_label.visible = true
+		if round_running:
+			timer_label.text = str(
+				ceili(remaining_time)
+			)
 
 		print("HUD: cronômetro ativado.")
 	else:
-		timer_label.text = "∞"
-
+		# Não coloca "∞" aqui.
+		# O cronômetro também é desativado em KO,
+		# timeout e no fim da luta.
 		print("HUD: cronômetro desativado.")
 
 func set_sudden_death_mode(active: bool) -> void:
+	if sudden_death_label == null:
+		printerr(
+			"HUD: SuddenDeathLabel não encontrado."
+		)
+		return
+
 	sudden_death_label.visible = active
 
 	if active:
-		timer_label.text = "∞"
+		timer_enabled = false
+
+		if timer_label != null:
+			timer_label.visible = true
+			timer_label.text = "∞"
 
 		sudden_death_label.text = (
 			"MORTE SÚBITA\n"
 			+ "PRIMEIRO GOLPE VENCE"
 		)
 
-		print("HUD: modo de morte súbita ativado.")
+		print(
+			"HUD: modo de morte súbita ativado."
+		)
 	else:
-		sudden_death_label.visible = false
-
-		print("HUD: modo de morte súbita desativado.")
+		print(
+			"HUD: modo de morte súbita desativado."
+		)

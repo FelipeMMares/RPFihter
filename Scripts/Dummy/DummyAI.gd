@@ -209,7 +209,9 @@ func _physics_process(delta: float) -> void:
 			_decision_delay - delta,
 			0.0
 		)
-
+	if state_machine.is_round_result_locked():
+		return
+	
 	var current_state: StringName = (
 		state_machine.get_current_state_name()
 	)

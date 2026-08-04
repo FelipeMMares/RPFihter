@@ -27,6 +27,8 @@ var _started : bool = false
 var _current_state : State = null
 var _character : CharacterBody2D
 var _anim_request_id : int = 0
+var _round_result_locked: bool = false
+var _round_result_state: StringName = &""
 
 const KIKOKEN_STATE: StringName = &"Kikoken"
 
@@ -78,6 +80,8 @@ func _ready() -> void:
 		_started = true
 		
 func _transition_to(new_state: String, previous_state: String) -> void:
+	if _round_result_locked:
+		return
 	print("TRANSIÇÃO:", previous_state, " -> ", new_state)
 	var new_state_node : State = get_node_or_null(new_state)
 	
@@ -262,3 +266,24 @@ func can_be_thrown() -> bool:
 	)
 
 	return current_state_name in throwable_states
+
+func is_round_result_locked() -> bool:
+	return _round_result_locked
+
+
+func lock_round_result(
+	state_name: StringName
+) -> void:
+	# Primeiro permite a transição para o resultado.
+	_round_result_locked = false
+	_round_result_state = state_name
+
+	force_transition(state_name)
+
+	# Depois bloqueia qualquer nova transição.
+	_round_result_locked = true
+
+
+func unlock_round_result() -> void:
+	_round_result_locked = false
+	_round_result_state = &""

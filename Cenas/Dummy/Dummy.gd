@@ -456,6 +456,11 @@ func receive_combat_hit(
 	hit_data: HitData,
 	attacker: CharacterBody2D = null
 ) -> void:
+	if (
+		state_machine != null
+		and state_machine.is_round_result_locked()
+	):
+		return
 	if hit_data == null:
 		printerr(name, ": recebeu HitData nulo.")
 		return

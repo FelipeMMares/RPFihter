@@ -331,12 +331,9 @@
 [ext_resource type="Texture2D" uid="uid://bl4e46y0vvkos" path="res://assets/Elena (dummy) crounch/entry/SF3_3rd_Elena_12347-removebg-preview.png" id="172_xhk8l"]
 [ext_resource type="Texture2D" uid="uid://bepmcy5k13ohk" path="res://assets/Elena (dummy) crounch/entry/SF3_3rd_Elena_12348-removebg-preview.png" id="173_6ykda"]
 [ext_resource type="Texture2D" uid="uid://co18fyni3s0c0" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12932-removebg-preview.png" id="173_quhfw"]
-[ext_resource type="Script" uid="uid://b1jth3teoxqqe" path="res://Scripts/Player/StateMachine/States/Ground/Victory.gd" id="174_53088"]
 [ext_resource type="Texture2D" uid="uid://bafoe3wja5had" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12933-removebg-preview.png" id="174_pyoxd"]
 [ext_resource type="Texture2D" uid="uid://djlwoluq01xek" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12934-removebg-preview.png" id="175_iiyxk"]
-[ext_resource type="Script" uid="uid://d4dnk2rxxx4ue" path="res://Scripts/Player/StateMachine/States/Ground/Defeated.gd" id="175_usvrd"]
 [ext_resource type="Texture2D" uid="uid://bjnb8qvuvph6" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12935-removebg-preview.png" id="176_ijaro"]
-[ext_resource type="Script" uid="uid://dyhvl7vyac2qc" path="res://Scripts/Player/StateMachine/States/Ground/FallDefeated.gd" id="176_ndu3r"]
 [ext_resource type="Texture2D" uid="uid://crxu7q351v1n5" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12936-removebg-preview.png" id="177_mapjg"]
 [ext_resource type="Texture2D" uid="uid://de36cwnowoj8e" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12937-removebg-preview.png" id="178_eosw2"]
 [ext_resource type="Texture2D" uid="uid://vn06r3nthqds" path="res://assets/Elena (Demmy) FallDefeated/hurled/SF3_3rd_Elena_12938-removebg-preview.png" id="179_1pfxe"]
@@ -493,6 +490,7 @@
 [ext_resource type="Script" uid="uid://0q5b8gbojtju" path="res://Scripts/Player/StateMachine/States/Ground/GuardWhile.gd" id="414_nrhsv"]
 [ext_resource type="Script" uid="uid://belnn3cnc712f" path="res://Scripts/Player/StateMachine/States/Ground/Stun.gd" id="414_rseid"]
 [ext_resource type="Script" uid="uid://mpusglrs05cc" path="res://Scripts/Components/ParryRecoil.gd" id="416_rseid"]
+[ext_resource type="Script" uid="uid://dsei8tgiddvv2" path="res://Scripts/Components/RoundResultState.gd" id="471_e6tco"]
 [ext_resource type="Script" uid="uid://ccu8c3mk7qr5i" path="res://Scripts/Combat/MultiHitSpecialState.gd" id="487_insef"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pit8o"]
@@ -2442,15 +2440,15 @@ script = ExtResource("69_3mxc2")
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="Victory" type="Node" parent="StateMachine" unique_id=1678472994]
-script = ExtResource("174_53088")
+script = ExtResource("471_e6tco")
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="Defeated" type="Node" parent="StateMachine" unique_id=1146412001]
-script = ExtResource("175_usvrd")
+script = ExtResource("471_e6tco")
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="FallDefeated" type="Node" parent="StateMachine" unique_id=1799312453]
-script = ExtResource("176_ndu3r")
+script = ExtResource("471_e6tco")
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="CrouchLightPunch" type="Node" parent="StateMachine" unique_id=555563772 node_paths=PackedStringArray("hitbox")]

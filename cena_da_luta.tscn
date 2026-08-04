@@ -62,8 +62,9 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="CenaDaLuta" type="Node2D" unique_id=111988353]
+[node name="CenaDaLuta" type="Node2D" unique_id=111988353 node_paths=PackedStringArray("pause_menu")]
 script = ExtResource("1_oi066")
+pause_menu = NodePath("PauseLayer/PauseMenu")
 
 [node name="Stage" type="Node2D" parent="." unique_id=1094057888]
 
