@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CommandSequence" format=3 uid="uid://dup10ktx8k152"]
+
+[ext_resource type="Script" uid="uid://brg7ixgqu5kif" path="res://Scripts/Player/CommandParser/CommandSequence.gd" id="1_6elag"]
+
+[resource]
+script = ExtResource("1_6elag")
+name = " SpinningBirdKick"
+inputs = Array[String](["down", "up", "kick"])
+is_special = true
+metadata/_custom_type_script = "uid://brg7ixgqu5kif"

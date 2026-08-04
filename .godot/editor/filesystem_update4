@@ -4,3 +4,6 @@ res://Scripts/Dummy/DummyAI.gd
 res://Cenas/Dummy/Dummy.gd
 res://Cenas/Player/kikokenProjectile.tscn
 res://Cenas/Player/Player.tscn
+res://Scripts/Combat/MultiHitSpecialState.gd
+res://Cenas/Player/HyakuretsuKyaku.gd
+res://Scripts/Player/CommandParser/commandParse.gd

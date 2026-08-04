@@ -229,9 +229,9 @@ func is_special_move(
 	move_name: String
 ) -> bool:
 	return move_name in [
-		"hadouken",
-		"shoryuken",
-		"tatsumaki"
+		"Kikoken",
+		"HyakuretsuKyaku",
+		"SpinningBirdKick"
 	]
 
 

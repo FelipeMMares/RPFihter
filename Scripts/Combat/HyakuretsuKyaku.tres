@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CommandSequence" format=3 uid="uid://p55mtiaotbgu"]
+
+[ext_resource type="Script" uid="uid://brg7ixgqu5kif" path="res://Scripts/Player/CommandParser/CommandSequence.gd" id="1_amslj"]
+
+[resource]
+script = ExtResource("1_amslj")
+name = "HyakuretsuKyaku"
+inputs = Array[String](["kick", "kick", "kick"])
+is_special = true
+metadata/_custom_type_script = "uid://brg7ixgqu5kif"

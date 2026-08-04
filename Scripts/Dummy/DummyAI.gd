@@ -91,6 +91,16 @@ var air_attack_chance: float = 0.65
 @export_group("Distância")
 @export var attack_range: float = 25.0
 
+@export_group("Especiais da Elena")
+
+@export var special_attack_states: Array[StringName] = [
+	&"ScratchWheel",
+	&"RhinoHorn",
+	&"LynxTail"
+]
+
+@export_range(0.0, 1.0, 0.05)
+var special_attack_chance: float = 0.35
 
 @export_group("Duração das ações")
 @export var minimum_approach_duration: float = 0.20
@@ -181,6 +191,7 @@ func setup(new_target: CharacterBody2D) -> void:
 
 
 func _physics_process(delta: float) -> void:
+
 	if not active:
 		return
 	
@@ -202,6 +213,9 @@ func _physics_process(delta: float) -> void:
 	var current_state: StringName = (
 		state_machine.get_current_state_name()
 	)
+# Os próprios estados especiais controlam a velocidade.
+	if _is_special_attack_state(current_state):
+		return
 	# Durante toda a sequência de agarrão, a StateMachine
 # e a física do Dummy controlam o personagem.
 #
@@ -1008,3 +1022,55 @@ func _perform_throw() -> void:
 		minimum_decision_delay,
 		maximum_decision_delay
 	)
+
+func _start_random_special_attack() -> bool:
+	var valid_specials: Array[StringName] = []
+
+	for special_state in special_attack_states:
+		if state_machine.has_state(special_state):
+			valid_specials.append(special_state)
+		else:
+			printerr(
+				"DummyAI: especial não encontrado: ",
+				special_state
+			)
+
+	if valid_specials.is_empty():
+		return false
+
+	var selected_index: int = _rng.randi_range(
+		0,
+		valid_specials.size() - 1
+	)
+
+	var selected_special: StringName = (
+		valid_specials[selected_index]
+	)
+
+	_stop_character()
+
+	print(
+		"DummyAI escolheu especial: ",
+		selected_special
+	)
+
+	state_machine.force_transition(
+		selected_special
+	)
+
+	_decision_delay = _rng.randf_range(
+		minimum_decision_delay,
+		maximum_decision_delay
+	)
+
+	return true
+
+
+func _is_special_attack_state(
+	state_name: StringName
+) -> bool:
+	for special_state in special_attack_states:
+		if state_name == special_state:
+			return true
+
+	return false
