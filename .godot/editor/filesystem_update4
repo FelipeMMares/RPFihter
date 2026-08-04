@@ -1,16 +1,3 @@
-res://Cenas/Dummy/dummy.tscn
-res://Scripts/Player/StateMachine/States/Air/jump.gd
-res://Scripts/Dummy/DummyAI.gd
-res://Cenas/Dummy/Dummy.gd
-res://Cenas/Player/kikokenProjectile.tscn
 res://Cenas/Player/Player.tscn
-res://Scripts/Combat/MultiHitSpecialState.gd
-res://Cenas/Player/HyakuretsuKyaku.gd
-res://Scripts/Player/CommandParser/commandParse.gd
-res://Scripts/Components/RoundResultState.gd
-res://Scripts/Player/StateMachine/StateMachine.gd
-res://Scripts/Player/Player.gd
-res://Scripts/Fight/FightManager.gd
+res://Cenas/Dummy/dummy.tscn
 res://cena_da_luta.tscn
-res://Cenas/HUD/HUD.tscn
-res://Cenas/HUD/hud.gd

@@ -123,16 +123,17 @@ position = Vector2(989, 306)
 [node name="HUD" parent="." unique_id=434548975 instance=ExtResource("3_hvrgt")]
 
 [node name="Player1" parent="." unique_id=1120152477 instance=ExtResource("4_oi066")]
-position = Vector2(126, 456)
+position = Vector2(130, 471)
 disable_mode = 2
 
 [node name="Dummy" parent="." unique_id=597853256 instance=ExtResource("5_hvrgt")]
-position = Vector2(919, 433)
+position = Vector2(919, 388)
 
 [node name="PauseLayer" type="CanvasLayer" parent="." unique_id=562054979]
 
 [node name="PauseMenu" type="Control" parent="PauseLayer" unique_id=398088596]
 process_mode = 3
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

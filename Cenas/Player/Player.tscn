@@ -2062,6 +2062,9 @@ size = Vector2(152, 35)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gdy7f"]
 size = Vector2(60, 66)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpjx5"]
+size = Vector2(129, 38)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 18.601076
 
@@ -2080,7 +2083,6 @@ script = ExtResource("1_htvwm")
 body_collision = NodePath("Hurtbox/TorsoShape")
 
 [node name="Colisao" type="CollisionShape2D" parent="." unique_id=1334167780]
-visible = false
 position = Vector2(-8.5, 7.5)
 shape = SubResource("RectangleShape2D_r8ryd")
 one_way_collision = true
@@ -2090,7 +2092,7 @@ position = Vector2(7, -25.000002)
 scale = Vector2(1.3767501, 1.5799999)
 sprite_frames = SubResource("SpriteFrames_ma6wq")
 animation = &"SpinningBirdKick"
-frame = 18
+frame = 10
 
 [node name="KikokenSpawn" type="Marker2D" parent="." unique_id=1453849635]
 position = Vector2(99, -20)
@@ -2308,7 +2310,6 @@ horizontal_velocity = 220.0
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="Hitboxers" type="Node2D" parent="." unique_id=997661732]
-visible = false
 
 [node name="LightPunch" type="Area2D" parent="Hitboxers" unique_id=143547538]
 collision_layer = 0
@@ -2317,6 +2318,7 @@ script = ExtResource("112_lmw0p")
 hit_data = SubResource("Resource_lmw0p")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/LightPunch" unique_id=1338770999]
+visible = false
 position = Vector2(109, -10)
 shape = SubResource("RectangleShape2D_g4v7s")
 
@@ -2487,6 +2489,9 @@ script = ExtResource("112_lmw0p")
 script = ExtResource("112_lmw0p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/SpinningBirdKick" unique_id=1590087615]
+visible = false
+position = Vector2(61.5, -30)
+shape = SubResource("RectangleShape2D_fpjx5")
 
 [node name="Health" type="Node" parent="." unique_id=229046517]
 script = ExtResource("114_jj3b6")
