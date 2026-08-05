@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddmfv7kvp8rfl"
-path="res://.godot/imported/SF3_3rd_Chunli_23655-removebg-preview.png-f4fd4c6fd4a65e2b9551d701d8653094.ctex"
+path="res://.godot/imported/SF3_3rd_Chunli_23655-removebg-preview.png-e11c0098438f9b928a923f884df7c857.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Chun li hurt/Stun/SF3_3rd_Chunli_23655-removebg-preview.png"
-dest_files=["res://.godot/imported/SF3_3rd_Chunli_23655-removebg-preview.png-f4fd4c6fd4a65e2b9551d701d8653094.ctex"]
+source_file="res://assets/Chun li Hurt/Stun/SF3_3rd_Chunli_23655-removebg-preview.png"
+dest_files=["res://.godot/imported/SF3_3rd_Chunli_23655-removebg-preview.png-e11c0098438f9b928a923f884df7c857.ctex"]
 
 [params]
 

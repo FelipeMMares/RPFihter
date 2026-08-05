@@ -1,7 +1,7 @@
 extends Node
 class_name State
 
-signal transition_to(new_state, previous_state)
+signal transition_to(new_state)
 signal move(direction: Vector2)
 signal jump()
 signal play_animation(name: String, backwards: bool)
@@ -18,28 +18,90 @@ func _exit() -> void:
 func _animation_finished() -> void:
 	pass
 
-func check_special_move():
-
+func check_special_move() -> bool:
 	if command_parser == null:
-		return
+		return false
 
-	var move = command_parser.get_current_special_move()
+	var move_name: String = (
+		command_parser.get_current_special_move()
+	)
 
-	if move == "":
-		return
+	if move_name.is_empty():
+		return false
 
-	print("🔥 Movimento detectado:", move)
+	print(
+		"🔥 Movimento detectado: ",
+		move_name
+	)
 
-	match move:
+	# Impede que combos normais sejam tratados
+	# como estados de ataques especiais.
+	if not command_parser.is_special_move(
+		move_name
+	):
+		print(
+			"Movimento reconhecido, mas não é especial: ",
+			move_name
+		)
+		return false
 
-		"teste_combo":
-			print("Combo detectado!")
+	var state_machine := (
+		get_parent() as StateMachine
+	)
 
-		"hadouken":
-			print("Executar Hadouken")
+	if state_machine == null:
+		printerr(
+			"State: não foi possível encontrar a StateMachine."
+		)
+		return false
 
-		"shoryuken":
-			print("Executar Shoryuken")
+	var special_state := StringName(
+		move_name
+	)
+
+	if not state_machine.has_state(
+		special_state
+	):
+		printerr(
+			"Especial reconhecido, mas o estado não existe: ",
+			special_state
+		)
+		return false
+
+	print(
+		"✅ Entrando no estado especial: ",
+		special_state
+	)
+
+	var character := (
+		get_parent().get_parent()
+		as CharacterBody2D
+	)
+
+	if character == null:
+		printerr(
+			"State: personagem não encontrado."
+		)
+		return false
+
+	if not character.has_method(
+		"request_special_attack"
+	):
+		printerr(
+			character.name,
+			" não possui request_special_attack()."
+		)
+		return false
+
+	var special_started: bool = bool(
+		character.call(
+			"request_special_attack",
+			special_state
+		)
+	)
+
+	return special_started
+
 
 func set_crouching_hurtbox(active: bool) -> void:
 	var character := (

@@ -1,12 +1,32 @@
 extends Node2D
 class_name FightManager
 
+@export_group("Introdução do round")
+
+@export_range(1, 10, 1)
+var round_countdown_start: int = 3
+
+@export_range(0.1, 3.0, 0.1)
+var countdown_step_duration: float = 1.0
+
+@export_range(0.1, 3.0, 0.1)
+var fight_message_duration: float = 0.75
 
 @export_group("Rounds")
 
 @export var rounds_to_win: int = 2
 @export var next_round_delay: float = 3.0
 
+@export_group("Transição entre rounds")
+
+@export_range(0.0, 3.0, 0.05)
+var fade_to_black_duration: float = 0.4
+
+@export_range(0.0, 2.0, 0.05)
+var black_screen_hold_duration: float = 0.15
+
+@export_range(0.0, 3.0, 0.05)
+var fade_from_black_duration: float = 0.4
 
 @export_group("Morte súbita")
 
@@ -25,6 +45,11 @@ class_name FightManager
 # Arraste o nó do menu de pausa para este campo.
 @export var pause_menu: Control
 
+@export_group("MP")
+
+# Ligado: cada round começa com Starting MP.
+# Desligado: o MP passa de um round para o outro.
+@export var reset_mp_each_round: bool = true
 
 @onready var player_1: CharacterBody2D = $Player1
 @onready var player_2: CharacterBody2D = $Dummy
@@ -32,6 +57,13 @@ class_name FightManager
 @onready var hud: FightHUD = $HUD
 @onready var dummy_ai: DummyAI = $Dummy/DummyAI
 
+
+@export_group("Telas")
+
+@export_file("*.tscn")
+var player_defeat_scene_path: String = (
+	"res://Cenas/DefeatScreen/DefeatScreen.tscn"
+)
 
 @onready var player_facing: FacingController = (
 	$Player1/FacingController
@@ -50,6 +82,13 @@ class_name FightManager
 	$Dummy/Health
 )
 
+@onready var player_1_mp: MagicPoints = (
+	$Player1/MagicPoints
+)
+
+@onready var player_2_mp: MagicPoints = (
+	$Dummy/MagicPoints
+)
 
 @onready var player_1_state_machine: StateMachine = (
 	$Player1/StateMachine
@@ -59,6 +98,11 @@ class_name FightManager
 	$Dummy/StateMachine
 )
 
+@onready var player_1_entry_spawn: Marker2D = (
+	$Player1EntrySpawn
+)
+
+var current_round_number: int = 1
 
 var player_1_start_position: Vector2
 var player_2_start_position: Vector2
@@ -78,10 +122,15 @@ var sudden_death_active: bool = false
 var _round_finish_in_progress: bool = false
 var _match_finish_in_progress: bool = false
 
+var _round_intro_in_progress: bool = false
+
+
 
 func _ready() -> void:
 	player_1_start_position = player_1.global_position
 	player_2_start_position = player_2.global_position
+
+	_set_mp_regeneration_enabled(false)
 
 	if dummy_ai != null:
 		dummy_ai.setup(player_1)
@@ -104,6 +153,10 @@ func _ready() -> void:
 			"FightManager: FacingController do Dummy não encontrado."
 		)
 
+	call_deferred(
+		"_start_round_intro"
+	)
+
 	player_1_health.defeated.connect(
 		_on_player_1_health_depleted
 	)
@@ -118,16 +171,14 @@ func _ready() -> void:
 
 	hud.setup(
 		player_1_health,
-		player_2_health
+		player_2_health,
+		player_1_mp,
+		player_2_mp
 	)
 
 	hud.set_timer_enabled(true)
 	hud.set_sudden_death_mode(false)
 
-	hud.start_round(
-		player_1_wins,
-		player_2_wins
-	)
 
 	# O menu precisa continuar processando
 	# enquanto a árvore estiver pausada.
@@ -174,6 +225,7 @@ func _finish_round_by_health(
 	loser: CharacterBody2D,
 	winner_number: int
 ) -> void:
+	_set_mp_regeneration_enabled(false)
 	if (
 		round_finished
 		or match_finished
@@ -221,6 +273,7 @@ func _finish_round_by_health(
 
 
 func _on_time_over() -> void:
+	_set_mp_regeneration_enabled(false)
 	if (
 		round_finished
 		or match_finished
@@ -309,8 +362,14 @@ func _continue_after_round(
 	winner_number: int,
 	round_was_sudden_death: bool
 ) -> void:
-	# Um vencedor em morte súbita encerra
-	# imediatamente toda a luta.
+	# Mantém KO, vitória por tempo ou DRAW
+	# visível durante três segundos.
+	await get_tree().create_timer(
+		next_round_delay
+	).timeout
+
+	# Uma vitória durante morte súbita
+	# encerra toda a luta.
 	if (
 		round_was_sudden_death
 		and winner_number != 0
@@ -328,18 +387,22 @@ func _continue_after_round(
 		await _finish_match(2)
 		return
 
-	# Apenas rounds intermediários usam
-	# o intervalo comum.
-	await get_tree().create_timer(
-		next_round_delay
-	).timeout
-
-	_start_next_round()
+	# Só rounds intermediários passam
+	# pela tela preta e são resetados.
+	await _transition_to_next_round()
 
 
-func _start_next_round() -> void:
-	# Primeiro destrava as StateMachines.
+func _reset_next_round_behind_black() -> void:
+	# Permite sair de Victory,
+	# Defeated e FallDefeated.
 	_unlock_fighters_for_next_round()
+
+	current_round_number += 1
+
+	print(
+		"Preparando round ",
+		current_round_number
+	)
 
 	round_finished = false
 	_round_finish_in_progress = false
@@ -349,6 +412,7 @@ func _start_next_round() -> void:
 		>= timeout_draws_before_sudden_death
 	)
 
+	# Reposiciona enquanto a tela está preta.
 	player_1.global_position = (
 		player_1_start_position
 	)
@@ -360,46 +424,54 @@ func _start_next_round() -> void:
 	player_1.velocity = Vector2.ZERO
 	player_2.velocity = Vector2.ZERO
 
+	# Reseta a vida enquanto a tela está preta.
 	if sudden_death_active:
+		var selected_health: int = maxi(
+			sudden_death_health,
+			1
+		)
+
 		player_1_health.set_health(
-			sudden_death_health
+			selected_health
 		)
 
 		player_2_health.set_health(
-			sudden_death_health
+			selected_health
 		)
 
 		print(
 			"MORTE SÚBITA | HP: ",
-			sudden_death_health
+			selected_health
 		)
-
 	else:
 		player_1_health.reset_health()
 		player_2_health.reset_health()
 
-	player_1_state_machine.force_transition(
-		&"Idle"
+
+	# O reset de MP é independente do reset de HP.
+	if reset_mp_each_round:
+		player_1_mp.reset_mp()
+		player_2_mp.reset_mp()
+
+
+	print(
+		"RESET DO ROUND | Chun-Li HP: ",
+		player_1_health.current_health,
+		"/",
+		player_1_health.max_health,
+		" | Dummy HP: ",
+		player_2_health.current_health,
+		"/",
+		player_2_health.max_health,
+		" | Chun-Li MP: ",
+		player_1_mp.current_mp,
+		"/",
+		player_1_mp.max_mp,
+		" | Dummy MP: ",
+		player_2_mp.current_mp,
+		"/",
+		player_2_mp.max_mp
 	)
-
-	player_2_state_machine.force_transition(
-		&"Idle"
-	)
-
-	hud.set_timer_enabled(
-		not sudden_death_active
-	)
-
-	hud.set_sudden_death_mode(
-		sudden_death_active
-	)
-
-	hud.start_round(
-		player_1_wins,
-		player_2_wins
-	)
-
-
 func _lock_round_result(
 	winner: CharacterBody2D,
 	loser: CharacterBody2D,
@@ -482,6 +554,7 @@ func _get_character_state_machine(
 func _finish_match(
 	winner_number: int
 ) -> void:
+	_set_mp_regeneration_enabled(false)
 	if _match_finish_in_progress:
 		return
 
@@ -514,6 +587,13 @@ func _finish_match(
 		final_victory_message_duration
 	).timeout
 
+	# Player 2 venceu, portanto Chun-Li perdeu.
+	if winner_number == 2:
+		_open_player_defeat_screen()
+		return
+
+	# Mantém o comportamento atual quando
+	# Chun-Li vence a luta.
 	_open_match_end_menu()
 
 
@@ -539,3 +619,361 @@ func _open_match_end_menu() -> void:
 		pause_menu.show()
 
 	get_tree().paused = true
+
+func _start_round_intro() -> void:
+	_set_mp_regeneration_enabled(false)
+	if _round_intro_in_progress:
+		return
+
+	if match_finished:
+		return
+
+	_round_intro_in_progress = true
+
+	# Primeiro escolhe Entry ou Idle.
+	# Isso precisa acontecer antes de desativar
+	# o processamento das StateMachines.
+	_prepare_round_intro_states()
+
+	player_1.velocity = Vector2.ZERO
+	player_2.velocity = Vector2.ZERO
+
+	# Agora trava os estados, a IA e os inputs.
+	_set_round_intro_locked(true)
+
+	hud.prepare_round_intro()
+
+	for countdown_value in range(
+		round_countdown_start,
+		0,
+		-1
+	):
+		hud.show_countdown(
+			countdown_value
+		)
+
+		await get_tree().create_timer(
+			countdown_step_duration,
+			false
+		).timeout
+
+	# Descarta comandos pressionados durante
+	# READY? 3, 2 e 1.
+	_clear_character_input_buffer(
+		player_1
+	)
+
+	_clear_character_input_buffer(
+		player_2
+	)
+
+	# Exibe LUTEM! antes de liberar os personagens.
+	hud.show_fight_message()
+
+	# Garante pelo menos um frame com LUTEM!
+	# visível antes da liberação.
+	await get_tree().process_frame
+
+	# No primeiro round:
+	# Entry → Idle.
+	#
+	# Nos outros:
+	# permanece em Idle.
+	_release_round_intro_states()
+
+	# Libera StateMachines, DummyAI e InputBuffers.
+	_set_round_intro_locked(false)
+
+	_set_mp_regeneration_enabled(true)
+
+	# O cronômetro só começa depois de LUTEM!
+	hud.start_round(
+		player_1_wins,
+		player_2_wins
+	)
+
+	await get_tree().create_timer(
+		fight_message_duration,
+		false
+	).timeout
+
+	hud.hide_round_message()
+
+	_round_intro_in_progress = false
+
+func _set_round_intro_locked(
+	locked: bool
+) -> void:
+	var selected_process_mode: ProcessMode
+
+	if locked:
+		selected_process_mode = (
+			Node.PROCESS_MODE_DISABLED
+		)
+	else:
+		selected_process_mode = (
+			Node.PROCESS_MODE_INHERIT
+		)
+
+	if player_1_state_machine != null:
+		player_1_state_machine.process_mode = (
+			selected_process_mode
+		)
+
+	if player_2_state_machine != null:
+		player_2_state_machine.process_mode = (
+			selected_process_mode
+		)
+
+	if dummy_ai != null:
+		dummy_ai.process_mode = (
+			selected_process_mode
+		)
+
+	_set_character_input_buffer_locked(
+		player_1,
+		locked
+	)
+
+	_set_character_input_buffer_locked(
+		player_2,
+		locked
+	)
+
+func _set_character_input_buffer_locked(
+	character: CharacterBody2D,
+	locked: bool
+) -> void:
+	if character == null:
+		return
+
+	var input_buffer := (
+		character.find_child(
+			"InputBuffer",
+			true,
+			false
+		)
+		as InputBuffer
+	)
+
+	if input_buffer == null:
+		return
+
+	input_buffer.clear_buffer()
+
+	if locked:
+		input_buffer.process_mode = (
+			Node.PROCESS_MODE_DISABLED
+		)
+	else:
+		input_buffer.process_mode = (
+			Node.PROCESS_MODE_INHERIT
+		)
+
+func _clear_character_input_buffer(
+	character: CharacterBody2D
+) -> void:
+	if character == null:
+		return
+
+	var input_buffer := (
+		character.find_child(
+			"InputBuffer",
+			true,
+			false
+		)
+		as InputBuffer
+	)
+
+	if input_buffer != null:
+		input_buffer.clear_buffer()
+
+func _transition_to_next_round() -> void:
+	if hud == null:
+		printerr(
+			"FightManager: HUD não encontrada."
+		)
+		return
+
+	# Escurece enquanto os lutadores continuam
+	# presos nos estados finais do round.
+	await hud.fade_to_black(
+		fade_to_black_duration
+	)
+
+	# A partir deste ponto, tudo está oculto.
+	hud.hide_round_message()
+
+	_reset_next_round_behind_black()
+
+	if black_screen_hold_duration > 0.0:
+		await get_tree().create_timer(
+			black_screen_hold_duration
+		).timeout
+
+	# Revela os personagens já resetados.
+	await hud.fade_from_black(
+		fade_from_black_duration
+	)
+
+	# A contagem começa somente depois
+	# que a tela voltou.
+	await _start_round_intro()
+
+func _prepare_round_intro_states() -> void:
+	var intro_state: StringName
+
+	if current_round_number == 1:
+		intro_state = &"Entry"
+
+		if player_1_entry_spawn == null:
+			printerr(
+				"FightManager: Player1EntrySpawn não encontrado."
+			)
+		elif player_1.has_method("start_entry_motion"):
+			player_1.call(
+				"start_entry_motion",
+				player_1_entry_spawn.global_position,
+				player_1_start_position,
+				0,
+				19
+			)
+		else:
+			printerr(
+				"FightManager: Player1 não possui start_entry_motion()."
+			)
+	else:
+		intro_state = &"Idle"
+
+	_set_character_intro_state(
+		player_1_state_machine,
+		intro_state,
+		"Player 1"
+	)
+
+	_set_character_intro_state(
+		player_2_state_machine,
+		intro_state,
+		"Player 2"
+	)
+
+func _set_character_intro_state(
+	state_machine: StateMachine,
+	intro_state: StringName,
+	character_name: String
+) -> void:
+	if state_machine == null:
+		printerr(
+			"FightManager: StateMachine não encontrada para ",
+			character_name
+		)
+		return
+
+	if not state_machine.has_state(intro_state):
+		printerr(
+			"FightManager: estado [",
+			intro_state,
+			"] não encontrado em ",
+			character_name
+		)
+		return
+
+	state_machine.force_transition(
+		intro_state
+	)
+
+	print(
+		character_name,
+		" aguardando início do round no estado ",
+		intro_state
+	)
+
+func _release_round_intro_states() -> void:
+	# Garante que a Chun-Li esteja exatamente na
+	# start position, mesmo que a animação não tenha
+	# alcançado o frame 19 por alguma razão.
+	if (
+		current_round_number == 1
+		and player_1.has_method("finish_entry_motion")
+	):
+		player_1.call("finish_entry_motion")
+
+	_release_character_intro_state(
+		player_1_state_machine,
+		"Player 1"
+	)
+
+	_release_character_intro_state(
+		player_2_state_machine,
+		"Player 2"
+	)
+
+
+func _release_character_intro_state(
+	state_machine: StateMachine,
+	character_name: String
+) -> void:
+	if state_machine == null:
+		return
+
+	var current_state: StringName = (
+		state_machine.get_current_state_name()
+	)
+
+	# No primeiro round, sai de Entry.
+	# Nos rounds seguintes, já estará em Idle.
+	if current_state == &"Entry":
+		if not state_machine.has_state(&"Idle"):
+			printerr(
+				"FightManager: Idle não encontrado em ",
+				character_name
+			)
+			return
+
+		state_machine.force_transition(
+			&"Idle"
+		)
+
+func _set_mp_regeneration_enabled(
+	enabled: bool
+) -> void:
+	if player_1_mp != null:
+		player_1_mp.set_regeneration_enabled(
+			enabled
+		)
+
+	if player_2_mp != null:
+		player_2_mp.set_regeneration_enabled(
+			enabled
+		)
+
+func _open_player_defeat_screen() -> void:
+	if player_defeat_scene_path.is_empty():
+		printerr(
+			"FightManager: caminho da tela de derrota vazio."
+		)
+		return
+
+	if not ResourceLoader.exists(
+		player_defeat_scene_path
+	):
+		printerr(
+			"FightManager: tela de derrota não encontrada: ",
+			player_defeat_scene_path
+		)
+		return
+
+	# Evita carregar a nova cena ainda pausada.
+	get_tree().paused = false
+
+	var change_error: Error = (
+		get_tree().change_scene_to_file(
+			player_defeat_scene_path
+		)
+	)
+
+	if change_error != OK:
+		printerr(
+			"FightManager: erro ao abrir tela de derrota: ",
+			change_error
+		)

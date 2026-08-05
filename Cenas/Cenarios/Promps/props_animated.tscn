@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://dwseaftx2ml7r"]
+
+[ext_resource type="Script" uid="uid://ddpbxs5wmun5o" path="res://Cenas/Cenarios/Promps/PropsAnimated.gd" id="1_2sumv"]
+[ext_resource type="Texture2D" uid="uid://dtgu4gtjqk1yp" path="res://assets/Promps/NPCs/first stage/frame_00_delay-0.1s.png" id="1_t2ga1"]
+[ext_resource type="Texture2D" uid="uid://g6hvw6hbqrl1" path="res://assets/Promps/NPCs/first stage/frame_01_delay-0.1s.png" id="2_2sumv"]
+[ext_resource type="Texture2D" uid="uid://bvkwjkudci6xo" path="res://assets/Promps/NPCs/first stage/frame_02_delay-0.1s.png" id="3_rrkj7"]
+[ext_resource type="Texture2D" uid="uid://bofcpeuqu5ncn" path="res://assets/Promps/NPCs/first stage/frame_03_delay-0.1s.png" id="4_leoin"]
+[ext_resource type="Texture2D" uid="uid://jhoi2ge0hej2" path="res://assets/Promps/NPCs/first stage/frame_04_delay-0.1s.png" id="5_05w8a"]
+[ext_resource type="Texture2D" uid="uid://bt04x2aewku6m" path="res://assets/Promps/NPCs/first stage/frame_05_delay-0.1s.png" id="6_4m16c"]
+[ext_resource type="Texture2D" uid="uid://drq24ok54dctu" path="res://assets/Promps/NPCs/first stage/frame_06_delay-0.1s.png" id="7_rew4m"]
+[ext_resource type="Texture2D" uid="uid://b4rc2kew151p4" path="res://assets/Promps/NPCs/first stage/frame_07_delay-0.1s.png" id="8_0u6lc"]
+[ext_resource type="Texture2D" uid="uid://cbcjitbsu5j0h" path="res://assets/Promps/NPCs/first stage/frame_08_delay-0.1s.png" id="9_ps6g6"]
+[ext_resource type="Texture2D" uid="uid://bfb21rlv6a8l" path="res://assets/Promps/NPCs/first stage/frame_09_delay-0.1s.png" id="10_bp221"]
+[ext_resource type="Texture2D" uid="uid://bb7tuo58y7mn2" path="res://assets/Promps/NPCs/first stage/frame_10_delay-0.1s.png" id="11_b8b7h"]
+[ext_resource type="Texture2D" uid="uid://dpfi6p446mrlh" path="res://assets/Promps/NPCs/first stage/frame_11_delay-0.1s.png" id="12_wqjg6"]
+[ext_resource type="Texture2D" uid="uid://bdfpfauwx5sl7" path="res://assets/Promps/NPCs/first stage/frame_12_delay-0.1s.png" id="13_mvato"]
+[ext_resource type="Texture2D" uid="uid://qkw03ihtofn0" path="res://assets/Promps/NPCs/first stage/frame_13_delay-0.1s.png" id="14_67qhu"]
+[ext_resource type="Texture2D" uid="uid://ufkp56dw2ssq" path="res://assets/Promps/NPCs/first stage/frame_14_delay-0.1s.png" id="15_e4gjv"]
+[ext_resource type="Texture2D" uid="uid://xfyrsxohlk5v" path="res://assets/Promps/NPCs/first stage/frame_15_delay-0.1s.png" id="16_jvnt7"]
+[ext_resource type="Texture2D" uid="uid://cnmgpks7ugrxa" path="res://assets/Promps/NPCs/first stage/frame_16_delay-0.1s.png" id="17_lkwch"]
+[ext_resource type="Texture2D" uid="uid://bjo7wp1m1o3qr" path="res://assets/Promps/NPCs/first stage/frame_17_delay-0.1s.png" id="18_n43fh"]
+[ext_resource type="Texture2D" uid="uid://cjiep8b4jldvw" path="res://assets/Promps/NPCs/first stage/frame_18_delay-0.1s.png" id="19_ptmw4"]
+[ext_resource type="Texture2D" uid="uid://i02mbi7mmeuk" path="res://assets/Promps/NPCs/first stage/frame_19_delay-0.1s.png" id="20_1axh2"]
+[ext_resource type="Texture2D" uid="uid://c1yori7m5pruw" path="res://assets/Promps/NPCs/first stage/frame_20_delay-0.1s.png" id="21_wiyl7"]
+[ext_resource type="Texture2D" uid="uid://bi3uhud3cd086" path="res://assets/Promps/NPCs/first stage/frame_21_delay-0.1s.png" id="22_f1dgr"]
+[ext_resource type="Texture2D" uid="uid://32fxa61lk1mm" path="res://assets/Promps/NPCs/first stage/frame_22_delay-0.1s.png" id="23_ujtuk"]
+[ext_resource type="Texture2D" uid="uid://cuqipnx03m6k" path="res://assets/Promps/NPCs/first stage/frame_23_delay-0.1s.png" id="24_biaxg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_t2ga1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_2sumv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rrkj7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_leoin")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_05w8a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4m16c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rew4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0u6lc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ps6g6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_bp221")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_b8b7h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_wqjg6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_mvato")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_67qhu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_e4gjv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_jvnt7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_lkwch")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_n43fh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ptmw4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_1axh2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_wiyl7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_f1dgr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_ujtuk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_biaxg")
+}],
+"loop": 1,
+"name": &"AnimatedBackground",
+"speed": 10.0
+}]
+
+[node name="PropsAnimated" type="Node2D" unique_id=1276102798]
+z_index = -20
+script = ExtResource("1_2sumv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1589007755]
+z_index = -20
+scale = Vector2(1.548, 1.548)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"AnimatedBackground"
+frame_progress = 0.74908483

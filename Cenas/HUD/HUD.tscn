@@ -2,18 +2,51 @@
 
 [ext_resource type="Script" uid="uid://dhviov6362lqq" path="res://Cenas/HUD/hud.gd" id="1_i0rcs"]
 [ext_resource type="Texture2D" uid="uid://d4b5hp3cldoxs" path="res://assets/pixel-art-coin-money-dolar-icon-for-8bit-game-on-white-background-vector-removebg-preview.png" id="2_xiwd3"]
+[ext_resource type="FontFile" uid="uid://ct6yapfcrys5m" path="res://assets/fontes/PressStart2P-Regular.ttf" id="3_f148t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xyro"]
 bg_color = Color(0.64705884, 0.011764706, 0.12156863, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5de2"]
 bg_color = Color(0.8784314, 0.7882353, 0.03529412, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytdht"]
+bg_color = Color(0.32172796, 0.32172796, 0.32172787, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
+bg_color = Color(0, 0.31841898, 0.55536807, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.11372549, 0.56078434, 0.8, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_efote"]
 font_size = 32
 font_color = Color(0.64705884, 0.011764706, 0.12156863, 1)
 outline_size = 7
 outline_color = Color(1, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f148t"]
+bg_color = Color(0.99607843, 0.09411765, 0.003921569, 1)
+border_width_left = 4
+border_width_top = 2
+border_width_right = 4
+border_width_bottom = 2
+border_color = Color(1, 1, 0.09803922, 1)
+expand_margin_left = 5.0
+expand_margin_right = 5.0
 
 [node name="HUD" type="CanvasLayer" unique_id=434548975]
 script = ExtResource("1_i0rcs")
@@ -53,6 +86,16 @@ size_flags_vertical = 1
 theme_override_styles/background = SubResource("StyleBoxFlat_5xyro")
 theme_override_styles/fill = SubResource("StyleBoxFlat_k5de2")
 value = 50.0
+fill_mode = 1
+show_percentage = false
+
+[node name="Player1MP" type="ProgressBar" parent="__/_/Player 1" unique_id=517152496]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_ytdht")
+theme_override_styles/fill = SubResource("StyleBoxFlat_g4v7s")
+value = 100.0
 fill_mode = 1
 show_percentage = false
 
@@ -117,6 +160,16 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_k5de2")
 value = 50.0
 show_percentage = false
 
+[node name="Player2MP" type="ProgressBar" parent="__/_/Player 2" unique_id=2142305364]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_ytdht")
+theme_override_styles/fill = SubResource("StyleBoxFlat_g4v7s")
+value = 100.0
+fill_mode = 1
+show_percentage = false
+
 [node name="WinContainer" type="HBoxContainer" parent="__/_/Player 2" unique_id=883372725]
 layout_mode = 2
 size_flags_horizontal = 8
@@ -141,3 +194,37 @@ size_flags_horizontal = 8
 texture = ExtResource("2_xiwd3")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="RoundMessage" type="Label" parent="." unique_id=660895690]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.5
+offset_top = -34.0
+offset_right = 81.5
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.8117647, 0, 1)
+theme_override_fonts/font = ExtResource("3_f148t")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_f148t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RoundTransitionOverlay" type="ColorRect" parent="." unique_id=231351635]
+unique_name_in_owner = true
+visible = false
+z_index = 100
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

@@ -65,6 +65,9 @@ var _current_step_index: int = -2
 var _original_sprite_offset: Vector2 = Vector2.ZERO
 var _sprite_offset_applied: bool = false
 
+var _expected_animation: StringName = &""
+var _entry_physics_frame: int = -1
+
 func _enter() -> void:
 	_current_step_index = -2
 
@@ -107,17 +110,52 @@ func _enter() -> void:
 				vertical_velocity_on_enter
 			)
 
-	var selected_animation: StringName = (
+	_expected_animation = (
 		animation_name
 		if animation_name != &""
 		else StringName(name)
 	)
 
-	play_animation.emit(
-		selected_animation,
-		false
+	_entry_physics_frame = Engine.get_physics_frames()
+
+	if animated_sprite == null:
+		printerr(
+			name,
+			": AnimatedSprite2D não encontrado."
+		)
+		transition_to.emit(return_state)
+		return
+
+	if animated_sprite.sprite_frames == null:
+		printerr(
+			name,
+			": SpriteFrames não configurado."
+		)
+		transition_to.emit(return_state)
+		return
+
+	if not animated_sprite.sprite_frames.has_animation(
+		_expected_animation
+	):
+		printerr(
+			name,
+			": animação não encontrada: ",
+			_expected_animation
+		)
+		transition_to.emit(return_state)
+		return
+
+	print(
+		"ENTROU NO ESTADO ",
+		name,
+		" | tocando animação: ",
+		_expected_animation
 	)
 
+	play_animation.emit(
+		String(_expected_animation),
+		false
+	)
 
 func _physics_process(_delta: float) -> void:
 	if character == null:
@@ -239,8 +277,35 @@ func _disable_all_hitboxes() -> void:
 
 
 func _animation_finished() -> void:
-	_disable_all_hitboxes()
+	# Evita que o término da animação anterior
+	# encerre o especial no mesmo frame em que ele entrou.
+	if (
+		Engine.get_physics_frames()
+		<= _entry_physics_frame
+	):
+		print(
+			name,
+			": animation_finished anterior ignorado."
+		)
+		return
 
+	if animated_sprite == null:
+		return
+
+	# Só encerra quando a animação realmente executada
+	# pelo especial terminar.
+	if (
+		StringName(animated_sprite.animation)
+		!= _expected_animation
+	):
+		print(
+			name,
+			": término de outra animação ignorado: ",
+			animated_sprite.animation
+		)
+		return
+
+	_disable_all_hitboxes()
 	_current_step_index = -2
 
 	if (
@@ -253,10 +318,7 @@ func _animation_finished() -> void:
 		)
 		return
 
-	transition_to.emit(
-		return_state
-	)
-
+	transition_to.emit(return_state)
 
 func _exit() -> void:
 	_disable_all_hitboxes()

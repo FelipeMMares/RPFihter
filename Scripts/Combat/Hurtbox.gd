@@ -11,6 +11,8 @@ class_name HurtBox
 @export var feet_shape: CollisionShape2D
 @export var crouch_shape: CollisionShape2D
 
+
+
 var character: CharacterBody2D
 var crouching: bool = false
 var invulnerable: bool = false

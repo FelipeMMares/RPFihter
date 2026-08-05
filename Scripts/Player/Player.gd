@@ -12,6 +12,28 @@ var throw_role: int = ThrowRole.NONE
 # Esta era a variável que estava faltando.
 var _throw_victim_locked_position: Vector2 = Vector2.ZERO
 
+@export_group("Separação entre lutadores")
+
+# Distância aplicada imediatamente quando
+# um personagem está sobre o outro.
+@export_range(1.0, 20.0, 1.0)
+var stack_separation_distance: float = 5.0
+
+# Velocidade lateral aplicada junto com a separação.
+@export var stack_knockback_speed: float = 260.0
+
+# Define o quanto a colisão precisa ser vertical.
+# Valores próximos de 1 exigem uma colisão mais
+# claramente vinda de cima ou de baixo.
+@export_range(0.1, 1.0, 0.05)
+var stack_vertical_normal_threshold: float = 0.65
+
+# Evita aplicar a separação muitas vezes seguidas.
+@export_range(0.0, 0.5, 0.01)
+var stack_push_cooldown: float = 0.06
+
+
+var _stack_push_cooldown_left: float = 0.0
 
 @onready var health: Health = $Health
 @onready var state_machine: StateMachine = $StateMachine
@@ -32,6 +54,23 @@ signal guard_hits_changed(
 	maximum_hits: int
 )
 
+@export_group("Movimento de entrada")
+
+@export var entry_animation_name: StringName = &"Entry"
+
+
+@onready var entry_animated_sprite: AnimatedSprite2D = (
+	$AnimatedSprite2D
+)
+
+
+var _entry_motion_active: bool = false
+
+var _entry_spawn_position: Vector2 = Vector2.ZERO
+var _entry_target_position: Vector2 = Vector2.ZERO
+
+var _entry_motion_start_frame: int = 0
+var _entry_motion_end_frame: int = 19
 
 @export_group("Defesa")
 
@@ -42,6 +81,15 @@ signal guard_hits_changed(
 # Força aplicada ao atacante quando sofre Parry.
 @export var parry_knockback_force: float = 600.0
 
+@export_group("Ataques especiais")
+
+@export_range(0.0, 10.0, 0.1)
+var default_special_mp_cost: float = 1.0
+
+
+@onready var magic_points: MagicPoints = (
+	$MagicPoints
+)
 
 var blocked_guard_hits: int = 0
 
@@ -82,15 +130,30 @@ var pending_throw_direction: float = 0.0
 
 
 func _physics_process(delta: float) -> void:
+
+	_stack_push_cooldown_left = maxf(
+		_stack_push_cooldown_left - delta,
+		0.0
+	)
+
 	if throw_locked:
 		velocity = Vector2.ZERO
 		return
-	
+
+	# Movimento cinematográfico da apresentação.
+	# Retorna antes da física normal.
+	if _update_entry_motion():
+		return
+
+
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
 	move_and_slide()
 
+	# Precisa ficar depois de move_and_slide(),
+	# pois usa as colisões detectadas nesse movimento.
+	_resolve_fighter_stacking()
 
 func move(direction: Vector2) -> void:
 	# Nunca altere velocity.y aqui.
@@ -462,19 +525,15 @@ func is_parry_window_active() -> bool:
 func receive_combat_hit(
 	hit_data: HitData,
 	attacker: CharacterBody2D = null
-) -> void:
-	if (
-		state_machine != null
-		and state_machine.is_round_result_locked()
-	):
-		return
+) -> bool:
 	if hit_data == null:
-		printerr(name, ": recebeu HitData nulo.")
-		return
+		return false
 
 	if state_machine == null:
-		printerr(name, ": StateMachine não encontrada.")
-		return
+		return false
+
+	if state_machine.is_round_result_locked():
+		return false
 
 	var current_state: StringName = (
 		state_machine.get_current_state_name()
@@ -485,30 +544,28 @@ func receive_combat_hit(
 		or current_state == &"GuardWhile"
 	)
 
-	# Defesa e Parry negam completamente o dano,
-	# mas somente enquanto guard_active estiver ativo.
 	if is_in_guard_state and guard_active:
 		if is_parry_window_active():
 			_perform_parry(attacker)
 		else:
 			_block_attack()
 
-		return
+		# Bloqueio e Parry não causaram dano.
+		return false
 
-	# Fora da defesa, o golpe causa dano normalmente.
-	if health != null:
-		health.take_damage(
-			hit_data.damage
-		)
-	else:
-		printerr(
-			name,
-			": componente Health não encontrado."
-		)
+	if health == null:
+		return false
 
-	# Depois de aplicar o dano, entra em Hurt
-	# e processa os demais dados do golpe.
-	state_machine.receive_hit(hit_data)
+	health.take_damage(
+		hit_data.damage
+	)
+
+	state_machine.receive_hit(
+		hit_data
+	)
+
+	# O golpe realmente causou dano.
+	return true
 
 func _block_attack() -> void:
 	# Os primeiros cinco ataques são bloqueados.
@@ -615,3 +672,337 @@ func consume_guard_release_request() -> bool:
 	_guard_release_requested = false
 
 	return requested
+
+func _resolve_fighter_stacking() -> void:
+	if _stack_push_cooldown_left > 0.0:
+		return
+
+	# Durante o Throw, os personagens podem ficar
+	# propositalmente sobrepostos.
+	if throw_locked or throw_attacker_locked:
+		return
+
+	# Não altera a posição durante Victory,
+	# Defeated ou FallDefeated.
+	if (
+		state_machine != null
+		and state_machine.is_round_result_locked()
+	):
+		return
+
+	for collision_index in range(
+		get_slide_collision_count()
+	):
+		var collision: KinematicCollision2D = (
+			get_slide_collision(collision_index)
+		)
+
+		if collision == null:
+			continue
+
+		var other_character := (
+			collision.get_collider()
+			as CharacterBody2D
+		)
+
+		if other_character == null:
+			continue
+
+		if other_character == self:
+			continue
+
+		if not other_character.is_in_group(
+			&"fighters"
+		):
+			continue
+
+		var collision_normal: Vector2 = (
+			collision.get_normal()
+		)
+
+		# Ignora colisões predominantemente laterais.
+		# Queremos apenas o caso em que um personagem
+		# está sobre o outro.
+		if (
+			absf(collision_normal.y)
+			< stack_vertical_normal_threshold
+		):
+			continue
+
+		# No Godot, um Y menor significa que o nó
+		# está visualmente mais alto.
+		var self_is_above: bool = (
+			global_position.y
+			< other_character.global_position.y
+		)
+
+		if not self_is_above:
+			continue
+
+		var push_direction: float = signf(
+			global_position.x
+			- other_character.global_position.x
+		)
+
+		# Caso estejam exatamente no mesmo X,
+		# escolhe uma direção determinística.
+		if is_zero_approx(push_direction):
+			push_direction = (
+				-1.0
+				if get_instance_id()
+				< other_character.get_instance_id()
+				else 1.0
+			)
+
+		_apply_stack_side_push(
+			push_direction
+		)
+
+		_stack_push_cooldown_left = (
+			stack_push_cooldown
+		)
+
+		# Uma colisão válida já é suficiente.
+		break
+
+func _apply_stack_side_push(
+	push_direction: float
+) -> void:
+	var normalized_direction: float = signf(
+		push_direction
+	)
+
+	if is_zero_approx(normalized_direction):
+		normalized_direction = 1.0
+
+	# Move imediatamente um pouco para o lado,
+	# respeitando paredes e outras colisões.
+	var separation_motion := Vector2(
+		normalized_direction
+		* stack_separation_distance,
+		0.0
+	)
+
+	move_and_collide(
+		separation_motion
+	)
+
+	# Aplica também uma pequena velocidade lateral.
+	velocity.x = (
+		normalized_direction
+		* stack_knockback_speed
+	)
+
+func reset_for_new_round() -> void:
+	velocity = Vector2.ZERO
+
+	if has_method("end_guard"):
+		end_guard()
+
+	throw_locked = false
+	throw_attacker_locked = false
+	throw_sequence_active = false
+	throw_role = ThrowRole.NONE
+
+	if has_method("set_crouching"):
+		set_crouching(false)
+
+	var input_buffer := find_child(
+		"InputBuffer",
+		true,
+		false
+	) as InputBuffer
+
+	if input_buffer != null:
+		input_buffer.clear_buffer()
+
+func start_entry_motion(
+	spawn_position: Vector2,
+	target_position: Vector2,
+	start_frame: int = 0,
+	end_frame: int = 19
+) -> void:
+	_entry_spawn_position = spawn_position
+	_entry_target_position = target_position
+
+	_entry_motion_start_frame = maxi(
+		start_frame,
+		0
+	)
+
+	_entry_motion_end_frame = maxi(
+		end_frame,
+		_entry_motion_start_frame + 1
+	)
+
+	_entry_motion_active = true
+
+	velocity = Vector2.ZERO
+	global_position = _entry_spawn_position
+
+	print(
+		"Chun-Li iniciando Entry | início: ",
+		_entry_spawn_position,
+		" | destino: ",
+		_entry_target_position,
+		" | frames: ",
+		_entry_motion_start_frame,
+		"-",
+		_entry_motion_end_frame
+	)
+
+func _update_entry_motion() -> bool:
+	if not _entry_motion_active:
+		return false
+
+	# Enquanto a entrada estiver ativa, nenhum outro
+	# movimento ou gravidade deve alterar a posição.
+	velocity = Vector2.ZERO
+
+	if entry_animated_sprite == null:
+		printerr(
+			"Player: AnimatedSprite2D não encontrado para Entry."
+		)
+
+		finish_entry_motion()
+		return true
+
+	# Aguarda a animação Entry realmente começar.
+	if (
+		StringName(entry_animated_sprite.animation)
+		!= entry_animation_name
+	):
+		global_position = _entry_spawn_position
+		return true
+
+	var current_animation_frame: int = (
+		entry_animated_sprite.frame
+	)
+
+	var total_movement_frames: int = maxi(
+		_entry_motion_end_frame
+		- _entry_motion_start_frame,
+		1
+	)
+
+	var entry_progress: float = clampf(
+		float(
+			current_animation_frame
+			- _entry_motion_start_frame
+		)
+		/ float(total_movement_frames),
+		0.0,
+		1.0
+	)
+
+	# Interpola tanto X quanto Y. Como os marcadores
+	# normalmente terão o mesmo Y, o movimento será lateral.
+	global_position = _entry_spawn_position.lerp(
+		_entry_target_position,
+		entry_progress
+	)
+
+	if current_animation_frame >= _entry_motion_end_frame:
+		finish_entry_motion()
+
+	return true
+
+func finish_entry_motion() -> void:
+	if not _entry_motion_active:
+		return
+
+	_entry_motion_active = false
+
+	global_position = _entry_target_position
+	velocity = Vector2.ZERO
+
+	print(
+		"Chun-Li terminou Entry em: ",
+		global_position
+	)
+
+func request_special_attack(
+	special_state: StringName,
+	cost: float = -1.0
+) -> bool:
+	if state_machine == null:
+		return false
+
+	if state_machine.is_round_result_locked():
+		return false
+
+	if not state_machine.has_state(
+		special_state
+	):
+		printerr(
+			name,
+			": estado especial não encontrado: ",
+			special_state
+		)
+		return false
+
+	if magic_points == null:
+		printerr(
+			name,
+			": componente MagicPoints não encontrado."
+		)
+		return false
+
+	var final_cost: float = cost
+
+	if final_cost < 0.0:
+		final_cost = default_special_mp_cost
+
+	if not magic_points.try_spend(
+		final_cost
+	):
+		print(
+			name,
+			": MP insuficiente para ",
+			special_state,
+			" | MP atual: ",
+			magic_points.current_mp,
+			" | custo: ",
+			final_cost
+		)
+
+		return false
+
+	state_machine.force_transition(
+		special_state
+	)
+
+	print(
+		name,
+		" executou ",
+		special_state,
+		" | MP restante: ",
+		magic_points.current_mp
+	)
+
+	return true
+
+
+func gain_mp_from_successful_hit(
+	multiplier: float = 1.0
+) -> void:
+	if magic_points == null:
+		return
+
+	magic_points.gain_from_successful_hit(
+		multiplier
+	)
+
+
+func set_mp_regeneration_enabled(
+	enabled: bool
+) -> void:
+	if magic_points != null:
+		magic_points.set_regeneration_enabled(
+			enabled
+		)
+
+
+func reset_mp() -> void:
+	if magic_points != null:
+		magic_points.reset_mp()

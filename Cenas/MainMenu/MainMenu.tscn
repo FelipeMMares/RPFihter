@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://bd53ihwd54fer"]
+
+[ext_resource type="FontFile" uid="uid://ct6yapfcrys5m" path="res://assets/fontes/PressStart2P-Regular.ttf" id="1_a6e8e"]
+[ext_resource type="Script" uid="uid://1uj65g6ctasn" path="res://Cenas/MainMenu/MainMenu.gd" id="1_u0r8f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_76sle"]
+bg_color = Color(0.9764706, 0.11372549, 0.15294118, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1gsfq"]
+bg_color = Color(0.88235295, 0.78431374, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fe8cl"]
+bg_color = Color(0.9666309, 0.4002639, 9.62615e-07, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0, 1)
+
+[node name="MainMenu" type="Control" unique_id=984615179]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u0r8f")
+fight_scene_path = "res://Cenas/Cenarios/CenaDaLuta.tscn"
+
+[node name="Background" type="ColorRect" parent="." unique_id=1454485591]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.015994186, 0.016039778, 0.22424898, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="Background" unique_id=2144373118]
+layout_mode = 0
+offset_left = 404.0
+offset_top = 197.0
+offset_right = 764.0
+offset_bottom = 431.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/CenterContainer" unique_id=1823340162]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="Background/CenterContainer/VBoxContainer" unique_id=233944834]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("1_a6e8e")
+theme_override_font_sizes/font_size = 36
+text = "RPFighters"
+horizontal_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="Background/CenterContainer/VBoxContainer" unique_id=184704904]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 1.95
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_76sle")
+text = "DEMO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="Background/CenterContainer/VBoxContainer" unique_id=2059000740]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.23
+theme_override_colors/font_color = Color(0.8745098, 0.08235294, 0.023529412, 1)
+theme_override_fonts/font = ExtResource("1_a6e8e")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_1gsfq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fe8cl")
+text = "INICIAR"

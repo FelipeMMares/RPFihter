@@ -1,0 +1,15 @@
+AudioStreamPlayer2D
+Timer
+Label
+Button
+VBoxContainer
+TextureRect
+CenterContainer
+Sprite2D
+ColorRect
+BoxContainer
+Control
+AnimatedSprite2D
+ProgressBar
+Node
+Marker2D

@@ -42,9 +42,13 @@ func _build_tree() -> void:
 			)
 			continue
 
+		var normalized_command_name: String = (
+			command.name.strip_edges()
+		)
+
 		root.add_sequence(
 			command.inputs,
-			command.name
+			normalized_command_name
 		)
 
 		print(

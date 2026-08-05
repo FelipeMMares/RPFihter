@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="RPFighter"
-run/main_scene="uid://cifi2eaq8od35"
+run/main_scene="uid://bd53ihwd54fer"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 

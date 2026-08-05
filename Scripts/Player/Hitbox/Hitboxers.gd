@@ -1,6 +1,10 @@
 extends Area2D
 class_name HitBox
 
+@export_group("MP")
+
+@export_range(0.0, 5.0, 0.05)
+var mp_gain_multiplier: float = 1.0
 
 signal hit_confirmed(target: Area2D)
 
@@ -149,11 +153,29 @@ func _try_hit(area: Area2D) -> void:
 
 	_already_hit.append(area)
 
-	area.call(
+	var hit_result: Variant = area.call(
 		"receive_hit",
 		hit_data,
 		_owner_character
 	)
+
+	var caused_damage: bool = (
+		typeof(hit_result) == TYPE_BOOL
+		and hit_result == true
+	)
+
+	if (
+		caused_damage
+		and _owner_character != null
+		and _owner_character.has_method(
+			"gain_mp_from_successful_hit"
+		)
+	):
+		_owner_character.call(
+			"gain_mp_from_successful_hit",
+			mp_gain_multiplier
+		)
+
 	hit_confirmed.emit(area)
 
 

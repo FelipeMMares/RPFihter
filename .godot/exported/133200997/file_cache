@@ -1,0 +1,20 @@
+res://Cenas/Cenarios/Promps/props_animated.tscn::51e295f71f09acf956040f9c5e78dbf9::1785912069::res://.godot/exported/133200997/export-1b3d5590567d9bfd8ce779d2b195ef98-props_animated.scn
+res://Cenas/Cenarios/CenaDaLuta.tscn::c25669da83c898265fdf9ee656267d4c::1785913140::res://.godot/exported/133200997/export-5dcbba241e9e3c0d8f7db37f894b021d-CenaDaLuta.scn
+res://Cenas/Cenarios/Torch.tscn::c509281761dd6b67e9080e8af702af82::1783993215::res://.godot/exported/133200997/export-9f44e9b057d29d12d90fd16ae0328961-Torch.scn
+res://Cenas/DefeatScreen/DefeatScreen.tscn::e5ab997e6ed68ccc8689f26f24a384b6::1785917039::res://.godot/exported/133200997/export-d505b8fed31ba2411d0f0ca75ccb6110-DefeatScreen.scn
+res://Cenas/Dummy/dummy.tscn::c4ac6f6ea0681f59e390700c4459216d::1785909836::res://.godot/exported/133200997/export-7b332155eb4a912bf9e49a224fd43fce-dummy.scn
+res://Cenas/HUD/HUD.tscn::26b1c694df7ad894c19496f108c8037a::1785916697::res://.godot/exported/133200997/export-daaa01ac7f0be37c23517a725ba8dd20-HUD.scn
+res://Cenas/MainMenu/MainMenu.tscn::b32789b776df1ceaed0b6a6f363094d9::1785916257::res://.godot/exported/133200997/export-8d9bde34002807a7d885186248b68e73-MainMenu.scn
+res://Cenas/Player/kikokenProjectile.tscn::3e708efbc46cb20acbd145f890614604::1785904105::res://.godot/exported/133200997/export-a831a6deeac706b960306a4b055e8a1d-kikokenProjectile.scn
+res://Cenas/Player/Player.tscn::3fe33c1491f940ec00fb4c4ac5e7d836::1785918219::res://.godot/exported/133200997/export-1b7e3c8a7c4f6296a7da39efbacd8f58-Player.scn
+res://Scripts/Combat/ SpinningBirdKick.tres::c2aff95317c9e58ca652af8c4e8a210a::1785904023::res://.godot/exported/133200997/export-967b8023ce19759d41a942150a18760a- SpinningBirdKick.res
+res://Scripts/Combat/HyakuretsuKyaku.tres::7a9caa9f81106176107ffc96e452edbf::1785882858::res://.godot/exported/133200997/export-95ad65e10a7f6215a06f5a371d253c87-HyakuretsuKyaku.res
+res://Scripts/Combat/HyakuretsuKyaru.tres::4aac47246b132d5dccb174914ed233e8::1785883271::res://.godot/exported/133200997/export-b8f701cdfb1a5e17f79036aefb6cd45f-HyakuretsuKyaru.res
+res://Scripts/Combat/LightPunch2Command.tres::788c7e1212901e59da64c48eb3557aad::1783954942::res://.godot/exported/133200997/export-02b21cda35ac3bf5e049446d6fb8b451-LightPunch2Command.res
+res://Scripts/Combat/LightPunch3Command.tres::730f8fb052775e18d226d9358757e23c::1783954942::res://.godot/exported/133200997/export-91cd0ce8c01ce3438f70df720362e44e-LightPunch3Command.res
+res://Scripts/Combat/new_resource.tres::6b8b2f106e68f3ade0611000340c452b::1783970424::res://.godot/exported/133200997/export-2202bba2470f3d0bd43ed528433ec166-new_resource.res
+res://Scripts/Combat/SpinningBirdKick.tres::5e62d4382821e14cd7f0788b5c5fdc27::1785883052::res://.godot/exported/133200997/export-537e53f484a1bd0230bfc854454a8420-SpinningBirdKick.res
+res://Scripts/Components/Player1.tres::4492fcf5ad140983cb3bac9cafb6a1db::1785770417::res://.godot/exported/133200997/export-b48b26f354ff40e372da07610fd2f95f-Player1.res
+res://Scripts/Dummy/Lightpunch.tres::df6ecbfcc38260336bf331d497255909::1783694937::res://.godot/exported/133200997/export-f55dddd03af439a7d4804e5c5c50b851-Lightpunch.res
+res://Scripts/Player/PlayerControls/Player1.tres::25f55b970fdd5c5d5c78385ce70a7f72::1785702834::res://.godot/exported/133200997/export-db652dec3ecc16468117b5a2c1aa8af7-Player1.res
+res://cena_da_luta.tscn::53cc496371ff0dffb5e6011c8f4d9f42::1785918340::res://.godot/exported/133200997/export-ffa6d2ad420e61cc455f9800bbd620a5-cena_da_luta.scn

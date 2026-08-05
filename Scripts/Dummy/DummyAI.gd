@@ -1056,9 +1056,27 @@ func _start_random_special_attack() -> bool:
 		selected_special
 	)
 
-	state_machine.force_transition(
-		selected_special
+	if not character.has_method(
+		"request_special_attack"
+	):
+		return false
+
+	var special_started: bool = bool(
+		character.call(
+			"request_special_attack",
+			selected_special
+		)
 	)
+
+	if not special_started:
+		print(
+			"DummyAI: MP insuficiente para ",
+			selected_special
+		)
+
+		return false
+
+	return true
 
 	_decision_delay = _rng.randf_range(
 		minimum_decision_delay,

@@ -2,11 +2,7 @@ extends State
 class_name RoundResultState
 
 
-@export var animation_name: StringName
-
-# Ative somente no FallDefeated.
-# Permite que o personagem continue caindo
-# até encostar no chão.
+@export var animation_name: StringName = &""
 @export var allow_fall_until_floor: bool = false
 
 
@@ -17,19 +13,25 @@ class_name RoundResultState
 
 
 func _enter() -> void:
-	set_crouching_hurtbox(false)
+	if character == null:
+		return
 
-	if character != null:
-		character.velocity.x = 0.0
+	character.velocity.x = 0.0
 
-		if not allow_fall_until_floor:
-			character.velocity.y = 0.0
+	if not allow_fall_until_floor:
+		character.velocity.y = 0.0
 
-		if character.has_method("end_guard"):
-			character.call("end_guard")
+	if character.has_method("end_guard"):
+		character.call("end_guard")
+
+	var selected_animation: StringName = (
+		animation_name
+		if animation_name != &""
+		else StringName(name)
+	)
 
 	play_animation.emit(
-		animation_name,
+		String(selected_animation),
 		false
 	)
 
@@ -40,13 +42,14 @@ func _physics_process(_delta: float) -> void:
 
 	character.velocity.x = 0.0
 
-	if not allow_fall_until_floor:
+	if allow_fall_until_floor:
+		if character.is_on_floor():
+			character.velocity = Vector2.ZERO
+	else:
 		character.velocity.y = 0.0
-	elif character.is_on_floor():
-		character.velocity = Vector2.ZERO
 
 
 func _animation_finished() -> void:
-	# Não troca de estado.
-	# Permanece no último frame da animação.
+	# Não realiza transição.
+	# O personagem permanece no último frame.
 	pass

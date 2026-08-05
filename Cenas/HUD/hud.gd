@@ -21,6 +21,15 @@ signal time_over
 @export var hp_animation_speed: float = 800.0
 @export var round_time: float = 90.0
 
+@onready var round_message_label: Label = %RoundMessage
+
+@onready var round_transition_overlay: ColorRect = (
+	%RoundTransitionOverlay
+)
+
+@onready var player_1_mp: ProgressBar = %Player1MP
+@onready var player_2_mp: ProgressBar = %Player2MP
+
 var player_health: Health
 var dummy_health: Health
 
@@ -30,6 +39,15 @@ var round_running: bool = false
 var target_player_1_hp: float = 0.0
 var target_player_2_hp: float = 0.0
 var timer_enabled: bool = true
+var _round_transition_tween: Tween
+
+var player_magic_points: MagicPoints
+var dummy_magic_points: MagicPoints
+
+var target_player_1_mp: float = 0.0
+var target_player_2_mp: float = 0.0
+
+@export var mp_animation_speed: float = 3.0
 
 func _ready() -> void:
 	update_wins(0, 0)
@@ -46,13 +64,34 @@ func _ready() -> void:
 	if timer_label == null:
 		printerr("HUD: Timer não foi encontrado.")
 
+	if round_message_label != null:
+		round_message_label.visible = false
+
+	if round_transition_overlay != null:
+		round_transition_overlay.visible = false
+		round_transition_overlay.color = Color.BLACK
+		round_transition_overlay.modulate = Color(
+			1.0,
+			1.0,
+			1.0,
+			0.0
+		)
+	else:
+		printerr(
+			"HUD: RoundTransitionOverlay não encontrado."
+		)
 
 func setup(
 	player_health_reference: Health,
-	dummy_health_reference: Health
+	dummy_health_reference: Health,
+	player_mp_reference: MagicPoints,
+	dummy_mp_reference: MagicPoints
 ) -> void:
 	player_health = player_health_reference
 	dummy_health = dummy_health_reference
+
+	player_magic_points = player_mp_reference
+	dummy_magic_points = dummy_mp_reference
 
 	if not player_health.health_changed.is_connected(
 		_on_player_health_changed
@@ -68,11 +107,28 @@ func setup(
 			_on_dummy_health_changed
 		)
 
-	_setup_bars()
+	if (
+		player_magic_points != null
+		and not player_magic_points.mp_changed.is_connected(
+			_on_player_mp_changed
+		)
+	):
+		player_magic_points.mp_changed.connect(
+			_on_player_mp_changed
+		)
 
-	# ALTERAÇÃO:
-	# Não chama start_round() aqui.
-	# O FightManager decide quando o round começa.
+	if (
+		dummy_magic_points != null
+		and not dummy_magic_points.mp_changed.is_connected(
+			_on_dummy_mp_changed
+		)
+	):
+		dummy_magic_points.mp_changed.connect(
+			_on_dummy_mp_changed
+		)
+
+	_setup_bars()
+	_setup_mp_bars()
 
 
 func _process(delta: float) -> void:
@@ -88,6 +144,18 @@ func _process(delta: float) -> void:
 		player_2_hp.value,
 		target_player_2_hp,
 		hp_animation_speed * delta
+	)
+
+	player_1_mp.value = move_toward(
+		player_1_mp.value,
+		target_player_1_mp,
+		mp_animation_speed * delta
+	)
+
+	player_2_mp.value = move_toward(
+		player_2_mp.value,
+		target_player_2_mp,
+		mp_animation_speed * delta
 	)
 
 	# Se o round terminou, não conta o tempo.
@@ -113,12 +181,14 @@ func _process(delta: float) -> void:
 		timer_label.text = "TIME"
 		time_over.emit()
 
-
 func show_ko() -> void:
 	round_running = false
 
-	if timer_label != null:
-		timer_label.text = "KO"
+	if round_message_label == null:
+		return
+
+	round_message_label.text = "KO"
+	round_message_label.visible = true
 
 func _setup_bars() -> void:
 	if player_1_hp == null or player_2_hp == null:
@@ -211,19 +281,19 @@ func stop_round_timer() -> void:
 	round_running = false
 
 
-func show_round_message(message: String) -> void:
-	# Garante que o cronômetro não continue
-	# contando atrás da mensagem.
+func show_round_message(
+	message: String
+) -> void:
 	round_running = false
 
-	if timer_label == null:
+	if round_message_label == null:
 		printerr(
-			"HUD: Timer não encontrado para exibir mensagem."
+			"HUD: RoundMessage não encontrado."
 		)
 		return
 
-	timer_label.visible = true
-	timer_label.text = message
+	round_message_label.text = message
+	round_message_label.visible = true
 
 
 func update_wins(
@@ -308,3 +378,203 @@ func set_sudden_death_mode(active: bool) -> void:
 		print(
 			"HUD: modo de morte súbita desativado."
 		)
+
+func prepare_round_intro() -> void:
+	# O cronômetro ainda não está correndo.
+	round_running = false
+	remaining_time = round_time
+
+	if timer_label != null:
+		timer_label.visible = true
+
+		if timer_enabled:
+			timer_label.text = str(
+				ceili(remaining_time)
+			)
+		else:
+			timer_label.text = "∞"
+
+	hide_round_message()
+
+
+func show_countdown(
+	countdown_value: int
+) -> void:
+	round_running = false
+
+	if round_message_label == null:
+		return
+
+	round_message_label.text = (
+		"READY?\n"
+		+ str(countdown_value)
+	)
+
+	round_message_label.visible = true
+
+
+func show_fight_message() -> void:
+	if round_message_label == null:
+		return
+
+	round_message_label.text = "LUTEM!"
+	round_message_label.visible = true
+
+
+func hide_round_message() -> void:
+	if round_message_label == null:
+		return
+
+	round_message_label.visible = false
+	round_message_label.text = ""
+
+func fade_to_black(
+	duration: float
+) -> void:
+	if round_transition_overlay == null:
+		return
+
+	_stop_round_transition_tween()
+
+	round_transition_overlay.visible = true
+	round_transition_overlay.modulate = Color(
+		1.0,
+		1.0,
+		1.0,
+		0.0
+	)
+
+	if duration <= 0.0:
+		round_transition_overlay.modulate = Color.WHITE
+		return
+
+	_round_transition_tween = create_tween()
+
+	_round_transition_tween.tween_property(
+		round_transition_overlay,
+		"modulate:a",
+		1.0,
+		duration
+	)
+
+	await _round_transition_tween.finished
+
+
+func fade_from_black(
+	duration: float
+) -> void:
+	if round_transition_overlay == null:
+		return
+
+	_stop_round_transition_tween()
+
+	round_transition_overlay.visible = true
+	round_transition_overlay.modulate = Color.WHITE
+
+	if duration <= 0.0:
+		round_transition_overlay.modulate = Color(
+			1.0,
+			1.0,
+			1.0,
+			0.0
+		)
+
+		round_transition_overlay.visible = false
+		return
+
+	_round_transition_tween = create_tween()
+
+	_round_transition_tween.tween_property(
+		round_transition_overlay,
+		"modulate:a",
+		0.0,
+		duration
+	)
+
+	await _round_transition_tween.finished
+
+	round_transition_overlay.visible = false
+
+
+func set_round_transition_black() -> void:
+	if round_transition_overlay == null:
+		return
+
+	_stop_round_transition_tween()
+
+	round_transition_overlay.visible = true
+	round_transition_overlay.modulate = Color.WHITE
+
+
+func _stop_round_transition_tween() -> void:
+	if (
+		_round_transition_tween != null
+		and _round_transition_tween.is_valid()
+	):
+		_round_transition_tween.kill()
+
+	_round_transition_tween = null
+
+func _setup_mp_bars() -> void:
+	if (
+		player_1_mp == null
+		or player_2_mp == null
+	):
+		printerr(
+			"HUD: barras de MP não encontradas."
+		)
+		return
+
+	if (
+		player_magic_points == null
+		or dummy_magic_points == null
+	):
+		printerr(
+			"HUD: MagicPoints não configurados."
+		)
+		return
+
+	player_1_mp.min_value = 0.0
+	player_1_mp.max_value = (
+		player_magic_points.max_mp
+	)
+	player_1_mp.value = (
+		player_magic_points.current_mp
+	)
+
+	player_2_mp.min_value = 0.0
+	player_2_mp.max_value = (
+		dummy_magic_points.max_mp
+	)
+	player_2_mp.value = (
+		dummy_magic_points.current_mp
+	)
+
+	target_player_1_mp = (
+		player_magic_points.current_mp
+	)
+
+	target_player_2_mp = (
+		dummy_magic_points.current_mp
+	)
+
+func _on_player_mp_changed(
+	current_mp: float,
+	maximum_mp: float
+) -> void:
+	if player_1_mp == null:
+		return
+
+	player_1_mp.max_value = maximum_mp
+	target_player_1_mp = current_mp
+
+
+func _on_dummy_mp_changed(
+	current_mp: float,
+	maximum_mp: float
+) -> void:
+	if player_2_mp == null:
+		return
+
+	player_2_mp.max_value = maximum_mp
+	target_player_2_mp = current_mp

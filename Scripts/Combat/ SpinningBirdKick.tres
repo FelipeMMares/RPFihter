@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_6elag")
-name = " SpinningBirdKick"
-inputs = Array[String](["down", "up", "kick"])
+name = "SpinningBirdKick"
+inputs = Array[String](["down", "lowKick"])
 is_special = true
 metadata/_custom_type_script = "uid://brg7ixgqu5kif"

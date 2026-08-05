@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://fpcalhgfelol"]
+
+[ext_resource type="Script" uid="uid://hoj5q14xo2in" path="res://Cenas/DefeatScreen/DefeatScreen.gd" id="1_gy3v0"]
+[ext_resource type="Texture2D" uid="uid://crfbg4vbe6n3x" path="res://assets/i-definitely-prefer-chun-lis-personality-in-the-street-v0-zpplthxchubh1-removebg-preview.png" id="1_rfd2e"]
+[ext_resource type="FontFile" uid="uid://ct6yapfcrys5m" path="res://assets/fontes/PressStart2P-Regular.ttf" id="3_xvbm7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_76sle"]
+bg_color = Color(0.32062277, 0.29072973, 0.13488096, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sot1m"]
+bg_color = Color(0.32156864, 0.2901961, 0.13333334, 1)
+
+[node name="DefeatScreen" type="Control" unique_id=790738339]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gy3v0")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1309010801]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0056611504, 0.0056611514, 0.00566115, 1)
+
+[node name="ChunLiDefeated" type="TextureRect" parent="." unique_id=230591673]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+custom_maximum_size = Vector2(224, 224)
+layout_mode = 0
+offset_left = 461.0
+offset_top = 41.0
+offset_right = 685.0
+offset_bottom = 265.0
+texture = ExtResource("1_rfd2e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2105712765]
+layout_mode = 0
+offset_left = 359.0
+offset_top = 241.0
+offset_right = 796.0
+offset_bottom = 510.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1116646676]
+layout_mode = 2
+theme_override_constants/separation = 23
+alignment = 1
+
+[node name="DefeatTitle" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1622817919]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_xvbm7")
+theme_override_font_sizes/font_size = 33
+text = "DERROTA"
+horizontal_alignment = 1
+
+[node name="QuestionLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=572375357]
+unique_name_in_owner = true
+layout_mode = 2
+text = "VOCÊ VAI TENTAR DE NOVO?"
+horizontal_alignment = 1
+
+[node name="CountdownLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=116133021]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_xvbm7")
+text = "10"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=386933974]
+layout_mode = 2
+theme_override_constants/separation = 17
+
+[node name="RetryButton" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer" unique_id=1127361053]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_xvbm7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_76sle")
+text = "TENTAR DE NOVO"
+
+[node name="MainMenuButton" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer" unique_id=1629181012]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_xvbm7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_sot1m")
+text = "VOLTAR AO INÍCIO"
+
+[node name="CountdownTimer" type="Timer" parent="." unique_id=186416679]
+unique_name_in_owner = true

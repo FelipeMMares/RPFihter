@@ -71,9 +71,15 @@ func heal(amount: int) -> void:
 
 
 func reset_health() -> void:
-	current_health = max_health
+	set_health(max_health)
 
-	health_changed.emit(current_health, max_health)
+	print(
+		get_parent().name,
+		" teve a vida resetada: ",
+		current_health,
+		"/",
+		max_health
+	)
 
 
 func is_defeated() -> bool:
