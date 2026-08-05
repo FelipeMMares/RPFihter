@@ -1,6 +1,0 @@
-res://Cenas/Player/Player.tscn
-res://Scripts/Combat/FrameHitboxStep.gd
-res://Cenas/Player/HyakuretsuKyaku.gd
-res://Scripts/Combat/MultiHitSpecialState.gd
-res://Cenas/Dummy/dummy.tscn
-res://Scripts/Combat/HyakuretsuKyaku.tres
