@@ -2811,6 +2811,28 @@ script = ExtResource("76_0tpov")
 [node name="DummyAI" type="Node" parent="." unique_id=388336217 node_paths=PackedStringArray("state_machine")]
 script = ExtResource("179_twm28")
 state_machine = NodePath("../StateMachine")
+crouch_attack_chance = 0.85
+crouch_attack_delay_min = 0.1
+crouch_attack_delay_max = 0.3
+attack_range = 45.0
+minimum_approach_duration = 0.15
+maximum_approach_duration = 0.45
+minimum_retreat_duration = 0.1
+maximum_retreat_duration = 0.3
+minimum_wait_duration = 0.05
+maximum_wait_duration = 0.18
+minimum_decision_delay = 0.03
+maximum_decision_delay = 0.1
+close_attack_weight = 85
+close_retreat_weight = 5
+close_jump_weight = 5
+close_wait_weight = 12
+close_crouch_weight = 2
+far_approach_weight = 90
+far_retreat_weight = 2
+far_jump_weight = 5
+far_wait_weight = 3
+far_crouch_weight = 0
 
 [node name="FacingController" type="Node" parent="." unique_id=1706716404 node_paths=PackedStringArray("character", "animated_sprite", "hitboxes_root")]
 script = ExtResource("209_4os6k")

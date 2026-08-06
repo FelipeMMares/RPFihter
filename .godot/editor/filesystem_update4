@@ -1,2 +1,2 @@
-res://Cenas/MainMenu/MainMenu.tscn
-res://cena_da_luta.tscn
+res://Cenas/Dummy/dummy.tscn
+res://Scripts/Dummy/DummyAI.gd

@@ -88,10 +88,22 @@ var air_attack_chance: float = 0.65
 @export var throw_range: float = 12.0
 @export var close_throw_weight: int = 15
 
+@export_group("Resposta à defesa")
+
+@export var grab_state: StringName = &"TryGrab"
+
+@export var target_guard_states: Array[StringName] = [
+	&"Guard",
+	&"GuardWhile"
+]
+
+@export_range(0.0, 1.0, 0.05)
+var grab_guarding_target_chance: float = 0.75
+
 @export_group("Distância")
 @export var attack_range: float = 25.0
 
-@export_group("Especiais da Elena")
+@export_group("Ataques especiais")
 
 @export var special_attack_states: Array[StringName] = [
 	&"ScratchWheel",
@@ -100,7 +112,15 @@ var air_attack_chance: float = 0.65
 ]
 
 @export_range(0.0, 1.0, 0.05)
-var special_attack_chance: float = 0.35
+var normal_special_chance: float = 0.25
+
+@export_range(0.0, 1.0, 0.05)
+var desperation_special_chance: float = 0.55
+
+@export_range(0.0, 1.0, 0.05)
+var finisher_special_chance: float = 0.70
+
+@export var special_max_distance: float = 180.0
 
 @export_group("Duração das ações")
 @export var minimum_approach_duration: float = 0.20
@@ -131,6 +151,35 @@ var special_attack_chance: float = 0.35
 @export var far_wait_weight: int = 20
 @export var far_crouch_weight: int = 10
 
+@export_group("Instinto de combate")
+
+@export_range(0, 100, 1)
+var aggression: int = 80
+
+@export_range(0, 100, 1)
+var survival_instinct: int = 70
+
+# Abaixo desta porcentagem, Elena entra
+# no modo de sobrevivência.
+@export_range(0.05, 0.90, 0.05)
+var low_health_threshold: float = 0.35
+
+# Abaixo desta porcentagem de vida da Chun-Li,
+# Elena tenta finalizar a luta.
+@export_range(0.05, 0.90, 0.05)
+var target_finisher_threshold: float = 0.25
+
+@export_range(0, 200, 5)
+var desperation_attack_bonus: int = 45
+
+@export_range(0, 200, 5)
+var finisher_attack_bonus: int = 70
+
+@export_range(0, 100, 5)
+var survival_retreat_bonus: int = 15
+
+@export_range(0, 100, 5)
+var survival_crouch_bonus: int = 20
 
 @onready var character: CharacterBody2D = (
 	get_parent() as CharacterBody2D
@@ -155,6 +204,10 @@ var _crouch_attack_attempted: bool = false
 var _air_attack_timer: float = 0.0
 var _air_attack_attempted: bool = false
 
+var _character_health: Health
+var _target_health: Health
+var _target_state_machine: StateMachine
+
 func _ready() -> void:
 	_rng.randomize()
 
@@ -164,6 +217,14 @@ func _ready() -> void:
 		)
 		set_physics_process(false)
 		return
+
+	_character_health = (
+		character.get_node_or_null("Health")
+		as Health
+	)
+
+	if target != null:
+		_cache_target_components()
 
 	_character_body_shape = _find_body_collision(
 		character
@@ -175,14 +236,22 @@ func _ready() -> void:
 		)
 
 
-func setup(new_target: CharacterBody2D) -> void:
+func setup(
+	new_target: CharacterBody2D
+) -> void:
 	target = new_target
 
 	if target == null:
-		printerr("DummyAI: alvo recebido é nulo.")
+		printerr(
+			"DummyAI: alvo recebido é nulo."
+		)
 		return
 
-	_target_body_shape = _find_body_collision(target)
+	_target_body_shape = _find_body_collision(
+		target
+	)
+
+	_cache_target_components()
 
 	print(
 		"DummyAI configurada | alvo: ",
@@ -286,47 +355,115 @@ func _choose_next_action() -> void:
 
 
 func _choose_close_action() -> void:
+	# Se a Chun-Li estiver defendendo, tenta agarrar.
+	if _try_grab_guarding_target():
+		return
+
+	var attack_weight: int = (
+		close_attack_weight
+		+ int(float(aggression) * 0.25)
+	)
+
+	var retreat_weight: int = close_retreat_weight
+	var jump_weight: int = close_jump_weight
+	var crouch_weight: int = close_crouch_weight
+	var wait_weight: int = close_wait_weight
+
+	# Com pouca vida, Elena fica mais desesperada:
+	# ataca mais, espera menos e usa movimentos
+	# defensivos com um pouco mais de frequência.
+	if _is_character_low_health():
+		attack_weight += desperation_attack_bonus
+
+		retreat_weight += int(
+			float(survival_instinct) * 0.20
+		)
+
+		crouch_weight += survival_crouch_bonus
+
+		wait_weight = 0
+
+	# Se Chun-Li estiver quase derrotada,
+	# Elena abandona a passividade.
+	if _is_target_low_health():
+		attack_weight += finisher_attack_bonus
+		retreat_weight = 0
+		wait_weight = 0
+
 	var weights: Array[int] = [
-		close_attack_weight,
-		close_throw_weight,
-		close_retreat_weight,
-		close_jump_weight,
-		close_crouch_weight,
-		close_wait_weight
+		attack_weight,
+		retreat_weight,
+		jump_weight,
+		crouch_weight,
+		wait_weight
 	]
 
-	var selected_action: int = _weighted_index(weights)
+	var selected_action: int = (
+		_weighted_index(weights)
+	)
 
 	match selected_action:
 		0:
 			_perform_random_attack()
 
 		1:
-			_perform_throw()
-
-		2:
 			_start_retreat()
 
-		3:
+		2:
 			_perform_jump()
 
-		4:
+		3:
 			_start_crouch()
 
-		5:
+		4:
 			_start_wait()
 
 
 func _choose_far_action() -> void:
+	# Pode usar Rhino Horn ou outro especial
+	# para encurtar a distância.
+	if _try_special_attack():
+		return
+
+	var approach_weight: int = (
+		far_approach_weight
+		+ int(float(aggression) * 0.30)
+	)
+
+	var retreat_weight: int = far_retreat_weight
+	var jump_weight: int = far_jump_weight
+	var crouch_weight: int = far_crouch_weight
+	var wait_weight: int = far_wait_weight
+
+	if _is_character_low_health():
+		# Não fica parada esperando ser derrotada.
+		approach_weight += int(
+			float(desperation_attack_bonus) * 0.50
+		)
+
+		crouch_weight += int(
+			float(survival_instinct) * 0.15
+		)
+
+		wait_weight = 0
+
+	if _is_target_low_health():
+		# Persegue a Chun-Li para finalizar.
+		approach_weight += finisher_attack_bonus
+		retreat_weight = 0
+		wait_weight = 0
+
 	var weights: Array[int] = [
-		far_approach_weight,
-		far_retreat_weight,
-		far_jump_weight,
-		far_crouch_weight,
-		far_wait_weight
+		approach_weight,
+		retreat_weight,
+		jump_weight,
+		crouch_weight,
+		wait_weight
 	]
 
-	var selected_action: int = _weighted_index(weights)
+	var selected_action: int = (
+		_weighted_index(weights)
+	)
 
 	match selected_action:
 		0:
@@ -467,13 +604,13 @@ func _finish_current_action() -> void:
 	_stop_character()
 	_ensure_idle()
 
-	_decision_delay = _rng.randf_range(
-		minimum_decision_delay,
-		maximum_decision_delay
-	)
+	_set_next_decision_delay()
 
 
 func _perform_random_attack() -> void:
+	if _try_special_attack():
+		return
+	
 	var valid_attacks: Array[StringName] = []
 
 	for attack_state in attack_states:
@@ -509,10 +646,7 @@ func _perform_random_attack() -> void:
 		selected_attack
 	)
 
-	_decision_delay = _rng.randf_range(
-		minimum_decision_delay,
-		maximum_decision_delay
-	)
+	_set_next_decision_delay()
 
 
 func _perform_jump() -> void:
@@ -561,10 +695,7 @@ func _perform_jump() -> void:
 
 	state_machine.force_transition(jump_state)
 
-	_decision_delay = _rng.randf_range(
-		minimum_decision_delay,
-		maximum_decision_delay
-	)
+	_set_next_decision_delay()
 
 
 func _move_character(direction: Vector2) -> void:
@@ -837,10 +968,7 @@ func _finish_crouch_action() -> void:
 
 	_stop_character()
 
-	_decision_delay = _rng.randf_range(
-		minimum_decision_delay,
-		maximum_decision_delay
-	)
+	_set_next_decision_delay()
 
 
 func _cancel_crouch_action() -> void:
@@ -862,10 +990,7 @@ func _cancel_crouch_action() -> void:
 
 	# Evita que a IA tome uma nova decisão
 	# imediatamente após uma interrupção.
-	_decision_delay = _rng.randf_range(
-		minimum_decision_delay,
-		maximum_decision_delay
-	)
+	_set_next_decision_delay()
 
 
 func _start_random_crouch_attack() -> bool:
@@ -1019,11 +1144,8 @@ func _perform_throw() -> void:
 	state_machine.force_transition(
 		try_grab_state
 	)
-
-	_decision_delay = _rng.randf_range(
-		minimum_decision_delay,
-		maximum_decision_delay
-	)
+	
+	_set_next_decision_delay()
 
 func _start_random_special_attack() -> bool:
 	var valid_specials: Array[StringName] = []
@@ -1078,10 +1200,7 @@ func _start_random_special_attack() -> bool:
 
 	return true
 
-	_decision_delay = _rng.randf_range(
-		minimum_decision_delay,
-		maximum_decision_delay
-	)
+	_set_next_decision_delay()
 
 	return true
 
@@ -1094,3 +1213,184 @@ func _is_special_attack_state(
 			return true
 
 	return false
+
+func _cache_target_components() -> void:
+	if target == null:
+		return
+
+	_target_health = (
+		target.get_node_or_null("Health")
+		as Health
+	)
+
+	_target_state_machine = (
+		target.get_node_or_null("StateMachine")
+		as StateMachine
+	)
+
+
+func _get_health_ratio(
+	health_component: Health
+) -> float:
+	if health_component == null:
+		return 1.0
+
+	if health_component.max_health <= 0:
+		return 0.0
+
+	return clampf(
+		float(health_component.current_health)
+		/ float(health_component.max_health),
+		0.0,
+		1.0
+	)
+
+
+func _is_character_low_health() -> bool:
+	return (
+		_get_health_ratio(_character_health)
+		<= low_health_threshold
+	)
+
+
+func _is_target_low_health() -> bool:
+	return (
+		_get_health_ratio(_target_health)
+		<= target_finisher_threshold
+	)
+
+func _try_special_attack() -> bool:
+	if character == null:
+		return false
+
+	if not character.has_method(
+		"request_special_attack"
+	):
+		return false
+
+	if (
+		_get_horizontal_attack_distance()
+		> special_max_distance
+	):
+		return false
+
+	var selected_chance: float = (
+		normal_special_chance
+	)
+
+	if _is_character_low_health():
+		selected_chance = maxf(
+			selected_chance,
+			desperation_special_chance
+		)
+
+	if _is_target_low_health():
+		selected_chance = maxf(
+			selected_chance,
+			finisher_special_chance
+		)
+
+	if _rng.randf() > selected_chance:
+		return false
+
+	var valid_specials: Array[StringName] = []
+
+	for special_state in special_attack_states:
+		if state_machine.has_state(special_state):
+			valid_specials.append(
+				special_state
+			)
+
+	if valid_specials.is_empty():
+		return false
+
+	# Tenta mais de um especial caso o primeiro
+	# não possa começar.
+	valid_specials.shuffle()
+
+	for special_state in valid_specials:
+		var result: Variant = character.call(
+			"request_special_attack",
+			special_state
+		)
+
+		var special_started: bool = (
+			typeof(result) == TYPE_BOOL
+			and result == true
+		)
+
+		if not special_started:
+			continue
+
+		_stop_character()
+		_set_next_decision_delay()
+
+		print(
+			"DummyAI usou especial: ",
+			special_state
+		)
+
+		return true
+
+	# Sem MP ou nenhum especial disponível:
+	# volta para o golpe normal.
+	return false
+
+func _try_grab_guarding_target() -> bool:
+	if _target_state_machine == null:
+		return false
+
+	if not state_machine.has_state(grab_state):
+		return false
+
+	var target_state: StringName = (
+		_target_state_machine
+		.get_current_state_name()
+	)
+
+	if not target_guard_states.has(
+		target_state
+	):
+		return false
+
+	if (
+		_get_horizontal_attack_distance()
+		> attack_range
+	):
+		return false
+
+	if (
+		_rng.randf()
+		> grab_guarding_target_chance
+	):
+		return false
+
+	_stop_character()
+
+	state_machine.force_transition(
+		grab_state
+	)
+
+	_set_next_decision_delay()
+
+	print(
+		"DummyAI tentou agarrar a Chun-Li em defesa."
+	)
+
+	return true
+
+func _set_next_decision_delay() -> void:
+	var delay_multiplier: float = 1.0
+
+	if _is_target_low_health():
+		delay_multiplier = 0.40
+	elif _is_character_low_health():
+		delay_multiplier = 0.55
+
+	_decision_delay = (
+		_rng.randf_range(
+			minimum_decision_delay,
+			maximum_decision_delay
+		)
+		* delay_multiplier
+	)
