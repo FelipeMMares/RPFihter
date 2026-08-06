@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c3j6jqqi848lx" path="res://Cenas/Dummy/dummy.tscn" id="5_hvrgt"]
 [ext_resource type="Script" uid="uid://de0n2cyr6pkqo" path="res://Scripts/Components/PauseMenu.gd" id="8_0iw18"]
 [ext_resource type="FontFile" uid="uid://ct6yapfcrys5m" path="res://assets/fontes/PressStart2P-Regular.ttf" id="9_cuiii"]
-[ext_resource type="AudioStream" uid="uid://bnh8lecfkwfgt" path="res://assets/Audio/Music/FightingMusic.mp3" id="11_fe8cl"]
+[ext_resource type="AudioStream" uid="uid://duiji1o2hs0ia" path="res://assets/Audio/Music/InstrumentalIFghitng.mp3" id="11_fe8cl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e813m"]
 size = Vector2(1585.959, 128.5924)
@@ -218,8 +218,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_1gsfq")
 text = "Recomeçar luta"
 icon_alignment = 1
 
-[node name="FightMusic" type="AudioStreamPlayer2D" parent="." unique_id=1457892590]
+[node name="FightMusic" type="AudioStreamPlayer" parent="." unique_id=445512365]
 stream = ExtResource("11_fe8cl")
-volume_db = -8.0
+volume_db = -15.0
 autoplay = true
+bus = &"Music"
+playback_type = 1
 parameters/looping = true

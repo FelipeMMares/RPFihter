@@ -2553,12 +2553,10 @@ body_collision = NodePath("Hurtbox/TorsoShape")
 position = Vector2(-55, 43)
 scale = Vector2(1.3985853, 1.7576089)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"Entry"
-frame = 35
-frame_progress = 1.0
+animation = &"HighPunch"
+frame = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1128512923]
-visible = false
 position = Vector2(-28, 93)
 shape = SubResource("RectangleShape2D_vqqph")
 
@@ -2858,14 +2856,13 @@ position = Vector2(58.25, -29)
 shape = SubResource("RectangleShape2D_3ibcp")
 
 [node name="HighPunch" type="Area2D" parent="Hitboxers" unique_id=1833693396]
-visible = false
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("210_vbhik")
 hit_data = SubResource("Resource_2k10o")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/HighPunch" unique_id=459955006]
-position = Vector2(137.875, -61.25)
+position = Vector2(52, 6)
 shape = SubResource("RectangleShape2D_u67of")
 
 [node name="Kick" type="Area2D" parent="Hitboxers" unique_id=151102323]

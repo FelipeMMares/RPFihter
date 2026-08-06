@@ -2,6 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://ct6yapfcrys5m" path="res://assets/fontes/PressStart2P-Regular.ttf" id="1_a6e8e"]
 [ext_resource type="Script" uid="uid://1uj65g6ctasn" path="res://Cenas/MainMenu/MainMenu.gd" id="1_u0r8f"]
+[ext_resource type="AudioStream" uid="uid://dhli6vvhvydnq" path="res://assets/Audio/Music/MainMusic.mp3" id="3_76sle"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_76sle"]
 bg_color = Color(0.9764706, 0.11372549, 0.15294118, 1)
@@ -30,7 +31,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u0r8f")
-fight_scene_path = "res://Cenas/Cenarios/CenaDaLuta.tscn"
 
 [node name="Background" type="ColorRect" parent="." unique_id=1454485591]
 layout_mode = 1
@@ -87,3 +87,10 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_1gsfq")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fe8cl")
 text = "INICIAR"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2002063585]
+stream = ExtResource("3_76sle")
+volume_db = -20.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true

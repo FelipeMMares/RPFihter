@@ -245,7 +245,7 @@ func _finish_round_by_health(
 	consecutive_timeout_draws = 0
 	sudden_death_active = false
 
-	hud.set_timer_enabled(false)
+	hud.stop_round_timer()
 	hud.set_sudden_death_mode(false)
 	hud.show_ko()
 
@@ -289,7 +289,7 @@ func _on_time_over() -> void:
 	_round_finish_in_progress = true
 	round_finished = true
 
-	hud.set_timer_enabled(false)
+	hud.stop_round_timer()
 
 	var player_1_hp: int = (
 		player_1_health.current_health

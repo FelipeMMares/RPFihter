@@ -1,3 +1,4 @@
+AudioStreamPlayer
 AudioStreamPlayer2D
 Timer
 Label
@@ -11,5 +12,3 @@ BoxContainer
 Control
 AnimatedSprite2D
 ProgressBar
-Node
-Marker2D
