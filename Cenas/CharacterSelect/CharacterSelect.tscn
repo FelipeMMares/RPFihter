@@ -1,6 +1,12 @@
 [gd_scene format=3 uid="uid://cjv4b676qy7qu"]
 
 [ext_resource type="Script" uid="uid://bi5y21yysqkf2" path="res://Cenas/CharacterSelect/CharacterSelect.gd" id="1_ffqft"]
+[ext_resource type="Texture2D" uid="uid://c4g01xh6rnav2" path="res://assets/Menus/SelectionCharacter/images.jpg" id="2_eeovy"]
+[ext_resource type="Texture2D" uid="uid://dupk2bq1d6pdd" path="res://assets/Menus/SelectionCharacter/images (1).jpg" id="3_mwvdt"]
+[ext_resource type="Texture2D" uid="uid://cstb08wm4agtb" path="res://assets/Menus/SelectionCharacter/Gemini_Generated_Image_k3i7zvk3i7zvk3i7.png" id="4_wef75"]
+[ext_resource type="Texture2D" uid="uid://bqwmt40vtqblh" path="res://assets/Menus/SelectionCharacter/Gemini_Generated_Image_hbgs6ehbgs6ehbgs.png" id="5_ft0tq"]
+[ext_resource type="Texture2D" uid="uid://dcgrovxavbknq" path="res://assets/Menus/SelectionCharacter/Gemini_Generated_Image_n9ubk8n9ubk8n9ub.png" id="6_0ps5n"]
+[ext_resource type="Texture2D" uid="uid://c41aj0mkpi7pe" path="res://assets/Menus/SelectionCharacter/Gemini_Generated_Image_skubg5skubg5skub.png" id="7_j1wye"]
 
 [node name="CharacterSelect" type="Control" unique_id=1170760774]
 layout_mode = 3
@@ -20,39 +26,151 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.11119685, 0.11119684, 0.11119684, 1)
 
-[node name="Title" type="Label" parent="." unique_id=91610198]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -92.5
-offset_top = 100.0
-offset_right = 92.5
-offset_bottom = 123.0
-grow_horizontal = 2
-text = "ESCOLHA SEU LUTADOR"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=123731050]
+[node name="MainMargin" type="MarginContainer" parent="." unique_id=266033837]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -37.0
-offset_top = -33.0
-offset_right = 37.0
-offset_bottom = 33.0
+offset_left = -290.0
+offset_top = -324.0
+offset_right = 290.0
+offset_bottom = 324.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 19
 
-[node name="ChunLiButton" type="Button" parent="VBoxContainer" unique_id=1876277004]
+[node name="MainRow" type="HBoxContainer" parent="MainMargin" unique_id=2076420688]
+layout_mode = 2
+
+[node name="PreviewPanel" type="VBoxContainer" parent="MainMargin/MainRow" unique_id=582837809]
+layout_mode = 2
+
+[node name="PreviewBox" type="Control" parent="MainMargin/MainRow/PreviewPanel" unique_id=1650014672]
+layout_mode = 2
+
+[node name="FighterPreview" type="AnimatedSprite2D" parent="MainMargin/MainRow/PreviewPanel/PreviewBox" unique_id=584071533]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMargin/MainRow" unique_id=123731050]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Title" type="Label" parent="MainMargin/MainRow/VBoxContainer" unique_id=91610198]
+layout_mode = 2
+text = "ESCOLHA SEU LUTADOR"
+horizontal_alignment = 1
+
+[node name="CharacterGrid" type="GridContainer" parent="MainMargin/MainRow/VBoxContainer" unique_id=695007994]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 3
+
+[node name="ChunLiButton" type="Button" parent="MainMargin/MainRow/VBoxContainer/CharacterGrid" unique_id=1876277004]
+custom_minimum_size = Vector2(180, 220)
+custom_maximum_size = Vector2(180, 220)
+layout_mode = 2
+theme_override_constants/icon_max_width = 110
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMargin/MainRow/VBoxContainer/CharacterGrid/ChunLiButton" unique_id=508530927]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -78.5
+offset_right = 65.0
+offset_bottom = 78.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMargin/MainRow/VBoxContainer/CharacterGrid/ChunLiButton/MarginContainer" unique_id=1581878006]
+layout_mode = 2
+
+[node name="Portrait" type="TextureRect" parent="MainMargin/MainRow/VBoxContainer/CharacterGrid/ChunLiButton/MarginContainer/VBoxContainer" unique_id=1454980490]
+custom_minimum_size = Vector2(110, 110)
+custom_maximum_size = Vector2(110, 110)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+mouse_filter = 2
+texture = ExtResource("2_eeovy")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NameLabel" type="Label" parent="MainMargin/MainRow/VBoxContainer/CharacterGrid/ChunLiButton/MarginContainer/VBoxContainer" unique_id=2114887727]
 layout_mode = 2
 text = "CHUN-LI"
+horizontal_alignment = 1
+vertical_alignment = 2
 
-[node name="ElenaButton" type="Button" parent="VBoxContainer" unique_id=2035403590]
+[node name="ElenaButton" type="Button" parent="MainMargin/MainRow/VBoxContainer/CharacterGrid" unique_id=2035403590]
+custom_minimum_size = Vector2(180, 220)
+custom_maximum_size = Vector2(180, 220)
 layout_mode = 2
+theme_override_constants/icon_max_width = 110
 text = "ELENA"
+icon = ExtResource("3_mwvdt")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="LockedButton" type="Button" parent="MainMargin/MainRow/VBoxContainer/CharacterGrid" unique_id=1647146744]
+custom_minimum_size = Vector2(180, 220)
+custom_maximum_size = Vector2(180, 220)
+layout_mode = 2
+theme_override_constants/icon_max_width = 110
+text = "??????"
+icon = ExtResource("4_wef75")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="LockedButton2" type="Button" parent="MainMargin/MainRow/VBoxContainer/CharacterGrid" unique_id=664760426]
+custom_minimum_size = Vector2(180, 220)
+custom_maximum_size = Vector2(180, 220)
+layout_mode = 2
+theme_override_constants/icon_max_width = 110
+text = "??????"
+icon = ExtResource("5_ft0tq")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="LockedButton3" type="Button" parent="MainMargin/MainRow/VBoxContainer/CharacterGrid" unique_id=674821216]
+custom_minimum_size = Vector2(180, 220)
+custom_maximum_size = Vector2(180, 220)
+layout_mode = 2
+theme_override_constants/icon_max_width = 110
+text = "??????"
+icon = ExtResource("6_0ps5n")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="LockedButton4" type="Button" parent="MainMargin/MainRow/VBoxContainer/CharacterGrid" unique_id=1841347550]
+custom_minimum_size = Vector2(180, 220)
+custom_maximum_size = Vector2(180, 220)
+layout_mode = 2
+theme_override_constants/icon_max_width = 100
+text = "??????"
+icon = ExtResource("7_j1wye")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="UpdateMessage" type="Label" parent="MainMargin/MainRow/VBoxContainer" unique_id=1980168386]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "AGUARDE A ATUALIZAÇÃO"
+horizontal_alignment = 1
+
+[node name="MessageTimer" type="Timer" parent="." unique_id=1068497177]
+wait_time = 2.0
+one_shot = true

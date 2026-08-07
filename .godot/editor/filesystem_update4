@@ -1,6 +1,2 @@
-res://Cenas/Dummy/dummy.tscn
-res://Scripts/Player/StateMachine/State.gd
-res://Scripts/Player/StateMachine/StateMachine.gd
-res://Scripts/Fight/FightManager.gd
-res://Cenas/Player/Player.tscn
-res://Scripts/Player/StateMachine/States/Ground/Idle.gd
+res://Cenas/CharacterSelect/CharacterSelect.tscn
+res://Cenas/CharacterSelect/CharacterSelect.gd
