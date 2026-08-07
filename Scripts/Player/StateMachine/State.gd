@@ -8,6 +8,7 @@ signal play_animation(name: String, backwards: bool)
 
 var player_controls : PlayerControls
 var command_parser : CommandParser
+var player_input_enabled: bool = true
 
 func _enter() -> void:
 	pass

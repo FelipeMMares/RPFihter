@@ -143,6 +143,32 @@ func _ready() -> void:
 	player_1_start_position = player_1.global_position
 	player_2_start_position = player_2.global_position
 
+	if player_1_state_machine != null:
+		player_1_state_machine.set_player_input_enabled(
+			true
+		)
+
+	if player_2_state_machine != null:
+		player_2_state_machine.set_player_input_enabled(
+			false
+		)
+
+
+	if player_ai != null:
+		player_ai.active = false
+		player_ai.process_mode = (
+			Node.PROCESS_MODE_DISABLED
+		)
+
+
+	if dummy_ai != null:
+		dummy_ai.active = true
+		dummy_ai.process_mode = (
+			Node.PROCESS_MODE_INHERIT
+		)
+
+	dummy_ai.setup(player_1)
+
 	_set_mp_regeneration_enabled(false)
 
 	# O personagem escolhido pelo jogador nunca

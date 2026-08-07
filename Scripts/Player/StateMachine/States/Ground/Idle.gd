@@ -11,6 +11,9 @@ func _physics_process(delta: float) -> void:
 	move.emit(Vector2.ZERO)
 	check_special_move()
 	
+	if not player_input_enabled:
+		return
+	
 		# Dummy não possui controles
 	if player_controls == null:
 		return

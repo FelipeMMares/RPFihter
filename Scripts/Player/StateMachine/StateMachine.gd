@@ -8,10 +8,34 @@ class_name StateMachine
 @export var player_controls : PlayerControls
 @export var command_parser : CommandParser
 @export var on_ready : bool = false
-@export_group("Kikoken")
-@export var kikoken_charge_frames: int = 45
-@export var kikoken_input_window: int = 8
-@export var kikoken_release_window: int = 12
+
+@export_group("Controle")
+
+@export var player_input_enabled: bool = true
+
+@export_group("Especial de carga")
+
+@export var charge_special_enabled: bool = false
+
+@export var charge_special_state: StringName = &""
+
+@export var charge_special_button: String = (
+	"lightPunch"
+)
+
+@export var charge_frames: int = 45
+
+@export var charge_input_window: int = 8
+
+@export var charge_release_window: int = 12
+
+@export var charge_allowed_states: Array[StringName] = [
+	&"Idle",
+	&"Walk",
+	&"Crouch",
+	&"IdleCrouched",
+	&"LightPunch"
+]
 
 @export_group("Agarrões")
 
@@ -30,15 +54,6 @@ var _anim_request_id : int = 0
 var _round_result_locked: bool = false
 var _round_result_state: StringName = &""
 
-const KIKOKEN_STATE: StringName = &"Kikoken"
-
-const KIKOKEN_ALLOWED_STATES: Array[StringName] = [
-	&"Idle",
-	&"Walk",
-	&"Crouch",
-	&"IdleCrouched",
-	&"LightPunch"
-]
 
 func _ready() -> void:
 	
@@ -66,6 +81,7 @@ func _ready() -> void:
 		
 		child.command_parser = command_parser
 		child.player_controls = player_controls
+		child.player_input_enabled = player_input_enabled
 		
 		child.set_process(false)
 		child.set_physics_process(false)
@@ -118,8 +134,14 @@ func start() -> void:
 		_current_state.set_process(true)
 		_current_state.set_physics_process(true)
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(
+	_delta: float
+) -> void:
 	if not _started:
+		return
+
+	# CPU não interpreta comandos do jogador.
+	if not player_input_enabled:
 		return
 
 	if _current_state == null:
@@ -131,44 +153,66 @@ func _physics_process(_delta: float) -> void:
 	if animated_sprite == null:
 		return
 
-	if _current_state.name not in KIKOKEN_ALLOWED_STATES:
+	if not charge_special_enabled:
 		return
 
-	_try_detect_kikoken()
+	if charge_special_state == &"":
+		return
 
-func _try_detect_kikoken() -> void:
+	if (
+		StringName(_current_state.name)
+		not in charge_allowed_states
+	):
+		return
+
+	_try_detect_charge_special()
+
+func _try_detect_charge_special() -> void:
 	var back_action: String = "left"
 	var forward_action: String = "right"
 
-	# Considerando que flip_h = false significa que
-	# a Chun-Li está olhando para a direita.
+	# Determina frente/trás conforme o personagem
+	# estiver olhando.
 	if animated_sprite.flip_h:
 		back_action = "right"
 		forward_action = "left"
 
-	var kikoken_detected: bool = (
+	var special_detected: bool = (
 		command_parser.consume_charge_command(
 			back_action,
 			forward_action,
-			"lightPunch",
-			kikoken_charge_frames,
-			kikoken_input_window,
-			kikoken_release_window
+			charge_special_button,
+			charge_frames,
+			charge_input_window,
+			charge_release_window
 		)
 	)
 
-	if not kikoken_detected:
+	if not special_detected:
+		return
+
+	if not has_state(charge_special_state):
+		printerr(
+			"StateMachine: especial de carga [",
+			charge_special_state,
+			"] não encontrado."
+		)
 		return
 
 	print(
-		"StateMachine: Kikoken detectado | ",
+		"StateMachine: especial de carga detectado | ",
 		back_action,
 		" carregado → ",
 		forward_action,
-		" + lightPunch"
+		" + ",
+		charge_special_button,
+		" | estado: ",
+		charge_special_state
 	)
 
-	force_transition(KIKOKEN_STATE)
+	force_transition(
+		charge_special_state
+	)
 
 func _on_request_move_direction(direction: Vector2) -> void:
 	if _character and _character.has_method(move_method):
@@ -287,3 +331,16 @@ func lock_round_result(
 func unlock_round_result() -> void:
 	_round_result_locked = false
 	_round_result_state = &""
+
+func set_player_input_enabled(
+	enabled: bool
+) -> void:
+	player_input_enabled = enabled
+
+	for child in get_children():
+		if child is not State:
+			continue
+
+		var state := child as State
+
+		state.player_input_enabled = enabled

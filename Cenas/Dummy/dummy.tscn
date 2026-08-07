@@ -2369,6 +2369,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqqph"]
 size = Vector2(111, 158)
 
+[sub_resource type="Resource" id="Resource_fdony"]
+script = ExtResource("558_8rjmn")
+metadata/_custom_type_script = "uid://byslak2i1ykxe"
+
 [sub_resource type="GDScript" id="GDScript_wutc1"]
 script/source = "extends AttackState
 
@@ -2602,11 +2606,14 @@ visible = false
 position = Vector2(3, 26)
 shape = SubResource("RectangleShape2D_vqqph")
 
-[node name="StateMachine" type="Node" parent="." unique_id=1711119882 node_paths=PackedStringArray("initial_state", "animated_sprite")]
+[node name="StateMachine" type="Node" parent="." unique_id=1711119882 node_paths=PackedStringArray("initial_state", "animated_sprite", "command_parser")]
 script = ExtResource("58_u4fdy")
 initial_state = NodePath("Idle")
 animated_sprite = NodePath("../AnimatedSprite2D")
+player_controls = SubResource("Resource_fdony")
+command_parser = NodePath("../CommandParser")
 on_ready = true
+charge_special_enabled = true
 
 [node name="Idle" type="Node" parent="StateMachine" unique_id=2058840451]
 script = ExtResource("59_8yuib")
