@@ -90,7 +90,7 @@ text = "INICIAR"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2002063585]
 stream = ExtResource("3_76sle")
-volume_db = -20.0
+volume_db = -10.0
 autoplay = true
 bus = &"Music"
 parameters/looping = true

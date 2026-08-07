@@ -12,6 +12,10 @@ var fight_scene_path: String = (
 	$Background/CenterContainer/VBoxContainer/StartButton
 )
 
+@export_file("*.tscn")
+var character_select_scene_path: String = (
+	"res://Cenas/CharacterSelect/CharacterSelect.tscn"
+)
 
 func _ready() -> void:
 	# Garante que o jogo não continue pausado ao
@@ -32,7 +36,7 @@ func _ready() -> void:
 
 
 func _on_start_button_pressed() -> void:
-	_change_scene(fight_scene_path)
+	_change_scene(character_select_scene_path)
 
 
 func _change_scene(scene_path: String) -> void:

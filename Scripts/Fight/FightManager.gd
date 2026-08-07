@@ -1,6 +1,11 @@
 extends Node2D
 class_name FightManager
 
+@export_group("Personagens")
+
+@export var chun_li_scene: PackedScene
+@export var elena_scene: PackedScene
+
 @export_group("Introdução do round")
 
 @export_range(1, 10, 1)
@@ -55,7 +60,15 @@ var fade_from_black_duration: float = 0.4
 @onready var player_2: CharacterBody2D = $Dummy
 
 @onready var hud: FightHUD = $HUD
-@onready var dummy_ai: DummyAI = $Dummy/DummyAI
+@onready var player_ai: DummyAI = (
+	$Player1.get_node_or_null("DummyAI")
+	as DummyAI
+)
+
+@onready var dummy_ai: DummyAI = (
+	$Dummy.get_node_or_null("DummyAI")
+	as DummyAI
+)
 
 
 @export_group("Telas")
@@ -132,11 +145,25 @@ func _ready() -> void:
 
 	_set_mp_regeneration_enabled(false)
 
+	# O personagem escolhido pelo jogador nunca
+	# deve ser controlado pela IA.
+	if player_ai != null:
+		player_ai.active = false
+		player_ai.process_mode = (
+			Node.PROCESS_MODE_DISABLED
+		)
+
+	# O personagem do lado Dummy é sempre a CPU.
 	if dummy_ai != null:
+		dummy_ai.active = true
+		dummy_ai.process_mode = (
+			Node.PROCESS_MODE_INHERIT
+		)
+
 		dummy_ai.setup(player_1)
 	else:
 		printerr(
-			"FightManager: DummyAI não encontrada."
+			"FightManager: DummyAI não encontrada na CPU."
 		)
 
 	if player_facing != null:
@@ -730,14 +757,17 @@ func _set_round_intro_locked(
 			selected_process_mode
 		)
 
+	# O jogador pode receber inputs quando
+	# a introdução terminar.
 	_set_character_input_buffer_locked(
 		player_1,
 		locked
 	)
 
+	# A CPU nunca deve receber input humano.
 	_set_character_input_buffer_locked(
 		player_2,
-		locked
+		true
 	)
 
 func _set_character_input_buffer_locked(
@@ -821,39 +851,44 @@ func _transition_to_next_round() -> void:
 	await _start_round_intro()
 
 func _prepare_round_intro_states() -> void:
-	var intro_state: StringName
+	var player_intro_state: StringName = &"Idle"
+	var cpu_intro_state: StringName = &"Idle"
 
+	# Somente no primeiro round tentamos usar Entry.
 	if current_round_number == 1:
-		intro_state = &"Entry"
+		if (
+			player_1_state_machine != null
+			and player_1_state_machine.has_state(&"Entry")
+		):
+			player_intro_state = &"Entry"
 
-		if player_1_entry_spawn == null:
-			printerr(
-				"FightManager: Player1EntrySpawn não encontrado."
-			)
-		elif player_1.has_method("start_entry_motion"):
-			player_1.call(
-				"start_entry_motion",
-				player_1_entry_spawn.global_position,
-				player_1_start_position,
-				0,
-				19
-			)
-		else:
-			printerr(
-				"FightManager: Player1 não possui start_entry_motion()."
-			)
-	else:
-		intro_state = &"Idle"
+			# Alguns personagens podem possuir uma
+			# entrada com deslocamento, como Chun-Li.
+			if (
+				player_1_entry_spawn != null
+				and player_1.has_method(
+					"start_entry_motion"
+				)
+			):
+				player_1.call(
+					"start_entry_motion",
+					player_1_entry_spawn.global_position,
+					player_1_start_position,
+					0,
+					19
+				)
 
+	# O jogador usa Entry, quando disponível.
 	_set_character_intro_state(
 		player_1_state_machine,
-		intro_state,
+		player_intro_state,
 		"Player 1"
 	)
 
+	# A CPU aguarda parada.
 	_set_character_intro_state(
 		player_2_state_machine,
-		intro_state,
+		cpu_intro_state,
 		"Player 2"
 	)
 
@@ -976,4 +1011,92 @@ func _open_player_defeat_screen() -> void:
 		printerr(
 			"FightManager: erro ao abrir tela de derrota: ",
 			change_error
+		)
+
+func _enter_tree() -> void:
+	_spawn_selected_fighters()
+
+func _spawn_selected_fighters() -> void:
+	if (
+		get_node_or_null("Player1") != null
+		or get_node_or_null("Dummy") != null
+	):
+		printerr(
+			"FightManager: Player1 ou Dummy já existem na cena. ",
+			"Remova as instâncias fixas da CenaDaLuta."
+		)
+		return
+
+	var player_scene: PackedScene
+	var cpu_scene: PackedScene
+
+	if (
+		FighterSelection.selected_fighter
+		== FighterSelection.Fighter.CHUN_LI
+	):
+		player_scene = chun_li_scene
+		cpu_scene = elena_scene
+	else:
+		player_scene = elena_scene
+		cpu_scene = chun_li_scene
+
+	if player_scene == null:
+		printerr(
+			"FightManager: cena do Player não configurada."
+		)
+		return
+
+	if cpu_scene == null:
+		printerr(
+			"FightManager: cena da CPU não configurada."
+		)
+		return
+
+	var player_instance := (
+		player_scene.instantiate()
+		as CharacterBody2D
+	)
+
+	var cpu_instance := (
+		cpu_scene.instantiate()
+		as CharacterBody2D
+	)
+
+	if player_instance == null:
+		printerr(
+			"FightManager: Player não é CharacterBody2D."
+		)
+		return
+
+	if cpu_instance == null:
+		printerr(
+			"FightManager: CPU não é CharacterBody2D."
+		)
+		player_instance.queue_free()
+		return
+
+	# MUITO IMPORTANTE:
+	# mantém os nomes que seu FightManager já espera.
+	player_instance.name = "Player1"
+	cpu_instance.name = "Dummy"
+
+	add_child(player_instance)
+	add_child(cpu_instance)
+
+	var player_spawn := get_node_or_null(
+		"PlayerSpawn"
+	) as Marker2D
+
+	var dummy_spawn := get_node_or_null(
+		"DummySpawn"
+	) as Marker2D
+
+	if player_spawn != null:
+		player_instance.global_position = (
+			player_spawn.global_position
+		)
+
+	if dummy_spawn != null:
+		cpu_instance.global_position = (
+			dummy_spawn.global_position
 		)
