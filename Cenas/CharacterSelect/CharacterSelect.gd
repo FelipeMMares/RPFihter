@@ -18,6 +18,19 @@ var fight_scene_path: String = (
 @export_range(0.5, 10.0, 0.1)
 var idle_before_taunt_time: float = 3.0
 
+@export_group("Visual dos botões")
+
+@export var button_hover_scale: float = 1.08
+@export var button_animation_time: float = 0.12
+
+@export var hover_border_color: Color = Color("#FFD84A")
+
+@export var selected_background_color: Color = Color("#F2C94C")
+@export var selected_border_color: Color = Color("#9A6B00")
+
+@export var selected_name_color: Color = Color("#2A1B00")
+
+@export var normal_name_color: Color = Color.WHITE
 
 @onready var fighter_preview: AnimatedSprite2D = (
 	$MainMargin/MainRow/PreviewPanel/PreviewBox/FighterPreview
@@ -60,7 +73,7 @@ var idle_before_taunt_time: float = 3.0
 
 
 var _character_confirmed: bool = false
-
+var _selected_button: Button = null
 
 func _ready() -> void:
 	get_tree().paused = false
@@ -69,6 +82,8 @@ func _ready() -> void:
 
 	_configure_timers()
 	_connect_buttons()
+
+	call_deferred("_setup_character_buttons")
 
 	# Começa com Chun-Li destacada.
 	_preview_chun_li()
@@ -228,9 +243,11 @@ func _on_chun_li_pressed() -> void:
 	if _character_confirmed:
 		return
 
-	# Garante que Chun-Li esteja aparecendo,
-	# mesmo se o mouse/foco ainda estava em outro botão.
 	_preview_chun_li()
+
+	_select_character_button(
+		chun_li_button
+	)
 
 	FighterSelection.select_chun_li()
 
@@ -242,6 +259,10 @@ func _on_elena_pressed() -> void:
 		return
 
 	_preview_elena()
+
+	_select_character_button(
+		elena_button
+	)
 
 	FighterSelection.select_elena()
 
@@ -329,3 +350,242 @@ func _start_fight() -> void:
 			"CharacterSelect: erro ao abrir luta: ",
 			change_error
 		)
+
+func _setup_character_buttons() -> void:
+	var buttons: Array[Button] = [
+		chun_li_button,
+		elena_button
+	]
+
+	for locked_button in locked_buttons:
+		buttons.append(locked_button)
+
+	for button in buttons:
+		_setup_character_button(button)
+		
+
+func _setup_character_button(
+	button: Button
+) -> void:
+	if button == null:
+		return
+
+	# Faz o botão crescer a partir do centro.
+	button.pivot_offset = button.size / 2.0
+
+	button.mouse_entered.connect(
+		_on_character_button_mouse_entered.bind(button)
+	)
+
+	button.mouse_exited.connect(
+		_on_character_button_mouse_exited.bind(button)
+	)
+
+func _on_character_button_mouse_entered(
+	button: Button
+) -> void:
+	if _character_confirmed:
+		return
+
+	_animate_button_scale(
+		button,
+		Vector2.ONE * button_hover_scale
+	)
+
+	if button != _selected_button:
+		_apply_hover_style(button)
+
+func _on_character_button_mouse_exited(
+	button: Button
+) -> void:
+	if button == null:
+		return
+
+	_animate_button_scale(
+		button,
+		Vector2.ONE
+	)
+
+	if button == _selected_button:
+		_apply_selected_style(button)
+	else:
+		_remove_custom_button_style(button)
+
+func _animate_button_scale(
+	button: Button,
+	target_scale: Vector2
+) -> void:
+	var tween := create_tween()
+
+	tween.set_trans(
+		Tween.TRANS_QUAD
+	)
+
+	tween.set_ease(
+		Tween.EASE_OUT
+	)
+
+	tween.tween_property(
+		button,
+		"scale",
+		target_scale,
+		button_animation_time
+	)
+
+func _apply_hover_style(
+	button: Button
+) -> void:
+	var style := StyleBoxFlat.new()
+
+	style.bg_color = Color(
+		0.10,
+		0.10,
+		0.10,
+		0.90
+	)
+
+	style.border_color = hover_border_color
+
+	style.border_width_left = 3
+	style.border_width_top = 3
+	style.border_width_right = 3
+	style.border_width_bottom = 3
+
+	style.corner_radius_top_left = 4
+	style.corner_radius_top_right = 4
+	style.corner_radius_bottom_left = 4
+	style.corner_radius_bottom_right = 4
+
+	button.add_theme_stylebox_override(
+		"normal",
+		style
+	)
+
+	button.add_theme_stylebox_override(
+		"hover",
+		style
+	)
+
+func _apply_selected_style(
+	button: Button
+) -> void:
+	var style := StyleBoxFlat.new()
+
+	style.bg_color = selected_background_color
+
+	style.border_color = selected_border_color
+
+	style.border_width_left = 4
+	style.border_width_top = 4
+	style.border_width_right = 4
+	style.border_width_bottom = 4
+
+	style.corner_radius_top_left = 4
+	style.corner_radius_top_right = 4
+	style.corner_radius_bottom_left = 4
+	style.corner_radius_bottom_right = 4
+
+	button.add_theme_stylebox_override(
+		"normal",
+		style
+	)
+
+	button.add_theme_stylebox_override(
+		"hover",
+		style
+	)
+
+	button.add_theme_stylebox_override(
+		"pressed",
+		style
+	)
+
+	# Importante para manter o amarelo caso
+	# o botão seja desativado após a escolha.
+	button.add_theme_stylebox_override(
+		"disabled",
+		style
+	)
+
+	var name_label := _get_button_name_label(
+		button
+	)
+
+	if name_label != null:
+		name_label.add_theme_color_override(
+			"font_color",
+			selected_name_color
+		)
+
+func _get_button_name_label(
+	button: Button
+) -> Label:
+	if button == null:
+		return null
+
+	return button.find_child(
+		"NameLabel",
+		true,
+		false
+	) as Label
+
+func _remove_custom_button_style(
+	button: Button
+) -> void:
+	button.remove_theme_stylebox_override(
+		"normal"
+	)
+
+	button.remove_theme_stylebox_override(
+		"hover"
+	)
+
+	button.remove_theme_stylebox_override(
+		"pressed"
+	)
+
+	button.remove_theme_stylebox_override(
+		"disabled"
+	)
+
+	var name_label := _get_button_name_label(
+		button
+	)
+
+	if name_label != null:
+		name_label.add_theme_color_override(
+			"font_color",
+			normal_name_color
+		)
+
+func _select_character_button(
+	button: Button
+) -> void:
+	if button == null:
+		return
+
+	# Se já havia outro escolhido,
+	# devolve ao estado normal.
+	if (
+		_selected_button != null
+		and _selected_button != button
+	):
+		_remove_custom_button_style(
+			_selected_button
+		)
+
+		_animate_button_scale(
+			_selected_button,
+			Vector2.ONE
+		)
+
+	_selected_button = button
+
+	_apply_selected_style(
+		button
+	)
+
+	_animate_button_scale(
+		button,
+		Vector2.ONE * button_hover_scale
+	)
