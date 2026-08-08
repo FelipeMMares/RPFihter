@@ -1,3 +1,6 @@
+res://assets/
+res://assets/Elena Taunt/
+res://assets/Chun Li Taunt/
 res://assets/Menus/SelectionCharacter/
 res://Cenas/Dummy/
 res://Cenas/Player/
@@ -6,7 +9,6 @@ res://Scripts/Global/
 res://Scripts/Combat/
 res://assets/Audio/Music/
 C:/Users/Felipe/OneDrive/Documentos/Godot/rp-fighter/Builds/Windows/
-res://assets/
 res://Cenas/DefeatScreen/
 res://Cenas/MainMenu/
 res://Cenas/Cenarios/Promps/
@@ -19,5 +21,3 @@ res://assets/Elena special attack/Lynx Tail/
 res://assets/Elena special attack/Rhino Horn/
 res://assets/Chun li Defeated/
 res://assets/Chun li Kikkosen pose/Spinning Bird Kick/
-res://assets/Chun li Kikkosen pose/Hyakuretsu Kyaku/
-res://assets/Chun li Hurt/parry recoil/

@@ -1,2 +1,5 @@
 res://Cenas/CharacterSelect/CharacterSelect.tscn
 res://Cenas/CharacterSelect/CharacterSelect.gd
+res://Cenas/Player/Player.tscn
+res://Cenas/Dummy/dummy.tscn
+res://assets/ChunLi.tres
