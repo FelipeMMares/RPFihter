@@ -6,6 +6,15 @@ class_name FightManager
 @export var chun_li_scene: PackedScene
 @export var elena_scene: PackedScene
 
+@export_group("Mirror Match")
+
+@export var mirror_cpu_color: Color = Color(
+	0.65,
+	0.80,
+	1.0,
+	1.0
+)
+
 @export_group("Introdução do round")
 
 @export_range(1, 10, 1)
@@ -785,12 +794,15 @@ func _set_round_intro_locked(
 
 	# O jogador pode receber inputs quando
 	# a introdução terminar.
+	# Player humano:
+	# bloqueado durante a intro,
+	# liberado quando a luta começa.
 	_set_character_input_buffer_locked(
 		player_1,
 		locked
 	)
 
-	# A CPU nunca deve receber input humano.
+	# CPU nunca deve ler inputs humanos.
 	_set_character_input_buffer_locked(
 		player_2,
 		true
@@ -1043,28 +1055,20 @@ func _enter_tree() -> void:
 	_spawn_selected_fighters()
 
 func _spawn_selected_fighters() -> void:
-	if (
-		get_node_or_null("Player1") != null
-		or get_node_or_null("Dummy") != null
-	):
-		printerr(
-			"FightManager: Player1 ou Dummy já existem na cena. ",
-			"Remova as instâncias fixas da CenaDaLuta."
-		)
-		return
+	var player_scene: PackedScene = _get_fighter_scene(
+		FighterSelection.player_fighter
+	)
 
-	var player_scene: PackedScene
-	var cpu_scene: PackedScene
+	var cpu_scene: PackedScene = _get_fighter_scene(
+		FighterSelection.opponent_fighter
+	)
 
-	if (
-		FighterSelection.selected_fighter
-		== FighterSelection.Fighter.CHUN_LI
-	):
-		player_scene = chun_li_scene
-		cpu_scene = elena_scene
-	else:
-		player_scene = elena_scene
-		cpu_scene = chun_li_scene
+	print(
+		"SELEÇÃO DA LUTA | Player: ",
+		FighterSelection.player_fighter,
+		" | CPU: ",
+		FighterSelection.opponent_fighter
+	)
 
 	if player_scene == null:
 		printerr(
@@ -1098,24 +1102,25 @@ func _spawn_selected_fighters() -> void:
 		printerr(
 			"FightManager: CPU não é CharacterBody2D."
 		)
+
 		player_instance.queue_free()
 		return
 
-	# MUITO IMPORTANTE:
-	# mantém os nomes que seu FightManager já espera.
 	player_instance.name = "Player1"
 	cpu_instance.name = "Dummy"
 
 	add_child(player_instance)
 	add_child(cpu_instance)
 
-	var player_spawn := get_node_or_null(
-		"PlayerSpawn"
-	) as Marker2D
+	var player_spawn := (
+		get_node_or_null("PlayerSpawn")
+		as Marker2D
+	)
 
-	var dummy_spawn := get_node_or_null(
-		"DummySpawn"
-	) as Marker2D
+	var dummy_spawn := (
+		get_node_or_null("DummySpawn")
+		as Marker2D
+	)
 
 	if player_spawn != null:
 		player_instance.global_position = (
@@ -1126,3 +1131,35 @@ func _spawn_selected_fighters() -> void:
 		cpu_instance.global_position = (
 			dummy_spawn.global_position
 		)
+
+	_apply_mirror_match_color(
+		player_instance,
+		cpu_instance
+	)
+
+func _get_fighter_scene(
+	fighter: FighterSelection.Fighter
+) -> PackedScene:
+	match fighter:
+		FighterSelection.Fighter.CHUN_LI:
+			return chun_li_scene
+
+		FighterSelection.Fighter.ELENA:
+			return elena_scene
+
+	return null
+
+func _apply_mirror_match_color(
+	player: CharacterBody2D,
+	cpu: CharacterBody2D
+) -> void:
+	if player == null or cpu == null:
+		return
+
+	# Personagens diferentes.
+	if not FighterSelection.is_mirror_match():
+		cpu.modulate = Color.WHITE
+		return
+
+	# Mesmo personagem.
+	cpu.modulate = mirror_cpu_color

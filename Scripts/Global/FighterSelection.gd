@@ -7,19 +7,31 @@ enum Fighter {
 }
 
 
-var selected_fighter: Fighter = Fighter.CHUN_LI
+var player_fighter: Fighter = Fighter.CHUN_LI
+var opponent_fighter: Fighter = Fighter.ELENA
 
 
-func select_chun_li() -> void:
-	selected_fighter = Fighter.CHUN_LI
+func select_player(
+	fighter: Fighter
+) -> void:
+	player_fighter = fighter
+
+	print(
+		"FighterSelection | Player selecionado: ",
+		player_fighter
+	)
 
 
-func select_elena() -> void:
-	selected_fighter = Fighter.ELENA
+func select_opponent(
+	fighter: Fighter
+) -> void:
+	opponent_fighter = fighter
+
+	print(
+		"FighterSelection | Oponente selecionado: ",
+		opponent_fighter
+	)
 
 
-func get_opponent() -> Fighter:
-	if selected_fighter == Fighter.CHUN_LI:
-		return Fighter.ELENA
-
-	return Fighter.CHUN_LI
+func is_mirror_match() -> bool:
+	return player_fighter == opponent_fighter

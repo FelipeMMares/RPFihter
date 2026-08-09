@@ -1,12 +1,12 @@
 extends Control
-class_name CharacterSelect
+class_name OpponentSelect
 
 
 @export_group("Cena de luta")
 
 @export_file("*.tscn")
-var opponent_select_scene_path: String = (
-	"res://Cenas/OpponentSelect/OpponentSelect.tscn"
+var fight_scene_path: String = (
+	"res://Cenas/Cenarios/CenaDaLuta.tscn"
 )
 
 
@@ -17,6 +17,13 @@ var opponent_select_scene_path: String = (
 
 @export_range(0.5, 10.0, 0.1)
 var idle_before_taunt_time: float = 3.0
+
+@export var mirror_cpu_color: Color = Color(
+	0.65,
+	0.80,
+	1.0,
+	1.0
+)
 
 @export_group("Visual dos botões")
 
@@ -153,6 +160,14 @@ func _preview_chun_li() -> void:
 		"CHUN-LI"
 	)
 
+	if (
+		FighterSelection.player_fighter
+		== FighterSelection.Fighter.CHUN_LI
+	):
+		fighter_preview.modulate = mirror_cpu_color
+	else:
+		fighter_preview.modulate = Color.WHITE
+
 
 func _preview_elena() -> void:
 	if _character_confirmed:
@@ -163,6 +178,13 @@ func _preview_elena() -> void:
 		"ELENA"
 	)
 
+	if (
+		FighterSelection.player_fighter
+		== FighterSelection.Fighter.ELENA
+	):
+		fighter_preview.modulate = mirror_cpu_color
+	else:
+		fighter_preview.modulate = Color.WHITE
 
 func _show_fighter_preview(
 	frames: SpriteFrames,
@@ -249,7 +271,7 @@ func _on_chun_li_pressed() -> void:
 		chun_li_button
 	)
 
-	FighterSelection.select_player(
+	FighterSelection.select_opponent(
 		FighterSelection.Fighter.CHUN_LI
 	)
 
@@ -266,7 +288,7 @@ func _on_elena_pressed() -> void:
 		elena_button
 	)
 
-	FighterSelection.select_player(
+	FighterSelection.select_opponent(
 		FighterSelection.Fighter.ELENA
 	)
 
@@ -281,8 +303,6 @@ func _confirm_selection() -> void:
 
 	update_message.visible = false
 
-	# Impede o jogador de trocar de personagem
-	# durante a animação Victory.
 	chun_li_button.disabled = true
 	elena_button.disabled = true
 
@@ -302,12 +322,11 @@ func _confirm_selection() -> void:
 		await fighter_preview.animation_finished
 
 	else:
-		# Caso ainda não tenha Victory configurada.
 		await get_tree().create_timer(
 			0.8
 		).timeout
 
-	_open_opponent_select()
+	_start_fight()
 
 
 func _on_locked_character_pressed() -> void:
@@ -328,31 +347,31 @@ func _on_message_timer_timeout() -> void:
 
 
 func _start_fight() -> void:
-	if opponent_select_scene_path.is_empty():
+	if fight_scene_path.is_empty():
 		printerr(
-			"CharacterSelect: caminho da luta vazio."
+			"OpponentSelect: caminho da luta vazio."
 		)
 		return
 
 	if not ResourceLoader.exists(
-		opponent_select_scene_path
+		fight_scene_path
 	):
 		printerr(
-			"CharacterSelect: cena não encontrada: ",
-			opponent_select_scene_path
+			"OpponentSelect: cena da luta não encontrada: ",
+			fight_scene_path
 		)
 		return
 
-	var change_error: Error = (
+	var error: Error = (
 		get_tree().change_scene_to_file(
-			opponent_select_scene_path
+			fight_scene_path
 		)
 	)
 
-	if change_error != OK:
+	if error != OK:
 		printerr(
-			"CharacterSelect: erro ao abrir luta: ",
-			change_error
+			"OpponentSelect: erro ao abrir luta: ",
+			error
 		)
 
 func _setup_character_buttons() -> void:
@@ -593,22 +612,3 @@ func _select_character_button(
 		button,
 		Vector2.ONE * button_hover_scale
 	)
-
-func _open_opponent_select() -> void:
-	if opponent_select_scene_path.is_empty():
-		printerr(
-			"CharacterSelect: caminho de OpponentSelect vazio."
-		)
-		return
-
-	var error: Error = (
-		get_tree().change_scene_to_file(
-			opponent_select_scene_path
-		)
-	)
-
-	if error != OK:
-		printerr(
-			"CharacterSelect: erro ao abrir OpponentSelect: ",
-			error
-		)

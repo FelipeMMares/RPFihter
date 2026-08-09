@@ -1,0 +1,444 @@
+[gd_scene format=3 uid="uid://tpptx2h2cxrh"]
+
+[ext_resource type="Script" uid="uid://clmqkuqe4fid8" path="res://Cenas/OpponentSelect/OpponentSelect.gd" id="1_xnlyl"]
+[ext_resource type="SpriteFrames" uid="uid://dlhmp4j3qmrya" path="res://assets/ChunLi.tres" id="2_0ps5n"]
+[ext_resource type="Texture2D" uid="uid://c4g01xh6rnav2" path="res://assets/Menus/SelectionCharacter/images.jpg" id="2_eeovy"]
+[ext_resource type="SpriteFrames" uid="uid://dafuseydhwltb" path="res://assets/Elena.tres" id="3_j1wye"]
+[ext_resource type="Texture2D" uid="uid://dupk2bq1d6pdd" path="res://assets/Menus/SelectionCharacter/images (1).jpg" id="3_mwvdt"]
+[ext_resource type="Texture2D" uid="uid://cstb08wm4agtb" path="res://assets/Menus/SelectionCharacter/Gemini_Generated_Image_k3i7zvk3i7zvk3i7.png" id="4_wef75"]
+[ext_resource type="Texture2D" uid="uid://bqwmt40vtqblh" path="res://assets/Menus/SelectionCharacter/Gemini_Generated_Image_hbgs6ehbgs6ehbgs.png" id="5_ft0tq"]
+[ext_resource type="Texture2D" uid="uid://dcgrovxavbknq" path="res://assets/Menus/SelectionCharacter/Gemini_Generated_Image_n9ubk8n9ubk8n9ub.png" id="6_0ps5n"]
+[ext_resource type="Texture2D" uid="uid://c41aj0mkpi7pe" path="res://assets/Menus/SelectionCharacter/Gemini_Generated_Image_skubg5skubg5skub.png" id="7_j1wye"]
+[ext_resource type="FontFile" uid="uid://ct6yapfcrys5m" path="res://assets/fontes/PressStart2P-Regular.ttf" id="10_j1wye"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
+bg_color = Color(0.88235295, 0.7294118, 0.62352943, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yf5fn"]
+bg_color = Color(0, 0, 0, 0.42745098)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[node name="CharacterSelect" type="Control" unique_id=1170760774]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xnlyl")
+chun_li_frames = ExtResource("2_0ps5n")
+elena_frames = ExtResource("3_j1wye")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1239753899]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.011027579, 0.012157972, 0.17947558, 1)
+
+[node name="MainMargin" type="MarginContainer" parent="." unique_id=266033837]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 25
+
+[node name="MainRow" type="HBoxContainer" parent="MainMargin" unique_id=2076420688]
+layout_mode = 2
+
+[node name="PreviewPanel" type="VBoxContainer" parent="MainMargin/MainRow" unique_id=582837809]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PreviewBox" type="Control" parent="MainMargin/MainRow/PreviewPanel" unique_id=1650014672]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="FighterPreview" type="AnimatedSprite2D" parent="MainMargin/MainRow/PreviewPanel/PreviewBox" unique_id=584071533]
+unique_name_in_owner = true
+z_index = 2
+position = Vector2(213, 220)
+scale = Vector2(2, 2)
+
+[node name="Floor" type="Panel" parent="MainMargin/MainRow/PreviewPanel/PreviewBox" unique_id=426905274]
+z_index = 1
+custom_minimum_size = Vector2(350, 25)
+custom_maximum_size = Vector2(350, 25)
+layout_mode = 0
+offset_left = 32.0
+offset_top = 373.0
+offset_right = 382.0
+offset_bottom = 398.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_g4v7s")
+
+[node name="FloorShadow" type="Panel" parent="MainMargin/MainRow/PreviewPanel/PreviewBox" unique_id=488467835]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 389.0
+offset_right = 424.0
+offset_bottom = 438.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yf5fn")
+
+[node name="FighterName" type="Label" parent="MainMargin/MainRow/PreviewPanel" unique_id=134779943]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="SelectionPanel" type="MarginContainer" parent="MainMargin/MainRow" unique_id=681040213]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="SelectionColumn" type="VBoxContainer" parent="MainMargin/MainRow/SelectionPanel" unique_id=123731050]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="CharacterGrid" type="GridContainer" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn" unique_id=695007994]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 3
+
+[node name="ChunLiButton" type="Button" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid" unique_id=1876277004]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 220)
+custom_maximum_size = Vector2(180, 220)
+layout_mode = 2
+theme_override_constants/icon_max_width = 110
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/ChunLiButton" unique_id=508530927]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -78.5
+offset_right = 65.0
+offset_bottom = 78.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/ChunLiButton/MarginContainer" unique_id=1581878006]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Portrait" type="TextureRect" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/ChunLiButton/MarginContainer/VBoxContainer" unique_id=1454980490]
+custom_minimum_size = Vector2(110, 110)
+custom_maximum_size = Vector2(110, 110)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+mouse_filter = 2
+texture = ExtResource("2_eeovy")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NameLabel" type="Label" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/ChunLiButton/MarginContainer/VBoxContainer" unique_id=2114887727]
+layout_mode = 2
+text = "CHUN-LI"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ElenaButton" type="Button" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid" unique_id=2035403590]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 220)
+custom_maximum_size = Vector2(180, 220)
+layout_mode = 2
+theme_override_constants/icon_max_width = 110
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/ElenaButton" unique_id=214732458]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -78.5
+offset_right = 65.0
+offset_bottom = 78.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/ElenaButton/MarginContainer" unique_id=624385187]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Portrait" type="TextureRect" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/ElenaButton/MarginContainer/VBoxContainer" unique_id=1495729479]
+custom_minimum_size = Vector2(110, 110)
+custom_maximum_size = Vector2(110, 110)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+mouse_filter = 2
+texture = ExtResource("3_mwvdt")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NameLabel" type="Label" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/ElenaButton/MarginContainer/VBoxContainer" unique_id=921978143]
+layout_mode = 2
+text = "ELENA"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="LockedButton" type="Button" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid" unique_id=1647146744]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 220)
+custom_maximum_size = Vector2(180, 220)
+layout_mode = 2
+theme_override_constants/icon_max_width = 110
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton" unique_id=1643885054]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -78.5
+offset_right = 65.0
+offset_bottom = 78.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton/MarginContainer" unique_id=994587446]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Portrait" type="TextureRect" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton/MarginContainer/VBoxContainer" unique_id=1295369881]
+custom_minimum_size = Vector2(110, 110)
+custom_maximum_size = Vector2(110, 110)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+mouse_filter = 2
+texture = ExtResource("4_wef75")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NameLabel" type="Label" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton/MarginContainer/VBoxContainer" unique_id=106831712]
+layout_mode = 2
+text = "?????"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="LockedButton2" type="Button" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid" unique_id=664760426]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 220)
+custom_maximum_size = Vector2(180, 220)
+layout_mode = 2
+theme_override_constants/icon_max_width = 110
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton2" unique_id=507304672]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -78.5
+offset_right = 65.0
+offset_bottom = 78.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton2/MarginContainer" unique_id=1835098761]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Portrait" type="TextureRect" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton2/MarginContainer/VBoxContainer" unique_id=820280576]
+custom_minimum_size = Vector2(110, 110)
+custom_maximum_size = Vector2(110, 110)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+mouse_filter = 2
+texture = ExtResource("5_ft0tq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NameLabel" type="Label" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton2/MarginContainer/VBoxContainer" unique_id=893609289]
+layout_mode = 2
+text = "?????"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="LockedButton3" type="Button" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid" unique_id=674821216]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 220)
+custom_maximum_size = Vector2(180, 220)
+layout_mode = 2
+theme_override_constants/icon_max_width = 110
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton3" unique_id=572364244]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -78.5
+offset_right = 65.0
+offset_bottom = 78.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton3/MarginContainer" unique_id=1655618088]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Portrait" type="TextureRect" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton3/MarginContainer/VBoxContainer" unique_id=605057437]
+custom_minimum_size = Vector2(110, 110)
+custom_maximum_size = Vector2(110, 110)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+mouse_filter = 2
+texture = ExtResource("6_0ps5n")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NameLabel" type="Label" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton3/MarginContainer/VBoxContainer" unique_id=1938064037]
+layout_mode = 2
+text = "?????"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="LockedButton4" type="Button" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid" unique_id=1841347550]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 220)
+custom_maximum_size = Vector2(180, 220)
+layout_mode = 2
+theme_override_constants/icon_max_width = 100
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton4" unique_id=577453563]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -78.5
+offset_right = 65.0
+offset_bottom = 78.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton4/MarginContainer" unique_id=1841014587]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Portrait" type="TextureRect" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton4/MarginContainer/VBoxContainer" unique_id=516959950]
+custom_minimum_size = Vector2(110, 110)
+custom_maximum_size = Vector2(110, 110)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+mouse_filter = 2
+texture = ExtResource("7_j1wye")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NameLabel" type="Label" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton4/MarginContainer/VBoxContainer" unique_id=537257343]
+unique_name_in_owner = true
+layout_mode = 2
+text = "?????"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="UpdateMessage" type="Label" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn" unique_id=1980168386]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "AGUARDE A ATUALIZAÇÃO"
+horizontal_alignment = 1
+
+[node name="TopTitle" type="Label" parent="." unique_id=91610198]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_top = 25.0
+offset_right = 250.0
+offset_bottom = 48.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("10_j1wye")
+theme_override_font_sizes/font_size = 23
+text = "ESCOLHA SEU OPONENTE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MessageTimer" type="Timer" parent="." unique_id=1068497177]
+unique_name_in_owner = true
+wait_time = 2.0
+one_shot = true
+
+[node name="PreviewTimer" type="Timer" parent="." unique_id=1747843995]
+unique_name_in_owner = true
+wait_time = 3.0
+one_shot = true

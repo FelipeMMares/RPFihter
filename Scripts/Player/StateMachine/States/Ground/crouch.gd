@@ -9,6 +9,8 @@ var _leaving_crouch: bool = false
 
 func _enter() -> void:
 	move.emit(Vector2.ZERO)
+	if not player_input_enabled:
+		return
 
 	if player_controls == null:
 		return
@@ -39,6 +41,11 @@ func _enter() -> void:
 func _physics_process(_delta: float) -> void:
 	move.emit(Vector2.ZERO)
 
+	if not player_input_enabled:
+		return
+
+	if player_controls == null:
+		return
 
 func _animation_finished() -> void:
 	if _leaving_crouch:

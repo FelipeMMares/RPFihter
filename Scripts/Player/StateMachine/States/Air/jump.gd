@@ -26,7 +26,10 @@ func _enter() -> void:
 func _physics_process(_delta: float) -> void:
 	var character := _get_character()
 
-	if character == null:
+	if not player_input_enabled:
+		return
+
+	if player_controls == null:
 		return
 
 	if not character.is_on_floor():

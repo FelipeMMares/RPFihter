@@ -68,6 +68,7 @@ corner_radius_bottom_left = 4
 script = ExtResource("1_oi066")
 chun_li_scene = ExtResource("4_oi066")
 elena_scene = ExtResource("5_hvrgt")
+mirror_cpu_color = Color(0.9187134, 0.00092276273, 0.95488745, 1)
 pause_menu = NodePath("PauseLayer/PauseMenu")
 player_defeat_scene_path = "uid://fpcalhgfelol"
 

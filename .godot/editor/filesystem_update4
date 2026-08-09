@@ -1,2 +1,16 @@
 res://Cenas/CharacterSelect/CharacterSelect.tscn
 res://Cenas/CharacterSelect/CharacterSelect.gd
+res://Scripts/Global/FighterSelection.gd
+res://Cenas/OpponentSelect/OpponentSelect.tscn
+res://Cenas/OpponentSelect/OpponentSelect.gd
+res://Scripts/Fight/FightManager.gd
+res://cena_da_luta.tscn
+res://Scripts/Player/StateMachine/StateMachine.gd
+res://Scripts/Player/StateMachine/States/Ground/walk.gd
+res://Scripts/Player/StateMachine/States/Ground/crouch.gd
+res://Scripts/Dummy/States/CrouchWhile.gd
+res://Scripts/Player/StateMachine/States/Air/jump.gd
+res://Scripts/Player/StateMachine/States/Air/start_jump.gd
+res://Scripts/Dummy/DummyAI.gd
+res://Cenas/Dummy/dummy.tscn
+res://Cenas/Player/Player.tscn

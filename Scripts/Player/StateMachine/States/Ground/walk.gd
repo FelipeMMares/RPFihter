@@ -13,6 +13,9 @@ func _physics_process(delta: float) -> void:
 	check_special_move()
 	# O Dummy não possui PlayerControls.
 	# A direção dele será controlada pelo DummyAI.
+	if not player_input_enabled:
+		return
+
 	if player_controls == null:
 		return
 

@@ -27,6 +27,9 @@ func _physics_process(_delta: float) -> void:
 
 	# O Dummy não possui PlayerControls.
 	# Seus ataques serão escolhidos pelo DummyAI.
+	if not player_input_enabled:
+		return
+
 	if player_controls == null:
 		return
 

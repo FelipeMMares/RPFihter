@@ -10,12 +10,10 @@ enum AIAction {
 	CROUCH
 }
 
-
 @export_group("Referências")
 @export var state_machine: StateMachine
 @export var target: CharacterBody2D
 @export var active: bool = true
-
 
 @export_group("Estados")
 @export var idle_state: StringName = &"Idle"
@@ -211,13 +209,6 @@ var _target_state_machine: StateMachine
 func _ready() -> void:
 	_rng.randomize()
 
-	if character == null:
-		printerr(
-			"DummyAI: o nó pai não é um CharacterBody2D."
-		)
-		set_physics_process(false)
-		return
-
 	_character_health = (
 		character.get_node_or_null("Health")
 		as Health
@@ -284,7 +275,14 @@ func _physics_process(delta: float) -> void:
 	var current_state: StringName = (
 		state_machine.get_current_state_name()
 	)
-# Os próprios estados especiais controlam a velocidade.
+
+	if _current_action == AIAction.CROUCH:
+		_process_crouch_action(
+			delta,
+			current_state
+		)
+		return
+	# Os próprios estados especiais controlam a velocidade.
 	if _is_special_attack_state(current_state):
 		return
 	# Durante toda a sequência de agarrão, a StateMachine
@@ -1133,9 +1131,18 @@ func _perform_throw() -> void:
 		_perform_random_attack()
 		return
 
-	if not bool(target.call("can_be_thrown")):
-		_perform_random_attack()
-		return
+		var can_throw_result: Variant = (
+			target.call("can_be_thrown")
+		)
+
+		var can_throw: bool = (
+			typeof(can_throw_result) == TYPE_BOOL
+			and can_throw_result == true
+		)
+
+		if not can_throw:
+			_perform_random_attack()
+			return
 
 	_stop_character()
 
@@ -1183,11 +1190,14 @@ func _start_random_special_attack() -> bool:
 	):
 		return false
 
-	var special_started: bool = bool(
-		character.call(
-			"request_special_attack",
-			selected_special
-		)
+	var result: Variant = character.call(
+		"request_special_attack",
+		selected_special
+	)
+
+	var special_started: bool = (
+		typeof(result) == TYPE_BOOL
+		and result == true
 	)
 
 	if not special_started:

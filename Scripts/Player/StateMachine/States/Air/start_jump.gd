@@ -6,7 +6,12 @@ extends State
 
 func _enter() -> void:
 	# Somente o Player lê o teclado aqui.
-	if player_controls != null:
+	if not player_input_enabled:
+		return
+
+	if player_controls == null:
+		return
+		
 		var horizontal_direction: float = Input.get_axis(
 			player_controls.left,
 			player_controls.right

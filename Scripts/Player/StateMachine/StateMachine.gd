@@ -53,7 +53,7 @@ var _character : CharacterBody2D
 var _anim_request_id : int = 0
 var _round_result_locked: bool = false
 var _round_result_state: StringName = &""
-
+var _player_input_enabled: bool = true
 
 func _ready() -> void:
 	
