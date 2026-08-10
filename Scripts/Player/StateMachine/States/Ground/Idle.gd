@@ -7,17 +7,17 @@ extends State
 func _enter() -> void:
 	play_animation.emit(name, false)
 
-func _physics_process(delta: float) -> void:
-	move.emit(Vector2.ZERO)
-	check_special_move()
-	
+func _physics_process(_delta: float) -> void:
 	if not player_input_enabled:
 		return
-	
-		# Dummy não possui controles
+
 	if player_controls == null:
 		return
-	
+
+	move.emit(Vector2.ZERO)
+
+	check_special_move()
+
 	var throw_direction: float = (
 		player_controls.get_throw_direction()
 	)
@@ -39,38 +39,67 @@ func _physics_process(delta: float) -> void:
 				throw_direction
 			)
 
-			transition_to.emit(&"TryGrab")
+			transition_to.emit(
+				&"TryGrab"
+			)
 			return
 
 	if Input.is_action_just_pressed(
 		player_controls.guard
 	):
-		transition_to.emit(&"Guard")
+		transition_to.emit(
+			&"Guard"
+		)
 		return
 
 	if player_controls.is_jumping():
 		print("PEDIU PULO")
-		transition_to.emit("StartJump")
-	
+
+		transition_to.emit(
+			jump_state
+		)
+		return
+
 	if player_controls.is_walking():
-		transition_to.emit("Walk")
-		
+		transition_to.emit(
+			walk_state
+		)
+		return
+
 	if player_controls.just_crouched():
-		transition_to.emit("Crouch")
-	
-
-	if Input.is_action_just_pressed(player_controls.light_punch):
-		transition_to.emit("LightPunch")
+		transition_to.emit(
+			crouch_state
+		)
 		return
 
-	if Input.is_action_just_pressed(player_controls.high_punch):
-		transition_to.emit("HighPunch")
+	if Input.is_action_just_pressed(
+		player_controls.light_punch
+	):
+		transition_to.emit(
+			&"LightPunch"
+		)
 		return
 
-	if Input.is_action_just_pressed(player_controls.kick):
-		transition_to.emit("Kick")
+	if Input.is_action_just_pressed(
+		player_controls.high_punch
+	):
+		transition_to.emit(
+			&"HighPunch"
+		)
 		return
 
-	if Input.is_action_just_pressed(player_controls.low_kick):
-		transition_to.emit("LowKick")
+	if Input.is_action_just_pressed(
+		player_controls.kick
+	):
+		transition_to.emit(
+			&"Kick"
+		)
+		return
+
+	if Input.is_action_just_pressed(
+		player_controls.low_kick
+	):
+		transition_to.emit(
+			&"LowKick"
+		)
 		return

@@ -51,6 +51,16 @@ size = Vector2(111, 158)
 
 [sub_resource type="Resource" id="Resource_fdony"]
 script = ExtResource("558_8rjmn")
+up = &"Player1_up"
+down = &"Player1_down"
+left = &"Player1_left"
+right = &"Player1_right"
+light_punch = &"Player1_lightPunch"
+high_punch = &"Player1_highPunch"
+kick = &"Player1_kick"
+low_kick = &"Player1_lowKick"
+throw = &"Player1_tryGrab"
+guard = &"Player1_guard"
 metadata/_custom_type_script = "uid://byslak2i1ykxe"
 
 [sub_resource type="GDScript" id="GDScript_wutc1"]
@@ -615,6 +625,7 @@ position = Vector2(65, -32)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("210_vbhik")
+hit_spark_type = 1
 hit_data = SubResource("Resource_2k10o")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/HighPunch" unique_id=459955006]
@@ -627,6 +638,7 @@ position = Vector2(107, -8)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("210_vbhik")
+hit_spark_type = 1
 hit_data = SubResource("Resource_3ui7y")
 
 [node name="HitColision" type="CollisionPolygon2D" parent="Hitboxers/Kick" unique_id=21402447]
@@ -661,6 +673,7 @@ shape = SubResource("RectangleShape2D_af2tb")
 visible = false
 position = Vector2(59, -31)
 script = ExtResource("210_vbhik")
+hit_spark_type = 1
 hit_data = SubResource("Resource_11k48")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/CrouchHighPunch" unique_id=110975809]
@@ -672,6 +685,7 @@ shape = SubResource("RectangleShape2D_at21e")
 visible = false
 position = Vector2(114, 45)
 script = ExtResource("210_vbhik")
+hit_spark_type = 1
 hit_data = SubResource("Resource_11k48")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/CrouchKick" unique_id=1126984913]
@@ -710,6 +724,7 @@ visible = false
 position = Vector2(3, -41)
 monitoring = false
 script = ExtResource("210_vbhik")
+hit_spark_type = 1
 hit_data = SubResource("Resource_qesbf")
 
 [node name="FirstHitShape" type="CollisionShape2D" parent="Hitboxers/AirHighPunch" unique_id=2036806365]
@@ -728,6 +743,7 @@ visible = false
 position = Vector2(62, -4)
 monitoring = false
 script = ExtResource("210_vbhik")
+hit_spark_type = 1
 hit_data = SubResource("Resource_qesbf")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/AirKick" unique_id=747664144]
@@ -766,6 +782,7 @@ position = Vector2(-102, 41)
 visible = false
 position = Vector2(-49, 77)
 script = ExtResource("210_vbhik")
+hit_spark_type = 2
 hit_data = SubResource("Resource_j7yjc")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Hitboxers/ScratchWheelLow" unique_id=2044256727]
@@ -777,6 +794,7 @@ polygon = PackedVector2Array(70, -41, 25, -20, -46, 8, 1, 8, 53, -15)
 visible = false
 position = Vector2(-26, 16)
 script = ExtResource("210_vbhik")
+hit_spark_type = 2
 hit_data = SubResource("Resource_ouip4")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Hitboxers/ScratchWheelMiddle" unique_id=1789750978]
@@ -788,6 +806,7 @@ polygon = PackedVector2Array(60, 114, 26, 164, -37, 197, -78, 216, 4, 208, 35, 1
 visible = false
 position = Vector2(-26, 2)
 script = ExtResource("210_vbhik")
+hit_spark_type = 2
 hit_data = SubResource("Resource_hjuqo")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Hitboxers/ScratchWheelHigh" unique_id=195326671]
@@ -798,6 +817,7 @@ polygon = PackedVector2Array(61, 65, 55, -5, 27, -56, -28, -87, -54, -93, 7, -99
 visible = false
 position = Vector2(5, 15)
 script = ExtResource("210_vbhik")
+hit_spark_type = 2
 hit_data = SubResource("Resource_niuki")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Hitboxers/RhinoHornFirstKick" unique_id=1812085646]
@@ -808,6 +828,7 @@ polygon = PackedVector2Array(6, -5, 34, -97, 88, -154, 175, -176, 238, -152, 349
 visible = false
 position = Vector2(24, -14)
 script = ExtResource("210_vbhik")
+hit_spark_type = 2
 hit_data = SubResource("Resource_k7vdj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/RhinoHornFinalKick" unique_id=203437616]
@@ -818,6 +839,7 @@ shape = SubResource("RectangleShape2D_fcnqv")
 visible = false
 position = Vector2(16, 13)
 script = ExtResource("210_vbhik")
+hit_spark_type = 2
 hit_data = SubResource("Resource_76sle")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/LynxTail" unique_id=1432904015]
@@ -828,6 +850,7 @@ shape = SubResource("RectangleShape2D_f148t")
 visible = false
 position = Vector2(16, 13)
 script = ExtResource("210_vbhik")
+hit_spark_type = 2
 hit_data = SubResource("Resource_76sle")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/LynxTail2" unique_id=79059407]
@@ -838,6 +861,7 @@ shape = SubResource("RectangleShape2D_f148t")
 visible = false
 position = Vector2(-10, 65)
 script = ExtResource("210_vbhik")
+hit_spark_type = 2
 hit_data = SubResource("Resource_8j75n")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Hitboxers/LynxTail3" unique_id=1190039833]
@@ -848,7 +872,7 @@ polygon = PackedVector2Array(-164.75, 49.25, -86.75, -19.75, -26.75, -82.75, -51
 script = ExtResource("556_k7vdj")
 starting_mp = 3.0
 
-[node name="inputBuffer" type="Node" parent="." unique_id=950870520]
+[node name="InputBuffer" type="Node" parent="." unique_id=950870520]
 script = ExtResource("557_2g18p")
 input_prefix = "Player1_"
 player_controls = SubResource("Resource_fnqu3")
@@ -856,4 +880,4 @@ player_controls = SubResource("Resource_fnqu3")
 [node name="CommandParser" type="Node" parent="." unique_id=1542089393 node_paths=PackedStringArray("input_buffer")]
 script = ExtResource("559_sm2x2")
 commands = Array[ExtResource("560_wojwh")]([SubResource("Resource_muxrf"), ExtResource("561_xtkcb"), ExtResource("562_i5d0e"), ExtResource("563_5sy3t"), ExtResource("564_peg7y")])
-input_buffer = NodePath("../inputBuffer")
+input_buffer = NodePath("../InputBuffer")

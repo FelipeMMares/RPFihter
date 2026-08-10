@@ -499,6 +499,7 @@ position = Vector2(0, -18)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("112_lmw0p")
+hit_spark_type = 1
 hit_data = SubResource("Resource_jj3b6")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/HighPunch" unique_id=1307253413]
@@ -510,6 +511,7 @@ visible = false
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("112_lmw0p")
+hit_spark_type = 1
 hit_data = SubResource("Resource_w3xrr")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/Kick" unique_id=579778566]
@@ -543,6 +545,7 @@ visible = false
 position = Vector2(15, 83)
 monitoring = false
 script = ExtResource("112_lmw0p")
+hit_spark_type = 1
 hit_data = SubResource("Resource_11k48")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/CrouchHighPunch" unique_id=1280855474]
@@ -554,6 +557,7 @@ visible = false
 position = Vector2(0, 83)
 monitoring = false
 script = ExtResource("112_lmw0p")
+hit_spark_type = 1
 hit_data = SubResource("Resource_w356g")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/CrouchKick" unique_id=1011138526]
@@ -592,6 +596,7 @@ visible = false
 position = Vector2(-1, -14)
 monitoring = false
 script = ExtResource("112_lmw0p")
+hit_spark_type = 1
 hit_data = SubResource("Resource_qesbf")
 
 [node name="HitColision" type="CollisionPolygon2D" parent="Hitboxers/AirHighPunch" unique_id=571936864]
@@ -603,6 +608,7 @@ visible = false
 position = Vector2(0, -18)
 monitoring = false
 script = ExtResource("112_lmw0p")
+hit_spark_type = 1
 hit_data = SubResource("Resource_qesbf")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/AirKick" unique_id=1418030282]
@@ -639,6 +645,7 @@ position = Vector2(1, 3)
 [node name="HyakuretsuKyakuHead" type="Area2D" parent="Hitboxers" unique_id=1174584165]
 visible = false
 script = ExtResource("112_lmw0p")
+hit_spark_type = 2
 hit_data = ExtResource("431_l2htf")
 
 [node name="hitHead" type="CollisionShape2D" parent="Hitboxers/HyakuretsuKyakuHead" unique_id=398867865]
@@ -650,6 +657,7 @@ shape = SubResource("RectangleShape2D_4s1wa")
 [node name="HyakuretsuKyakuTorso" type="Area2D" parent="Hitboxers" unique_id=1254148013]
 visible = false
 script = ExtResource("112_lmw0p")
+hit_spark_type = 2
 hit_data = ExtResource("431_l2htf")
 
 [node name="hitTorso" type="CollisionShape2D" parent="Hitboxers/HyakuretsuKyakuTorso" unique_id=1925661055]
@@ -659,6 +667,7 @@ shape = SubResource("RectangleShape2D_l2htf")
 [node name="HyakuretsuKyakuFeet" type="Area2D" parent="Hitboxers" unique_id=428750219]
 visible = false
 script = ExtResource("112_lmw0p")
+hit_spark_type = 2
 hit_data = ExtResource("431_l2htf")
 
 [node name="hitFeet" type="CollisionShape2D" parent="Hitboxers/HyakuretsuKyakuFeet" unique_id=62838327]
@@ -671,6 +680,7 @@ shape = SubResource("RectangleShape2D_kbopo")
 visible = false
 position = Vector2(-1, 8)
 script = ExtResource("112_lmw0p")
+hit_spark_type = 2
 hit_data = ExtResource("432_kbopo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/SpinningBirdKick" unique_id=1590087615]
@@ -722,7 +732,6 @@ starting_mp = 3.0
 [node name="DummyAI" type="Node" parent="." unique_id=1982198214 node_paths=PackedStringArray("state_machine")]
 script = ExtResource("463_by7ee")
 state_machine = NodePath("../StateMachine")
-active = false
 crouch_attack_chance = 0.85
 crouch_attack_delay_min = 0.1
 crouch_attack_delay_max = 0.3

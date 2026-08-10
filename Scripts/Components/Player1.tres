@@ -4,14 +4,14 @@
 
 [resource]
 script = ExtResource("1_1alhr")
-up = "Player1_up"
-down = "Player1_down"
+up = &"Player1_up"
+down = &"Player1_down"
 left = &"Player1_left"
 right = &"Player1_right"
-light_punch = "Player1_lightPunch"
-high_punch = "Player1_highPunch"
-kick = "Player1_kick"
-low_kick = "Player1_lowKick"
+light_punch = &"Player1_lightPunch"
+high_punch = &"Player1_highPunch"
+kick = &"Player1_kick"
+low_kick = &"Player1_lowKick"
 throw = &"Player1_tryGrab"
 guard = &"Player1_guard"
 metadata/_custom_type_script = "uid://byslak2i1ykxe"

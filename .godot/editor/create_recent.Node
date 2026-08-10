@@ -1,8 +1,9 @@
+AnimatedSprite2D
+Marker2D
 Panel
 ColorRect
 MarginContainer
 Label
-AnimatedSprite2D
 Control
 VBoxContainer
 HBoxContainer
@@ -11,4 +12,3 @@ Button
 GridContainer
 CenterContainer
 Timer
-Marker2D

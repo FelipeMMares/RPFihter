@@ -1,6 +1,19 @@
 extends Area2D
 class_name HitBox
 
+@export_group("Hit Spark")
+
+@export_enum(
+	"Light",
+	"Heavy",
+	"Special"
+)
+var hit_spark_type: int = 0
+
+const HIT_SPARK_SCENE: PackedScene = preload(
+	"res://Scripts/Combat/HitSpark.tscn"
+)
+
 @export_group("MP")
 
 @export_range(0.0, 5.0, 0.05)
@@ -164,17 +177,19 @@ func _try_hit(area: Area2D) -> void:
 		and hit_result == true
 	)
 
-	if (
-		caused_damage
-		and _owner_character != null
-		and _owner_character.has_method(
-			"gain_mp_from_successful_hit"
-		)
-	):
-		_owner_character.call(
-			"gain_mp_from_successful_hit",
-			mp_gain_multiplier
-		)
+	if caused_damage:
+		_spawn_hit_spark(area)
+
+		if (
+			_owner_character != null
+			and _owner_character.has_method(
+				"gain_mp_from_successful_hit"
+			)
+		):
+			_owner_character.call(
+				"gain_mp_from_successful_hit",
+				mp_gain_multiplier
+			)
 
 	hit_confirmed.emit(area)
 
@@ -194,3 +209,41 @@ func set_owner_character(
 	character: CharacterBody2D
 ) -> void:
 	_owner_character = character
+
+
+func _spawn_hit_spark(
+	hurtbox: Area2D
+) -> void:
+	if hurtbox == null:
+		return
+
+	var spark := (
+		HIT_SPARK_SCENE.instantiate()
+		as HitSpark
+	)
+
+	if spark == null:
+		printerr(
+			"HitBox: não foi possível criar HitSpark."
+		)
+		return
+
+	var scene := get_tree().current_scene
+
+	if scene == null:
+		spark.queue_free()
+		return
+
+	scene.add_child(
+		spark
+	)
+
+	var impact_position: Vector2 = (
+		global_position
+		+ hurtbox.global_position
+	) * 0.5
+
+	spark.play_spark(
+		hit_spark_type,
+		impact_position
+	)

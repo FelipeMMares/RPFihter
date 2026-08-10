@@ -65,20 +65,8 @@ var fade_from_black_duration: float = 0.4
 # Desligado: o MP passa de um round para o outro.
 @export var reset_mp_each_round: bool = true
 
-@onready var player_1: CharacterBody2D = $Player1
-@onready var player_2: CharacterBody2D = $Dummy
 
 @onready var hud: FightHUD = $HUD
-@onready var player_ai: DummyAI = (
-	$Player1.get_node_or_null("DummyAI")
-	as DummyAI
-)
-
-@onready var dummy_ai: DummyAI = (
-	$Dummy.get_node_or_null("DummyAI")
-	as DummyAI
-)
-
 
 @export_group("Telas")
 
@@ -87,42 +75,35 @@ var player_defeat_scene_path: String = (
 	"res://Cenas/DefeatScreen/DefeatScreen.tscn"
 )
 
-@onready var player_facing: FacingController = (
-	$Player1/FacingController
+@onready var chun_li_entry_spawn: Marker2D = (
+	$ChunLiEntrySpawn
 )
 
-@onready var dummy_facing: FacingController = (
-	$Dummy/FacingController
+@onready var player_spawn: Marker2D = (
+	$PlayerSpawn
 )
 
-
-@onready var player_1_health: Health = (
-	$Player1/Health
+@onready var dummy_spawn: Marker2D = (
+	$DummySpawn
 )
 
-@onready var player_2_health: Health = (
-	$Dummy/Health
-)
+var player_1: CharacterBody2D
+var player_2: CharacterBody2D
 
-@onready var player_1_mp: MagicPoints = (
-	$Player1/MagicPoints
-)
+var dummy_ai: DummyAI
+var player_ai: DummyAI
 
-@onready var player_2_mp: MagicPoints = (
-	$Dummy/MagicPoints
-)
+var player_facing: FacingController
+var dummy_facing: FacingController
 
-@onready var player_1_state_machine: StateMachine = (
-	$Player1/StateMachine
-)
+var player_1_health: Health
+var player_2_health: Health
 
-@onready var player_2_state_machine: StateMachine = (
-	$Dummy/StateMachine
-)
+var player_1_mp: MagicPoints
+var player_2_mp: MagicPoints
 
-@onready var player_1_entry_spawn: Marker2D = (
-	$Player1EntrySpawn
-)
+var player_1_state_machine: StateMachine
+var player_2_state_machine: StateMachine
 
 var current_round_number: int = 1
 
@@ -149,67 +130,71 @@ var _round_intro_in_progress: bool = false
 
 
 func _ready() -> void:
-	player_1_start_position = player_1.global_position
-	player_2_start_position = player_2.global_position
 
+	_spawn_selected_fighters()
+
+	if player_1 == null or player_2 == null:
+		printerr(
+			"FightManager: não foi possível criar os lutadores."
+		)
+		return
+
+	player_1_start_position = (
+		player_1.global_position
+	)
+
+	player_2_start_position = (
+		player_2.global_position
+	)
+
+	# Player1 recebe input humano.
 	if player_1_state_machine != null:
 		player_1_state_machine.set_player_input_enabled(
 			true
 		)
 
+	# Dummy nunca recebe input humano.
 	if player_2_state_machine != null:
 		player_2_state_machine.set_player_input_enabled(
 			false
 		)
 
-
-	if player_ai != null:
-		player_ai.active = false
-		player_ai.process_mode = (
-			Node.PROCESS_MODE_DISABLED
-		)
-
-
+	# Somente o personagem escolhido como CPU
+	# precisa ter a IA ativa.
 	if dummy_ai != null:
 		dummy_ai.active = true
+
 		dummy_ai.process_mode = (
 			Node.PROCESS_MODE_INHERIT
 		)
 
-	dummy_ai.setup(player_1)
-
-	_set_mp_regeneration_enabled(false)
-
-	# O personagem escolhido pelo jogador nunca
-	# deve ser controlado pela IA.
-	if player_ai != null:
-		player_ai.active = false
-		player_ai.process_mode = (
-			Node.PROCESS_MODE_DISABLED
+		dummy_ai.setup(
+			player_1
 		)
-
-	# O personagem do lado Dummy é sempre a CPU.
-	if dummy_ai != null:
-		dummy_ai.active = true
-		dummy_ai.process_mode = (
-			Node.PROCESS_MODE_INHERIT
-		)
-
-		dummy_ai.setup(player_1)
 	else:
 		printerr(
-			"FightManager: DummyAI não encontrada na CPU."
+			"FightManager: personagem CPU não possui DummyAI."
 		)
 
+	_configure_fighter_ai()
+
+	_set_mp_regeneration_enabled(
+		false
+	)
+
 	if player_facing != null:
-		player_facing.setup(player_2)
+		player_facing.setup(
+			player_2
+		)
 	else:
 		printerr(
 			"FightManager: FacingController do Player não encontrado."
 		)
 
 	if dummy_facing != null:
-		dummy_facing.setup(player_1)
+		dummy_facing.setup(
+			player_1
+		)
 	else:
 		printerr(
 			"FightManager: FacingController do Dummy não encontrado."
@@ -238,12 +223,14 @@ func _ready() -> void:
 		player_2_mp
 	)
 
-	hud.set_timer_enabled(true)
-	hud.set_sudden_death_mode(false)
+	hud.set_timer_enabled(
+		true
+	)
 
+	hud.set_sudden_death_mode(
+		false
+	)
 
-	# O menu precisa continuar processando
-	# enquanto a árvore estiver pausada.
 	if pause_menu != null:
 		pause_menu.process_mode = (
 			Node.PROCESS_MODE_ALWAYS
@@ -892,38 +879,41 @@ func _prepare_round_intro_states() -> void:
 	var player_intro_state: StringName = &"Idle"
 	var cpu_intro_state: StringName = &"Idle"
 
-	# Somente no primeiro round tentamos usar Entry.
 	if current_round_number == 1:
+		# PLAYER É CHUN-LI
 		if (
-			player_1_state_machine != null
-			and player_1_state_machine.has_state(&"Entry")
+			FighterSelection.player_fighter
+			== FighterSelection.Fighter.CHUN_LI
 		):
-			player_intro_state = &"Entry"
-
-			# Alguns personagens podem possuir uma
-			# entrada com deslocamento, como Chun-Li.
-			if (
-				player_1_entry_spawn != null
-				and player_1.has_method(
-					"start_entry_motion"
-				)
-			):
-				player_1.call(
-					"start_entry_motion",
-					player_1_entry_spawn.global_position,
+			player_intro_state = (
+				_prepare_chun_li_entry(
+					player_1,
+					player_1_state_machine,
 					player_1_start_position,
-					0,
-					19
+					false
 				)
+			)
 
-	# O jogador usa Entry, quando disponível.
+		# DUMMY É CHUN-LI
+		if (
+			FighterSelection.opponent_fighter
+			== FighterSelection.Fighter.CHUN_LI
+		):
+			cpu_intro_state = (
+				_prepare_chun_li_entry(
+					player_2,
+					player_2_state_machine,
+					player_2_start_position,
+					true
+				)
+			)
+
 	_set_character_intro_state(
 		player_1_state_machine,
 		player_intro_state,
 		"Player 1"
 	)
 
-	# A CPU aguarda parada.
 	_set_character_intro_state(
 		player_2_state_machine,
 		cpu_intro_state,
@@ -965,11 +955,30 @@ func _release_round_intro_states() -> void:
 	# Garante que a Chun-Li esteja exatamente na
 	# start position, mesmo que a animação não tenha
 	# alcançado o frame 19 por alguma razão.
-	if (
-		current_round_number == 1
-		and player_1.has_method("finish_entry_motion")
-	):
-		player_1.call("finish_entry_motion")
+	if current_round_number == 1:
+		if (
+			FighterSelection.player_fighter
+			== FighterSelection.Fighter.CHUN_LI
+			and player_1 != null
+			and player_1.has_method(
+				"finish_entry_motion"
+			)
+		):
+			player_1.call(
+				"finish_entry_motion"
+			)
+
+		if (
+			FighterSelection.opponent_fighter
+			== FighterSelection.Fighter.CHUN_LI
+			and player_2 != null
+			and player_2.has_method(
+				"finish_entry_motion"
+			)
+		):
+			player_2.call(
+				"finish_entry_motion"
+			)
 
 	_release_character_intro_state(
 		player_1_state_machine,
@@ -1051,16 +1060,19 @@ func _open_player_defeat_screen() -> void:
 			change_error
 		)
 
-func _enter_tree() -> void:
-	_spawn_selected_fighters()
+
 
 func _spawn_selected_fighters() -> void:
-	var player_scene: PackedScene = _get_fighter_scene(
-		FighterSelection.player_fighter
+	var player_scene: PackedScene = (
+		_get_fighter_scene(
+			FighterSelection.player_fighter
+		)
 	)
 
-	var cpu_scene: PackedScene = _get_fighter_scene(
-		FighterSelection.opponent_fighter
+	var cpu_scene: PackedScene = (
+		_get_fighter_scene(
+			FighterSelection.opponent_fighter
+		)
 	)
 
 	print(
@@ -1112,29 +1124,50 @@ func _spawn_selected_fighters() -> void:
 	add_child(player_instance)
 	add_child(cpu_instance)
 
+	# Agora guardamos diretamente as instâncias.
+	player_1 = player_instance
+	player_2 = cpu_instance
+
+	# Busca StateMachine, Health, MP, DummyAI etc.
+	_cache_fighter_components()
+
 	var player_spawn := (
-		get_node_or_null("PlayerSpawn")
+		get_node_or_null(
+			"PlayerSpawn"
+		)
 		as Marker2D
 	)
 
 	var dummy_spawn := (
-		get_node_or_null("DummySpawn")
+		get_node_or_null(
+			"DummySpawn"
+		)
 		as Marker2D
 	)
 
 	if player_spawn != null:
-		player_instance.global_position = (
+		player_1.global_position = (
 			player_spawn.global_position
 		)
 
 	if dummy_spawn != null:
-		cpu_instance.global_position = (
+		player_2.global_position = (
 			dummy_spawn.global_position
 		)
 
 	_apply_mirror_match_color(
-		player_instance,
-		cpu_instance
+		player_1,
+		player_2
+	)
+
+	print(
+		"PLAYER INSTANCIADO: ",
+		player_scene.resource_path
+	)
+
+	print(
+		"CPU INSTANCIADA: ",
+		cpu_scene.resource_path
 	)
 
 func _get_fighter_scene(
@@ -1163,3 +1196,219 @@ func _apply_mirror_match_color(
 
 	# Mesmo personagem.
 	cpu.modulate = mirror_cpu_color
+
+func _cache_fighter_components() -> void:
+	if player_1 == null:
+		printerr(
+			"FightManager: Player1 é nulo."
+		)
+		return
+
+	if player_2 == null:
+		printerr(
+			"FightManager: Dummy é nulo."
+		)
+		return
+
+	player_facing = (
+		player_1.get_node_or_null(
+			"FacingController"
+		)
+		as FacingController
+	)
+
+	dummy_facing = (
+		player_2.get_node_or_null(
+			"FacingController"
+		)
+		as FacingController
+	)
+
+	player_1_health = (
+		player_1.get_node_or_null(
+			"Health"
+		)
+		as Health
+	)
+
+	player_2_health = (
+		player_2.get_node_or_null(
+			"Health"
+		)
+		as Health
+	)
+
+	player_1_mp = (
+		player_1.get_node_or_null(
+			"MagicPoints"
+		)
+		as MagicPoints
+	)
+
+	player_2_mp = (
+		player_2.get_node_or_null(
+			"MagicPoints"
+		)
+		as MagicPoints
+	)
+
+	player_1_state_machine = (
+		player_1.get_node_or_null(
+			"StateMachine"
+		)
+		as StateMachine
+	)
+
+	player_2_state_machine = (
+		player_2.get_node_or_null(
+			"StateMachine"
+		)
+		as StateMachine
+	)
+
+	player_ai = (
+		player_1.find_child(
+			"DummyAI",
+			true,
+			false
+		) as DummyAI
+	)
+
+	dummy_ai = (
+		player_2.find_child(
+			"DummyAI",
+			true,
+			false
+		)
+		as DummyAI
+	)
+
+	print(
+		"FightManager: componentes carregados."
+	)
+
+	print(
+		"Player1: ",
+		player_1.name
+	)
+
+	print(
+		"Dummy: ",
+		player_2.name
+	)
+
+	print(
+		"DummyAI encontrada: ",
+		dummy_ai != null
+	)
+
+
+func _get_chun_li_entry_position(
+	as_dummy: bool
+) -> Vector2:
+	if chun_li_entry_spawn == null:
+		return Vector2.ZERO
+
+	if not as_dummy:
+		return chun_li_entry_spawn.global_position
+
+	if (
+		player_spawn == null
+		or dummy_spawn == null
+	):
+		return chun_li_entry_spawn.global_position
+
+	var arena_center_x: float = (
+		player_spawn.global_position.x
+		+ dummy_spawn.global_position.x
+	) * 0.5
+
+	var original_position: Vector2 = (
+		chun_li_entry_spawn.global_position
+	)
+
+	var mirrored_position := Vector2(
+		(2.0 * arena_center_x)
+		- original_position.x,
+		original_position.y
+	)
+
+	return mirrored_position
+
+func _prepare_chun_li_entry(
+	character: CharacterBody2D,
+	state_machine: StateMachine,
+	final_position: Vector2,
+	as_dummy: bool
+) -> StringName:
+	if character == null:
+		return &"Idle"
+
+	if state_machine == null:
+		return &"Idle"
+
+	if not state_machine.has_state(&"Entry"):
+		return &"Idle"
+
+	if not character.has_method(
+		"start_entry_motion"
+	):
+		return &"Idle"
+
+	var entry_position: Vector2 = (
+		_get_chun_li_entry_position(
+			as_dummy
+		)
+	)
+
+	character.call(
+		"start_entry_motion",
+		entry_position,
+		final_position,
+		0,
+		19
+	)
+
+	print(
+		"Entrada Chun-Li | ",
+		"Dummy" if as_dummy else "Player",
+		" | início: ",
+		entry_position,
+		" | destino: ",
+		final_position
+	)
+
+	return &"Entry"
+
+func _configure_fighter_ai() -> void:
+	# O personagem escolhido no CharacterSelect
+	# é sempre controlado pelo jogador.
+	if player_ai != null:
+		player_ai.active = false
+
+		player_ai.process_mode = (
+			Node.PROCESS_MODE_DISABLED
+		)
+
+	# O personagem escolhido no OpponentSelect
+	# é sempre controlado pela CPU.
+	if dummy_ai != null:
+		dummy_ai.active = true
+
+		dummy_ai.process_mode = (
+			Node.PROCESS_MODE_INHERIT
+		)
+
+		dummy_ai.setup(
+			player_1
+		)
+
+		print(
+			"DummyAI ativada no oponente: ",
+			player_2.name
+		)
+	else:
+		printerr(
+			"FightManager: personagem escolhido no "
+			+ "OpponentSelect não possui DummyAI."
+		)

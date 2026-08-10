@@ -65,6 +65,8 @@ corner_radius_bottom_left = 4
 
 [node name="CenaDaLuta" type="Node2D" unique_id=111988353 node_paths=PackedStringArray("pause_menu")]
 script = ExtResource("1_oi066")
+chun_li_scene = ExtResource("4_oi066")
+elena_scene = ExtResource("5_hvrgt")
 pause_menu = NodePath("PauseLayer/PauseMenu")
 
 [node name="Stage" type="Node2D" parent="." unique_id=1094057888]
@@ -82,7 +84,6 @@ scale = Vector2(1.5481771, 1.5546875)
 texture = ExtResource("2_cuiii")
 
 [node name="Chão" type="StaticBody2D" parent="Stage" unique_id=43905329]
-visible = false
 z_index = -10
 position = Vector2(693, 315)
 scale = Vector2(0.9453125, 0.8769531)
@@ -123,15 +124,8 @@ position = Vector2(571, 308)
 
 [node name="HUD" parent="." unique_id=434548975 instance=ExtResource("3_hvrgt")]
 
-[node name="Player1" parent="." unique_id=1120152477 groups=["fighters"] instance=ExtResource("4_oi066")]
-position = Vector2(304, 467)
-disable_mode = 2
-
-[node name="Player1EntrySpawn" type="Marker2D" parent="." unique_id=1080508581]
+[node name="ChunLiEntrySpawn" type="Marker2D" parent="." unique_id=1080508581]
 position = Vector2(14, 467)
-
-[node name="Dummy" parent="." unique_id=597853256 groups=["fighters"] instance=ExtResource("5_hvrgt")]
-position = Vector2(903, 386)
 
 [node name="PauseLayer" type="CanvasLayer" parent="." unique_id=562054979]
 
@@ -215,3 +209,9 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_57qmd")
 theme_override_styles/hover = SubResource("StyleBoxFlat_1gsfq")
 text = "Recomeçar luta"
 icon_alignment = 1
+
+[node name="PlayerSpawn" type="Marker2D" parent="." unique_id=730847702]
+position = Vector2(282, 467)
+
+[node name="DummySpawn" type="Marker2D" parent="." unique_id=1102336633]
+position = Vector2(850, 467)

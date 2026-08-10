@@ -13,7 +13,7 @@ enum AIAction {
 @export_group("Referências")
 @export var state_machine: StateMachine
 @export var target: CharacterBody2D
-@export var active: bool = true
+@export var active: bool = false
 
 @export_group("Estados")
 @export var idle_state: StringName = &"Idle"
