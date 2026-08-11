@@ -2,11 +2,20 @@ extends CanvasLayer
 class_name FightHUD
 
 signal time_over
+signal guard_changed(
+	current_value: float,
+	max_value: float
+)
+
+signal guard_broken
+signal guard_reset
 
 @onready var player_1_hp: ProgressBar = %Player1HP
 @onready var player_2_hp: ProgressBar = %Player2HP
 @onready var timer_label: Label = %Timer
 @onready var sudden_death_label: Label = $__/_/SuddenDeathLabel
+
+
 
 @onready var player_1_win_icons: Array[TextureRect] = [
 	%Player1Win1,
@@ -17,6 +26,14 @@ signal time_over
 	%Player2Win1,
 	%Player2Win2
 ]
+
+@onready var player_guard_indicator: GuardIndicator = (
+	$PlayerGuardIndicator
+)
+
+@onready var dummy_guard_indicator: GuardIndicator = (
+	$DummyGuardIndicator
+)
 
 @export var hp_animation_speed: float = 800.0
 @export var round_time: float = 90.0
@@ -46,6 +63,9 @@ var dummy_magic_points: MagicPoints
 
 var target_player_1_mp: float = 0.0
 var target_player_2_mp: float = 0.0
+
+var max_guard: float = 100.0
+var current_guard: float = 100.0
 
 @export var mp_animation_speed: float = 3.0
 
@@ -578,3 +598,54 @@ func _on_dummy_mp_changed(
 
 	player_2_mp.max_value = maximum_mp
 	target_player_2_mp = current_mp
+
+func apply_guard_damage(
+	amount: float
+) -> void:
+	current_guard = maxf(
+		current_guard - amount,
+		0.0
+	)
+
+	guard_changed.emit(
+		current_guard,
+		max_guard
+	)
+
+	if current_guard <= 0.0:
+		guard_broken.emit()
+
+func update_player_guard(
+	current_value: float,
+	max_value: float
+) -> void:
+	player_guard_indicator.update_guard(
+		current_value,
+		max_value
+	)
+
+
+func update_dummy_guard(
+	current_value: float,
+	max_value: float
+) -> void:
+	dummy_guard_indicator.update_guard(
+		current_value,
+		max_value
+	)
+
+
+func break_player_guard() -> void:
+	player_guard_indicator.break_guard()
+
+
+func break_dummy_guard() -> void:
+	dummy_guard_indicator.break_guard()
+
+
+func reset_player_guard() -> void:
+	player_guard_indicator.reset_guard()
+
+
+func reset_dummy_guard() -> void:
+	dummy_guard_indicator.reset_guard()

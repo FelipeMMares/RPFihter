@@ -5,7 +5,8 @@ class_name HitSpark
 enum SparkType {
 	LIGHT,
 	HEAVY,
-	SPECIAL
+	SPECIAL,
+	GUARD
 }
 
 
@@ -42,6 +43,10 @@ func play_spark(
 				&"SpecialHit"
 			)
 
+		SparkType.GUARD:
+			animated_sprite.play(
+				&"GuardHit"
+			)
 
 func _on_animation_finished() -> void:
 	queue_free()

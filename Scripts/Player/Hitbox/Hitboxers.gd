@@ -172,27 +172,47 @@ func _try_hit(area: Area2D) -> void:
 		_owner_character
 	)
 
-	var caused_damage: bool = (
-		typeof(hit_result) == TYPE_BOOL
-		and hit_result == true
+	if typeof(hit_result) != TYPE_INT:
+		printerr(
+			"HitBox: receive_hit retornou valor inválido: ",
+			hit_result
+		)
+		return
+
+	var combat_result: int = int(
+		hit_result
 	)
 
-	if caused_damage:
-		_spawn_hit_spark(area)
-
-		if (
-			_owner_character != null
-			and _owner_character.has_method(
-				"gain_mp_from_successful_hit"
-			)
-		):
-			_owner_character.call(
-				"gain_mp_from_successful_hit",
-				mp_gain_multiplier
+	match combat_result:
+		CombatHitResult.Type.HIT:
+			_spawn_hit_spark(
+				area,
+				hit_spark_type
 			)
 
-	hit_confirmed.emit(area)
+			if (
+				_owner_character != null
+				and _owner_character.has_method(
+					"gain_mp_from_successful_hit"
+				)
+			):
+				_owner_character.call(
+					"gain_mp_from_successful_hit",
+					mp_gain_multiplier
+				)
 
+		CombatHitResult.Type.GUARD:
+			_spawn_hit_spark(
+				area,
+				HitSpark.SparkType.GUARD
+			)
+
+		CombatHitResult.Type.IGNORED:
+			pass
+
+	hit_confirmed.emit(
+		area
+	)
 
 func _find_owner_character() -> CharacterBody2D:
 	var current_node: Node = get_parent()
@@ -212,7 +232,8 @@ func set_owner_character(
 
 
 func _spawn_hit_spark(
-	hurtbox: Area2D
+	hurtbox: Area2D,
+	spark_type: int
 ) -> void:
 	if hurtbox == null:
 		return
@@ -244,6 +265,6 @@ func _spawn_hit_spark(
 	) * 0.5
 
 	spark.play_spark(
-		hit_spark_type,
+		spark_type,
 		impact_position
 	)

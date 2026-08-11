@@ -84,22 +84,39 @@ func _validate_hurtbox_shapes() -> void:
 func receive_hit(
 	hit_data: HitData,
 	attacker: CharacterBody2D = null
-) -> void:
+) -> int:
 	if invulnerable:
-		return
+		return CombatHitResult.Type.IGNORED
 
 	var character := get_character()
 
 	if character == null:
-		return
+		return CombatHitResult.Type.IGNORED
 
-	if character.has_method("receive_combat_hit"):
+	# Guarda o estado ANTES de processar o golpe.
+	# Isso é importante porque o golpe pode quebrar
+	# a defesa e mudar o estado depois.
+	var was_guarding: bool = false
+
+	if state_machine != null:
+		was_guarding = (
+			state_machine.get_current_state_name()
+			== &"Guard"
+		)
+
+	if character.has_method(
+		"receive_combat_hit"
+	):
 		character.call(
 			"receive_combat_hit",
 			hit_data,
 			attacker
 		)
-		return
+
+		if was_guarding:
+			return CombatHitResult.Type.GUARD
+
+		return CombatHitResult.Type.HIT
 
 	printerr(
 		"HurtBox: personagem ",
@@ -113,10 +130,10 @@ func receive_hit(
 			character.name,
 			": Health não encontrada."
 		)
-		return
+		return CombatHitResult.Type.IGNORED
 
 	if health.is_defeated():
-		return
+		return CombatHitResult.Type.IGNORED
 
 	print(
 		"PERSONAGEM ATINGIDO | alvo: ",
@@ -125,10 +142,12 @@ func receive_hit(
 		hit_data.damage
 	)
 
-	health.take_damage(hit_data.damage)
+	health.take_damage(
+		hit_data.damage
+	)
 
 	if health.is_defeated():
-		return
+		return CombatHitResult.Type.HIT
 
 	if state_machine == null:
 		printerr(
@@ -136,10 +155,15 @@ func receive_hit(
 			character.name,
 			": StateMachine não encontrada."
 		)
-		return
 
-	if state_machine.has_state(&"Hurt"):
-		state_machine.receive_hit(hit_data)
+		return CombatHitResult.Type.HIT
+
+	if state_machine.has_state(
+		&"Hurt"
+	):
+		state_machine.receive_hit(
+			hit_data
+		)
 	else:
 		printerr(
 			"StateMachine de ",
@@ -147,6 +171,7 @@ func receive_hit(
 			" não possui estado Hurt."
 		)
 
+	return CombatHitResult.Type.HIT
 
 func get_character() -> CharacterBody2D:
 	return character

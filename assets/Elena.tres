@@ -1191,7 +1191,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("174_gleuf")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"Guard",
 "speed": 12.0
 }, {

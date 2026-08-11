@@ -1,7 +1,40 @@
 [gd_scene format=3 uid="uid://dieug5pcekpfa"]
 
 [ext_resource type="Script" uid="uid://d15e8nmkwgeuo" path="res://Scripts/Combat/HitSpark.gd" id="1_0uvs6"]
+[ext_resource type="Texture2D" uid="uid://cgfwbgnorgrp3" path="res://assets/HitSparks/ChatGPT_Image_10_de_ago._de_2026__23_50_24-removebg-preview.png" id="2_3wp8l"]
 [ext_resource type="Texture2D" uid="uid://brurg7jhvkp4g" path="res://assets/HitSparks/ChatGPT_Image_10_de_ago._de_2026__00_59_19-removebg-preview.png" id="2_t3rhb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ipkl"]
+atlas = ExtResource("2_3wp8l")
+region = Rect2(0, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tbln"]
+atlas = ExtResource("2_3wp8l")
+region = Rect2(144, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0buiy"]
+atlas = ExtResource("2_3wp8l")
+region = Rect2(288, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5si6e"]
+atlas = ExtResource("2_3wp8l")
+region = Rect2(432, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5trr7"]
+atlas = ExtResource("2_3wp8l")
+region = Rect2(576, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrlmi"]
+atlas = ExtResource("2_3wp8l")
+region = Rect2(720, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1lm1"]
+atlas = ExtResource("2_3wp8l")
+region = Rect2(0, 144, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qe564"]
+atlas = ExtResource("2_3wp8l")
+region = Rect2(144, 144, 144, 144)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3wp8l"]
 atlas = ExtResource("2_t3rhb")
@@ -79,6 +112,35 @@ region = Rect2(585, 117, 117, 117)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_4ipkl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tbln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0buiy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5si6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5trr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrlmi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1lm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qe564")
+}],
+"loop": 0,
+"name": &"GuardHit",
+"speed": 18.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_3wp8l")
 }, {
 "duration": 1.0,
@@ -153,4 +215,7 @@ script = ExtResource("1_0uvs6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1627024060]
 z_index = 20
 sprite_frames = SubResource("SpriteFrames_fabci")
-animation = &"SpecialHit"
+animation = &"GuardHit"
+frame = 7
+frame_progress = 1.0
+flip_h = true

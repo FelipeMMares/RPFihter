@@ -1,6 +1,13 @@
 extends State
 class_name GuardState
 
+signal guard_changed(
+	current_value: float,
+	max_value: float
+)
+
+signal guard_broken
+signal guard_reset
 
 @export_group("Transições")
 
@@ -18,6 +25,8 @@ var parry_window_seconds: float = 0.15
 var _leaving_guard: bool = false
 var _keep_guard_active: bool = false
 
+var max_guard: float = 100.0
+var current_guard: float = 100.0
 
 func _enter() -> void:
 	move.emit(Vector2.ZERO)
@@ -120,4 +129,14 @@ func _get_character() -> CharacterBody2D:
 	return (
 		get_parent().get_parent()
 		as CharacterBody2D
+	)
+
+func reset_guard_meter() -> void:
+	current_guard = max_guard
+
+	guard_reset.emit()
+
+	guard_changed.emit(
+		current_guard,
+		max_guard
 	)

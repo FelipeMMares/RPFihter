@@ -1,4 +1,5 @@
 res://assets/HitSparks/
+res://assets/Audio/Music/
 res://Scripts/Combat/
 res://assets/
 res://assets/Elena Taunt/
@@ -8,7 +9,6 @@ res://Cenas/Dummy/
 res://Cenas/Player/
 res://Cenas/CharacterSelect/
 res://Scripts/Global/
-res://assets/Audio/Music/
 C:/Users/Felipe/OneDrive/Documentos/Godot/rp-fighter/Builds/Windows/
 res://Cenas/DefeatScreen/
 res://Cenas/MainMenu/

@@ -2,7 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dhviov6362lqq" path="res://Cenas/HUD/hud.gd" id="1_i0rcs"]
 [ext_resource type="Texture2D" uid="uid://d4b5hp3cldoxs" path="res://assets/pixel-art-coin-money-dolar-icon-for-8bit-game-on-white-background-vector-removebg-preview.png" id="2_xiwd3"]
+[ext_resource type="Texture2D" uid="uid://by0qm0koila71" path="res://assets/HitSparks/ChatGPT Image 10 de ago. de 2026, 19_34_49.png" id="3_7dhyc"]
 [ext_resource type="FontFile" uid="uid://ct6yapfcrys5m" path="res://assets/fontes/PressStart2P-Regular.ttf" id="3_f148t"]
+[ext_resource type="Texture2D" uid="uid://bnpmgci4fyedj" path="res://assets/HitSparks/ChatGPT_Image_10_de_ago._de_2026__19_15_28-removebg-preview.png" id="4_gfn6i"]
+[ext_resource type="Script" uid="uid://c0dvrraw62jj5" path="res://Cenas/HUD/GuardIndicator.gd" id="5_gfn6i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xyro"]
 bg_color = Color(0.64705884, 0.011764706, 0.12156863, 1)
@@ -37,6 +40,56 @@ font_size = 32
 font_color = Color(0.64705884, 0.011764706, 0.12156863, 1)
 outline_size = 7
 outline_color = Color(1, 1, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3703"]
+atlas = ExtResource("4_gfn6i")
+region = Rect2(0, 0, 102, 408)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkbgh"]
+atlas = ExtResource("4_gfn6i")
+region = Rect2(102, 0, 102, 408)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0n8st"]
+atlas = ExtResource("4_gfn6i")
+region = Rect2(204, 0, 102, 408)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_288g3"]
+atlas = ExtResource("4_gfn6i")
+region = Rect2(306, 0, 102, 408)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6xb4"]
+atlas = ExtResource("4_gfn6i")
+region = Rect2(408, 0, 102, 408)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gljq"]
+atlas = ExtResource("4_gfn6i")
+region = Rect2(510, 0, 102, 408)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3703")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkbgh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0n8st")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_288g3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6xb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gljq")
+}],
+"loop": 0,
+"name": &"Shield",
+"speed": 5.0
+}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f148t"]
 bg_color = Color(0.99607843, 0.09411765, 0.003921569, 1)
@@ -194,6 +247,92 @@ size_flags_horizontal = 8
 texture = ExtResource("2_xiwd3")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="DummyGuardIndicator" type="Control" parent="." unique_id=1556698351]
+unique_name_in_owner = true
+layout_mode = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -82.0
+offset_top = -88.0
+offset_right = -2.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("5_gfn6i")
+
+[node name="RingBackground" type="TextureRect" parent="DummyGuardIndicator" unique_id=1405202114]
+custom_minimum_size = Vector2(80, 80)
+custom_maximum_size = Vector2(250, 180)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -141.0
+offset_top = -115.0
+offset_right = 29.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_7dhyc")
+
+[node name="RingProgress" type="TextureProgressBar" parent="DummyGuardIndicator" unique_id=1802992463]
+layout_mode = 0
+offset_left = -30.0
+offset_top = 15.0
+offset_right = 10.0
+offset_bottom = 55.0
+max_value = 5.0
+
+[node name="Shield" type="AnimatedSprite2D" parent="DummyGuardIndicator" unique_id=923059770]
+position = Vector2(-23, -30)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"Shield"
+
+[node name="PlayerGuardIndicator" type="Control" parent="." unique_id=935814347]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 3
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+offset_right = 80.0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+script = ExtResource("5_gfn6i")
+
+[node name="RingBackground" type="TextureRect" parent="PlayerGuardIndicator" unique_id=758851892]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+custom_maximum_size = Vector2(250, 180)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = -115.0
+offset_right = 152.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_7dhyc")
+
+[node name="RingProgress" type="TextureProgressBar" parent="PlayerGuardIndicator" unique_id=731780009]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 30.0
+offset_top = -114.0
+offset_right = 190.0
+offset_bottom = 61.0
+fill_mode = 4
+
+[node name="Shield" type="AnimatedSprite2D" parent="PlayerGuardIndicator" unique_id=999594029]
+position = Vector2(99, -30)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"Shield"
 
 [node name="RoundMessage" type="Label" parent="." unique_id=660895690]
 unique_name_in_owner = true

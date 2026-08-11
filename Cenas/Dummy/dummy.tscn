@@ -287,9 +287,7 @@ body_collision = NodePath("Hurtbox/TorsoShape")
 position = Vector2(2.9999924, -8)
 scale = Vector2(1.3985853, 1.7576089)
 sprite_frames = ExtResource("2_ii0w8")
-animation = &"Taunt"
-frame = 34
-frame_progress = 1.0
+animation = &"Guard"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1128512923]
 visible = false
