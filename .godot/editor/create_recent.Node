@@ -1,6 +1,6 @@
+AnimatedSprite2D
 TextureProgressBar
 TextureRect
-AnimatedSprite2D
 Control
 AudioStreamPlayer
 Marker2D
@@ -12,4 +12,3 @@ VBoxContainer
 HBoxContainer
 Button
 GridContainer
-CenterContainer

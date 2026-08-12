@@ -287,10 +287,11 @@ body_collision = NodePath("Hurtbox/TorsoShape")
 position = Vector2(2.9999924, -8)
 scale = Vector2(1.3985853, 1.7576089)
 sprite_frames = ExtResource("2_ii0w8")
-animation = &"Guard"
+animation = &"TryGrab"
+frame = 8
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1128512923]
-visible = false
 position = Vector2(3, 26)
 shape = SubResource("RectangleShape2D_vqqph")
 
@@ -513,7 +514,6 @@ script = ExtResource("548_waugo")
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1276732752 node_paths=PackedStringArray("health", "state_machine", "head_shape", "torso_shape", "feet_shape", "crouch_shape")]
-visible = false
 collision_layer = 2
 collision_mask = 0
 monitoring = false
@@ -526,20 +526,19 @@ feet_shape = NodePath("FeetShape")
 crouch_shape = NodePath("CrouchShape")
 
 [node name="HeadShape" type="CollisionShape2D" parent="Hurtbox" unique_id=1233750611]
-position = Vector2(-37, 9)
+position = Vector2(-3, -45)
 shape = SubResource("CircleShape2D_g4v7s")
 
 [node name="TorsoShape" type="CollisionShape2D" parent="Hurtbox" unique_id=2093546024]
-position = Vector2(-44, 58)
+position = Vector2(2, -4)
 shape = SubResource("RectangleShape2D_xohad")
 
 [node name="FeetShape" type="CollisionShape2D" parent="Hurtbox" unique_id=988701109]
-position = Vector2(-43, 134)
+position = Vector2(12, 80)
 shape = SubResource("RectangleShape2D_4m0yg")
 
 [node name="CrouchShape" type="CollisionShape2D" parent="Hurtbox" unique_id=839515953]
-visible = false
-position = Vector2(-49, 118)
+position = Vector2(13, 72)
 shape = SubResource("RectangleShape2D_6u6l6")
 
 [node name="Health" type="Node" parent="." unique_id=1105559145]
@@ -762,12 +761,11 @@ scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_3gngh")
 
 [node name="ThrowBox" type="Area2D" parent="Hitboxers" unique_id=1521699408]
-visible = false
 position = Vector2(-86, 66)
 script = ExtResource("388_msxmn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/ThrowBox" unique_id=109282028]
-position = Vector2(-5, 7)
+position = Vector2(214, 22)
 shape = SubResource("RectangleShape2D_pb4hy")
 
 [node name="ThrowPathRoot" type="Node" parent="Hitboxers" unique_id=1127613038]

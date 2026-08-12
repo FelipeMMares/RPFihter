@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cowq1tx6mvs2o"]
+
+[ext_resource type="Texture2D" uid="uid://b0yxxuartte3d" path="res://assets/HitSparks/ChatGPT_Image_11_de_ago._de_2026__18_31_37-removebg-preview.png" id="1_cd3n8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbbu6"]
+atlas = ExtResource("1_cd3n8")
+region = Rect2(0, 125, 83, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vprjn"]
+atlas = ExtResource("1_cd3n8")
+region = Rect2(249, 125, 83, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpoa8"]
+atlas = ExtResource("1_cd3n8")
+region = Rect2(332, 125, 83, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sj1c6"]
+atlas = ExtResource("1_cd3n8")
+region = Rect2(0, 250, 83, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gufan"]
+atlas = ExtResource("1_cd3n8")
+region = Rect2(166, 250, 83, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6imqd"]
+atlas = ExtResource("1_cd3n8")
+region = Rect2(415, 250, 83, 125)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbbu6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vprjn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tpoa8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sj1c6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gufan")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6imqd")
+}],
+"loop": 0,
+"name": &"GuardProgress",
+"speed": 5.0
+}]

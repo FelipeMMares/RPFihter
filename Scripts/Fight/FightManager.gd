@@ -1,6 +1,14 @@
 extends Node2D
 class_name FightManager
 
+@onready var player_guard_indicator: GuardIndicator = (
+	$HUD/PlayerGuardIndicator
+)
+
+@onready var dummy_guard_indicator: GuardIndicator = (
+	$HUD/DummyGuardIndicator
+)
+
 @export_group("Personagens")
 
 @export var chun_li_scene: PackedScene
@@ -138,6 +146,8 @@ func _ready() -> void:
 			"FightManager: não foi possível criar os lutadores."
 		)
 		return
+
+	_connect_guard_indicators()
 
 	player_1_start_position = (
 		player_1.global_position
@@ -1412,3 +1422,169 @@ func _configure_fighter_ai() -> void:
 			"FightManager: personagem escolhido no "
 			+ "OpponentSelect não possui DummyAI."
 		)
+
+func _connect_guard_ui() -> void:
+	if player_1 != null:
+		var player_changed := Callable(
+			hud,
+			"update_player_guard"
+		)
+
+		var player_broken := Callable(
+			hud,
+			"break_player_guard"
+		)
+
+		if player_1.has_signal(
+			"guard_changed"
+		):
+			if not player_1.is_connected(
+				"guard_changed",
+				player_changed
+			):
+				player_1.connect(
+					"guard_changed",
+					player_changed
+				)
+
+		if player_1.has_signal(
+			"guard_broken"
+		):
+			if not player_1.is_connected(
+				"guard_broken",
+				player_broken
+			):
+				player_1.connect(
+					"guard_broken",
+					player_broken
+				)
+
+
+	if player_2 != null:
+		var dummy_changed := Callable(
+			hud,
+			"update_dummy_guard"
+		)
+
+		var dummy_broken := Callable(
+			hud,
+			"break_dummy_guard"
+		)
+
+		if player_2.has_signal(
+			"guard_changed"
+		):
+			if not player_2.is_connected(
+				"guard_changed",
+				dummy_changed
+			):
+				player_2.connect(
+					"guard_changed",
+					dummy_changed
+				)
+
+		if player_2.has_signal(
+			"guard_broken"
+		):
+			if not player_2.is_connected(
+				"guard_broken",
+				dummy_broken
+			):
+				player_2.connect(
+					"guard_broken",
+					dummy_broken
+				)
+
+func _connect_guard_indicators() -> void:
+	if player_1 == null:
+		printerr(
+			"FightManager: Player1 nulo ao conectar Guard UI."
+		)
+	else:
+		if player_1.has_signal(
+			&"guard_changed"
+		):
+			player_1.connect(
+				&"guard_changed",
+				Callable(
+					player_guard_indicator,
+					"update_guard"
+				)
+			)
+
+			print(
+				"Guard UI conectada ao Player1."
+			)
+		else:
+			printerr(
+				"Player1 não possui signal guard_changed."
+			)
+
+		if player_1.has_signal(
+			&"guard_broken"
+		):
+			player_1.connect(
+				&"guard_broken",
+				Callable(
+					player_guard_indicator,
+					"break_guard"
+				)
+			)
+
+		if player_1.has_signal(
+			&"guard_reset"
+		):
+			player_1.connect(
+				&"guard_reset",
+				Callable(
+					player_guard_indicator,
+					"reset_guard"
+				)
+			)
+
+
+	if player_2 == null:
+		printerr(
+			"FightManager: Dummy nulo ao conectar Guard UI."
+		)
+	else:
+		if player_2.has_signal(
+			&"guard_changed"
+		):
+			player_2.connect(
+				&"guard_changed",
+				Callable(
+					dummy_guard_indicator,
+					"update_guard"
+				)
+			)
+
+			print(
+				"Guard UI conectada ao Dummy."
+			)
+		else:
+			printerr(
+				"Dummy não possui signal guard_changed."
+			)
+
+		if player_2.has_signal(
+			&"guard_broken"
+		):
+			player_2.connect(
+				&"guard_broken",
+				Callable(
+					dummy_guard_indicator,
+					"break_guard"
+				)
+			)
+
+		if player_2.has_signal(
+			&"guard_reset"
+		):
+			player_2.connect(
+				&"guard_reset",
+				Callable(
+					dummy_guard_indicator,
+					"reset_guard"
+				)
+			)

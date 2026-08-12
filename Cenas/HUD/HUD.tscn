@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dhviov6362lqq" path="res://Cenas/HUD/hud.gd" id="1_i0rcs"]
 [ext_resource type="Texture2D" uid="uid://d4b5hp3cldoxs" path="res://assets/pixel-art-coin-money-dolar-icon-for-8bit-game-on-white-background-vector-removebg-preview.png" id="2_xiwd3"]
-[ext_resource type="Texture2D" uid="uid://by0qm0koila71" path="res://assets/HitSparks/ChatGPT Image 10 de ago. de 2026, 19_34_49.png" id="3_7dhyc"]
 [ext_resource type="FontFile" uid="uid://ct6yapfcrys5m" path="res://assets/fontes/PressStart2P-Regular.ttf" id="3_f148t"]
 [ext_resource type="Texture2D" uid="uid://bnpmgci4fyedj" path="res://assets/HitSparks/ChatGPT_Image_10_de_ago._de_2026__19_15_28-removebg-preview.png" id="4_gfn6i"]
+[ext_resource type="SpriteFrames" uid="uid://cowq1tx6mvs2o" path="res://Cenas/HUD/guardProgress.tres" id="4_p3703"]
 [ext_resource type="Script" uid="uid://c0dvrraw62jj5" path="res://Cenas/HUD/GuardIndicator.gd" id="5_gfn6i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xyro"]
@@ -248,9 +248,52 @@ texture = ExtResource("2_xiwd3")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="PlayerGuardIndicator" type="Control" parent="." unique_id=935814347]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+offset_right = 80.0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+script = ExtResource("5_gfn6i")
+
+[node name="RingBackground" type="TextureRect" parent="PlayerGuardIndicator" unique_id=758851892]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+custom_maximum_size = Vector2(250, 180)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = -115.0
+offset_right = 152.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RingProgress" type="AnimatedSprite2D" parent="PlayerGuardIndicator" unique_id=2067259507]
+unique_name_in_owner = true
+position = Vector2(80, -26)
+scale = Vector2(2.139, 2)
+sprite_frames = ExtResource("4_p3703")
+animation = &"GuardProgress"
+
+[node name="Shield" type="AnimatedSprite2D" parent="PlayerGuardIndicator" unique_id=999594029]
+position = Vector2(79, -28)
+scale = Vector2(0.5, 0.494)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"Shield"
+
 [node name="DummyGuardIndicator" type="Control" parent="." unique_id=1556698351]
 unique_name_in_owner = true
 layout_mode = 3
+anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -276,61 +319,16 @@ offset_right = 29.0
 offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_7dhyc")
 
-[node name="RingProgress" type="TextureProgressBar" parent="DummyGuardIndicator" unique_id=1802992463]
-layout_mode = 0
-offset_left = -30.0
-offset_top = 15.0
-offset_right = 10.0
-offset_bottom = 55.0
-max_value = 5.0
+[node name="RingProgress" type="AnimatedSprite2D" parent="DummyGuardIndicator" unique_id=1289250681]
+position = Vector2(4, -26)
+scale = Vector2(2.1, 1.908)
+sprite_frames = ExtResource("4_p3703")
+animation = &"GuardProgress"
 
 [node name="Shield" type="AnimatedSprite2D" parent="DummyGuardIndicator" unique_id=923059770]
-position = Vector2(-23, -30)
-sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"Shield"
-
-[node name="PlayerGuardIndicator" type="Control" parent="." unique_id=935814347]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 3
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -80.0
-offset_right = 80.0
-grow_vertical = 0
-size_flags_horizontal = 0
-size_flags_vertical = 8
-script = ExtResource("5_gfn6i")
-
-[node name="RingBackground" type="TextureRect" parent="PlayerGuardIndicator" unique_id=758851892]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(80, 80)
-custom_maximum_size = Vector2(250, 180)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -18.0
-offset_top = -115.0
-offset_right = 152.0
-offset_bottom = -15.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_7dhyc")
-
-[node name="RingProgress" type="TextureProgressBar" parent="PlayerGuardIndicator" unique_id=731780009]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 30.0
-offset_top = -114.0
-offset_right = 190.0
-offset_bottom = 61.0
-fill_mode = 4
-
-[node name="Shield" type="AnimatedSprite2D" parent="PlayerGuardIndicator" unique_id=999594029]
-position = Vector2(99, -30)
+position = Vector2(3, -31)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"Shield"
 

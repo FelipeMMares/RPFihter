@@ -6,6 +6,13 @@ enum ThrowRole {
 	VICTIM
 }
 
+signal guard_changed(
+	current_hits: int,
+	max_hits: int
+)
+
+signal guard_broken
+signal guard_reset
 
 var throw_role: int = ThrowRole.NONE
 
@@ -538,14 +545,8 @@ func receive_combat_hit(
 	return true
 
 func _block_attack() -> void:
-	# Os primeiros cinco ataques são bloqueados.
 	if blocked_guard_hits < maximum_guard_hits:
 		blocked_guard_hits += 1
-
-		guard_hits_changed.emit(
-			blocked_guard_hits,
-			maximum_guard_hits
-		)
 
 		print(
 			name,
@@ -555,22 +556,35 @@ func _block_attack() -> void:
 			maximum_guard_hits
 		)
 
+		guard_changed.emit(
+			blocked_guard_hits,
+			maximum_guard_hits
+		)
+
 		return
 
-	# O próximo ataque excede o limite.
 	_break_guard()
 
 func _break_guard() -> void:
 	end_guard()
 
-	print(name, " teve a defesa quebrada.")
+	print(
+		name,
+		" teve a defesa quebrada."
+	)
 
-	state_machine.force_transition(&"Stun")
+	guard_broken.emit()
+
+	state_machine.force_transition(
+		&"Stun"
+	)
 
 func reset_guard_durability() -> void:
 	blocked_guard_hits = 0
 
-	guard_hits_changed.emit(
+	guard_reset.emit()
+
+	guard_changed.emit(
 		blocked_guard_hits,
 		maximum_guard_hits
 	)
@@ -766,8 +780,11 @@ func _apply_stack_side_push(
 func reset_for_new_round() -> void:
 	velocity = Vector2.ZERO
 
-	if has_method("end_guard"):
-		end_guard()
+	end_guard()
+
+	# Reseta a resistência da defesa
+	# e também avisa a interface.
+	reset_guard_durability()
 
 	throw_locked = false
 	throw_attacker_locked = false

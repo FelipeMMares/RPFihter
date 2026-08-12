@@ -616,22 +616,22 @@ func apply_guard_damage(
 		guard_broken.emit()
 
 func update_player_guard(
-	current_value: float,
-	max_value: float
+	current_hits: int,
+	max_hits: int
 ) -> void:
 	player_guard_indicator.update_guard(
-		current_value,
-		max_value
+		current_hits,
+		max_hits
 	)
 
 
 func update_dummy_guard(
-	current_value: float,
-	max_value: float
+	current_hits: int,
+	max_hits: int
 ) -> void:
 	dummy_guard_indicator.update_guard(
-		current_value,
-		max_value
+		current_hits,
+		max_hits
 	)
 
 
