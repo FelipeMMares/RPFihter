@@ -155,6 +155,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource("2_q0owa")
+texture_pressed = ExtResource("9_mgp4o")
+texture_hover = ExtResource("9_mgp4o")
+texture_focused = ExtResource("9_mgp4o")
 ignore_texture_size = true
 stretch_mode = 6
 
@@ -163,6 +166,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource("3_jni61")
+texture_pressed = ExtResource("9_mgp4o")
+texture_hover = ExtResource("9_mgp4o")
+texture_focused = ExtResource("9_mgp4o")
 ignore_texture_size = true
 stretch_mode = 6
 
@@ -171,6 +177,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource("4_mgp4o")
+texture_pressed = ExtResource("9_mgp4o")
+texture_hover = ExtResource("9_mgp4o")
+texture_focused = ExtResource("9_mgp4o")
 ignore_texture_size = true
 stretch_mode = 6
 
@@ -179,6 +188,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource("5_x2fop")
+texture_pressed = ExtResource("9_mgp4o")
+texture_hover = ExtResource("9_mgp4o")
+texture_focused = ExtResource("9_mgp4o")
 ignore_texture_size = true
 stretch_mode = 6
 
@@ -187,6 +199,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource("6_xfsom")
+texture_pressed = ExtResource("9_mgp4o")
+texture_hover = ExtResource("9_mgp4o")
+texture_focused = ExtResource("9_mgp4o")
 ignore_texture_size = true
 stretch_mode = 6
 
