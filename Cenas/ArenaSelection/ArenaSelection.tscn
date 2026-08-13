@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d1o33whwit8pw" path="res://assets/Promps/NPCs/Fifth Stage/frame_0_delay-0.1s.png" id="6_xfsom"]
 [ext_resource type="Texture2D" uid="uid://dtl17ca0wxc5k" path="res://assets/Promps/NPCs/Sexth Stage/frame_0_delay-0.15s.png" id="7_hj61l"]
 [ext_resource type="Texture2D" uid="uid://seaq30f8bnfl" path="res://assets/Promps/widen_1840x0.jpg" id="8_jni61"]
+[ext_resource type="Texture2D" uid="uid://baq3comarfugv" path="res://assets/Promps/ChatGPT Image 13 de ago. de 2026, 11_04_13.png" id="9_mgp4o"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -194,5 +195,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource("7_hj61l")
+texture_pressed = ExtResource("9_mgp4o")
+texture_hover = ExtResource("9_mgp4o")
+texture_focused = ExtResource("9_mgp4o")
 ignore_texture_size = true
 stretch_mode = 6
