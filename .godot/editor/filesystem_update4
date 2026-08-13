@@ -1,9 +1,2 @@
-res://Cenas/Cenarios/CenaDaLuta.tscn
-res://Cenas/HUD/guardProgress.tres
-res://Cenas/Player/Player.tscn
-res://Cenas/Dummy/dummy.tscn
-res://Scripts/Global/ArenaSelection.gd
 res://Cenas/ArenaSelection/ArenaSelection.tscn
-res://Cenas/ArenaSelection/ArenaSelection.gd
-res://Cenas/OpponentSelect/OpponentSelect.gd
-res://Scripts/Fight/FightManager.gd
+res://Cenas/HUD/guardProgress.tres

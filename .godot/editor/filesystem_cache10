@@ -1,5 +1,5 @@
 78098b89c88a74ebe8c20117b8754620
-::res://::1786587445
+::res://::1786623987
 cena_da_luta.tscn::PackedScene::2011791653743989287::1786242205::0::1::::<><><>0<>0<><>::uid://cda2qv106s50p::::res://Scripts/Fight/FightManager.gd<>uid://b2vhgsxq6xck8::::res://Cenas/Cenarios/Promps/Stage.gd<>uid://uffvjaxemwn4::::res://assets/1-animated-gifs-of-fighting-game-backgrounds-16.jpg<>uid://c3ggcoutar7gl::::res://icon.svg<>uid://cxwujt80wiqyw::::res://Cenas/HUD/HUD.tscn<>uid://dwseaftx2ml7r::::res://Cenas/Cenarios/Promps/props_animated.tscn<>uid://cifi2eaq8od35::::res://Cenas/Player/Player.tscn<>uid://c3j6jqqi848lx::::res://Cenas/Dummy/dummy.tscn<>uid://de0n2cyr6pkqo::::res://Scripts/Components/PauseMenu.gd<>uid://ct6yapfcrys5m::::res://assets/fontes/PressStart2P-Regular.ttf<>uid://duiji1o2hs0ia::::res://assets/Audio/Music/InstrumentalIFghitng.mp3
 default_bus_layout.tres::AudioBusLayout::8596016198674980518::1785960058::0::1::::<><><>0<>0<><>::
 export_presets.cfg::TextFile::-1::1785919345::0::1::::<><><>0<>0<><>::
@@ -1354,7 +1354,7 @@ images (1).jpg::CompressedTexture2D::8594660054940731021::1786120452::1786130774
 images (2).jpg::CompressedTexture2D::2578549690860960206::1786130501::1786130774::1::::<><><>0<>0<>7f4a618b04e107f15dff4e15cfa950fa<>res://.godot/imported/images (2).jpg-4a1f497c5302342fea1da4f8a4b3c2d0.ctex::
 images.jpg::CompressedTexture2D::6822269675156600573::1786120437::1786130774::1::::<><><>0<>0<>c7b33df9197e4a12fb9308f5da541e82<>res://.godot/imported/images.jpg-b99b2adfaf32e92c89c1a4e563a41a57.ctex::
 Morrigan(Darkstalkers).png::CompressedTexture2D::4246079727587212646::1786130622::1786130774::1::::<><><>0<>0<>ed289c84a439cf3252feefddeb7e146f<>res://.godot/imported/Morrigan(Darkstalkers).png-3710d57a0a4880359110ed064d9b5fb5.ctex::
-::res://assets/Promps/::1786590814
+::res://assets/Promps/::1786590816
 widen_1840x0.jpg::CompressedTexture2D::1271686778748545505::1786590791::1786590816::1::::<><><>0<>0<>0a5dc28d2003ff91e033d5abe3c0ab51<>res://.godot/imported/widen_1840x0.jpg-e0d327e3324e98dc025299536c19ba50.ctex::
 ::res://assets/Promps/NPCs/::1786581247
 ::res://assets/Promps/NPCs/Fifth Stage/::1786587238
@@ -1488,9 +1488,9 @@ SF3_3rd_Chunli_23174-removebg-preview.png::CompressedTexture2D::3859837316858923
 ::res://Builds/::1785919292
 ::res://Builds/Windows/::1785919361
 ::res://Cenas/::1786587580
-::res://Cenas/ArenaSelection/::1786588714
-ArenaSelection.tscn::PackedScene::4820170047635536103::1786588713::0::1::::<><><>0<>0<><>::uid://bpajgrl5uxkrh::::res://Cenas/ArenaSelection/ArenaSelection.gd<>uid://dtgu4gtjqk1yp::::res://assets/Promps/NPCs/first stage/frame_00_delay-0.1s.png<>uid://dgvjfdjapy3tg::::res://assets/Promps/NPCs/Second stage/frame_0_delay-0.14s.png<>uid://dm1pcale1chxo::::res://assets/Promps/NPCs/Third Stage/frame_0_delay-0.08s.png<>uid://brk7tbeyyx8wv::::res://assets/Promps/NPCs/Fourth Stage/frame_00_delay-0.08s.png<>uid://d1o33whwit8pw::::res://assets/Promps/NPCs/Fifth Stage/frame_0_delay-0.1s.png<>uid://dtl17ca0wxc5k::::res://assets/Promps/NPCs/Sexth Stage/frame_0_delay-0.15s.png
+::res://Cenas/ArenaSelection/::1786592138
 ArenaSelection.gd::GDScript::3439811417242420969::1786588491::0::1::::<>Control<><>0<>0<><>::
+ArenaSelection.tscn::PackedScene::4820170047635536103::1786592138::0::1::::<><><>0<>0<><>::uid://bpajgrl5uxkrh::::res://Cenas/ArenaSelection/ArenaSelection.gd<>uid://dtgu4gtjqk1yp::::res://assets/Promps/NPCs/first stage/frame_00_delay-0.1s.png<>uid://dgvjfdjapy3tg::::res://assets/Promps/NPCs/Second stage/frame_0_delay-0.14s.png<>uid://dm1pcale1chxo::::res://assets/Promps/NPCs/Third Stage/frame_0_delay-0.08s.png<>uid://brk7tbeyyx8wv::::res://assets/Promps/NPCs/Fourth Stage/frame_00_delay-0.08s.png<>uid://d1o33whwit8pw::::res://assets/Promps/NPCs/Fifth Stage/frame_0_delay-0.1s.png<>uid://dtl17ca0wxc5k::::res://assets/Promps/NPCs/Sexth Stage/frame_0_delay-0.15s.png<>uid://seaq30f8bnfl::::res://assets/Promps/widen_1840x0.jpg
 ::res://Cenas/Cenarios/::1786588891
 CenaDaLuta.tscn::PackedScene::1126188083045734168::1786588891::0::1::::<><><>0<>0<><>::uid://cda2qv106s50p::::res://Scripts/Fight/FightManager.gd<>uid://b2vhgsxq6xck8::::res://Cenas/Cenarios/Promps/Stage.gd<>uid://uffvjaxemwn4::::res://assets/1-animated-gifs-of-fighting-game-backgrounds-16.jpg<>uid://c3ggcoutar7gl::::res://icon.svg<>uid://cxwujt80wiqyw::::res://Cenas/HUD/HUD.tscn<>uid://dwseaftx2ml7r::::res://Cenas/Cenarios/Promps/props_animated.tscn<>uid://cifi2eaq8od35::::res://Cenas/Player/Player.tscn<>uid://c3j6jqqi848lx::::res://Cenas/Dummy/dummy.tscn<>uid://de0n2cyr6pkqo::::res://Scripts/Components/PauseMenu.gd<>uid://ct6yapfcrys5m::::res://assets/fontes/PressStart2P-Regular.ttf<>uid://duiji1o2hs0ia::::res://assets/Audio/Music/InstrumentalIFghitng.mp3
 torch.gd::GDScript::3388591027322904510::1783992821::0::1::::<>Node2D<><>0<>0<><>::
@@ -1565,8 +1565,8 @@ DummyLightPunch.gd::GDScript::418107920719010870::1784942701::0::1::::<>AttackSt
 ::res://Scripts/Fight/::1786588891
 FightManager.gd::GDScript::4985076974140795001::1786588891::0::1::::FightManager<>Node2D<><>0<>0<><>::
 ::res://Scripts/Global/::1786587425
-FighterSelection.gd::GDScript::2514259666499811403::1786243142::0::1::::<>Node<><>0<>0<><>::
 ArenaSelection.gd::GDScript::894580692862110435::1786587425::0::1::::<>Node<><>0<>0<><>::
+FighterSelection.gd::GDScript::2514259666499811403::1786243142::0::1::::<>Node<><>0<>0<><>::
 ::res://Scripts/Player/::1786500242
 ImputBuffering.gd::GDScript::3783094624932333021::1783955536::0::1::::InputBuffer<>Node<><>0<>0<><>::
 Player.gd::GDScript::1944584447378545990::1786500242::0::1::::<>CharacterBody2D<><>0<>0<><>::

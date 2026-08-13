@@ -32,6 +32,12 @@ arena_03_preview = ExtResource("4_mgp4o")
 arena_04_preview = ExtResource("5_x2fop")
 arena_05_preview = ExtResource("6_xfsom")
 arena_06_preview = ExtResource("7_hj61l")
+arena_01_name = "Vila da Preguiça"
+arena_02_name = "Floresta dos Sussurros"
+arena_03_name = "Deserto dos Exilados"
+arena_04_name = "Convés Interno do Nau"
+arena_05_name = "Vale de Lava"
+arena_06_name = " Ruína do Rei Demônio"
 fight_scene_path = "uid://qbsfhc72tmiq"
 
 [node name="Background" type="TextureRect" parent="." unique_id=873780895]
@@ -130,27 +136,63 @@ theme_override_constants/margin_top = 6
 theme_override_constants/margin_right = 6
 theme_override_constants/margin_bottom = 6
 
-[node name="SelectionColumn" type="VBoxContainer" parent="MainMargin/MainRow/SelectionPanel/SelectionMargin" unique_id=1065745755]
+[node name="SelectionMargin" type="MarginContainer" parent="MainMargin/MainRow/SelectionPanel/SelectionMargin" unique_id=1710074241]
 layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
 
-[node name="ArenaGrid" type="GridContainer" parent="MainMargin/MainRow/SelectionPanel/SelectionMargin/SelectionColumn" unique_id=834553783]
+[node name="ArenaGrid" type="GridContainer" parent="MainMargin/MainRow/SelectionPanel/SelectionMargin/SelectionMargin" unique_id=834553783]
 layout_mode = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
 columns = 3
 
-[node name="Arena01Button" type="Button" parent="MainMargin/MainRow/SelectionPanel/SelectionMargin/SelectionColumn/ArenaGrid" unique_id=1198990475]
+[node name="Arena01Button" type="TextureButton" parent="MainMargin/MainRow/SelectionPanel/SelectionMargin/SelectionMargin/ArenaGrid" unique_id=949652128]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("2_q0owa")
+ignore_texture_size = true
+stretch_mode = 6
 
-[node name="Arena02Button" type="Button" parent="MainMargin/MainRow/SelectionPanel/SelectionMargin/SelectionColumn/ArenaGrid" unique_id=56336310]
+[node name="Arena02Button" type="TextureButton" parent="MainMargin/MainRow/SelectionPanel/SelectionMargin/SelectionMargin/ArenaGrid" unique_id=864613845]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("3_jni61")
+ignore_texture_size = true
+stretch_mode = 6
 
-[node name="Arena03Button" type="Button" parent="MainMargin/MainRow/SelectionPanel/SelectionMargin/SelectionColumn/ArenaGrid" unique_id=711073445]
+[node name="Arena03Button" type="TextureButton" parent="MainMargin/MainRow/SelectionPanel/SelectionMargin/SelectionMargin/ArenaGrid" unique_id=1658290568]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("4_mgp4o")
+ignore_texture_size = true
+stretch_mode = 6
 
-[node name="Arena04Button" type="Button" parent="MainMargin/MainRow/SelectionPanel/SelectionMargin/SelectionColumn/ArenaGrid" unique_id=398483033]
+[node name="Arena04Button" type="TextureButton" parent="MainMargin/MainRow/SelectionPanel/SelectionMargin/SelectionMargin/ArenaGrid" unique_id=1991685938]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("5_x2fop")
+ignore_texture_size = true
+stretch_mode = 6
 
-[node name="Arena05Button" type="Button" parent="MainMargin/MainRow/SelectionPanel/SelectionMargin/SelectionColumn/ArenaGrid" unique_id=766754892]
+[node name="Arena05Button" type="TextureButton" parent="MainMargin/MainRow/SelectionPanel/SelectionMargin/SelectionMargin/ArenaGrid" unique_id=2104050587]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("6_xfsom")
+ignore_texture_size = true
+stretch_mode = 6
 
-[node name="Arena06Button" type="Button" parent="MainMargin/MainRow/SelectionPanel/SelectionMargin/SelectionColumn/ArenaGrid" unique_id=1594809818]
+[node name="Arena06Button" type="TextureButton" parent="MainMargin/MainRow/SelectionPanel/SelectionMargin/SelectionMargin/ArenaGrid" unique_id=1258188456]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("7_hj61l")
+ignore_texture_size = true
+stretch_mode = 6
