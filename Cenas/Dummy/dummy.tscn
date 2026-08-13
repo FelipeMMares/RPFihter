@@ -228,7 +228,7 @@ size = Vector2(168.99886, 28.977777)
 size = Vector2(159.06714, 47.24742)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pb4hy"]
-size = Vector2(84, 68)
+size = Vector2(84, 99)
 
 [sub_resource type="Resource" id="Resource_j7yjc"]
 script = ExtResource("211_ftcj5")
@@ -292,6 +292,7 @@ frame = 8
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1128512923]
+visible = false
 position = Vector2(3, 26)
 shape = SubResource("RectangleShape2D_vqqph")
 
@@ -514,6 +515,7 @@ script = ExtResource("548_waugo")
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1276732752 node_paths=PackedStringArray("health", "state_machine", "head_shape", "torso_shape", "feet_shape", "crouch_shape")]
+visible = false
 collision_layer = 2
 collision_mask = 0
 monitoring = false
@@ -761,11 +763,12 @@ scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_3gngh")
 
 [node name="ThrowBox" type="Area2D" parent="Hitboxers" unique_id=1521699408]
+visible = false
 position = Vector2(-86, 66)
 script = ExtResource("388_msxmn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/ThrowBox" unique_id=109282028]
-position = Vector2(214, 22)
+position = Vector2(214, 6.5)
 shape = SubResource("RectangleShape2D_pb4hy")
 
 [node name="ThrowPathRoot" type="Node" parent="Hitboxers" unique_id=1127613038]

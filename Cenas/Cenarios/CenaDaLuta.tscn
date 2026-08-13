@@ -85,6 +85,7 @@ scale = Vector2(1.5481771, 1.5546875)
 texture = ExtResource("2_cuiii")
 
 [node name="Chão" type="StaticBody2D" parent="Stage" unique_id=43905329]
+visible = false
 z_index = -10
 position = Vector2(693, 315)
 scale = Vector2(0.9453125, 0.8769531)

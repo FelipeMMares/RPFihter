@@ -6,7 +6,7 @@ class_name OpponentSelect
 
 @export_file("*.tscn")
 var fight_scene_path: String = (
-	"res://Cenas/Cenarios/CenaDaLuta.tscn"
+	"res://Cenas/ArenaSelection/ArenaSelection.tscn"
 )
 
 

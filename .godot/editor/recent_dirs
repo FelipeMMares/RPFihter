@@ -1,3 +1,12 @@
+res://assets/Promps/NPCs/Sexth Stage/
+res://assets/Promps/NPCs/Fifth Stage/
+res://assets/Promps/NPCs/Fourth Stage/
+res://assets/Promps/NPCs/Third Stage/
+res://assets/Promps/NPCs/Second stage/
+res://assets/Promps/NPCs/first stage/
+res://assets/Promps/
+res://Cenas/Cenarios/
+res://Scripts/Global/
 res://Cenas/HUD/
 res://assets/HitSparks/
 res://assets/Audio/Music/
@@ -9,15 +18,6 @@ res://assets/Menus/SelectionCharacter/
 res://Cenas/Dummy/
 res://Cenas/Player/
 res://Cenas/CharacterSelect/
-res://Scripts/Global/
 C:/Users/Felipe/OneDrive/Documentos/Godot/rp-fighter/Builds/Windows/
 res://Cenas/DefeatScreen/
 res://Cenas/MainMenu/
-res://Cenas/Cenarios/Promps/
-res://assets/Promps/NPCs/first stage/
-res://Scripts/Player/StateMachine/States/Ground/
-res://assets/Elena Entrance/
-res://assets/Chun Li Entrance/
-res://assets/Elena special attack/Scratch Wheel/
-res://assets/Elena special attack/Lynx Tail/
-res://assets/Elena special attack/Rhino Horn/

@@ -23,6 +23,15 @@ class_name FightManager
 	1.0
 )
 
+@export_group("Arenas")
+
+@export var arena_01_scene: PackedScene
+@export var arena_02_scene: PackedScene
+@export var arena_03_scene: PackedScene
+@export var arena_04_scene: PackedScene
+@export var arena_05_scene: PackedScene
+@export var arena_06_scene: PackedScene
+
 @export_group("Introdução do round")
 
 @export_range(1, 10, 1)
@@ -138,7 +147,7 @@ var _round_intro_in_progress: bool = false
 
 
 func _ready() -> void:
-
+	_spawn_selected_arena()
 	_spawn_selected_fighters()
 
 	if player_1 == null or player_2 == null:
@@ -1588,3 +1597,53 @@ func _connect_guard_indicators() -> void:
 					"reset_guard"
 				)
 			)
+
+func _spawn_selected_arena() -> void:
+	var arena_scene: PackedScene = (
+		_get_arena_scene(
+			ArenaSelection.selected_arena
+		)
+	)
+
+	if arena_scene == null:
+		printerr(
+			"FightManager: arena selecionada não configurada."
+		)
+		return
+
+	var arena_instance: Node = (
+		arena_scene.instantiate()
+	)
+
+	$ArenaHolder.add_child(
+		arena_instance
+	)
+
+	print(
+		"ARENA INSTANCIADA: ",
+		arena_scene.resource_path
+	)
+
+func _get_arena_scene(
+	arena: ArenaSelection.Arena
+) -> PackedScene:
+	match arena:
+		ArenaSelection.Arena.ARENA_01:
+			return arena_01_scene
+
+		ArenaSelection.Arena.ARENA_02:
+			return arena_02_scene
+
+		ArenaSelection.Arena.ARENA_03:
+			return arena_03_scene
+
+		ArenaSelection.Arena.ARENA_04:
+			return arena_04_scene
+
+		ArenaSelection.Arena.ARENA_05:
+			return arena_05_scene
+
+		ArenaSelection.Arena.ARENA_06:
+			return arena_06_scene
+
+	return null

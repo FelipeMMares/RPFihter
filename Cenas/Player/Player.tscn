@@ -218,6 +218,7 @@ script = ExtResource("1_htvwm")
 body_collision = NodePath("Hurtbox/TorsoShape")
 
 [node name="Colisao" type="CollisionShape2D" parent="." unique_id=1334167780]
+visible = false
 position = Vector2(-8.5, 7.5)
 shape = SubResource("RectangleShape2D_r8ryd")
 one_way_collision = true
@@ -696,6 +697,7 @@ animated_sprite = NodePath("../AnimatedSprite2D")
 hitboxes_root = NodePath("../Hitboxers")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=330639822 node_paths=PackedStringArray("health", "state_machine", "head_shape", "torso_shape", "feet_shape", "crouch_shape")]
+visible = false
 collision_layer = 2
 collision_mask = 0
 monitoring = false

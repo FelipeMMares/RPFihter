@@ -1,0 +1,156 @@
+[gd_scene format=3 uid="uid://caw6q45osi0gx"]
+
+[ext_resource type="Script" uid="uid://bpajgrl5uxkrh" path="res://Cenas/ArenaSelection/ArenaSelection.gd" id="1_u6gxb"]
+[ext_resource type="Texture2D" uid="uid://dtgu4gtjqk1yp" path="res://assets/Promps/NPCs/first stage/frame_00_delay-0.1s.png" id="2_q0owa"]
+[ext_resource type="Texture2D" uid="uid://dgvjfdjapy3tg" path="res://assets/Promps/NPCs/Second stage/frame_0_delay-0.14s.png" id="3_jni61"]
+[ext_resource type="Texture2D" uid="uid://dm1pcale1chxo" path="res://assets/Promps/NPCs/Third Stage/frame_0_delay-0.08s.png" id="4_mgp4o"]
+[ext_resource type="Texture2D" uid="uid://brk7tbeyyx8wv" path="res://assets/Promps/NPCs/Fourth Stage/frame_00_delay-0.08s.png" id="5_x2fop"]
+[ext_resource type="Texture2D" uid="uid://d1o33whwit8pw" path="res://assets/Promps/NPCs/Fifth Stage/frame_0_delay-0.1s.png" id="6_xfsom"]
+[ext_resource type="Texture2D" uid="uid://dtl17ca0wxc5k" path="res://assets/Promps/NPCs/Sexth Stage/frame_0_delay-0.15s.png" id="7_hj61l"]
+[ext_resource type="Texture2D" uid="uid://seaq30f8bnfl" path="res://assets/Promps/widen_1840x0.jpg" id="8_jni61"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.50579494, 0.36099398, 0, 1)
+corner_detail = 20
+
+[node name="ArenaSelection" type="Control" unique_id=1525807348]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u6gxb")
+arena_01_preview = ExtResource("2_q0owa")
+arena_02_preview = ExtResource("3_jni61")
+arena_03_preview = ExtResource("4_mgp4o")
+arena_04_preview = ExtResource("5_x2fop")
+arena_05_preview = ExtResource("6_xfsom")
+arena_06_preview = ExtResource("7_hj61l")
+fight_scene_path = "uid://qbsfhc72tmiq"
+
+[node name="Background" type="TextureRect" parent="." unique_id=873780895]
+custom_maximum_size = Vector2(1150, 650)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -344.0
+offset_top = -193.5
+offset_right = 344.0
+offset_bottom = 193.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_jni61")
+
+[node name="DarkOverlay" type="ColorRect" parent="." unique_id=1233493890]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.36862746)
+
+[node name="MainMargin" type="MarginContainer" parent="." unique_id=1444865155]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 12
+
+[node name="MainRow" type="VBoxContainer" parent="MainMargin" unique_id=742349026]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TopTitle" type="Label" parent="MainMargin/MainRow" unique_id=627789011]
+custom_minimum_size = Vector2(0, 28)
+custom_maximum_size = Vector2(-1, 28)
+layout_mode = 2
+text = "SELECIONE A ARENA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Content" type="HBoxContainer" parent="MainMargin/MainRow" unique_id=1022966295]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/separation = 12
+
+[node name="PreviewPanel" type="PanelContainer" parent="MainMargin/MainRow/Content" unique_id=2065517237]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_g4v7s")
+
+[node name="PreviewMargin" type="MarginContainer" parent="MainMargin/MainRow/Content/PreviewPanel" unique_id=489674152]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="PreviewBox" type="VBoxContainer" parent="MainMargin/MainRow/Content/PreviewPanel/PreviewMargin" unique_id=1906141406]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="ArenaPreview" type="TextureRect" parent="MainMargin/MainRow/Content/PreviewPanel/PreviewMargin/PreviewBox" unique_id=147899118]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="ArenaName" type="Label" parent="MainMargin/MainRow/Content/PreviewPanel/PreviewMargin/PreviewBox" unique_id=1428503346]
+custom_minimum_size = Vector2(0, 24)
+custom_maximum_size = Vector2(-1, 24)
+layout_mode = 2
+text = "THE DRUNKEN DRAGON"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelectionPanel" type="PanelContainer" parent="MainMargin/MainRow" unique_id=1650888324]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SelectionMargin" type="MarginContainer" parent="MainMargin/MainRow/SelectionPanel" unique_id=75870604]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="SelectionColumn" type="VBoxContainer" parent="MainMargin/MainRow/SelectionPanel/SelectionMargin" unique_id=1065745755]
+layout_mode = 2
+
+[node name="ArenaGrid" type="GridContainer" parent="MainMargin/MainRow/SelectionPanel/SelectionMargin/SelectionColumn" unique_id=834553783]
+layout_mode = 2
+columns = 3
+
+[node name="Arena01Button" type="Button" parent="MainMargin/MainRow/SelectionPanel/SelectionMargin/SelectionColumn/ArenaGrid" unique_id=1198990475]
+layout_mode = 2
+
+[node name="Arena02Button" type="Button" parent="MainMargin/MainRow/SelectionPanel/SelectionMargin/SelectionColumn/ArenaGrid" unique_id=56336310]
+layout_mode = 2
+
+[node name="Arena03Button" type="Button" parent="MainMargin/MainRow/SelectionPanel/SelectionMargin/SelectionColumn/ArenaGrid" unique_id=711073445]
+layout_mode = 2
+
+[node name="Arena04Button" type="Button" parent="MainMargin/MainRow/SelectionPanel/SelectionMargin/SelectionColumn/ArenaGrid" unique_id=398483033]
+layout_mode = 2
+
+[node name="Arena05Button" type="Button" parent="MainMargin/MainRow/SelectionPanel/SelectionMargin/SelectionColumn/ArenaGrid" unique_id=766754892]
+layout_mode = 2
+
+[node name="Arena06Button" type="Button" parent="MainMargin/MainRow/SelectionPanel/SelectionMargin/SelectionColumn/ArenaGrid" unique_id=1594809818]
+layout_mode = 2
