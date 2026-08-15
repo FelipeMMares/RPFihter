@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://c7euq3glrhph6"]
+
+[ext_resource type="Script" uid="uid://cfh8jj4qhxit3" path="res://Scripts/Arenas/ArenaVisual.gd" id="1_cy57o"]
+[ext_resource type="AudioStream" uid="uid://d1voua80b2k0" path="res://assets/Audio/Music/Otherworld Legends OST - Elfland Theme [tZ3IlFHOSrk].mp3" id="2_4ggse"]
+[ext_resource type="Texture2D" uid="uid://dgvjfdjapy3tg" path="res://assets/Promps/NPCs/Second stage/frame_0_delay-0.14s.png" id="2_bwvw0"]
+[ext_resource type="Texture2D" uid="uid://d1srjpcvwsen1" path="res://assets/Promps/NPCs/Second stage/frame_1_delay-0.14s.png" id="3_4ggse"]
+[ext_resource type="Texture2D" uid="uid://b50hfkvjp7bca" path="res://assets/Promps/NPCs/Second stage/frame_2_delay-0.14s.png" id="4_hteu4"]
+[ext_resource type="Texture2D" uid="uid://42psnv6nbnlw" path="res://assets/Promps/NPCs/Second stage/frame_3_delay-0.14s.png" id="5_5fqqs"]
+[ext_resource type="Texture2D" uid="uid://5qs707gaigqa" path="res://assets/Promps/NPCs/Second stage/frame_4_delay-0.14s.png" id="6_tm52l"]
+[ext_resource type="Texture2D" uid="uid://donikxuwek6kb" path="res://assets/Promps/NPCs/Second stage/frame_5_delay-0.14s.png" id="7_c0kbw"]
+[ext_resource type="Texture2D" uid="uid://44how6g0et6b" path="res://assets/Promps/NPCs/Second stage/frame_6_delay-0.14s.png" id="8_lw17v"]
+[ext_resource type="Texture2D" uid="uid://lkcmu14hsu11" path="res://assets/Promps/NPCs/Second stage/frame_7_delay-0.14s.png" id="9_lxvj4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bwvw0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4ggse")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hteu4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5fqqs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tm52l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_c0kbw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lw17v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_lxvj4")
+}],
+"loop": 1,
+"name": &"ArenaLoop",
+"speed": 15.0
+}]
+
+[node name="Arena02" type="Node2D" unique_id=1876816048]
+script = ExtResource("1_cy57o")
+arena_music = ExtResource("2_4ggse")
+
+[node name="BackgroundBase" type="AnimatedSprite2D" parent="." unique_id=1007326546]
+z_index = 1
+position = Vector2(578, 305)
+scale = Vector2(1.445, 1.8154761)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"ArenaLoop"
+frame_progress = 0.40516496
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=871718042]
+position = Vector2(582.5, -545)
+scale = Vector2(1.62875, 7.125)
+texture = ExtResource("2_bwvw0")

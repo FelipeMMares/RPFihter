@@ -1,6 +1,14 @@
 extends Node2D
 class_name FightManager
 
+@onready var arena_holder: Node2D = (
+	$ArenaHolder
+)
+
+@onready var arena_music_player: AudioStreamPlayer = (
+	$ArenaMusicPlayer
+)
+
 @onready var player_guard_indicator: GuardIndicator = (
 	$HUD/PlayerGuardIndicator
 )
@@ -147,7 +155,13 @@ var _round_intro_in_progress: bool = false
 
 
 func _ready() -> void:
-	_spawn_selected_arena()
+	var selected_arena: ArenaVisual = (
+		_spawn_selected_arena()
+	)
+
+	_play_arena_music(
+		selected_arena
+	)
 	_spawn_selected_fighters()
 
 	if player_1 == null or player_2 == null:
@@ -1598,7 +1612,7 @@ func _connect_guard_indicators() -> void:
 				)
 			)
 
-func _spawn_selected_arena() -> void:
+func _spawn_selected_arena() -> ArenaVisual:
 	var arena_scene: PackedScene = (
 		_get_arena_scene(
 			ArenaSelection.selected_arena
@@ -1609,23 +1623,32 @@ func _spawn_selected_arena() -> void:
 		printerr(
 			"FightManager: arena selecionada não configurada."
 		)
-		return
+		return null
 
-	var arena_instance: Node = (
+	var arena_instance := (
 		arena_scene.instantiate()
+		as ArenaVisual
 	)
 
-	$ArenaHolder.add_child(
+	if arena_instance == null:
+		printerr(
+			"FightManager: a cena da arena não usa ArenaVisual.gd."
+		)
+		return null
+
+	arena_holder.add_child(
 		arena_instance
 	)
 
 	print(
 		"ARENA INSTANCIADA: ",
-		arena_scene.resource_path
+		arena_instance.name
 	)
 
+	return arena_instance
+
 func _get_arena_scene(
-	arena: ArenaSelection.Arena
+	arena: int
 ) -> PackedScene:
 	match arena:
 		ArenaSelection.Arena.ARENA_01:
@@ -1647,3 +1670,36 @@ func _get_arena_scene(
 			return arena_06_scene
 
 	return null
+
+func _play_arena_music(
+	arena: ArenaVisual
+) -> void:
+	if arena_music_player == null:
+		printerr(
+			"FightManager: ArenaMusicPlayer não encontrado."
+		)
+		return
+
+	if arena == null:
+		return
+
+	if arena.arena_music == null:
+		printerr(
+			"FightManager: arena ",
+			arena.name,
+			" não possui música configurada."
+		)
+		return
+
+	arena_music_player.stop()
+
+	arena_music_player.stream = (
+		arena.arena_music
+	)
+
+	arena_music_player.play()
+
+	print(
+		"MÚSICA DA ARENA: ",
+		arena.arena_music.resource_path
+	)

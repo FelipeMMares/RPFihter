@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://cu4k33d8r8dlo"]
+
+[ext_resource type="Script" uid="uid://cfh8jj4qhxit3" path="res://Scripts/Arenas/ArenaVisual.gd" id="1_ajlmv"]
+[ext_resource type="Texture2D" uid="uid://d1o33whwit8pw" path="res://assets/Promps/NPCs/Fifth Stage/frame_0_delay-0.1s.png" id="1_w5kcj"]
+[ext_resource type="Texture2D" uid="uid://86s2motx78i7" path="res://assets/Promps/NPCs/Fifth Stage/frame_1_delay-0.1s.png" id="2_ajlmv"]
+[ext_resource type="AudioStream" uid="uid://12na0uo5yb0g" path="res://assets/Audio/Music/Arena05.mp3" id="2_sy8jl"]
+[ext_resource type="Texture2D" uid="uid://dj8ysby5q52x5" path="res://assets/Promps/NPCs/Fifth Stage/frame_2_delay-0.1s.png" id="3_sy8jl"]
+[ext_resource type="Texture2D" uid="uid://83uxs14jedfo" path="res://assets/Promps/NPCs/Fifth Stage/frame_3_delay-0.1s.png" id="4_dhikj"]
+[ext_resource type="Texture2D" uid="uid://d4adqyxw5fimj" path="res://assets/Promps/NPCs/Fifth Stage/frame_4_delay-0.1s.png" id="5_36rmu"]
+[ext_resource type="Texture2D" uid="uid://c1smcrbyo0iih" path="res://assets/Promps/NPCs/Fifth Stage/frame_5_delay-0.1s.png" id="6_a7cqf"]
+[ext_resource type="Texture2D" uid="uid://4l5j4jdlwhic" path="res://assets/Promps/NPCs/Fifth Stage/frame_6_delay-0.1s.png" id="7_me0c0"]
+[ext_resource type="Texture2D" uid="uid://b3u5qw7esw3xg" path="res://assets/Promps/NPCs/Fifth Stage/frame_7_delay-0.1s.png" id="8_gmfl6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1lpns"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_w5kcj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ajlmv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sy8jl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dhikj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_36rmu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_a7cqf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_me0c0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gmfl6")
+}],
+"loop": 1,
+"name": &"ArenaLoop",
+"speed": 15.0
+}]
+
+[node name="Arena05" type="Node2D" unique_id=1476572735]
+script = ExtResource("1_ajlmv")
+arena_music = ExtResource("2_sy8jl")
+
+[node name="BackgroundBase" type="Sprite2D" parent="." unique_id=1406083298]
+position = Vector2(-278.75003, 188.25002)
+scale = Vector2(3.566875, 2.71875)
+texture = ExtResource("1_w5kcj")
+
+[node name="ArenaAnimated" type="AnimatedSprite2D" parent="." unique_id=979367589]
+position = Vector2(573.5, 288)
+scale = Vector2(1.43625, 1.7321427)
+sprite_frames = SubResource("SpriteFrames_1lpns")
+animation = &"ArenaLoop"
+frame_progress = 0.3084513

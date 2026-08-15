@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://dwseaftx2ml7r"]
 
-[ext_resource type="Script" uid="uid://ddpbxs5wmun5o" path="res://Cenas/Cenarios/Promps/PropsAnimated.gd" id="1_2sumv"]
 [ext_resource type="Texture2D" uid="uid://dtgu4gtjqk1yp" path="res://assets/Promps/NPCs/first stage/frame_00_delay-0.1s.png" id="1_t2ga1"]
 [ext_resource type="Texture2D" uid="uid://g6hvw6hbqrl1" path="res://assets/Promps/NPCs/first stage/frame_01_delay-0.1s.png" id="2_2sumv"]
 [ext_resource type="Texture2D" uid="uid://bvkwjkudci6xo" path="res://assets/Promps/NPCs/first stage/frame_02_delay-0.1s.png" id="3_rrkj7"]
@@ -108,7 +107,6 @@ animations = [{
 
 [node name="PropsAnimated" type="Node2D" unique_id=1276102798]
 z_index = -20
-script = ExtResource("1_2sumv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1589007755]
 z_index = -20

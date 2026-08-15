@@ -1,22 +1,24 @@
 [gd_scene format=3 uid="uid://qbsfhc72tmiq"]
 
 [ext_resource type="Script" uid="uid://cda2qv106s50p" path="res://Scripts/Fight/FightManager.gd" id="1_oi066"]
-[ext_resource type="Script" uid="uid://b2vhgsxq6xck8" path="res://Cenas/Cenarios/Promps/Stage.gd" id="2_1gsfq"]
-[ext_resource type="Texture2D" uid="uid://uffvjaxemwn4" path="res://assets/1-animated-gifs-of-fighting-game-backgrounds-16.jpg" id="2_cuiii"]
 [ext_resource type="Texture2D" uid="uid://c3ggcoutar7gl" path="res://icon.svg" id="2_umdng"]
 [ext_resource type="PackedScene" uid="uid://cxwujt80wiqyw" path="res://Cenas/HUD/HUD.tscn" id="3_hvrgt"]
-[ext_resource type="PackedScene" uid="uid://dwseaftx2ml7r" path="res://Cenas/Cenarios/Promps/props_animated.tscn" id="4_cuiii"]
 [ext_resource type="PackedScene" uid="uid://cifi2eaq8od35" path="res://Cenas/Player/Player.tscn" id="4_oi066"]
+[ext_resource type="PackedScene" uid="uid://dbdr6mi4gid2l" path="res://Cenas/Cenarios/Arenas/Arena01.tscn" id="4_ywvde"]
+[ext_resource type="PackedScene" uid="uid://c7euq3glrhph6" path="res://Cenas/Cenarios/Arenas/Arena02.tscn" id="5_g4c8h"]
 [ext_resource type="PackedScene" uid="uid://c3j6jqqi848lx" path="res://Cenas/Dummy/dummy.tscn" id="5_hvrgt"]
+[ext_resource type="PackedScene" uid="uid://8uvxssoc7t0d" path="res://Cenas/Cenarios/Arenas/Arena03.tscn" id="6_pin31"]
+[ext_resource type="PackedScene" uid="uid://cjaisuac7ycha" path="res://Cenas/Cenarios/Arenas/Arena04.tscn" id="7_67vs5"]
 [ext_resource type="Script" uid="uid://de0n2cyr6pkqo" path="res://Scripts/Components/PauseMenu.gd" id="8_0iw18"]
+[ext_resource type="PackedScene" uid="uid://cu4k33d8r8dlo" path="res://Cenas/Cenarios/Arenas/Arena05.tscn" id="8_upyng"]
 [ext_resource type="FontFile" uid="uid://ct6yapfcrys5m" path="res://assets/fontes/PressStart2P-Regular.ttf" id="9_cuiii"]
-[ext_resource type="AudioStream" uid="uid://duiji1o2hs0ia" path="res://assets/Audio/Music/InstrumentalIFghitng.mp3" id="11_86udr"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e813m"]
-size = Vector2(1585.959, 128.5924)
+[ext_resource type="PackedScene" uid="uid://bgnoapo1jtxay" path="res://Cenas/Cenarios/Arenas/Arena06.tscn" id="9_v5lij"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(121, 556.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e813m"]
+size = Vector2(1585.959, 128.5924)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yf5fn"]
 bg_color = Color(0.011764706, 0.09411765, 0.5176471, 1)
@@ -68,61 +70,47 @@ corner_radius_bottom_left = 4
 script = ExtResource("1_oi066")
 chun_li_scene = ExtResource("4_oi066")
 elena_scene = ExtResource("5_hvrgt")
+arena_01_scene = ExtResource("4_ywvde")
+arena_02_scene = ExtResource("5_g4c8h")
+arena_03_scene = ExtResource("6_pin31")
+arena_04_scene = ExtResource("7_67vs5")
+arena_05_scene = ExtResource("8_upyng")
+arena_06_scene = ExtResource("9_v5lij")
 pause_menu = NodePath("PauseLayer/PauseMenu")
 
-[node name="Stage" type="Node2D" parent="." unique_id=1094057888]
-script = ExtResource("2_1gsfq")
+[node name="ArenaHolder" type="Node2D" parent="." unique_id=1094057888]
+unique_name_in_owner = true
 
-[node name="BackgroundAnimated" type="Node2D" parent="Stage" unique_id=1033208626]
+[node name="StageBounds" type="StaticBody2D" parent="." unique_id=589947994]
 visible = false
-z_index = -100
+collision_mask = 0
 
-[node name="BackgroundBase" type="Sprite2D" parent="Stage" unique_id=1922729996]
-visible = false
-z_index = -80
-position = Vector2(572.5, 303.5)
-scale = Vector2(1.5481771, 1.5546875)
-texture = ExtResource("2_cuiii")
+[node name="LeftWall" type="CollisionShape2D" parent="StageBounds" unique_id=1885973326]
+position = Vector2(-43.5, 278.75)
+shape = SubResource("RectangleShape2D_g4v7s")
 
-[node name="Chão" type="StaticBody2D" parent="Stage" unique_id=43905329]
+[node name="RightWall" type="CollisionShape2D" parent="StageBounds" unique_id=750170843]
+position = Vector2(1198, 279)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Chão" type="StaticBody2D" parent="." unique_id=43905329]
 visible = false
 z_index = -10
 position = Vector2(693, 315)
 scale = Vector2(0.9453125, 0.8769531)
 collision_mask = 0
 
-[node name="textura" type="Sprite2D" parent="Stage/Chão" unique_id=821571757]
+[node name="textura" type="Sprite2D" parent="Chão" unique_id=821571757]
 visible = false
 modulate = Color(0, 0, 0, 1)
 position = Vector2(-21.15704, 348.93546)
 scale = Vector2(12.454545, 1.1403118)
 texture = ExtResource("2_umdng")
 
-[node name="colisão" type="CollisionShape2D" parent="Stage/Chão" unique_id=655591213]
+[node name="colisão" type="CollisionShape2D" parent="Chão" unique_id=655591213]
 position = Vector2(-20.099182, 342.09357)
 scale = Vector2(0.99999976, 1)
 shape = SubResource("RectangleShape2D_e813m")
-
-[node name="StageBounds" type="StaticBody2D" parent="Stage" unique_id=589947994]
-visible = false
-collision_mask = 0
-
-[node name="LeftWall" type="CollisionShape2D" parent="Stage/StageBounds" unique_id=1885973326]
-position = Vector2(-43.5, 278.75)
-shape = SubResource("RectangleShape2D_g4v7s")
-
-[node name="RightWall" type="CollisionShape2D" parent="Stage/StageBounds" unique_id=750170843]
-position = Vector2(1198, 279)
-shape = SubResource("RectangleShape2D_g4v7s")
-
-[node name="Crowd" type="Node2D" parent="Stage" unique_id=1567276566]
-z_index = -40
-
-[node name="Foreground" type="Node2D" parent="Stage" unique_id=743953322]
-z_index = 20
-
-[node name="PropsAnimated" parent="Stage" unique_id=1276102798 instance=ExtResource("4_cuiii")]
-position = Vector2(571, 308)
 
 [node name="HUD" parent="." unique_id=434548975 instance=ExtResource("3_hvrgt")]
 
@@ -218,9 +206,5 @@ position = Vector2(282, 467)
 [node name="DummySpawn" type="Marker2D" parent="." unique_id=1102336633]
 position = Vector2(850, 467)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=406874654]
-stream = ExtResource("11_86udr")
-volume_db = -8.0
-autoplay = true
+[node name="ArenaMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=406874654]
 bus = &"Music"
-parameters/looping = false

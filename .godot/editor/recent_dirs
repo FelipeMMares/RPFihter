@@ -1,15 +1,17 @@
-res://assets/Promps/
+res://assets/Audio/Music/
+res://Scripts/Arenas/
+res://Cenas/Cenarios/Arenas/
 res://assets/Promps/NPCs/Sexth Stage/
 res://assets/Promps/NPCs/Fifth Stage/
-res://assets/Promps/NPCs/first stage/
 res://assets/Promps/NPCs/Fourth Stage/
 res://assets/Promps/NPCs/Third Stage/
 res://assets/Promps/NPCs/Second stage/
+res://assets/Promps/
+res://assets/Promps/NPCs/first stage/
 res://Cenas/Cenarios/
 res://Scripts/Global/
 res://Cenas/HUD/
 res://assets/HitSparks/
-res://assets/Audio/Music/
 res://Scripts/Combat/
 res://assets/
 res://assets/Elena Taunt/
@@ -18,5 +20,3 @@ res://assets/Menus/SelectionCharacter/
 res://Cenas/Dummy/
 res://Cenas/Player/
 res://Cenas/CharacterSelect/
-res://Cenas/DefeatScreen/
-res://Cenas/MainMenu/

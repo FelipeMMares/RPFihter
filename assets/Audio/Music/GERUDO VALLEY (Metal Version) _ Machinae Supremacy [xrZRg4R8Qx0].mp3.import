@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bsqrthtn1h63y"
+path="res://.godot/imported/GERUDO VALLEY (Metal Version) _ Machinae Supremacy [xrZRg4R8Qx0].mp3-d2fe958ecadd0da7be15a7f8c8a4831e.mp3str"
+
+[deps]
+
+source_file="res://assets/Audio/Music/GERUDO VALLEY (Metal Version) _ Machinae Supremacy [xrZRg4R8Qx0].mp3"
+dest_files=["res://.godot/imported/GERUDO VALLEY (Metal Version) _ Machinae Supremacy [xrZRg4R8Qx0].mp3-d2fe958ecadd0da7be15a7f8c8a4831e.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

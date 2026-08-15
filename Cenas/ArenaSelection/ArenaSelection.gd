@@ -13,60 +13,52 @@ extends Control
 
 @export_group("Nomes")
 
-@export var arena_01_name: String = "Arena 01"
-@export var arena_02_name: String = "Arena 02"
-@export var arena_03_name: String = "Arena 03"
-@export var arena_04_name: String = "Arena 04"
-@export var arena_05_name: String = "Arena 05"
-@export var arena_06_name: String = "Arena 06"
+@export var arena_01_name: String = "Vila da Preguiça"
+@export var arena_02_name: String = "Floresta dos Sussurros"
+@export var arena_03_name: String = "Deserto dos Exilados"
+@export var arena_04_name: String = "Convés Interno do Nau"
+@export var arena_05_name: String = "Vale de Lava"
+@export var arena_06_name: String = "Ruínas do Rei Demônio"
 
 
 @export_group("Cenas")
 
-@export_file("*.tscn")
-var fight_scene_path: String
+@export var fight_scene: PackedScene
+@export var opponent_select_scene: PackedScene
 
 
 @onready var arena_preview: TextureRect = (
-	$MainMargin/MainRow/PreviewPanel/
-	PreviewColumn/PreviewBox/ArenaPreview
+	%ArenaPreview
 )
 
 @onready var arena_name: Label = (
-	$MainMargin/MainRow/PreviewPanel/
-	PreviewColumn/ArenaName
+	%ArenaName
 )
 
-
-@onready var arena_01_button: Button = (
-	$MainMargin/MainRow/SelectionPanel/
-	SelectionColumn/ArenaGrid/Arena01Button
+@onready var arena_01_button: TextureButton = (
+	%Arena01Button
 )
 
-@onready var arena_02_button: Button = (
-	$MainMargin/MainRow/SelectionPanel/
-	SelectionColumn/ArenaGrid/Arena02Button
+@onready var arena_02_button: TextureButton = (
+	%Arena02Button
 )
 
-@onready var arena_03_button: Button = (
-	$MainMargin/MainRow/SelectionPanel/
-	SelectionColumn/ArenaGrid/Arena03Button
+@onready var arena_03_button: TextureButton = (
+	%Arena03Button
 )
 
-@onready var arena_04_button: Button = (
-	$MainMargin/MainRow/SelectionPanel/
-	SelectionColumn/ArenaGrid/Arena04Button
+@onready var arena_04_button: TextureButton = (
+	%Arena04Button
 )
 
-@onready var arena_05_button: Button = (
-	$MainMargin/MainRow/SelectionPanel/
-	SelectionColumn/ArenaGrid/Arena05Button
+@onready var arena_05_button: TextureButton = (
+	%Arena05Button
 )
 
-@onready var arena_06_button: Button = (
-	$MainMargin/MainRow/SelectionPanel/
-	SelectionColumn/ArenaGrid/Arena06Button
+@onready var arena_06_button: TextureButton = (
+	%Arena06Button
 )
+
 
 func _ready() -> void:
 	_connect_arena_button(
@@ -99,41 +91,61 @@ func _ready() -> void:
 		ArenaSelection.Arena.ARENA_06
 	)
 
-	_preview_arena(
-		ArenaSelection.Arena.ARENA_01
-	)
-
-	arena_01_button.grab_focus()
+	_focus_current_arena()
 
 func _connect_arena_button(
-	button: Button,
-	arena: ArenaSelection.Arena
+	button: TextureButton,
+	arena: int
 ) -> void:
-	button.mouse_entered.connect(
-		_preview_arena.bind(arena)
-	)
+	if button == null:
+		return
+
+	# Garante navegação por teclado e controle.
+	button.focus_mode = Control.FOCUS_ALL
 
 	button.focus_entered.connect(
 		_preview_arena.bind(arena)
+	)
+
+	button.mouse_entered.connect(
+		_focus_button.bind(button)
 	)
 
 	button.pressed.connect(
 		_select_arena.bind(arena)
 	)
 
-func _preview_arena(
-	arena: ArenaSelection.Arena
+func _focus_button(
+	button: TextureButton
 ) -> void:
-	arena_preview.texture = (
+	if button == null:
+		return
+
+	button.grab_focus()
+
+func _preview_arena(
+	arena: int
+) -> void:
+	var preview: Texture2D = (
 		_get_arena_preview(arena)
 	)
 
-	arena_name.text = (
+	var display_name: String = (
 		_get_arena_name(arena)
 	)
 
+	if preview != null:
+		arena_preview.texture = preview
+
+	arena_name.text = display_name
+
+	print(
+		"PREVIEW DA ARENA: ",
+		display_name
+	)
+
 func _get_arena_preview(
-	arena: ArenaSelection.Arena
+	arena: int
 ) -> Texture2D:
 	match arena:
 		ArenaSelection.Arena.ARENA_01:
@@ -157,7 +169,7 @@ func _get_arena_preview(
 	return null
 
 func _get_arena_name(
-	arena: ArenaSelection.Arena
+	arena: int
 ) -> String:
 	match arena:
 		ArenaSelection.Arena.ARENA_01:
@@ -178,26 +190,89 @@ func _get_arena_name(
 		ArenaSelection.Arena.ARENA_06:
 			return arena_06_name
 
-	return ""
+	return "Arena"
 
 func _select_arena(
-	arena: ArenaSelection.Arena
+	arena: int
 ) -> void:
 	ArenaSelection.select_arena(
 		arena
 	)
 
 	print(
-		"ARENA SELECIONADA: ",
-		arena
+		"CONFIRMOU ARENA: ",
+		_get_arena_name(arena)
 	)
 
-	if fight_scene_path.is_empty():
+	if fight_scene == null:
 		printerr(
-			"ArenaSelect: Fight Scene Path vazio."
+			"ArenaSelect: Fight Scene não configurada."
 		)
 		return
 
-	get_tree().change_scene_to_file(
-		fight_scene_path
+	get_tree().change_scene_to_packed(
+		fight_scene
+	)
+
+func _focus_current_arena() -> void:
+	var button: TextureButton = (
+		_get_arena_button(
+			ArenaSelection.selected_arena
+		)
+	)
+
+	if button == null:
+		button = arena_01_button
+
+	if button == null:
+		return
+
+	button.grab_focus()
+
+	_preview_arena(
+		ArenaSelection.selected_arena
+	)
+
+func _get_arena_button(
+	arena: int
+) -> TextureButton:
+	match arena:
+		ArenaSelection.Arena.ARENA_01:
+			return arena_01_button
+
+		ArenaSelection.Arena.ARENA_02:
+			return arena_02_button
+
+		ArenaSelection.Arena.ARENA_03:
+			return arena_03_button
+
+		ArenaSelection.Arena.ARENA_04:
+			return arena_04_button
+
+		ArenaSelection.Arena.ARENA_05:
+			return arena_05_button
+
+		ArenaSelection.Arena.ARENA_06:
+			return arena_06_button
+
+	return arena_01_button
+
+func _unhandled_input(
+	event: InputEvent
+) -> void:
+	if event.is_action_pressed(
+		&"ui_cancel"
+	):
+		_go_back()
+	
+
+func _go_back() -> void:
+	if opponent_select_scene == null:
+		printerr(
+			"ArenaSelect: Opponent Select Scene não configurada."
+		)
+		return
+
+	get_tree().change_scene_to_packed(
+		opponent_select_scene
 	)

@@ -18,3 +18,8 @@ func select_arena(
 	arena: Arena
 ) -> void:
 	selected_arena = arena
+
+	print(
+		"ARENA SELECIONADA: ",
+		Arena.keys()[arena]
+	)

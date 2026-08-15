@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://8uvxssoc7t0d"]
+
+[ext_resource type="Script" uid="uid://cfh8jj4qhxit3" path="res://Scripts/Arenas/ArenaVisual.gd" id="1_6jiim"]
+[ext_resource type="Texture2D" uid="uid://dm1pcale1chxo" path="res://assets/Promps/NPCs/Third Stage/frame_0_delay-0.08s.png" id="1_csedg"]
+[ext_resource type="Texture2D" uid="uid://cjtqxyag18thx" path="res://assets/Promps/NPCs/Third Stage/frame_1_delay-0.08s.png" id="2_6jiim"]
+[ext_resource type="AudioStream" uid="uid://bsqrthtn1h63y" path="res://assets/Audio/Music/GERUDO VALLEY (Metal Version) _ Machinae Supremacy [xrZRg4R8Qx0].mp3" id="2_gg8w5"]
+[ext_resource type="Texture2D" uid="uid://dwf7lowcsec57" path="res://assets/Promps/NPCs/Third Stage/frame_2_delay-0.08s.png" id="3_gg8w5"]
+[ext_resource type="Texture2D" uid="uid://dweikkdl30pm4" path="res://assets/Promps/NPCs/Third Stage/frame_3_delay-0.08s.png" id="4_2kktq"]
+[ext_resource type="Texture2D" uid="uid://lmj181rdu58n" path="res://assets/Promps/NPCs/Third Stage/frame_4_delay-0.08s.png" id="5_oejjm"]
+[ext_resource type="Texture2D" uid="uid://dlxeujqj5iqip" path="res://assets/Promps/NPCs/Third Stage/frame_5_delay-0.08s.png" id="6_jjed7"]
+[ext_resource type="Texture2D" uid="uid://cy563g5jhoyp0" path="res://assets/Promps/NPCs/Third Stage/frame_6_delay-0.08s.png" id="7_e3f6n"]
+[ext_resource type="Texture2D" uid="uid://bhq20pqkfpmvg" path="res://assets/Promps/NPCs/Third Stage/frame_7_delay-0.08s.png" id="8_8vmgs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e04xc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_csedg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_6jiim")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gg8w5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2kktq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_oejjm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jjed7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_e3f6n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8vmgs")
+}],
+"loop": 1,
+"name": &"ArenaLoop",
+"speed": 15.0
+}]
+
+[node name="Arena03" type="Node2D" unique_id=1246129439]
+script = ExtResource("1_6jiim")
+arena_music = ExtResource("2_gg8w5")
+
+[node name="ArenaAnimated" type="AnimatedSprite2D" parent="." unique_id=1245550179]
+z_index = 1
+position = Vector2(578.56, 324.8095)
+scale = Vector2(1.4933332, 2.4936755)
+sprite_frames = SubResource("SpriteFrames_e04xc")
+animation = &"ArenaLoop"

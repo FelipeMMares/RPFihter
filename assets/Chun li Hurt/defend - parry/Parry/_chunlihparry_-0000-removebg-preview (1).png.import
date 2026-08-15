@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c25qcs0m3yso5"
-path="res://.godot/imported/_chunlihparry_-0000-removebg-preview (1).png-b025de27f386464f061fe88cb939bdf3.ctex"
+path="res://.godot/imported/_chunlihparry_-0000-removebg-preview (1).png-e0ec854ca3e267c8ebb32050b84e0312.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Chun li hurt/defend - parry/Parry/_chunlihparry_-0000-removebg-preview (1).png"
-dest_files=["res://.godot/imported/_chunlihparry_-0000-removebg-preview (1).png-b025de27f386464f061fe88cb939bdf3.ctex"]
+source_file="res://assets/Chun li Hurt/defend - parry/Parry/_chunlihparry_-0000-removebg-preview (1).png"
+dest_files=["res://.godot/imported/_chunlihparry_-0000-removebg-preview (1).png-e0ec854ca3e267c8ebb32050b84e0312.ctex"]
 
 [params]
 

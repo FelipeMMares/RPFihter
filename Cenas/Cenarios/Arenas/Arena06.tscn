@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://bgnoapo1jtxay"]
+
+[ext_resource type="Texture2D" uid="uid://c3ggcoutar7gl" path="res://icon.svg" id="1_3ruob"]
+[ext_resource type="Script" uid="uid://cfh8jj4qhxit3" path="res://Scripts/Arenas/ArenaVisual.gd" id="1_w3sh0"]
+[ext_resource type="AudioStream" uid="uid://daeupgg7mbfxt" path="res://assets/Audio/Music/Asura's Wrath Soundtrack (CD2) - The Brahmastra - (Track #4) [pXppB54ZxbQ].mp3" id="2_6yx0g"]
+[ext_resource type="Texture2D" uid="uid://dtl17ca0wxc5k" path="res://assets/Promps/NPCs/Sexth Stage/frame_0_delay-0.15s.png" id="2_w3sh0"]
+[ext_resource type="Texture2D" uid="uid://b0bsc1djchl21" path="res://assets/Promps/NPCs/Sexth Stage/frame_1_delay-0.15s.png" id="3_6yx0g"]
+[ext_resource type="Texture2D" uid="uid://bak6q47ck4wf" path="res://assets/Promps/NPCs/Sexth Stage/frame_2_delay-0.15s.png" id="4_6u21p"]
+[ext_resource type="Texture2D" uid="uid://cs18i10tgi0j2" path="res://assets/Promps/NPCs/Sexth Stage/frame_3_delay-0.15s.png" id="5_bc1c2"]
+[ext_resource type="Texture2D" uid="uid://dllqdnrt8q1pc" path="res://assets/Promps/NPCs/Sexth Stage/frame_4_delay-0.15s.png" id="6_3abhu"]
+[ext_resource type="Texture2D" uid="uid://dx5lsn2ats44i" path="res://assets/Promps/NPCs/Sexth Stage/frame_5_delay-0.15s.png" id="7_j14m3"]
+[ext_resource type="Texture2D" uid="uid://cb1shjl4odsos" path="res://assets/Promps/NPCs/Sexth Stage/frame_6_delay-0.15s.png" id="8_k1rjb"]
+[ext_resource type="Texture2D" uid="uid://bo02galpubfvf" path="res://assets/Promps/NPCs/Sexth Stage/frame_7_delay-0.15s.png" id="9_fxuw0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ll3we"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_w3sh0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6yx0g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6u21p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bc1c2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3abhu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_j14m3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_k1rjb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fxuw0")
+}],
+"loop": 1,
+"name": &"ArenaLoop",
+"speed": 12.0
+}]
+
+[node name="Arena06" type="Node2D" unique_id=915157854]
+script = ExtResource("1_w3sh0")
+arena_music = ExtResource("2_6yx0g")
+
+[node name="BackgroundBase" type="Sprite2D" parent="." unique_id=1630023279]
+modulate = Color(0.06879827, 0.06879828, 0.06879828, 1)
+position = Vector2(577.5, 586)
+scale = Vector2(8.9921875, 1)
+texture = ExtResource("1_3ruob")
+
+[node name="ArenaAnimated" type="AnimatedSprite2D" parent="." unique_id=506363638]
+position = Vector2(576.5, 282)
+scale = Vector2(1.5013021, 1.527174)
+sprite_frames = SubResource("SpriteFrames_ll3we")
+animation = &"ArenaLoop"
+frame_progress = 0.99640083

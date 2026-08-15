@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://d1o33whwit8pw" path="res://assets/Promps/NPCs/Fifth Stage/frame_0_delay-0.1s.png" id="6_xfsom"]
 [ext_resource type="Texture2D" uid="uid://dtl17ca0wxc5k" path="res://assets/Promps/NPCs/Sexth Stage/frame_0_delay-0.15s.png" id="7_hj61l"]
 [ext_resource type="Texture2D" uid="uid://seaq30f8bnfl" path="res://assets/Promps/widen_1840x0.jpg" id="8_jni61"]
+[ext_resource type="PackedScene" uid="uid://tpptx2h2cxrh" path="res://Cenas/OpponentSelect/OpponentSelect.tscn" id="8_x2fop"]
+[ext_resource type="PackedScene" uid="uid://qbsfhc72tmiq" path="res://Cenas/Cenarios/CenaDaLuta.tscn" id="8_xfsom"]
 [ext_resource type="Texture2D" uid="uid://baq3comarfugv" path="res://assets/Promps/ChatGPT Image 13 de ago. de 2026, 11_04_13.png" id="9_mgp4o"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
@@ -19,7 +21,7 @@ border_width_bottom = 4
 border_color = Color(0.50579494, 0.36099398, 0, 1)
 corner_detail = 20
 
-[node name="ArenaSelection" type="Control" unique_id=1525807348]
+[node name="ArenaSelect" type="Control" unique_id=1525807348]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,13 +35,8 @@ arena_03_preview = ExtResource("4_mgp4o")
 arena_04_preview = ExtResource("5_x2fop")
 arena_05_preview = ExtResource("6_xfsom")
 arena_06_preview = ExtResource("7_hj61l")
-arena_01_name = "Vila da Preguiça"
-arena_02_name = "Floresta dos Sussurros"
-arena_03_name = "Deserto dos Exilados"
-arena_04_name = "Convés Interno do Nau"
-arena_05_name = "Vale de Lava"
-arena_06_name = " Ruína do Rei Demônio"
-fight_scene_path = "uid://qbsfhc72tmiq"
+fight_scene = ExtResource("8_xfsom")
+opponent_select_scene = ExtResource("8_x2fop")
 
 [node name="Background" type="TextureRect" parent="." unique_id=873780895]
 custom_maximum_size = Vector2(1150, 650)
@@ -112,6 +109,7 @@ layout_mode = 2
 theme_override_constants/separation = 6
 
 [node name="ArenaPreview" type="TextureRect" parent="MainMargin/MainRow/Content/PreviewPanel/PreviewMargin/PreviewBox" unique_id=147899118]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
@@ -119,6 +117,7 @@ expand_mode = 1
 stretch_mode = 6
 
 [node name="ArenaName" type="Label" parent="MainMargin/MainRow/Content/PreviewPanel/PreviewMargin/PreviewBox" unique_id=1428503346]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 24)
 custom_maximum_size = Vector2(-1, 24)
 layout_mode = 2
@@ -151,6 +150,7 @@ theme_override_constants/v_separation = 8
 columns = 3
 
 [node name="Arena01Button" type="TextureButton" parent="MainMargin/MainRow/SelectionPanel/SelectionMargin/SelectionMargin/ArenaGrid" unique_id=949652128]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -162,6 +162,7 @@ ignore_texture_size = true
 stretch_mode = 6
 
 [node name="Arena02Button" type="TextureButton" parent="MainMargin/MainRow/SelectionPanel/SelectionMargin/SelectionMargin/ArenaGrid" unique_id=864613845]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -173,6 +174,7 @@ ignore_texture_size = true
 stretch_mode = 6
 
 [node name="Arena03Button" type="TextureButton" parent="MainMargin/MainRow/SelectionPanel/SelectionMargin/SelectionMargin/ArenaGrid" unique_id=1658290568]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -184,6 +186,7 @@ ignore_texture_size = true
 stretch_mode = 6
 
 [node name="Arena04Button" type="TextureButton" parent="MainMargin/MainRow/SelectionPanel/SelectionMargin/SelectionMargin/ArenaGrid" unique_id=1991685938]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -195,6 +198,7 @@ ignore_texture_size = true
 stretch_mode = 6
 
 [node name="Arena05Button" type="TextureButton" parent="MainMargin/MainRow/SelectionPanel/SelectionMargin/SelectionMargin/ArenaGrid" unique_id=2104050587]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -206,6 +210,7 @@ ignore_texture_size = true
 stretch_mode = 6
 
 [node name="Arena06Button" type="TextureButton" parent="MainMargin/MainRow/SelectionPanel/SelectionMargin/SelectionMargin/ArenaGrid" unique_id=1258188456]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

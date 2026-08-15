@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://daeupgg7mbfxt"
+path="res://.godot/imported/Asura's Wrath Soundtrack (CD2) - The Brahmastra - (Track #4) [pXppB54ZxbQ].mp3-d13ed6c4cb5f9db4dc96ecfe0d99720e.mp3str"
+
+[deps]
+
+source_file="res://assets/Audio/Music/Asura's Wrath Soundtrack (CD2) - The Brahmastra - (Track #4) [pXppB54ZxbQ].mp3"
+dest_files=["res://.godot/imported/Asura's Wrath Soundtrack (CD2) - The Brahmastra - (Track #4) [pXppB54ZxbQ].mp3-d13ed6c4cb5f9db4dc96ecfe0d99720e.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

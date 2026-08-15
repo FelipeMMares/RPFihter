@@ -1,2 +1,6 @@
-res://Cenas/ArenaSelection/ArenaSelection.tscn
+res://Cenas/Cenarios/Arenas/Arena01.tscn
 res://Cenas/HUD/guardProgress.tres
+res://Scripts/Fight/FightManager.gd
+res://Cenas/ArenaSelection/ArenaSelection.tscn
+res://Cenas/ArenaSelection/ArenaSelection.gd
+res://Cenas/Cenarios/CenaDaLuta.tscn
