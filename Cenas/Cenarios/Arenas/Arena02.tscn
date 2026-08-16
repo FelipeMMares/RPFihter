@@ -47,15 +47,16 @@ animations = [{
 script = ExtResource("1_cy57o")
 arena_music = ExtResource("2_4ggse")
 
-[node name="BackgroundBase" type="AnimatedSprite2D" parent="." unique_id=1007326546]
-z_index = 1
+[node name="ArenaAnimated" type="AnimatedSprite2D" parent="." unique_id=1007326546]
+z_index = -20
 position = Vector2(578, 305)
 scale = Vector2(1.445, 1.8154761)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"ArenaLoop"
 frame_progress = 0.40516496
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=871718042]
+[node name="BackgroundBase" type="Sprite2D" parent="." unique_id=871718042]
+z_index = -100
 position = Vector2(582.5, -545)
 scale = Vector2(1.62875, 7.125)
 texture = ExtResource("2_bwvw0")

@@ -50,11 +50,13 @@ arena_music = ExtResource("2_6yx0g")
 
 [node name="BackgroundBase" type="Sprite2D" parent="." unique_id=1630023279]
 modulate = Color(0.06879827, 0.06879828, 0.06879828, 1)
+z_index = -100
 position = Vector2(577.5, 586)
 scale = Vector2(8.9921875, 1)
 texture = ExtResource("1_3ruob")
 
 [node name="ArenaAnimated" type="AnimatedSprite2D" parent="." unique_id=506363638]
+z_index = -20
 position = Vector2(576.5, 282)
 scale = Vector2(1.5013021, 1.527174)
 sprite_frames = SubResource("SpriteFrames_ll3we")

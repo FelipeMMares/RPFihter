@@ -48,11 +48,13 @@ script = ExtResource("1_ajlmv")
 arena_music = ExtResource("2_sy8jl")
 
 [node name="BackgroundBase" type="Sprite2D" parent="." unique_id=1406083298]
+z_index = -100
 position = Vector2(-278.75003, 188.25002)
 scale = Vector2(3.566875, 2.71875)
 texture = ExtResource("1_w5kcj")
 
 [node name="ArenaAnimated" type="AnimatedSprite2D" parent="." unique_id=979367589]
+z_index = -20
 position = Vector2(573.5, 288)
 scale = Vector2(1.43625, 1.7321427)
 sprite_frames = SubResource("SpriteFrames_1lpns")

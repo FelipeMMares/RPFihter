@@ -201,6 +201,7 @@ text = "Recomeçar luta"
 icon_alignment = 1
 
 [node name="PlayerSpawn" type="Marker2D" parent="." unique_id=730847702]
+z_index = 2
 position = Vector2(282, 467)
 
 [node name="DummySpawn" type="Marker2D" parent="." unique_id=1102336633]

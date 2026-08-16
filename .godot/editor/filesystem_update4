@@ -4,3 +4,10 @@ res://Scripts/Fight/FightManager.gd
 res://Cenas/ArenaSelection/ArenaSelection.tscn
 res://Cenas/ArenaSelection/ArenaSelection.gd
 res://Cenas/Cenarios/CenaDaLuta.tscn
+res://Cenas/DefeatScreen/DefeatScreen.tscn
+res://Cenas/DefeatScreen/DefeatScreen.gd
+res://Cenas/Cenarios/Arenas/Arena02.tscn
+res://Cenas/Cenarios/Arenas/Arena03.tscn
+res://Cenas/Cenarios/Arenas/Arena04.tscn
+res://Cenas/Cenarios/Arenas/Arena05.tscn
+res://Cenas/Cenarios/Arenas/Arena06.tscn

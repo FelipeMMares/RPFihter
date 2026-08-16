@@ -1,3 +1,6 @@
+res://assets/
+res://Cenas/ArenaSelection/
+res://Cenas/CharacterSelect/
 res://assets/Audio/Music/
 res://Scripts/Arenas/
 res://Cenas/Cenarios/Arenas/
@@ -13,10 +16,7 @@ res://Scripts/Global/
 res://Cenas/HUD/
 res://assets/HitSparks/
 res://Scripts/Combat/
-res://assets/
 res://assets/Elena Taunt/
 res://assets/Chun Li Taunt/
 res://assets/Menus/SelectionCharacter/
 res://Cenas/Dummy/
-res://Cenas/Player/
-res://Cenas/CharacterSelect/

@@ -48,7 +48,7 @@ script = ExtResource("1_6jiim")
 arena_music = ExtResource("2_gg8w5")
 
 [node name="ArenaAnimated" type="AnimatedSprite2D" parent="." unique_id=1245550179]
-z_index = 1
+z_index = -20
 position = Vector2(578.56, 324.8095)
 scale = Vector2(1.4933332, 2.4936755)
 sprite_frames = SubResource("SpriteFrames_e04xc")

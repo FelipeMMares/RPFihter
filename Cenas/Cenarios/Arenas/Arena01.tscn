@@ -119,6 +119,7 @@ texture = ExtResource("1_cxpjc")
 
 [node name="ArenaAnimated" type="AnimatedSprite2D" parent="." unique_id=1611603841]
 z_index = -20
-scale = Vector2(1.548, 1.548)
+position = Vector2(577.284, 299.892)
+scale = Vector2(1.4992603, 1.5474375)
 sprite_frames = SubResource("SpriteFrames_dpov6")
 animation = &"ArenaLoop"
