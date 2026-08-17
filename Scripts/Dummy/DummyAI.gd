@@ -264,11 +264,7 @@ func _physics_process(delta: float) -> void:
 	if state_machine == null:
 		return
 
-	if _decision_delay > 0.0:
-		_decision_delay = maxf(
-			_decision_delay - delta,
-			0.0
-		)
+
 	if state_machine.is_round_result_locked():
 		return
 	
@@ -331,11 +327,16 @@ func _physics_process(delta: float) -> void:
 
 		return
 
+# Só conta o delay quando a IA está
+# realmente livre para decidir.
 	if _decision_delay > 0.0:
+		_decision_delay = maxf(
+			_decision_delay - delta,
+			0.0
+		)
 		_ensure_idle()
 		_stop_character()
 		return
-
 
 
 	_choose_next_action()
@@ -640,9 +641,14 @@ func _perform_random_attack() -> void:
 		selected_attack
 	)
 
-	state_machine.force_transition(
-		selected_attack
+	var transitioned: bool = (
+		state_machine.request_ai_transition(
+			selected_attack
+		)
 	)
+
+	if not transitioned:
+		return
 
 	_set_next_decision_delay()
 
@@ -691,7 +697,14 @@ func _perform_jump() -> void:
 		jump_direction
 	)
 
-	state_machine.force_transition(jump_state)
+	var transitioned: bool = (
+		state_machine.request_ai_transition(
+			jump_state
+		)
+	)
+
+	if not transitioned:
+		return
 
 	_set_next_decision_delay()
 
@@ -854,7 +867,7 @@ func _start_crouch() -> void:
 		" segundos."
 	)
 
-	state_machine.force_transition(
+	state_machine.request_ai_transition(
 		crouch_start_state
 	)
 
@@ -947,7 +960,7 @@ func _release_crouch() -> void:
 		"DummyAI decidiu soltar o agachamento."
 	)
 
-	state_machine.force_transition(
+	state_machine.request_ai_transition(
 		crouch_end_state
 	)
 
@@ -1026,7 +1039,7 @@ func _start_random_crouch_attack() -> bool:
 		selected_attack
 	)
 
-	state_machine.force_transition(
+	return state_machine.request_ai_transition(
 		selected_attack
 	)
 
@@ -1094,7 +1107,7 @@ func _start_random_air_attack() -> bool:
 		selected_attack
 	)
 
-	state_machine.force_transition(
+	return state_machine.request_ai_transition(
 		selected_attack
 	)
 
@@ -1273,6 +1286,14 @@ func _try_special_attack() -> bool:
 	if character == null:
 		return false
 
+	if state_machine == null:
+		return false
+
+	# Não permite que um especial da IA
+	# interrompa uma ação em andamento.
+	if not state_machine.can_ai_change_state():
+		return false
+
 	if not character.has_method(
 		"request_special_attack"
 	):
@@ -1377,9 +1398,14 @@ func _try_grab_guarding_target() -> bool:
 
 	_stop_character()
 
-	state_machine.force_transition(
+	var transitioned: bool = (
+		state_machine.request_ai_transition(
 		grab_state
+		)
 	)
+
+	if not transitioned:
+		return false
 
 	_set_next_decision_delay()
 
@@ -1404,3 +1430,22 @@ func _set_next_decision_delay() -> void:
 		)
 		* delay_multiplier
 	)
+
+func reset_for_round_transition() -> void:
+	_current_action = AIAction.NONE
+	_action_time_left = 0.0
+
+	_crouch_hold_started = false
+	_crouch_release_requested = false
+
+	_crouch_attack_timer = 0.0
+	_crouch_attack_attempted = false
+
+	_air_attack_timer = 0.0
+	_air_attack_attempted = false
+
+	_stop_character()
+
+	# Evita uma decisão exatamente no
+	# primeiro frame em que a IA for liberada.
+	_set_next_decision_delay()

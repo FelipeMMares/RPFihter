@@ -5,16 +5,16 @@ extends State
 
 
 func _enter() -> void:
-	# Somente o Player lê o teclado aqui.
-	if not player_input_enabled:
-		return
-
-	if player_controls == null:
-		return
-		
-		var horizontal_direction: float = Input.get_axis(
-			player_controls.left,
-			player_controls.right
+	# Somente o humano lê o eixo diretamente.
+	if (
+		player_input_enabled
+		and player_controls != null
+	):
+		var horizontal_direction: float = (
+			Input.get_axis(
+				player_controls.left,
+				player_controls.right
+			)
 		)
 
 		move.emit(
@@ -24,8 +24,7 @@ func _enter() -> void:
 			)
 		)
 
-	# Precisa ficar fora do bloco player_controls.
-	# O Dummy também deve receber o impulso vertical.
+	# Isto precisa funcionar para humano E CPU.
 	jump.emit()
 
 	play_animation.emit(
@@ -35,4 +34,6 @@ func _enter() -> void:
 
 
 func _animation_finished() -> void:
-	transition_to.emit(jump_state)
+	transition_to.emit(
+		jump_state
+	)

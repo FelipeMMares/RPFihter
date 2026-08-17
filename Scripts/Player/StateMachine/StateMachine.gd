@@ -13,6 +13,15 @@ class_name StateMachine
 
 @export var player_input_enabled: bool = true
 
+@export_group("Controle da IA")
+
+@export var ai_decision_states: Array[StringName] = [
+	&"Idle",
+	&"Walk",
+	&"CrouchWhile",
+	&"Jump"
+]
+
 @export_group("Especial de carga")
 
 @export var charge_special_enabled: bool = false
@@ -229,38 +238,114 @@ func _on_request_play_animation(
 	backwards: bool = false,
 	state: State = null
 ) -> void:
-	if not animated_sprite:
-		printerr("AnimatedSprite2D não configurado")
+	if animated_sprite == null:
+		printerr(
+			"AnimatedSprite2D não configurado"
+		)
 		return
 
-	#print("StateMachine recebeu animação: ", anim_name)
-
-	if not animated_sprite.sprite_frames.has_animation(anim_name):
-		printerr("Animação não encontrada: ", anim_name)
+	if animated_sprite.sprite_frames == null:
+		printerr(
+			"SpriteFrames não configurado"
+		)
 		return
+
+	if not animated_sprite.sprite_frames.has_animation(
+		anim_name
+	):
+		printerr(
+			"Animação não encontrada: ",
+			anim_name
+		)
+		return
+
+	# Toda nova animação recebe um identificador.
+	_anim_request_id += 1
+
+	var request_id: int = (
+		_anim_request_id
+	)
+
+	var expected_animation := StringName(
+		anim_name
+	)
 
 	if backwards:
-		animated_sprite.play_backwards(anim_name)
+		animated_sprite.play_backwards(
+			anim_name
+		)
 	else:
-		animated_sprite.play(anim_name)
+		animated_sprite.play(
+			anim_name
+		)
 
 	await animated_sprite.animation_finished
 
-	if state and state.has_method("_animation_finished"):
-		state._animation_finished()
-
-func receive_hit(hit_data: HitData) -> void:
-	var hurt_state = get_node_or_null("Hurt")
-
-	if hurt_state == null:
-		printerr("StateMachine: estado Hurt não encontrado.")
+	# Outra animação foi iniciada enquanto
+	# estávamos esperando.
+	if request_id != _anim_request_id:
 		return
 
-	if hurt_state.has_method("set_hit_data"):
-		hurt_state.set_hit_data(hit_data)
+	# O estado que pediu a animação já não
+	# é mais o estado atual.
+	if (
+		state != null
+		and _current_state != state
+	):
+		return
 
-	if _current_state:
-		_transition_to("Hurt", _current_state.name)
+	# Proteção adicional contra um animation_finished
+	# pertencente a outra animação.
+	if (
+		StringName(animated_sprite.animation)
+		!= expected_animation
+	):
+		return
+
+	if (
+		state != null
+		and state.has_method(
+			"_animation_finished"
+		)
+	):
+		state._animation_finished()
+
+func receive_hit(
+	hit_data: HitData
+) -> void:
+	if _round_result_locked:
+		return
+
+	var hurt_state := (
+		get_node_or_null("Hurt")
+		as State
+	)
+
+	if hurt_state == null:
+		printerr(
+			"StateMachine: estado Hurt não encontrado."
+		)
+		return
+
+	if hurt_state.has_method(
+		"set_hit_data"
+	):
+		hurt_state.call(
+			"set_hit_data",
+			hit_data
+		)
+
+	# Já está em Hurt.
+	# Atualiza apenas o hitstun/dados;
+	# não reinicia a animação.
+	if _current_state == hurt_state:
+		return
+
+	if _current_state != null:
+		_transition_to(
+			"Hurt",
+			String(_current_state.name)
+		)
 
 func force_transition(new_state: StringName) -> void:
 	if _current_state == null:
@@ -344,3 +429,39 @@ func set_player_input_enabled(
 		var state := child as State
 
 		state.player_input_enabled = enabled
+
+func can_ai_change_state() -> bool:
+	if _round_result_locked:
+		return false
+
+	if _current_state == null:
+		return false
+
+	var current_state_name := StringName(
+		_current_state.name
+	)
+
+	return current_state_name in ai_decision_states
+
+
+func request_ai_transition(
+	new_state: StringName
+) -> bool:
+	if not can_ai_change_state():
+		return false
+
+	if not has_state(new_state):
+		printerr(
+			"StateMachine: IA tentou acessar estado inexistente: ",
+			new_state
+		)
+		return false
+
+	force_transition(
+		new_state
+	)
+
+	return (
+		get_current_state_name()
+		== new_state
+	)

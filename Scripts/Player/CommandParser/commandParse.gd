@@ -232,11 +232,23 @@ func clear_buffer() -> void:
 func is_special_move(
 	move_name: String
 ) -> bool:
-	return move_name in [
-		"Kikoken",
-		"HyakuretsuKyaku",
-		"SpinningBirdKick"
-	]
+	var normalized_name: String = (
+		move_name.strip_edges()
+	)
+
+	for command in commands:
+		if command == null:
+			continue
+
+		if (
+			command.name.strip_edges()
+			!= normalized_name
+		):
+			continue
+
+		return command.is_special
+
+	return false
 
 
 func is_combo(

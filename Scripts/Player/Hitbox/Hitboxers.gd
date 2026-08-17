@@ -21,6 +21,11 @@ var mp_gain_multiplier: float = 1.0
 
 signal hit_confirmed(target: Area2D)
 
+signal hit_resolved(
+	target: Area2D,
+	result: int
+)
+
 @export var hit_data: HitData
 
 var _owner_character: CharacterBody2D
@@ -210,6 +215,13 @@ func _try_hit(area: Area2D) -> void:
 		CombatHitResult.Type.IGNORED:
 			pass
 
+	hit_resolved.emit(
+		area,
+		combat_result
+	)
+
+	# Mantemos o sinal antigo para não quebrar
+	# nenhuma lógica que já dependa dele.
 	hit_confirmed.emit(
 		area
 	)

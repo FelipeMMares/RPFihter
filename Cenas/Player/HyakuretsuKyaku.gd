@@ -95,12 +95,17 @@ var _entry_physics_frame: int = 0
 # o AnimatedSprite continua no mesmo frame.
 var _last_processed_animation_frame: int = -1
 
+var _first_contact_resolved: bool = false
+var _frustrated: bool = false
 
 func _enter() -> void:
+	_first_contact_resolved = false
+	_frustrated = false
+
 	_phase = AttackPhase.START
 
 	_loops_remaining = 1
-	_total_loops = 1
+	_total_loops = 3
 
 	_entry_physics_frame = (
 		Engine.get_physics_frames()
@@ -117,6 +122,17 @@ func _enter() -> void:
 		false
 	)
 
+func _ready() -> void:
+	for hitbox in loop_hitboxes:
+		if hitbox == null:
+			continue
+
+		if not hitbox.hit_resolved.is_connected(
+			_on_hitbox_resolved
+		):
+			hitbox.hit_resolved.connect(
+				_on_hitbox_resolved
+			)
 
 func _physics_process(_delta: float) -> void:
 	move.emit(Vector2.ZERO)
@@ -130,6 +146,9 @@ func _physics_process(_delta: float) -> void:
 
 
 func _read_additional_kick_input() -> void:
+	if _frustrated:
+		return
+
 	if _phase == AttackPhase.END:
 		return
 
@@ -176,6 +195,10 @@ func _read_additional_kick_input() -> void:
 
 
 func _update_loop_hitboxes() -> void:
+	if _frustrated:
+		_disable_all_hitboxes()
+		return
+
 	if animated_sprite == null:
 		_disable_all_hitboxes()
 		return
@@ -254,6 +277,9 @@ func _disable_all_hitboxes() -> void:
 
 
 func _animation_finished() -> void:
+	if _frustrated:
+		return
+
 	_disable_all_hitboxes()
 
 	match _phase:
@@ -301,9 +327,91 @@ func _play_end() -> void:
 
 
 func _exit() -> void:
+	_first_contact_resolved = false
+	_frustrated = false
+
 	_disable_all_hitboxes()
 
 	_last_processed_animation_frame = -1
 
 	if character != null:
 		character.velocity.x = 0.0
+
+func _on_hitbox_resolved(
+	_target: Area2D,
+	combat_result: int
+) -> void:
+	if _frustrated:
+		return
+
+	if _first_contact_resolved:
+		return
+
+	if (
+		combat_result
+		== CombatHitResult.Type.IGNORED
+	):
+		return
+
+
+	_first_contact_resolved = true
+
+
+	if (
+		combat_result
+		== CombatHitResult.Type.HIT
+	):
+		return
+
+
+	if (
+		combat_result
+		!= CombatHitResult.Type.GUARD
+	):
+		return
+
+
+	_frustrated = true
+
+	# Mesmo que o jogador já tenha apertado Kick
+	# várias vezes durante START, perde todas
+	# as repetições extras.
+	_loops_remaining = 0
+	_total_loops = 1
+
+	_disable_all_hitboxes()
+
+	move.emit(
+		Vector2.ZERO
+	)
+
+	print(
+		"Hyakuretsu Kyaku frustrado: "
+		+ "primeiro impacto defendido."
+	)
+
+	call_deferred(
+		"_finish_frustrated_hyakuretsu"
+	)
+
+func _finish_frustrated_hyakuretsu() -> void:
+	if not _frustrated:
+		return
+
+	var state_machine := (
+		get_parent()
+		as StateMachine
+	)
+
+	if state_machine == null:
+		return
+
+	if (
+		state_machine.get_current_state_name()
+		!= StringName(name)
+	):
+		return
+
+	transition_to.emit(
+		return_state
+	)

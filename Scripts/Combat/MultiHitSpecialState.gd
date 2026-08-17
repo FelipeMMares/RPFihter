@@ -25,6 +25,9 @@ class_name MultiHitSpecialState
 # Sequência de ativação das HitBoxes.
 @export var hitbox_steps: Array[FrameHitboxStep] = []
 
+@export_group("Frustração por defesa")
+
+@export var frustrate_on_first_guard: bool = true
 
 @export_group("Movimento")
 
@@ -68,7 +71,13 @@ var _sprite_offset_applied: bool = false
 var _expected_animation: StringName = &""
 var _entry_physics_frame: int = -1
 
+var _first_contact_resolved: bool = false
+var _frustrated: bool = false
+
 func _enter() -> void:
+	_first_contact_resolved = false
+	_frustrated = false
+
 	_current_step_index = -2
 
 	if animated_sprite != null:
@@ -157,7 +166,27 @@ func _enter() -> void:
 		false
 	)
 
+func _ready() -> void:
+	for hitbox in hitboxes:
+		if hitbox == null:
+			continue
+
+		if not hitbox.hit_resolved.is_connected(
+			_on_hitbox_resolved
+		):
+			hitbox.hit_resolved.connect(
+				_on_hitbox_resolved
+			)
+
 func _physics_process(_delta: float) -> void:
+	if _frustrated:
+		_disable_all_hitboxes()
+
+		if character != null:
+			character.velocity.x = 0.0
+
+		return
+
 	if character == null:
 		return
 
@@ -277,6 +306,8 @@ func _disable_all_hitboxes() -> void:
 
 
 func _animation_finished() -> void:
+	if _frustrated:
+		return
 	# Evita que o término da animação anterior
 	# encerre o especial no mesmo frame em que ele entrou.
 	if (
@@ -323,7 +354,11 @@ func _animation_finished() -> void:
 func _exit() -> void:
 	_disable_all_hitboxes()
 
+	_first_contact_resolved = false
+	_frustrated = false
+
 	_current_step_index = -2
+
 	if (
 		_sprite_offset_applied
 		and animated_sprite != null
@@ -339,3 +374,126 @@ func _exit() -> void:
 		and character != null
 	):
 		character.velocity.x = 0.0
+
+func _is_multi_activation_special() -> bool:
+	var valid_hitbox_count: int = 0
+
+	for hitbox in hitboxes:
+		if hitbox != null:
+			valid_hitbox_count += 1
+
+	# Mais de uma HitBox diferente.
+	if valid_hitbox_count > 1:
+		return true
+
+
+	var activation_count: int = 0
+
+	for step in hitbox_steps:
+		if step == null:
+			continue
+
+		if step.hitbox_indices.is_empty():
+			continue
+
+		activation_count += 1
+
+	# Uma mesma HitBox ativada em mais
+	# de uma janela também é multi-hit.
+	return activation_count > 1
+
+func _on_hitbox_resolved(
+	_target: Area2D,
+	combat_result: int
+) -> void:
+	if _frustrated:
+		return
+
+	if _first_contact_resolved:
+		return
+
+	# IGNORED não conta como primeiro impacto.
+	if (
+		combat_result
+		== CombatHitResult.Type.IGNORED
+	):
+		return
+
+
+	# A partir daqui o primeiro impacto
+	# realmente foi resolvido.
+	_first_contact_resolved = true
+
+
+	# Se acertou normalmente, o especial
+	# continua e nunca mais verifica esta regra.
+	if (
+		combat_result
+		== CombatHitResult.Type.HIT
+	):
+		return
+
+
+	if (
+		combat_result
+		!= CombatHitResult.Type.GUARD
+	):
+		return
+
+
+	if not frustrate_on_first_guard:
+		return
+
+
+	if not _is_multi_activation_special():
+		return
+
+
+	_frustrate_special()
+
+func _frustrate_special() -> void:
+	if _frustrated:
+		return
+
+	_frustrated = true
+
+	print(
+		name,
+		": especial frustrado pela defesa "
+		+ "do primeiro impacto."
+	)
+
+	_disable_all_hitboxes()
+
+	_current_step_index = -2
+
+	if character != null:
+		character.velocity.x = 0.0
+
+	call_deferred(
+		"_finish_frustrated_special"
+	)
+
+func _finish_frustrated_special() -> void:
+	if not _frustrated:
+		return
+
+	var state_machine := (
+		get_parent()
+		as StateMachine
+	)
+
+	if state_machine == null:
+		return
+
+	# O personagem pode ter sido interrompido
+	# por Hurt/FallDefeated nesse meio-tempo.
+	if (
+		state_machine.get_current_state_name()
+		!= StringName(name)
+	):
+		return
+
+	transition_to.emit(
+		return_state
+	)

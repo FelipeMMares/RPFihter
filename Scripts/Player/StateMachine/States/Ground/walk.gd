@@ -10,14 +10,13 @@ func _enter() -> void:
 	play_animation.emit(name, false)
 
 func _physics_process(delta: float) -> void:
-	check_special_move()
-	# O Dummy não possui PlayerControls.
-	# A direção dele será controlada pelo DummyAI.
 	if not player_input_enabled:
 		return
 
 	if player_controls == null:
 		return
+
+	check_special_move()
 
 	var direction: float = Input.get_axis(
 		player_controls.left,

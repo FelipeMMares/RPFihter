@@ -104,7 +104,10 @@ func _should_leave_guard(
 	character: CharacterBody2D
 ) -> bool:
 	# Player: verifica diretamente o botão.
-	if player_controls != null:
+	if (
+		player_input_enabled
+		and player_controls != null
+	):
 		return not Input.is_action_pressed(
 			player_controls.guard
 		)

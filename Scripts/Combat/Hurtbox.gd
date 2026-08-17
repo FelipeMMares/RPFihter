@@ -99,9 +99,27 @@ func receive_hit(
 	var was_guarding: bool = false
 
 	if state_machine != null:
-		was_guarding = (
+		var current_state: StringName = (
 			state_machine.get_current_state_name()
-			== &"Guard"
+		)
+
+		var guard_is_active: bool = false
+
+		if character.has_method(
+			"is_guard_active"
+		):
+			guard_is_active = bool(
+				character.call(
+					"is_guard_active"
+				)
+			)
+
+		was_guarding = (
+			guard_is_active
+			and (
+				current_state == &"Guard"
+				or current_state == &"GuardWhile"
+			)
 		)
 
 	if character.has_method(

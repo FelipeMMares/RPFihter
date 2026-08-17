@@ -331,11 +331,11 @@ func _finish_round_by_health(
 	hud.set_sudden_death_mode(false)
 	hud.show_ko()
 
-	# Em derrota por HP, usamos FallDefeated.
-	_lock_round_result(
+	_freeze_combat_after_round_end()
+
+	_lock_health_round_result(
 		winner,
-		loser,
-		&"FallDefeated"
+		loser
 	)
 
 	if winner_number == 1:
@@ -479,6 +479,35 @@ func _reset_next_round_behind_black() -> void:
 	# Defeated e FallDefeated.
 	_unlock_fighters_for_next_round()
 
+	if (
+		player_1 != null
+		and player_1.has_method(
+			"reset_for_new_round"
+		)
+	):
+		player_1.call(
+			"reset_for_new_round"
+		)
+
+
+	if (
+		player_2 != null
+		and player_2.has_method(
+			"reset_for_new_round"
+		)
+	):
+		player_2.call(
+			"reset_for_new_round"
+		)
+
+
+	if player_ai != null:
+		player_ai.reset_for_round_transition()
+
+
+	if dummy_ai != null:
+		dummy_ai.reset_for_round_transition()
+
 	current_round_number += 1
 
 	print(
@@ -505,6 +534,28 @@ func _reset_next_round_behind_black() -> void:
 
 	player_1.velocity = Vector2.ZERO
 	player_2.velocity = Vector2.ZERO
+
+# Os estados de resultado já cumpriram seu papel.
+# Como a tela ainda está preta, podemos colocar
+# os dois lutadores em Idle sem que o jogador
+# veja a troca de animação.
+
+	if player_1_state_machine != null:
+		if player_1_state_machine.has_state(
+			&"Idle"
+		):
+			player_1_state_machine.force_transition(
+				&"Idle"
+			)
+
+
+	if player_2_state_machine != null:
+		if player_2_state_machine.has_state(
+			&"Idle"
+		):
+			player_2_state_machine.force_transition(
+				&"Idle"
+			)
 
 	# Reseta a vida enquanto a tela está preta.
 	if sudden_death_active:
@@ -1703,3 +1754,79 @@ func _play_arena_music(
 		"MÚSICA DA ARENA: ",
 		arena.arena_music.resource_path
 	)
+
+func _lock_health_round_result(
+	winner: CharacterBody2D,
+	loser: CharacterBody2D
+) -> void:
+	# Vencedor apenas permanece parado em Idle.
+	_lock_character_result(
+		winner,
+		&"Idle"
+	)
+
+	# Perdedor permanece em FallDefeated.
+	_lock_character_result(
+		loser,
+		&"FallDefeated"
+	)
+
+func _freeze_combat_after_round_end() -> void:
+	# Limpa os comandos e impede novos inputs
+	# durante a tela de resultado.
+	_set_character_input_buffer_locked(
+		player_1,
+		true
+	)
+
+	_set_character_input_buffer_locked(
+		player_2,
+		true
+	)
+
+	_disable_character_hitboxes(
+		player_1
+	)
+
+	_disable_character_hitboxes(
+		player_2
+	)
+
+	if dummy_ai != null:
+		dummy_ai.reset_for_round_transition()
+
+	if player_ai != null:
+		player_ai.reset_for_round_transition()
+
+func _disable_character_hitboxes(
+	character: CharacterBody2D
+) -> void:
+	if character == null:
+		return
+
+	var hitboxers := (
+		character.get_node_or_null(
+			"Hitboxers"
+		)
+	)
+
+	if hitboxers == null:
+		return
+
+	_disable_hitboxes_recursive(
+		hitboxers
+	)
+
+
+func _disable_hitboxes_recursive(
+	node: Node
+) -> void:
+	if node is HitBox:
+		var hitbox := node as HitBox
+
+		hitbox.disable()
+
+	for child in node.get_children():
+		_disable_hitboxes_recursive(
+			child
+		)

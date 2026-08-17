@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bh8thk6d1rsr6" path="res://Cenas/Dummy/Dummy.gd" id="1_7u85y"]
 [ext_resource type="SpriteFrames" uid="uid://dafuseydhwltb" path="res://assets/Elena.tres" id="2_ii0w8"]
+[ext_resource type="Resource" uid="uid://bt3w7pgvybjpr" path="res://Scripts/Combat/LynxTail.tres" id="42_bkr2r"]
+[ext_resource type="Resource" uid="uid://dtosvcb478cdr" path="res://Scripts/Combat/RhinoHorn.tres" id="43_ii0w8"]
+[ext_resource type="Resource" uid="uid://x4r02ais3hb6" path="res://Scripts/Combat/ScratchWheel.tres" id="44_ns6ln"]
 [ext_resource type="Script" uid="uid://cmprwqp560lvn" path="res://Scripts/Player/StateMachine/StateMachine.gd" id="58_u4fdy"]
 [ext_resource type="Script" uid="uid://bi6q5kxootr01" path="res://Scripts/Player/StateMachine/States/Ground/Idle.gd" id="59_8yuib"]
 [ext_resource type="Script" uid="uid://bi4f41m5i0rbr" path="res://Scripts/Player/StateMachine/States/Ground/walk.gd" id="60_pbjwv"]
@@ -41,10 +44,6 @@
 [ext_resource type="Script" uid="uid://byslak2i1ykxe" path="res://Scripts/Player/PlayerControls/PlayerControls.gd" id="558_8rjmn"]
 [ext_resource type="Script" uid="uid://dbu8ihntj2ffr" path="res://Scripts/Player/CommandParser/commandParse.gd" id="559_sm2x2"]
 [ext_resource type="Script" uid="uid://brg7ixgqu5kif" path="res://Scripts/Player/CommandParser/CommandSequence.gd" id="560_wojwh"]
-[ext_resource type="Resource" uid="uid://b6n12fa2it8d4" path="res://Scripts/Combat/LightPunch2Command.tres" id="561_xtkcb"]
-[ext_resource type="Resource" uid="uid://chm6utc5wjlqk" path="res://Scripts/Combat/LightPunch3Command.tres" id="562_i5d0e"]
-[ext_resource type="Resource" uid="uid://p55mtiaotbgu" path="res://Scripts/Combat/HyakuretsuKyaku.tres" id="563_5sy3t"]
-[ext_resource type="Resource" uid="uid://dup10ktx8k152" path="res://Scripts/Combat/ SpinningBirdKick.tres" id="564_peg7y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqqph"]
 size = Vector2(111, 158)
@@ -272,13 +271,6 @@ metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 script = ExtResource("558_8rjmn")
 metadata/_custom_type_script = "uid://byslak2i1ykxe"
 
-[sub_resource type="Resource" id="Resource_muxrf"]
-script = ExtResource("560_wojwh")
-name = "teste_combo"
-inputs = Array[String](["left", "left", "right"])
-is_special = true
-metadata/_custom_type_script = "uid://brg7ixgqu5kif"
-
 [node name="Dummy" type="CharacterBody2D" unique_id=597853256 node_paths=PackedStringArray("body_collision")]
 script = ExtResource("1_7u85y")
 body_collision = NodePath("Hurtbox/TorsoShape")
@@ -307,9 +299,11 @@ charge_special_enabled = true
 
 [node name="Idle" type="Node" parent="StateMachine" unique_id=2058840451]
 script = ExtResource("59_8yuib")
+crouch_state = &"CrouchStart"
 
 [node name="Walk" type="Node" parent="StateMachine" unique_id=478205312]
 script = ExtResource("60_pbjwv")
+crouch_state = &"CrouchStart"
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="CrouchStart" type="Node" parent="StateMachine" unique_id=910006296]
@@ -430,7 +424,7 @@ metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="AirLowKick" type="Node" parent="StateMachine" unique_id=907767305 node_paths=PackedStringArray("hitbox")]
 script = ExtResource("328_qesbf")
-hitbox = NodePath("../../Hitboxers/LowKick")
+hitbox = NodePath("../../Hitboxers/AirLowKick")
 active_start_frame = 3
 active_end_frame = 4
 metadata/_custom_type_script = "uid://bkklrvtapkren"
@@ -878,5 +872,5 @@ player_controls = SubResource("Resource_fnqu3")
 
 [node name="CommandParser" type="Node" parent="." unique_id=1542089393 node_paths=PackedStringArray("input_buffer")]
 script = ExtResource("559_sm2x2")
-commands = Array[ExtResource("560_wojwh")]([SubResource("Resource_muxrf"), ExtResource("561_xtkcb"), ExtResource("562_i5d0e"), ExtResource("563_5sy3t"), ExtResource("564_peg7y")])
+commands = Array[ExtResource("560_wojwh")]([ExtResource("42_bkr2r"), ExtResource("43_ii0w8"), ExtResource("44_ns6ln")])
 input_buffer = NodePath("../InputBuffer")

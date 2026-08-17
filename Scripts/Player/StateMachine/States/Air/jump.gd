@@ -23,24 +23,28 @@ func _enter() -> void:
 	)
 
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(
+	_delta: float
+) -> void:
 	var character := _get_character()
 
-	if not player_input_enabled:
+	if character == null:
 		return
 
-	if player_controls == null:
-		return
-
+	# Esta parte vale para humano e CPU.
 	if not character.is_on_floor():
 		_has_left_ground = true
 
-	# Somente o Player lê teclado e inicia
-	# ataques aéreos por input.
-	if player_controls != null:
-		var horizontal_direction: float = Input.get_axis(
-			player_controls.left,
-			player_controls.right
+	# Somente o humano lê o controle diretamente.
+	if (
+		player_input_enabled
+		and player_controls != null
+	):
+		var horizontal_direction: float = (
+			Input.get_axis(
+				player_controls.left,
+				player_controls.right
+			)
 		)
 
 		move.emit(
@@ -54,14 +58,19 @@ func _physics_process(_delta: float) -> void:
 			if _try_air_attack():
 				return
 
-	# Esta parte precisa funcionar também no Dummy.
+	# Humano e CPU precisam detectar aterrissagem.
 	if (
 		_has_left_ground
 		and character.is_on_floor()
 		and character.velocity.y >= 0.0
 	):
-		move.emit(Vector2.ZERO)
-		transition_to.emit(landing_state)
+		move.emit(
+			Vector2.ZERO
+		)
+
+		transition_to.emit(
+			landing_state
+		)
 
 
 func _try_air_attack() -> bool:

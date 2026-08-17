@@ -42,10 +42,7 @@
 [ext_resource type="Resource" uid="uid://p55mtiaotbgu" path="res://Scripts/Combat/HyakuretsuKyaku.tres" id="398_kbopo"]
 [ext_resource type="Resource" uid="uid://dup10ktx8k152" path="res://Scripts/Combat/ SpinningBirdKick.tres" id="399_n0qkd"]
 [ext_resource type="Script" uid="uid://dsei8tgiddvv2" path="res://Scripts/Components/RoundResultState.gd" id="410_4s1wa"]
-[ext_resource type="Resource" uid="uid://dtosvcb478cdr" path="res://Scripts/Combat/RhinoHorn.tres" id="424_fdony"]
-[ext_resource type="Resource" uid="uid://x4r02ais3hb6" path="res://Scripts/Combat/ScratchWheel.tres" id="425_ovpgj"]
 [ext_resource type="Script" uid="uid://c4riw4ibqdsk4" path="res://Cenas/Player/HyakuretsuKyaku.gd" id="426_22y31"]
-[ext_resource type="Resource" uid="uid://bt3w7pgvybjpr" path="res://Scripts/Combat/LynxTail.tres" id="426_oqbn6"]
 [ext_resource type="Script" uid="uid://ccu8c3mk7qr5i" path="res://Scripts/Combat/MultiHitSpecialState.gd" id="427_4s1wa"]
 [ext_resource type="Script" uid="uid://dscrs3ri13jd2" path="res://Scripts/Combat/FrameHitboxStep.gd" id="428_n0qkd"]
 [ext_resource type="Resource" uid="uid://dtx7urdidfiqo" path="res://Scripts/Combat/HyakuretsuKyaru.tres" id="431_l2htf"]
@@ -234,15 +231,15 @@ frame_progress = 1.0
 [node name="KikokenSpawn" type="Marker2D" parent="." unique_id=1453849635]
 position = Vector2(94, -29)
 
-[node name="inputBuffer" type="Node" parent="." unique_id=1159587412]
+[node name="InputBuffer" type="Node" parent="." unique_id=1159587412]
 script = ExtResource("2_q2jvu")
 input_prefix = "Player1_"
 player_controls = SubResource("Resource_sx2x5")
 
 [node name="CommandParser" type="Node" parent="." unique_id=99549594 node_paths=PackedStringArray("input_buffer")]
 script = ExtResource("47_muxrf")
-commands = Array[ExtResource("43_xf2w6")]([SubResource("Resource_muxrf"), ExtResource("160_41wxf"), ExtResource("161_4gxf6"), ExtResource("398_kbopo"), ExtResource("399_n0qkd"), ExtResource("424_fdony"), ExtResource("425_ovpgj"), ExtResource("426_oqbn6")])
-input_buffer = NodePath("../inputBuffer")
+commands = Array[ExtResource("43_xf2w6")]([SubResource("Resource_muxrf"), ExtResource("160_41wxf"), ExtResource("161_4gxf6"), ExtResource("398_kbopo"), ExtResource("399_n0qkd")])
+input_buffer = NodePath("../InputBuffer")
 
 [node name="StateMachine" type="Node" parent="." unique_id=139237865 node_paths=PackedStringArray("initial_state", "animated_sprite", "command_parser")]
 script = ExtResource("3_4iq01")
@@ -437,7 +434,7 @@ metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="HyakuretsuKyaku" type="Node" parent="StateMachine" unique_id=678875042 node_paths=PackedStringArray("loop_hitboxes")]
 script = ExtResource("426_22y31")
-maximum_loops = 1
+maximum_loops = 3
 loop_hitboxes = [NodePath("../../Hitboxers/HyakuretsuKyakuHead"), NodePath("../../Hitboxers/HyakuretsuKyakuTorso"), NodePath("../../Hitboxers/HyakuretsuKyakuFeet")]
 frame_hitbox_pattern = Array[int]([0, -1, 1, -1, 0, -1, 2, -1, 0, -1, 1, -1, 0, -1, 2, -1])
 metadata/_custom_type_script = "uid://bkklrvtapkren"
