@@ -15,3 +15,8 @@ res://Scripts/Combat/Hurtbox.gd
 res://Scripts/Player/Hitbox/Hitboxers.gd
 res://Scripts/Combat/MultiHitSpecialState.gd
 res://Cenas/Player/HyakuretsuKyaku.gd
+res://Scripts/Player/Player.gd
+res://Scripts/Player/StateMachine/States/Ground/Idle.gd
+res://Cenas/Dummy/Dummy.gd
+res://Scripts/Combat/RhinoHorn.tres
+res://assets/Elena.tres

@@ -1263,7 +1263,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"HighPunch",
-"speed": 15.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1648,7 +1648,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"Kick",
-"speed": 15.0
+"speed": 25.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1719,7 +1719,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"LightPunch",
-"speed": 22.0
+"speed": 28.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -2331,7 +2331,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"TryGrab",
-"speed": 15.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,

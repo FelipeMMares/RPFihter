@@ -307,7 +307,10 @@ func _finish_round_by_health(
 	loser: CharacterBody2D,
 	winner_number: int
 ) -> void:
-	_set_mp_regeneration_enabled(false)
+	_set_mp_regeneration_enabled(
+		false
+	)
+
 	if (
 		round_finished
 		or match_finished
@@ -318,8 +321,7 @@ func _finish_round_by_health(
 	_round_finish_in_progress = true
 	round_finished = true
 
-	# É necessário guardar essa informação antes
-	# de desativar a morte súbita.
+	# Guarda antes de desligar a morte súbita.
 	var round_was_sudden_death: bool = (
 		sudden_death_active
 	)
@@ -328,25 +330,78 @@ func _finish_round_by_health(
 	sudden_death_active = false
 
 	hud.stop_round_timer()
-	hud.set_sudden_death_mode(false)
-	hud.show_ko()
-
-	_freeze_combat_after_round_end()
-
-	_lock_health_round_result(
-		winner,
-		loser
+	hud.set_sudden_death_mode(
+		false
 	)
 
+	hud.show_ko()
+
+
+	# Primeiro registra a vitória.
 	if winner_number == 1:
 		player_1_wins += 1
 	else:
 		player_2_wins += 1
 
+
 	hud.update_wins(
 		player_1_wins,
 		player_2_wins
 	)
+
+
+	# Agora já podemos saber se este
+	# round encerrou a luta.
+	var match_was_won: bool = false
+
+	if round_was_sudden_death:
+		match_was_won = true
+
+	elif (
+		winner_number == 1
+		and player_1_wins >= rounds_to_win
+	):
+		match_was_won = true
+
+	elif (
+		winner_number == 2
+		and player_2_wins >= rounds_to_win
+	):
+		match_was_won = true
+
+
+	# Limpa buffers, desliga HitBoxes
+	# e interrompe a IA.
+	_freeze_combat_after_round_end()
+
+
+	if match_was_won:
+		# Vitória FINAL da luta.
+		#
+		# Vencedor:
+		# Victory e permanece nela.
+		#
+		# Perdedor:
+		# FallDefeated e permanece
+		# no último frame.
+		_lock_round_result(
+			winner,
+			loser,
+			&"FallDefeated"
+		)
+
+	else:
+		# Round intermediário.
+		#
+		# Vencedor apenas espera em Idle.
+		#
+		# Perdedor fica em FallDefeated
+		# até o próximo round.
+		_lock_health_round_result(
+			winner,
+			loser
+		)
+
 
 	await _continue_after_round(
 		winner_number,

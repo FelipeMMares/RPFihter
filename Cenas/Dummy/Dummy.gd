@@ -759,8 +759,6 @@ func _apply_stack_side_push(
 	if is_zero_approx(normalized_direction):
 		normalized_direction = 1.0
 
-	# Move imediatamente um pouco para o lado,
-	# respeitando paredes e outras colisões.
 	var separation_motion := Vector2(
 		normalized_direction
 		* stack_separation_distance,
@@ -769,12 +767,6 @@ func _apply_stack_side_push(
 
 	move_and_collide(
 		separation_motion
-	)
-
-	# Aplica também uma pequena velocidade lateral.
-	velocity.x = (
-		normalized_direction
-		* stack_knockback_speed
 	)
 
 func reset_for_new_round() -> void:

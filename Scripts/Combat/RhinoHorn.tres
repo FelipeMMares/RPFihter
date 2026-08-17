@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_kj4cj")
-name = "ScratchWheel"
+name = "RhinoHorn"
 inputs = Array[String](["right", "down", "left", "kick"])
 is_special = true
 metadata/_custom_type_script = "uid://brg7ixgqu5kif"

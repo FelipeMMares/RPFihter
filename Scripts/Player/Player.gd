@@ -137,29 +137,34 @@ var pending_throw_direction: float = 0.0
 
 
 func _physics_process(delta: float) -> void:
-
 	_stack_push_cooldown_left = maxf(
 		_stack_push_cooldown_left - delta,
 		0.0
 	)
 
+	if throw_attacker_locked:
+		velocity = Vector2.ZERO
+		global_position = (
+			_throw_attacker_locked_position
+		)
+		return
+
 	if throw_locked:
 		velocity = Vector2.ZERO
+		global_position = (
+			_throw_victim_locked_position
+		)
 		return
 
 	# Movimento cinematográfico da apresentação.
-	# Retorna antes da física normal.
 	if _update_entry_motion():
 		return
-
 
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
 	move_and_slide()
 
-	# Precisa ficar depois de move_and_slide(),
-	# pois usa as colisões detectadas nesse movimento.
 	_resolve_fighter_stacking()
 
 func move(direction: Vector2) -> void:
@@ -793,8 +798,6 @@ func _apply_stack_side_push(
 	if is_zero_approx(normalized_direction):
 		normalized_direction = 1.0
 
-	# Move imediatamente um pouco para o lado,
-	# respeitando paredes e outras colisões.
 	var separation_motion := Vector2(
 		normalized_direction
 		* stack_separation_distance,
@@ -803,12 +806,6 @@ func _apply_stack_side_push(
 
 	move_and_collide(
 		separation_motion
-	)
-
-	# Aplica também uma pequena velocidade lateral.
-	velocity.x = (
-		normalized_direction
-		* stack_knockback_speed
 	)
 
 func reset_for_new_round() -> void:

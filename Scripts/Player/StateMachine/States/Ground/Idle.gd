@@ -5,7 +5,14 @@ extends State
 @export var crouch_state: StringName = &"Crouch"
 
 func _enter() -> void:
-	play_animation.emit(name, false)
+	move.emit(
+		Vector2.ZERO
+	)
+
+	play_animation.emit(
+		name,
+		false
+	)
 
 func _physics_process(_delta: float) -> void:
 	if not player_input_enabled:
