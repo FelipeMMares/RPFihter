@@ -1,6 +1,11 @@
 extends Area2D
 class_name HitBox
 
+enum ImpactSoundType {
+	HIT,
+	STRIKE
+}
+
 @export_group("Hit Spark")
 
 @export_enum(
@@ -13,6 +18,34 @@ var hit_spark_type: int = 0
 const HIT_SPARK_SCENE: PackedScene = preload(
 	"res://Scripts/Combat/HitSpark.tscn"
 )
+
+@export_group("SFX de impacto")
+
+@export_enum(
+	"Hit",
+	"Strike"
+)
+var impact_sound_type: int = (
+	ImpactSoundType.HIT
+)
+
+@export var hit_sound: AudioStream
+@export var guard_sound: AudioStream
+@export var strike_sound: AudioStream
+
+@export_range(
+	-12.0,
+	6.0,
+	0.5
+)
+var impact_volume_db: float = 0.0
+
+@export_range(
+	0.0,
+	0.20,
+	0.01
+)
+var pitch_variation: float = 0.04
 
 @export_group("MP")
 
@@ -32,6 +65,10 @@ var _owner_character: CharacterBody2D
 var _already_hit: Array[Area2D] = []
 var _enabled: bool = false
 
+const IMPACT_AUDIO_POOL_SIZE: int = 4
+
+var _impact_audio_pool: Array[AudioStreamPlayer2D] = []
+var _impact_audio_index: int = 0
 
 func _ready() -> void:
 	_owner_character = _find_owner_character()
@@ -75,6 +112,7 @@ func _ready() -> void:
 		collision_mask
 	)
 
+	_create_impact_audio_pool()
 
 func enable() -> void:
 	_enabled = true
@@ -188,11 +226,22 @@ func _try_hit(area: Area2D) -> void:
 		hit_result
 	)
 
+	var impact_position: Vector2 = (
+		_get_impact_position(
+			area
+		)
+	)
+
+
 	match combat_result:
 		CombatHitResult.Type.HIT:
 			_spawn_hit_spark(
 				area,
 				hit_spark_type
+			)
+
+			_play_successful_hit_sound(
+				impact_position
 			)
 
 			if (
@@ -206,11 +255,18 @@ func _try_hit(area: Area2D) -> void:
 					mp_gain_multiplier
 				)
 
+
 		CombatHitResult.Type.GUARD:
 			_spawn_hit_spark(
 				area,
 				HitSpark.SparkType.GUARD
 			)
+
+			_play_impact_sound(
+				guard_sound,
+				impact_position
+			)
+
 
 		CombatHitResult.Type.IGNORED:
 			pass
@@ -280,3 +336,96 @@ func _spawn_hit_spark(
 		spark_type,
 		impact_position
 	)
+
+func _play_impact_sound(
+	stream: AudioStream,
+	impact_position: Vector2
+) -> void:
+	if stream == null:
+		return
+
+	if _impact_audio_pool.is_empty():
+		return
+
+	var audio_player: AudioStreamPlayer2D = (
+		_impact_audio_pool[
+			_impact_audio_index
+		]
+	)
+
+	_impact_audio_index = (
+		_impact_audio_index + 1
+	) % _impact_audio_pool.size()
+
+	audio_player.stop()
+
+	audio_player.stream = stream
+
+	audio_player.global_position = (
+		impact_position
+	)
+
+	audio_player.volume_db = (
+		impact_volume_db
+	)
+
+	if pitch_variation > 0.0:
+		audio_player.pitch_scale = randf_range(
+			1.0 - pitch_variation,
+			1.0 + pitch_variation
+		)
+	else:
+		audio_player.pitch_scale = 1.0
+
+	audio_player.play()
+
+func _get_impact_position(
+	hurtbox: Area2D
+) -> Vector2:
+	if hurtbox == null:
+		return global_position
+
+	return (
+		global_position
+		+ hurtbox.global_position
+	) * 0.5
+
+func _play_successful_hit_sound(
+	impact_position: Vector2
+) -> void:
+	match impact_sound_type:
+		ImpactSoundType.HIT:
+			_play_impact_sound(
+				hit_sound,
+				impact_position
+			)
+
+		ImpactSoundType.STRIKE:
+			_play_impact_sound(
+				strike_sound,
+				impact_position
+			)
+
+func _create_impact_audio_pool() -> void:
+	for index in range(
+		IMPACT_AUDIO_POOL_SIZE
+	):
+		var audio_player := (
+			AudioStreamPlayer2D.new()
+		)
+
+		audio_player.name = (
+			"ImpactAudio_%d" % index
+		)
+
+		audio_player.volume_db = (
+			impact_volume_db
+		)
+
+		add_child(
+			audio_player
+		)
+
+		_impact_audio_pool.append(
+			audio_player
+		)

@@ -1,3 +1,5 @@
+AudioStreamPlayer
+Node
 PanelContainer
 MarginContainer
 Timer
@@ -11,4 +13,3 @@ HBoxContainer
 ColorRect
 TextureRect
 Label
-GridContainer

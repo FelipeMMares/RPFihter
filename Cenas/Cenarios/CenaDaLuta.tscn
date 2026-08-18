@@ -208,4 +208,5 @@ position = Vector2(282, 467)
 position = Vector2(850, 467)
 
 [node name="ArenaMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=406874654]
+volume_db = -10.0
 bus = &"Music"

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c0k44wkhq5nw0"
+path="res://.godot/imported/PL15_00025.wav-98904ee018c63d7cf36d1bb5cae88c75.sample"
+
+[deps]
+
+source_file="res://assets/Audio/Voice/Chun Li/SFX special attaks/PL15_00025.wav"
+dest_files=["res://.godot/imported/PL15_00025.wav-98904ee018c63d7cf36d1bb5cae88c75.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

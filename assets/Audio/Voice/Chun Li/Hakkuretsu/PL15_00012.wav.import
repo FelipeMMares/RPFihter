@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://tuv3nc4w3v30"
+path="res://.godot/imported/PL15_00012.wav-69088c349ba70367e75cf3c709681baf.sample"
+
+[deps]
+
+source_file="res://assets/Audio/Voice/Chun Li/Hakkuretsu/PL15_00012.wav"
+dest_files=["res://.godot/imported/PL15_00012.wav-69088c349ba70367e75cf3c709681baf.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

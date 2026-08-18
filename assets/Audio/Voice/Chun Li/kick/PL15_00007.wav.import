@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cjse2c50d5fui"
+path="res://.godot/imported/PL15_00007.wav-36d3f5e9d7962056b78e4da42d04a8a3.sample"
+
+[deps]
+
+source_file="res://assets/Audio/Voice/Chun Li/kick/PL15_00007.wav"
+dest_files=["res://.godot/imported/PL15_00007.wav-36d3f5e9d7962056b78e4da42d04a8a3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

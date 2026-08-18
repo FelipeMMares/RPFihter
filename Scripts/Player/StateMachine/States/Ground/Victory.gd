@@ -1,5 +1,8 @@
 extends State
 
+@export_group("Voice")
+
+@export var voices: Array[AudioStream] = []
 
 func _enter() -> void:
 	var character := _get_character()
@@ -15,6 +18,7 @@ func _enter() -> void:
 		false
 	)
 
+	_play_result_voice()
 
 func _physics_process(_delta: float) -> void:
 	var character := _get_character()
@@ -33,3 +37,24 @@ func _get_character() -> CharacterBody2D:
 		get_parent().get_parent()
 		as CharacterBody2D
 	)
+
+func _play_result_voice() -> void:
+	if voices.is_empty():
+		return
+
+	var character := (
+		get_parent().get_parent()
+		as CharacterBody2D
+	)
+
+	if character == null:
+		return
+
+	if character.has_method(
+		"play_random_voice"
+	):
+		character.call(
+			"play_random_voice",
+			voices,
+			true
+		)

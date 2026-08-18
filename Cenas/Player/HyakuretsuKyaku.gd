@@ -8,6 +8,9 @@ enum AttackPhase {
 	END
 }
 
+@export_group("Voice")
+
+@export var start_voices: Array[AudioStream] = []
 
 @export_group("Animações")
 
@@ -115,6 +118,9 @@ func _enter() -> void:
 
 	move.emit(Vector2.ZERO)
 
+	# A fala do nome do golpe acontece
+	# UMA ÚNICA VEZ ao iniciar o especial.
+	_play_start_voice()
 	_disable_all_hitboxes()
 
 	play_animation.emit(
@@ -414,4 +420,27 @@ func _finish_frustrated_hyakuretsu() -> void:
 
 	transition_to.emit(
 		return_state
+	)
+
+func _play_start_voice() -> void:
+	if start_voices.is_empty():
+		return
+
+	var character := (
+		get_parent().get_parent()
+		as CharacterBody2D
+	)
+
+	if character == null:
+		return
+
+	if not character.has_method(
+		"play_random_voice"
+	):
+		return
+
+	character.call(
+		"play_random_voice",
+		start_voices,
+		true
 	)

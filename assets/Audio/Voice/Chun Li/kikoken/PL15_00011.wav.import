@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bul7uctb6t751"
+path="res://.godot/imported/PL15_00011.wav-aefe54a893968f4102228e4842ec4505.sample"
+
+[deps]
+
+source_file="res://assets/Audio/Voice/Chun Li/kikoken/PL15_00011.wav"
+dest_files=["res://.godot/imported/PL15_00011.wav-aefe54a893968f4102228e4842ec4505.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://eammohhs7c1c"
+path="res://.godot/imported/PL15_00008.wav-d12d5aec4f8c648437b403507d2c1743.sample"
+
+[deps]
+
+source_file="res://assets/Audio/Voice/Chun Li/LighPunch/PL15_00008.wav"
+dest_files=["res://.godot/imported/PL15_00008.wav-d12d5aec4f8c648437b403507d2c1743.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

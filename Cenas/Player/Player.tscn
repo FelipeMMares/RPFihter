@@ -7,9 +7,34 @@
 [ext_resource type="Script" uid="uid://bi6q5kxootr01" path="res://Scripts/Player/StateMachine/States/Ground/Idle.gd" id="4_q2jvu"]
 [ext_resource type="Script" uid="uid://bi4f41m5i0rbr" path="res://Scripts/Player/StateMachine/States/Ground/walk.gd" id="6_4ysqk"]
 [ext_resource type="Script" uid="uid://4il616qhcg6y" path="res://Scripts/Player/StateMachine/States/Ground/crouch.gd" id="7_0e5gp"]
+[ext_resource type="AudioStream" uid="uid://ckaiq54s0ej0j" path="res://assets/Audio/Voice/Chun Li/LighPunch/PL15_00004.wav" id="20_2l11u"]
+[ext_resource type="AudioStream" uid="uid://eammohhs7c1c" path="res://assets/Audio/Voice/Chun Li/LighPunch/PL15_00008.wav" id="21_nx6ma"]
+[ext_resource type="AudioStream" uid="uid://cbua0rol71cu1" path="res://assets/Audio/Voice/Chun Li/HighPunch/PL15_00005.wav" id="23_j126i"]
+[ext_resource type="AudioStream" uid="uid://b88m5khkbmmww" path="res://assets/Audio/Voice/Chun Li/HighPunch/PL15_00010.wav" id="24_hjxlf"]
+[ext_resource type="AudioStream" uid="uid://cjse2c50d5fui" path="res://assets/Audio/Voice/Chun Li/kick/PL15_00007.wav" id="25_nx6ma"]
+[ext_resource type="AudioStream" uid="uid://u0o5g4ylhmqp" path="res://assets/Audio/Voice/Chun Li/LowKick/PL15_00006.wav" id="26_j126i"]
+[ext_resource type="AudioStream" uid="uid://cy3g5co8gy6wp" path="res://assets/Audio/Voice/Chun Li/Victory/PL15_00021.wav" id="28_rldi2"]
+[ext_resource type="AudioStream" uid="uid://b0f0v516ranlh" path="res://assets/Audio/Voice/Chun Li/Victory/PL15_00024.wav" id="29_vsl4t"]
+[ext_resource type="AudioStream" uid="uid://bdxc53gfj6ne3" path="res://assets/Audio/Voice/Chun Li/Defeated/PL15_00000.wav" id="30_vsl4t"]
+[ext_resource type="AudioStream" uid="uid://d3kpy6pxugm2d" path="res://assets/Audio/Voice/Chun Li/kikoken/PL15_00009.wav" id="32_ttbwf"]
+[ext_resource type="AudioStream" uid="uid://bul7uctb6t751" path="res://assets/Audio/Voice/Chun Li/kikoken/PL15_00011.wav" id="33_tj5lq"]
+[ext_resource type="AudioStream" uid="uid://cm6eqwbhvpgq3" path="res://assets/Audio/Voice/Chun Li/Hurt/PL15_00002.wav" id="35_vao2x"]
+[ext_resource type="AudioStream" uid="uid://dfcyill82oc8o" path="res://assets/Audio/Voice/Chun Li/Hurt/PL15_00003.wav" id="36_wj34k"]
 [ext_resource type="Script" uid="uid://byslak2i1ykxe" path="res://Scripts/Player/PlayerControls/PlayerControls.gd" id="42_7t34q"]
+[ext_resource type="AudioStream" uid="uid://d22bgxty3l74y" path="res://assets/Audio/SFX/Combat/Hits/hitmarker_lPlclg2.mp3" id="42_mw5mv"]
+[ext_resource type="AudioStream" uid="uid://ba2ib67rraiv0" path="res://assets/Audio/Voice/Chun Li/Fallhurt/PL15_00001.wav" id="42_wj34k"]
+[ext_resource type="AudioStream" uid="uid://b8asxc7p44qtf" path="res://assets/Audio/SFX/Combat/Guard/hitstop.mp3" id="43_5g1c5"]
 [ext_resource type="Script" uid="uid://brg7ixgqu5kif" path="res://Scripts/Player/CommandParser/CommandSequence.gd" id="43_xf2w6"]
+[ext_resource type="AudioStream" uid="uid://v8n41tqls7ke" path="res://assets/Audio/SFX/Combat/Hits/smash-bros-hit-2.mp3" id="44_5g1c5"]
+[ext_resource type="AudioStream" uid="uid://bi8h37ajawew2" path="res://assets/Audio/SFX/Combat/Hits/sword-hit.mp3" id="45_ok0yd"]
+[ext_resource type="AudioStream" uid="uid://76ivwn2ew2u1" path="res://assets/Audio/SFX/Combat/Strikes/critical-hit-sounds-effect.mp3" id="47_laead"]
 [ext_resource type="Script" uid="uid://dbu8ihntj2ffr" path="res://Scripts/Player/CommandParser/commandParse.gd" id="47_muxrf"]
+[ext_resource type="AudioStream" uid="uid://tuv3nc4w3v30" path="res://assets/Audio/Voice/Chun Li/Hakkuretsu/PL15_00012.wav" id="52_adv4n"]
+[ext_resource type="AudioStream" uid="uid://c8b0cwc0h5ec7" path="res://assets/Audio/Voice/Chun Li/Spinning Bird Kick/PL15_00013.wav" id="54_o8hur"]
+[ext_resource type="Script" uid="uid://i478e5jfr2tp" path="res://Scripts/Audio/CharacterVoicePlayer.gd" id="56_ok0yd"]
+[ext_resource type="AudioStream" uid="uid://bxu3b5ausv1qa" path="res://assets/Audio/Voice/Chun Li/Entry/PL15_00014.wav" id="56_wnvrb"]
+[ext_resource type="AudioStream" uid="uid://bn6gc47wnqwd0" path="res://assets/Audio/Voice/Chun Li/Entry/PL15_00018.wav" id="57_adv4n"]
+[ext_resource type="AudioStream" uid="uid://bmn17hfv6b8jv" path="res://assets/Audio/Voice/Chun Li/Entry/PL15_00022.wav" id="58_m7th6"]
 [ext_resource type="Script" uid="uid://c0vg4x7xgk1qp" path="res://Scripts/Player/StateMachine/States/Air/jump.gd" id="68_tj5lq"]
 [ext_resource type="Script" uid="uid://c3ookyq3ypabc" path="res://Scripts/Player/StateMachine/States/Air/start_jump.gd" id="69_vao2x"]
 [ext_resource type="Script" uid="uid://julkhtuc7ncf" path="res://Scripts/Player/StateMachine/States/Ground/IdleCrouched.gd" id="70_wj34k"]
@@ -224,9 +249,7 @@ shape = SubResource("RectangleShape2D_r8ryd")
 position = Vector2(16, -20)
 scale = Vector2(1.3767501, 1.5799999)
 sprite_frames = ExtResource("2_ybk73")
-animation = &"Taunt"
-frame = 31
-frame_progress = 1.0
+animation = &"AirKick"
 
 [node name="KikokenSpawn" type="Marker2D" parent="." unique_id=1453849635]
 position = Vector2(94, -29)
@@ -277,6 +300,7 @@ metadata/_custom_type_script = "uid://bkklrvtapkren"
 [node name="LightPunch" type="Node" parent="StateMachine" unique_id=374435888 node_paths=PackedStringArray("hitbox")]
 script = ExtResource("111_jj3b6")
 hitbox = NodePath("../../Hitboxers/LightPunch")
+attack_voices = Array[AudioStream]([ExtResource("20_2l11u"), ExtResource("21_nx6ma")])
 metadata/_custom_type_script = "uid://bprajussohidd"
 
 [node name="LightPunch2" type="Node" parent="StateMachine" unique_id=2104970127]
@@ -292,6 +316,7 @@ script = SubResource("GDScript_w3xrr")
 hitbox = NodePath("../../Hitboxers/HighPunch")
 active_start_frame = 3
 active_end_frame = 5
+attack_voices = Array[AudioStream]([ExtResource("23_j126i"), ExtResource("24_hjxlf")])
 metadata/_custom_type_script = "uid://bprajussohidd"
 
 [node name="Kick" type="Node" parent="StateMachine" unique_id=967590929 node_paths=PackedStringArray("hitbox")]
@@ -299,6 +324,7 @@ script = SubResource("GDScript_w3xrr")
 hitbox = NodePath("../../Hitboxers/Kick")
 active_start_frame = 3
 active_end_frame = 4
+attack_voices = Array[AudioStream]([ExtResource("25_nx6ma")])
 metadata/_custom_type_script = "uid://bprajussohidd"
 
 [node name="LowKick" type="Node" parent="StateMachine" unique_id=2026664907 node_paths=PackedStringArray("hitbox")]
@@ -306,35 +332,42 @@ script = SubResource("GDScript_jj3b6")
 hitbox = NodePath("../../Hitboxers/LowKick")
 active_start_frame = 4
 active_end_frame = 6
+attack_voices = Array[AudioStream]([ExtResource("26_j126i")])
 metadata/_custom_type_script = "uid://bprajussohidd"
 
 [node name="Victory" type="Node" parent="StateMachine" unique_id=1312693122]
 script = ExtResource("410_4s1wa")
+voices = Array[AudioStream]([ExtResource("28_rldi2"), ExtResource("29_vsl4t")])
 animation_name = &"Victory"
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="Defeated" type="Node" parent="StateMachine" unique_id=560983265]
 script = ExtResource("410_4s1wa")
+voices = Array[AudioStream]([ExtResource("30_vsl4t")])
 animation_name = &"Defeated"
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="FallDefeated" type="Node" parent="StateMachine" unique_id=663736797]
 script = ExtResource("410_4s1wa")
+voices = Array[AudioStream]([ExtResource("30_vsl4t")])
 animation_name = &"FallDefeated"
 allow_fall_until_floor = true
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="Kikoken" type="Node" parent="StateMachine" unique_id=1944886997]
 script = ExtResource("195_maa41")
+voices = Array[AudioStream]([ExtResource("32_ttbwf"), ExtResource("33_tj5lq")])
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="Hurt" type="Node" parent="StateMachine" unique_id=1552523557]
 script = ExtResource("205_xohad")
+hurt_voices = Array[AudioStream]([ExtResource("35_vao2x"), ExtResource("36_wj34k")])
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="CrouchLightPunch" type="Node" parent="StateMachine" unique_id=1635412615 node_paths=PackedStringArray("hitbox")]
 script = ExtResource("234_at21e")
 hitbox = NodePath("../../Hitboxers/CrouchLightPunch")
+attack_voices = Array[AudioStream]([ExtResource("20_2l11u"), ExtResource("21_nx6ma")])
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="CrouchHighPunch" type="Node" parent="StateMachine" unique_id=1376390472 node_paths=PackedStringArray("hitbox")]
@@ -342,11 +375,13 @@ script = ExtResource("234_at21e")
 hitbox = NodePath("../../Hitboxers/CrouchHighPunch")
 active_start_frame = 2
 active_end_frame = 4
+attack_voices = Array[AudioStream]([ExtResource("23_j126i"), ExtResource("24_hjxlf")])
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="CrouchKick" type="Node" parent="StateMachine" unique_id=1423207407 node_paths=PackedStringArray("hitbox")]
 script = ExtResource("234_at21e")
 hitbox = NodePath("../../Hitboxers/CrouchKick")
+attack_voices = Array[AudioStream]([ExtResource("25_nx6ma")])
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="CrouchLowKick" type="Node" parent="StateMachine" unique_id=1883283713 node_paths=PackedStringArray("hitbox")]
@@ -354,12 +389,14 @@ script = ExtResource("234_at21e")
 hitbox = NodePath("../../Hitboxers/CrouchLowKick")
 active_start_frame = 3
 active_end_frame = 4
+attack_voices = Array[AudioStream]([ExtResource("26_j126i")])
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="AirLightPunch" type="Node" parent="StateMachine" unique_id=2036817972 node_paths=PackedStringArray("hitbox")]
 script = ExtResource("282_yt5hj")
 hitbox = NodePath("../../Hitboxers/AirLightPunch")
 active_start_frame = 0
+attack_voices = Array[AudioStream]([ExtResource("20_2l11u"), ExtResource("21_nx6ma")])
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="AirHighPunch" type="Node" parent="StateMachine" unique_id=1126382899 node_paths=PackedStringArray("hitbox")]
@@ -367,6 +404,7 @@ script = ExtResource("282_yt5hj")
 hitbox = NodePath("../../Hitboxers/AirHighPunch")
 active_start_frame = 6
 active_end_frame = 8
+attack_voices = Array[AudioStream]([ExtResource("23_j126i"), ExtResource("24_hjxlf")])
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="AirKick" type="Node" parent="StateMachine" unique_id=1262075872 node_paths=PackedStringArray("hitbox")]
@@ -374,6 +412,7 @@ script = ExtResource("282_yt5hj")
 hitbox = NodePath("../../Hitboxers/AirKick")
 active_start_frame = 2
 active_end_frame = 5
+attack_voices = Array[AudioStream]([ExtResource("25_nx6ma")])
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="AirLowKick" type="Node" parent="StateMachine" unique_id=2085493865 node_paths=PackedStringArray("hitbox")]
@@ -381,6 +420,7 @@ script = ExtResource("282_yt5hj")
 hitbox = NodePath("../../Hitboxers/AirLowKick")
 active_start_frame = 4
 active_end_frame = 7
+attack_voices = Array[AudioStream]([ExtResource("26_j126i")])
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="Throw" type="Node" parent="StateMachine" unique_id=1694613826]
@@ -395,6 +435,7 @@ metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="HurtFall" type="Node" parent="StateMachine" unique_id=46901852]
 script = ExtResource("336_xafbm")
+voices = Array[AudioStream]([ExtResource("42_wj34k")])
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="Fall" type="Node" parent="StateMachine" unique_id=1461630831]
@@ -434,6 +475,8 @@ metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="HyakuretsuKyaku" type="Node" parent="StateMachine" unique_id=678875042 node_paths=PackedStringArray("loop_hitboxes")]
 script = ExtResource("426_22y31")
+start_voices = Array[AudioStream]([ExtResource("52_adv4n")])
+mash_action = &"kick"
 maximum_loops = 3
 loop_hitboxes = [NodePath("../../Hitboxers/HyakuretsuKyakuHead"), NodePath("../../Hitboxers/HyakuretsuKyakuTorso"), NodePath("../../Hitboxers/HyakuretsuKyakuFeet")]
 frame_hitbox_pattern = Array[int]([0, -1, 1, -1, 0, -1, 2, -1, 0, -1, 1, -1, 0, -1, 2, -1])
@@ -444,11 +487,13 @@ script = ExtResource("427_4s1wa")
 animation_name = &"SpinningBirdKick"
 hitboxes = [NodePath("../../Hitboxers/SpinningBirdKick")]
 hitbox_steps = Array[ExtResource("428_n0qkd")]([SubResource("Resource_gy14d"), SubResource("Resource_iuu0x"), SubResource("Resource_qgvqq")])
+special_voices = Array[AudioStream]([ExtResource("54_o8hur")])
 horizontal_velocity = 220.0
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="Entry" type="Node" parent="StateMachine" unique_id=1547687037]
 script = ExtResource("453_6vnjy")
+special_voices = Array[AudioStream]([ExtResource("56_wnvrb"), ExtResource("57_adv4n"), ExtResource("58_m7th6")])
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="Hitboxers" type="Node2D" parent="." unique_id=997661732]
@@ -460,6 +505,8 @@ position = Vector2(33, -13)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("112_lmw0p")
+hit_sound = ExtResource("42_mw5mv")
+guard_sound = ExtResource("43_5g1c5")
 hit_data = SubResource("Resource_lmw0p")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/LightPunch" unique_id=1338770999]
@@ -472,6 +519,8 @@ position = Vector2(-4, -14)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("112_lmw0p")
+hit_sound = ExtResource("42_mw5mv")
+guard_sound = ExtResource("43_5g1c5")
 hit_data = SubResource("Resource_57qmd")
 
 [node name="HitColision" type="CollisionPolygon2D" parent="Hitboxers/LightPunch2" unique_id=252400817]
@@ -484,6 +533,8 @@ position = Vector2(0, -30)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("112_lmw0p")
+hit_sound = ExtResource("44_5g1c5")
+guard_sound = ExtResource("43_5g1c5")
 hit_data = SubResource("Resource_d0u6y")
 
 [node name="HitColision" type="CollisionPolygon2D" parent="Hitboxers/LightPunch3" unique_id=1500100286]
@@ -497,6 +548,8 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("112_lmw0p")
 hit_spark_type = 1
+hit_sound = ExtResource("45_ok0yd")
+guard_sound = ExtResource("43_5g1c5")
 hit_data = SubResource("Resource_jj3b6")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/HighPunch" unique_id=1307253413]
@@ -509,6 +562,8 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("112_lmw0p")
 hit_spark_type = 1
+hit_sound = ExtResource("45_ok0yd")
+guard_sound = ExtResource("43_5g1c5")
 hit_data = SubResource("Resource_w3xrr")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/Kick" unique_id=579778566]
@@ -520,6 +575,8 @@ visible = false
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("112_lmw0p")
+hit_sound = ExtResource("42_mw5mv")
+guard_sound = ExtResource("43_5g1c5")
 hit_data = SubResource("Resource_80p4o")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/LowKick" unique_id=1641637369]
@@ -531,6 +588,8 @@ shape = SubResource("RectangleShape2D_d0u6y")
 visible = false
 monitoring = false
 script = ExtResource("112_lmw0p")
+hit_sound = ExtResource("42_mw5mv")
+guard_sound = ExtResource("43_5g1c5")
 hit_data = SubResource("Resource_g5c5a")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/CrouchLightPunch" unique_id=1263359872]
@@ -543,6 +602,8 @@ position = Vector2(15, 83)
 monitoring = false
 script = ExtResource("112_lmw0p")
 hit_spark_type = 1
+hit_sound = ExtResource("44_5g1c5")
+guard_sound = ExtResource("43_5g1c5")
 hit_data = SubResource("Resource_11k48")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/CrouchHighPunch" unique_id=1280855474]
@@ -555,6 +616,8 @@ position = Vector2(0, 83)
 monitoring = false
 script = ExtResource("112_lmw0p")
 hit_spark_type = 1
+hit_sound = ExtResource("44_5g1c5")
+guard_sound = ExtResource("43_5g1c5")
 hit_data = SubResource("Resource_w356g")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/CrouchKick" unique_id=1011138526]
@@ -568,6 +631,8 @@ visible = false
 position = Vector2(0, 71)
 monitoring = false
 script = ExtResource("112_lmw0p")
+hit_sound = ExtResource("42_mw5mv")
+guard_sound = ExtResource("43_5g1c5")
 hit_data = SubResource("Resource_yl5c5")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/CrouchLowKick" unique_id=1844945783]
@@ -581,6 +646,8 @@ visible = false
 position = Vector2(-1, -29)
 monitoring = false
 script = ExtResource("112_lmw0p")
+hit_sound = ExtResource("42_mw5mv")
+guard_sound = ExtResource("43_5g1c5")
 hit_data = SubResource("Resource_qesbf")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/AirLightPunch" unique_id=1467615623]
@@ -594,6 +661,8 @@ position = Vector2(-1, -14)
 monitoring = false
 script = ExtResource("112_lmw0p")
 hit_spark_type = 1
+hit_sound = ExtResource("45_ok0yd")
+guard_sound = ExtResource("43_5g1c5")
 hit_data = SubResource("Resource_qesbf")
 
 [node name="HitColision" type="CollisionPolygon2D" parent="Hitboxers/AirHighPunch" unique_id=571936864]
@@ -606,6 +675,8 @@ position = Vector2(0, -18)
 monitoring = false
 script = ExtResource("112_lmw0p")
 hit_spark_type = 1
+hit_sound = ExtResource("44_5g1c5")
+guard_sound = ExtResource("43_5g1c5")
 hit_data = SubResource("Resource_qesbf")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/AirKick" unique_id=1418030282]
@@ -617,6 +688,8 @@ visible = false
 position = Vector2(0, -29)
 monitoring = false
 script = ExtResource("112_lmw0p")
+hit_sound = ExtResource("45_ok0yd")
+guard_sound = ExtResource("43_5g1c5")
 hit_data = SubResource("Resource_qesbf")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Hitboxers/AirLowKick" unique_id=831392651]
@@ -643,6 +716,8 @@ position = Vector2(1, 3)
 visible = false
 script = ExtResource("112_lmw0p")
 hit_spark_type = 2
+guard_sound = ExtResource("43_5g1c5")
+strike_sound = ExtResource("47_laead")
 hit_data = ExtResource("431_l2htf")
 
 [node name="hitHead" type="CollisionShape2D" parent="Hitboxers/HyakuretsuKyakuHead" unique_id=398867865]
@@ -655,6 +730,8 @@ shape = SubResource("RectangleShape2D_4s1wa")
 visible = false
 script = ExtResource("112_lmw0p")
 hit_spark_type = 2
+guard_sound = ExtResource("43_5g1c5")
+strike_sound = ExtResource("47_laead")
 hit_data = ExtResource("431_l2htf")
 
 [node name="hitTorso" type="CollisionShape2D" parent="Hitboxers/HyakuretsuKyakuTorso" unique_id=1925661055]
@@ -665,6 +742,8 @@ shape = SubResource("RectangleShape2D_l2htf")
 visible = false
 script = ExtResource("112_lmw0p")
 hit_spark_type = 2
+guard_sound = ExtResource("43_5g1c5")
+strike_sound = ExtResource("47_laead")
 hit_data = ExtResource("431_l2htf")
 
 [node name="hitFeet" type="CollisionShape2D" parent="Hitboxers/HyakuretsuKyakuFeet" unique_id=62838327]
@@ -678,6 +757,8 @@ visible = false
 position = Vector2(-1, 8)
 script = ExtResource("112_lmw0p")
 hit_spark_type = 2
+guard_sound = ExtResource("43_5g1c5")
+strike_sound = ExtResource("47_laead")
 hit_data = ExtResource("432_kbopo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/SpinningBirdKick" unique_id=1590087615]
@@ -752,3 +833,9 @@ far_retreat_weight = 2
 far_jump_weight = 5
 far_wait_weight = 3
 far_crouch_weight = 0
+
+[node name="VoicePlayer" type="Node" parent="." unique_id=427761732]
+script = ExtResource("56_ok0yd")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VoicePlayer" unique_id=1064558309]
+bus = &"Voices"

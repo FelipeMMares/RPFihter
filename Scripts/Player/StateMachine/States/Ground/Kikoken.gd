@@ -11,7 +11,9 @@ const PROJECTILE_SPAWN_FRAME: int = 8
 
 var projectile_spawned: bool = false
 
+@export_group("Voice")
 
+@export var voices: Array[AudioStream] = []
 
 @onready var character: CharacterBody2D = (
 	get_parent().get_parent() as CharacterBody2D
@@ -41,6 +43,7 @@ func _enter() -> void:
 
 	print("Estado Kikoken iniciado")
 
+	_play_result_voice()
 
 func _physics_process(_delta: float) -> void:
 	if animated_sprite == null:
@@ -127,3 +130,24 @@ func _spawn_projectile() -> void:
 
 func _animation_finished() -> void:
 	transition_to.emit("Idle")
+
+func _play_result_voice() -> void:
+	if voices.is_empty():
+		return
+
+	var character := (
+		get_parent().get_parent()
+		as CharacterBody2D
+	)
+
+	if character == null:
+		return
+
+	if character.has_method(
+		"play_random_voice"
+	):
+		character.call(
+			"play_random_voice",
+			voices,
+			true
+		)

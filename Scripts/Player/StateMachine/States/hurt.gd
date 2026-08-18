@@ -1,11 +1,22 @@
 extends State
 
+@export_group("Voice")
+
+@export var hurt_voices: Array[AudioStream] = []
+
+@export_range(
+	0.0,
+	1.0,
+	0.05
+)
+var hurt_voice_chance: float = 0.75
 
 var hit_data: HitData
 
 var hitstun_timer: int = 0
 
 var _hurt_animation_finished: bool = false
+
 
 
 func set_hit_data(
@@ -44,6 +55,8 @@ func _enter() -> void:
 	move.emit(
 		Vector2.ZERO
 	)
+
+	_play_hurt_voice()
 
 	print(
 		"ENTROU NO ESTADO HURT"
@@ -101,3 +114,27 @@ func _try_finish_hurt() -> void:
 	transition_to.emit(
 		&"Idle"
 	)
+
+func _play_hurt_voice() -> void:
+	if hurt_voices.is_empty():
+		return
+
+	if randf() > hurt_voice_chance:
+		return
+
+	var character := (
+		get_parent().get_parent()
+		as CharacterBody2D
+	)
+
+	if character == null:
+		return
+
+	if character.has_method(
+		"play_random_voice"
+	):
+		character.call(
+			"play_random_voice",
+			hurt_voices,
+			false
+		)

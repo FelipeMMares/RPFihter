@@ -5,6 +5,17 @@ class_name AttackState
 @export var active_start_frame: int = 1
 @export var active_end_frame: int = 3
 
+@export_group("Voice")
+
+@export var attack_voices: Array[AudioStream] = []
+
+@export_range(
+	0.0,
+	1.0,
+	0.05
+)
+var voice_chance: float = 1.0
+
 var _hitbox_active: bool = false
 
 func _enter() -> void:
@@ -17,6 +28,8 @@ func _enter() -> void:
 	print("Hitbox referenciada: ", hitbox)
 
 	play_animation.emit(name, false)
+
+	_try_play_attack_voice()
 
 func _physics_process(_delta: float) -> void:
 	var sprite := get_parent().get_parent().get_node_or_null(
@@ -76,3 +89,29 @@ func _animation_finished() -> void:
 		hitbox.disable()
 
 	transition_to.emit(next_state)
+
+func _try_play_attack_voice() -> void:
+	if attack_voices.is_empty():
+		return
+
+	if randf() > voice_chance:
+		return
+
+	var character := (
+		get_parent().get_parent()
+		as CharacterBody2D
+	)
+
+	if character == null:
+		return
+
+	if not character.has_method(
+		"play_random_voice"
+	):
+		return
+
+	character.call(
+		"play_random_voice",
+		attack_voices,
+		true
+	)

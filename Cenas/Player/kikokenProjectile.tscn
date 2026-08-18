@@ -28,6 +28,8 @@
 [ext_resource type="Texture2D" uid="uid://bvtjq3gm14yru" path="res://assets/Chun li Kikkousen/SF3_3S_Chunli_39424-removebg-preview.png" id="25_g4dpg"]
 [ext_resource type="Script" uid="uid://do3du61yy2b2o" path="res://Scripts/Player/Hitbox/Hitboxers.gd" id="26_bjscw"]
 [ext_resource type="Resource" uid="uid://c7nitndijsqn2" path="res://Scripts/Combat/new_resource.tres" id="27_n8rk6"]
+[ext_resource type="AudioStream" uid="uid://b8asxc7p44qtf" path="res://assets/Audio/SFX/Combat/Guard/hitstop.mp3" id="28_ay2os"]
+[ext_resource type="AudioStream" uid="uid://bsoue2ktyu0ck" path="res://assets/Audio/SFX/Combat/Strikes/smash-bros-magic-hit.mp3" id="28_g5x46"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
@@ -129,6 +131,10 @@ position = Vector2(-89, 78)
 collision_layer = 0
 collision_mask = 3
 script = ExtResource("26_bjscw")
+hit_spark_type = 2
+impact_sound_type = 1
+guard_sound = ExtResource("28_ay2os")
+strike_sound = ExtResource("28_g5x46")
 hit_data = ExtResource("27_n8rk6")
 
 [node name="HitColision" type="CollisionShape2D" parent="HitBox" unique_id=2092198823]

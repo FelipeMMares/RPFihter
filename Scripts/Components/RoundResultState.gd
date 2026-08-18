@@ -1,6 +1,9 @@
 extends State
 class_name RoundResultState
 
+@export_group("Voice")
+
+@export var voices: Array[AudioStream] = []
 
 @export var animation_name: StringName = &""
 @export var allow_fall_until_floor: bool = false
@@ -35,6 +38,7 @@ func _enter() -> void:
 		false
 	)
 
+	_play_result_voice()
 
 func _physics_process(_delta: float) -> void:
 	if character == null:
@@ -53,3 +57,24 @@ func _animation_finished() -> void:
 	# Não realiza transição.
 	# O personagem permanece no último frame.
 	pass
+
+func _play_result_voice() -> void:
+	if voices.is_empty():
+		return
+
+	var character := (
+		get_parent().get_parent()
+		as CharacterBody2D
+	)
+
+	if character == null:
+		return
+
+	if character.has_method(
+		"play_random_voice"
+	):
+		character.call(
+			"play_random_voice",
+			voices,
+			true
+		)

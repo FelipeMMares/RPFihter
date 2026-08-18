@@ -25,6 +25,10 @@ class_name MultiHitSpecialState
 # Sequência de ativação das HitBoxes.
 @export var hitbox_steps: Array[FrameHitboxStep] = []
 
+@export_group("Voice")
+
+@export var special_voices: Array[AudioStream] = []
+
 @export_group("Frustração por defesa")
 
 @export var frustrate_on_first_guard: bool = true
@@ -165,6 +169,8 @@ func _enter() -> void:
 		String(_expected_animation),
 		false
 	)
+
+	_play_special_voice()
 
 func _ready() -> void:
 	for hitbox in hitboxes:
@@ -496,4 +502,27 @@ func _finish_frustrated_special() -> void:
 
 	transition_to.emit(
 		return_state
+	)
+
+func _play_special_voice() -> void:
+	if special_voices.is_empty():
+		return
+
+	var character := (
+		get_parent().get_parent()
+		as CharacterBody2D
+	)
+
+	if character == null:
+		return
+
+	if not character.has_method(
+		"play_random_voice"
+	):
+		return
+
+	character.call(
+		"play_random_voice",
+		special_voices,
+		true
 	)

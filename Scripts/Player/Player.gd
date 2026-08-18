@@ -70,6 +70,9 @@ signal guard_hits_changed(
 	$AnimatedSprite2D
 )
 
+@onready var voice_player: CharacterVoicePlayer = (
+	$VoicePlayer
+)
 
 var _entry_motion_active: bool = false
 
@@ -1025,3 +1028,28 @@ func set_mp_regeneration_enabled(
 func reset_mp() -> void:
 	if magic_points != null:
 		magic_points.reset_mp()
+
+func play_voice(
+	voice: AudioStream,
+	interrupt_current: bool = true
+) -> void:
+	if voice_player == null:
+		return
+
+	voice_player.play_voice(
+		voice,
+		interrupt_current
+	)
+
+
+func play_random_voice(
+	voices: Array[AudioStream],
+	interrupt_current: bool = true
+) -> void:
+	if voice_player == null:
+		return
+
+	voice_player.play_random_voice(
+		voices,
+		interrupt_current
+	)
