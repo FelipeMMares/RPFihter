@@ -476,7 +476,7 @@ metadata/_custom_type_script = "uid://bkklrvtapkren"
 [node name="HyakuretsuKyaku" type="Node" parent="StateMachine" unique_id=678875042 node_paths=PackedStringArray("loop_hitboxes")]
 script = ExtResource("426_22y31")
 start_voices = Array[AudioStream]([ExtResource("52_adv4n")])
-mash_action = &"kick"
+mash_action = &"Player1_kick"
 maximum_loops = 3
 loop_hitboxes = [NodePath("../../Hitboxers/HyakuretsuKyakuHead"), NodePath("../../Hitboxers/HyakuretsuKyakuTorso"), NodePath("../../Hitboxers/HyakuretsuKyakuFeet")]
 frame_hitbox_pattern = Array[int]([0, -1, 1, -1, 0, -1, 2, -1, 0, -1, 1, -1, 0, -1, 2, -1])

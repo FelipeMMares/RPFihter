@@ -867,6 +867,11 @@ func _start_crouch() -> void:
 		" segundos."
 	)
 
+	_prepare_ai_crouch_state(
+		crouch_start_state,
+		false
+	)
+
 	state_machine.request_ai_transition(
 		crouch_start_state
 	)
@@ -937,6 +942,29 @@ func _process_crouch_action(
 	# Hurt, derrota, pulo ou qualquer interrupção externa.
 	_cancel_crouch_action()
 
+func _prepare_ai_crouch_state(
+	state_name: StringName,
+	leaving: bool
+) -> void:
+	if state_machine == null:
+		return
+
+	var crouch_state: State = (
+		state_machine.get_node_or_null(
+			NodePath(state_name)
+		) as State
+	)
+
+	if crouch_state == null:
+		return
+
+	if crouch_state.has_method(
+		"prepare_ai_crouch"
+	):
+		crouch_state.call(
+			"prepare_ai_crouch",
+			leaving
+		)
 
 func _is_crouch_attack_state(
 	state_name: StringName
@@ -958,6 +986,11 @@ func _release_crouch() -> void:
 
 	print(
 		"DummyAI decidiu soltar o agachamento."
+	)
+
+	_prepare_ai_crouch_state(
+		crouch_end_state,
+		true
 	)
 
 	state_machine.request_ai_transition(
