@@ -1,3 +1,10 @@
+res://assets/Morrigan/Taunt/
+res://assets/Morrigan/Entry/
+res://assets/Morrigan/Walk/
+res://assets/Morrigan/Idle/
+res://Cenas/Morrigan/
+res://assets/Morrigan/
+res://assets/Morrigan/again/
 res://assets/Audio/Voice/Chun Li/Hakkuretsu/
 res://assets/Audio/Voice/Elena/Entry/
 res://assets/Audio/Voice/Elena/Lynux Tail/
@@ -13,10 +20,3 @@ res://assets/Audio/Voice/Chun Li/Spinning Bird Kick/
 res://assets/Audio/Voice/Chun Li/Fallhurt/
 res://assets/Audio/Voice/Chun Li/LowKick/
 res://assets/Audio/Voice/Chun Li/kick/
-res://assets/Audio/Voice/Chun Li/HighPunch/
-res://assets/Audio/Voice/Chun Li/LighPunch/
-res://assets/Audio/Voice/Chun Li/Hurt/
-res://assets/Audio/Voice/Chun Li/kikoken/
-res://assets/Audio/Voice/Chun Li/Defeated/
-res://assets/Audio/Voice/Chun Li/Victory/
-res://Scripts/Audio/
