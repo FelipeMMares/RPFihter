@@ -1,5 +1,2 @@
-res://Cenas/Player/Player.tscn
+res://Cenas/Morrigan/Morrigan.tscn
 res://Cenas/HUD/guardProgress.tres
-res://Scripts/Player/StateMachine/States/Ground/crouch.gd
-res://Scripts/Player/StateMachine/States/Ground/IdleCrouched.gd
-res://Scripts/Dummy/DummyAI.gd

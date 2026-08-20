@@ -13,7 +13,13 @@
 [ext_resource type="AudioStream" uid="uid://d0c4ap2mo5cbc" path="res://assets/Audio/Voice/Elena/Hurt/PL08_00002.wav" id="22_dnvsn"]
 [ext_resource type="AudioStream" uid="uid://hart2g18pd6m" path="res://assets/Audio/Voice/Elena/Hurt/PL08_00021.wav" id="23_3mxc2"]
 [ext_resource type="AudioStream" uid="uid://cbdrvnekc2k3h" path="res://assets/Audio/Voice/Elena/Hurt/PL08_00025.wav" id="24_7u85y"]
+[ext_resource type="AudioStream" uid="uid://bcmw56x7bnauk" path="res://assets/Audio/Voice/Elena/Victory/PL08_00017.wav" id="26_wutc1"]
+[ext_resource type="AudioStream" uid="uid://bg3my04e8j6v2" path="res://assets/Audio/Voice/Elena/Victory/PL08_00018.wav" id="27_40vv7"]
+[ext_resource type="AudioStream" uid="uid://c6ijnalamdjvi" path="res://assets/Audio/Voice/Elena/Victory/PL08_00020.wav" id="28_v50a7"]
+[ext_resource type="AudioStream" uid="uid://b84ch832guohy" path="res://assets/Audio/Voice/Elena/Victory/PL08_00022.wav" id="29_0tpov"]
+[ext_resource type="AudioStream" uid="uid://bbmtpaiqxkkl6" path="res://assets/Audio/Voice/Elena/Victory/PL08_00024.wav" id="30_7i3rb"]
 [ext_resource type="AudioStream" uid="uid://bt7wbkmitjtmy" path="res://assets/Audio/Voice/Elena/Hurt/PL08_00003.wav" id="31_1qwri"]
+[ext_resource type="AudioStream" uid="uid://c1m0fdoq8hxw5" path="res://assets/Audio/Voice/Elena/Defeated/PL08_00000.wav" id="31_40vv7"]
 [ext_resource type="AudioStream" uid="uid://v8n41tqls7ke" path="res://assets/Audio/SFX/Combat/Hits/smash-bros-hit-2.mp3" id="36_me3cp"]
 [ext_resource type="AudioStream" uid="uid://b8asxc7p44qtf" path="res://assets/Audio/SFX/Combat/Guard/hitstop.mp3" id="37_ws5gx"]
 [ext_resource type="AudioStream" uid="uid://bi8h37ajawew2" path="res://assets/Audio/SFX/Combat/Hits/sword-hit.mp3" id="38_ws5gx"]
@@ -33,6 +39,7 @@
 [ext_resource type="Script" uid="uid://bi4f41m5i0rbr" path="res://Scripts/Player/StateMachine/States/Ground/walk.gd" id="60_pbjwv"]
 [ext_resource type="Script" uid="uid://c0vg4x7xgk1qp" path="res://Scripts/Player/StateMachine/States/Air/jump.gd" id="62_dnvsn"]
 [ext_resource type="Script" uid="uid://c3ookyq3ypabc" path="res://Scripts/Player/StateMachine/States/Air/start_jump.gd" id="63_3mxc2"]
+[ext_resource type="Script" uid="uid://i478e5jfr2tp" path="res://Scripts/Audio/CharacterVoicePlayer.gd" id="68_j6gfk"]
 [ext_resource type="Script" uid="uid://docbt7ybhit04" path="res://Scripts/Player/StateMachine/States/hurt.gd" id="69_3mxc2"]
 [ext_resource type="Script" uid="uid://yv74ok4maffr" path="res://Scripts/Combat/Hurtbox.gd" id="69_dnvsn"]
 [ext_resource type="Script" uid="uid://bmcu27nb7ioun" path="res://Scripts/Components/Health.gd" id="76_0tpov"]
@@ -388,16 +395,19 @@ metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="Victory" type="Node" parent="StateMachine" unique_id=1678472994]
 script = ExtResource("471_e6tco")
+voices = Array[AudioStream]([ExtResource("26_wutc1"), ExtResource("27_40vv7"), ExtResource("28_v50a7"), ExtResource("29_0tpov"), ExtResource("30_7i3rb")])
 animation_name = &"Victory"
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="Defeated" type="Node" parent="StateMachine" unique_id=1146412001]
 script = ExtResource("471_e6tco")
+voices = Array[AudioStream]([ExtResource("31_40vv7")])
 animation_name = &"Defeated"
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="FallDefeated" type="Node" parent="StateMachine" unique_id=1799312453]
 script = ExtResource("471_e6tco")
+voices = Array[AudioStream]([ExtResource("31_40vv7")])
 animation_name = &"FallDefeated"
 allow_fall_until_floor = true
 metadata/_custom_type_script = "uid://bkklrvtapkren"
@@ -971,6 +981,7 @@ commands = Array[ExtResource("560_wojwh")]([ExtResource("42_bkr2r"), ExtResource
 input_buffer = NodePath("../InputBuffer")
 
 [node name="VoicePlayer" type="Node" parent="." unique_id=1943229764]
+script = ExtResource("68_j6gfk")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VoicePlayer" unique_id=442742319]
 bus = &"Voices"

@@ -47,6 +47,10 @@ var _stack_push_cooldown_left: float = 0.0
 	$AnimatedSprite2D
 )
 
+@onready var voice_player: CharacterVoicePlayer = (
+	$VoicePlayer
+)
+
 @export var speed: float = 150.0
 @export var jump_force: float = 700.0
 @export var gravity: float = 1200.0
@@ -880,3 +884,35 @@ func set_mp_regeneration_enabled(
 func reset_mp() -> void:
 	if magic_points != null:
 		magic_points.reset_mp()
+
+func play_voice(
+	voice: AudioStream,
+	interrupt_current: bool = true
+) -> void:
+	if voice_player == null:
+		return
+
+	voice_player.play_voice(
+		voice,
+		interrupt_current
+	)
+
+
+func play_random_voice(
+	voices: Array[AudioStream],
+	interrupt_current: bool = true
+) -> void:
+	if voice_player == null:
+		return
+
+	voice_player.play_random_voice(
+		voices,
+		interrupt_current
+	)
+
+
+func stop_voice() -> void:
+	if voice_player == null:
+		return
+
+	voice_player.stop_voice()
