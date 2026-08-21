@@ -3555,10 +3555,11 @@ metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 [node name="Morrigan" type="CharacterBody2D" unique_id=1892667997]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2063367094]
-position = Vector2(0, -4)
 scale = Vector2(1.9559231, 1.921373)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"CrouchWhile"
+animation = &"Idle"
+frame = 6
+frame_progress = 0.92342037
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1137279768]
 visible = false
@@ -3593,6 +3594,7 @@ position = Vector2(-10.25, 48)
 shape = SubResource("RectangleShape2D_jeabl")
 
 [node name="CrouchShape" type="CollisionShape2D" parent="Hurtbox" unique_id=1989103608]
+visible = false
 position = Vector2(5, 31)
 shape = SubResource("RectangleShape2D_y8txj")
 
