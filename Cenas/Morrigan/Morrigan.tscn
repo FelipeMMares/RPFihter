@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bk0sg1wq7opev"]
 
+[ext_resource type="Script" uid="uid://crx2vt1l5qaua" path="res://Scripts/Morrigan/Morrigan.gd" id="1_0sgn8"]
 [ext_resource type="Texture2D" uid="uid://bx2hl4uaaw8o7" path="res://assets/Morrigan/crouchAttack/frame_07_delay-0.06s.png" id="1_ee858"]
 [ext_resource type="Texture2D" uid="uid://h3onipbvbchf" path="res://assets/Morrigan/Entry/frame_00_delay-0.06s-removebg-preview.png" id="1_mqukp"]
 [ext_resource type="Texture2D" uid="uid://xxtylo7btntu" path="res://assets/Morrigan/AirAttack/frame_023_delay-0.06s.png" id="1_wlcxi"]
@@ -2638,7 +2639,7 @@ animations = [{
 "texture": ExtResource("196_ih0ak")
 }],
 "loop": 0,
-"name": &"Startjump",
+"name": &"StartJump",
 "speed": 15.0
 }, {
 "frames": [{
@@ -3553,26 +3554,25 @@ launch = Vector2(200, -500)
 metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 
 [node name="Morrigan" type="CharacterBody2D" unique_id=1892667997]
+script = ExtResource("1_0sgn8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2063367094]
 scale = Vector2(1.9559231, 1.921373)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"Idle"
-frame = 6
-frame_progress = 0.92342037
+animation = &"Jump"
+frame = 31
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1137279768]
 visible = false
 position = Vector2(9, 19.5)
 shape = SubResource("RectangleShape2D_qkyit")
 
-[node name="Hurtbox" type="Area2D" parent="." unique_id=241036802 node_paths=PackedStringArray("health", "state_machine", "head_shape", "torso_shape", "feet_shape", "crouch_shape")]
+[node name="Hurtbox" type="Area2D" parent="." unique_id=241036802 node_paths=PackedStringArray("head_shape", "torso_shape", "feet_shape", "crouch_shape")]
 collision_layer = 2
 collision_mask = 0
 monitoring = false
 script = ExtResource("722_jrdn6")
-health = NodePath("")
-state_machine = NodePath("")
 head_shape = NodePath("HeadShape")
 torso_shape = NodePath("TorsoShape")
 feet_shape = NodePath("FeetShape")
@@ -3601,9 +3601,8 @@ shape = SubResource("RectangleShape2D_y8txj")
 [node name="Health" type="Node" parent="." unique_id=1045650779]
 script = ExtResource("723_ca7b4")
 
-[node name="DummyAI" type="Node" parent="." unique_id=1945919831 node_paths=PackedStringArray("state_machine")]
+[node name="DummyAI" type="Node" parent="." unique_id=1945919831]
 script = ExtResource("724_5v1o4")
-state_machine = NodePath("")
 crouch_attack_chance = 0.85
 crouch_attack_delay_min = 0.1
 crouch_attack_delay_max = 0.3
@@ -3627,11 +3626,8 @@ far_jump_weight = 5
 far_wait_weight = 3
 far_crouch_weight = 0
 
-[node name="FacingController" type="Node" parent="." unique_id=112873430 node_paths=PackedStringArray("character", "animated_sprite", "hitboxes_root")]
+[node name="FacingController" type="Node" parent="." unique_id=112873430]
 script = ExtResource("725_2yrik")
-character = NodePath("")
-animated_sprite = NodePath("")
-hitboxes_root = NodePath("")
 
 [node name="MagicPoints" type="Node" parent="." unique_id=674181029]
 script = ExtResource("726_r304o")
@@ -3642,10 +3638,9 @@ script = ExtResource("727_v56fe")
 input_prefix = "Player1_"
 player_controls = SubResource("Resource_7djc3")
 
-[node name="CommandParser" type="Node" parent="." unique_id=486781128 node_paths=PackedStringArray("input_buffer")]
+[node name="CommandParser" type="Node" parent="." unique_id=486781128]
 script = ExtResource("729_6bvnj")
 commands = Array[ExtResource("730_avmsw")]([ExtResource("731_qd4k8"), ExtResource("732_e7iy8"), ExtResource("733_jthta")])
-input_buffer = NodePath("")
 
 [node name="VoicePlayer" type="Node" parent="." unique_id=842979086]
 script = ExtResource("734_o4x32")
@@ -3653,12 +3648,10 @@ script = ExtResource("734_o4x32")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VoicePlayer" unique_id=673996188]
 bus = &"Voices"
 
-[node name="StateMachine" type="Node" parent="." unique_id=1356490975 node_paths=PackedStringArray("initial_state", "animated_sprite", "command_parser")]
+[node name="StateMachine" type="Node" parent="." unique_id=1356490975 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("735_ixjbv")
 initial_state = NodePath("Idle")
-animated_sprite = NodePath("")
 player_controls = SubResource("Resource_vbn5p")
-command_parser = NodePath("")
 on_ready = true
 charge_special_enabled = true
 
@@ -3691,9 +3684,8 @@ metadata/_custom_type_script = "uid://bkklrvtapkren"
 script = ExtResource("742_atbdc")
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
-[node name="LightPunch" type="Node" parent="StateMachine" unique_id=134337298 node_paths=PackedStringArray("hitbox")]
+[node name="LightPunch" type="Node" parent="StateMachine" unique_id=134337298]
 script = ExtResource("743_36cfm")
-hitbox = NodePath("")
 active_start_frame = 12
 active_end_frame = 14
 attack_voices = Array[AudioStream]([ExtResource("744_c4py5")])
@@ -3735,65 +3727,57 @@ animation_name = &"FallDefeated"
 allow_fall_until_floor = true
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
-[node name="CrouchLightPunch" type="Node" parent="StateMachine" unique_id=1664886782 node_paths=PackedStringArray("hitbox")]
+[node name="CrouchLightPunch" type="Node" parent="StateMachine" unique_id=1664886782]
 script = ExtResource("757_7o2co")
-hitbox = NodePath("")
 active_start_frame = 2
 active_end_frame = 4
 attack_voices = Array[AudioStream]([ExtResource("744_c4py5")])
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
-[node name="CrouchHighPunch" type="Node" parent="StateMachine" unique_id=979804291 node_paths=PackedStringArray("hitbox")]
+[node name="CrouchHighPunch" type="Node" parent="StateMachine" unique_id=979804291]
 script = ExtResource("757_7o2co")
-hitbox = NodePath("")
 active_start_frame = 7
 active_end_frame = 10
 attack_voices = Array[AudioStream]([ExtResource("758_oymfa")])
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
-[node name="CrouchKick" type="Node" parent="StateMachine" unique_id=1052317780 node_paths=PackedStringArray("hitbox")]
+[node name="CrouchKick" type="Node" parent="StateMachine" unique_id=1052317780]
 script = ExtResource("757_7o2co")
-hitbox = NodePath("")
 active_start_frame = 2
 active_end_frame = 4
 attack_voices = Array[AudioStream]([ExtResource("759_vwqkx"), ExtResource("760_c55ug")])
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
-[node name="CrouchLowKick" type="Node" parent="StateMachine" unique_id=386607458 node_paths=PackedStringArray("hitbox")]
+[node name="CrouchLowKick" type="Node" parent="StateMachine" unique_id=386607458]
 script = ExtResource("757_7o2co")
-hitbox = NodePath("")
 active_start_frame = 4
 active_end_frame = 7
 attack_voices = Array[AudioStream]([ExtResource("761_7ltu0"), ExtResource("762_hawxi"), ExtResource("763_8jvnt")])
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
-[node name="AirLightPunch" type="Node" parent="StateMachine" unique_id=2758470 node_paths=PackedStringArray("hitbox")]
+[node name="AirLightPunch" type="Node" parent="StateMachine" unique_id=2758470]
 script = ExtResource("764_7gh06")
-hitbox = NodePath("")
 active_start_frame = 4
 active_end_frame = 5
 attack_voices = Array[AudioStream]([ExtResource("744_c4py5")])
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
-[node name="AirHighPunch" type="Node" parent="StateMachine" unique_id=1330360850 node_paths=PackedStringArray("hitbox")]
+[node name="AirHighPunch" type="Node" parent="StateMachine" unique_id=1330360850]
 script = ExtResource("764_7gh06")
-hitbox = NodePath("")
 active_start_frame = 8
 active_end_frame = 9
 attack_voices = Array[AudioStream]([ExtResource("758_oymfa")])
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
-[node name="AirKick" type="Node" parent="StateMachine" unique_id=148994971 node_paths=PackedStringArray("hitbox")]
+[node name="AirKick" type="Node" parent="StateMachine" unique_id=148994971]
 script = ExtResource("764_7gh06")
-hitbox = NodePath("")
 active_start_frame = 6
 active_end_frame = 7
 attack_voices = Array[AudioStream]([ExtResource("759_vwqkx"), ExtResource("760_c55ug")])
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
-[node name="AirLowKick" type="Node" parent="StateMachine" unique_id=911490894 node_paths=PackedStringArray("hitbox")]
+[node name="AirLowKick" type="Node" parent="StateMachine" unique_id=911490894]
 script = ExtResource("764_7gh06")
-hitbox = NodePath("")
 active_start_frame = 3
 active_end_frame = 4
 attack_voices = Array[AudioStream]([ExtResource("761_7ltu0"), ExtResource("762_hawxi"), ExtResource("763_8jvnt")])
@@ -3823,9 +3807,8 @@ metadata/_custom_type_script = "uid://bkklrvtapkren"
 script = ExtResource("770_xp1jn")
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
-[node name="TryGrab" type="Node" parent="StateMachine" unique_id=834019469 node_paths=PackedStringArray("throw_box")]
+[node name="TryGrab" type="Node" parent="StateMachine" unique_id=834019469]
 script = ExtResource("771_gr8d6")
-throw_box = NodePath("")
 active_start_frame = 3
 active_end_frame = 5
 metadata/_custom_type_script = "uid://bkklrvtapkren"
@@ -3854,7 +3837,7 @@ metadata/_custom_type_script = "uid://bkklrvtapkren"
 script = ExtResource("777_i28do")
 animation_name = &"ScratchWheel"
 animation_sprite_offset = Vector2(60, -30)
-hitboxes = [NodePath(""), NodePath(""), NodePath("")]
+hitboxes = [null, null, null]
 hitbox_steps = Array[ExtResource("778_63qkw")]([SubResource("Resource_ls5r5"), SubResource("Resource_on12j"), SubResource("Resource_8n1f2")])
 special_voices = Array[AudioStream]([ExtResource("779_nt5e4")])
 vertical_velocity_on_enter = -500.0
@@ -3864,7 +3847,7 @@ metadata/_custom_type_script = "uid://bkklrvtapkren"
 [node name="RhinoHorn" type="Node" parent="StateMachine" unique_id=1807903506 node_paths=PackedStringArray("hitboxes")]
 script = ExtResource("777_i28do")
 animation_name = &"RhinoHorn"
-hitboxes = [NodePath(""), NodePath("")]
+hitboxes = [null, null]
 hitbox_steps = Array[ExtResource("778_63qkw")]([SubResource("Resource_665jr"), SubResource("Resource_adrkm")])
 special_voices = Array[AudioStream]([ExtResource("780_iivvn")])
 horizontal_velocity = 350.0
@@ -3873,7 +3856,7 @@ metadata/_custom_type_script = "uid://bkklrvtapkren"
 [node name="LynxTail" type="Node" parent="StateMachine" unique_id=1487905069 node_paths=PackedStringArray("hitboxes")]
 script = ExtResource("777_i28do")
 animation_name = &"LynxTail"
-hitboxes = [NodePath(""), NodePath(""), NodePath("")]
+hitboxes = [null, null, null]
 hitbox_steps = Array[ExtResource("778_63qkw")]([SubResource("Resource_ytdht"), SubResource("Resource_7dhyc"), SubResource("Resource_gfn6i")])
 special_voices = Array[AudioStream]([ExtResource("781_frvf7")])
 metadata/_custom_type_script = "uid://bkklrvtapkren"
