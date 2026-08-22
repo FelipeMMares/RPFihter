@@ -65,7 +65,7 @@ var animation_visuals: Dictionary = {
 
 &"CrouchStart": {
 	"scale": Vector2(1.956, 1.921),
-	"offset": Vector2(-25.0, 0.0)
+	"offset": Vector2(-26.0, 0.0)
 },
 
 &"CrouchWhile": {
@@ -88,8 +88,93 @@ var animation_visuals: Dictionary = {
 	},
 
 	&"Jump": {
-		"scale": Vector2(1.0, 1.0),
-		"offset": Vector2(0.0, 0.0)
+
+		# EXEMPLOS.
+		# Troque pelos valores reais depois.
+		0: {
+			"offset": Vector2(0.0, -108.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		1: {
+			"offset": Vector2(-26.0, -70.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		2: {
+			"offset": Vector2(-26.0, -4.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		3: {
+			"offset": Vector2(-26.0, 41.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		4: {
+			"offset": Vector2(-26.0, 62.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		5: {
+			"offset": Vector2(-26.0, 62.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		6: {
+			"offset": Vector2(-26.0, 97.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		7: {
+			"offset": Vector2(-26.0, 97.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		8: {
+			"offset": Vector2(-26.0, 97.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		9: {
+			"offset": Vector2(-26.0, 97.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		10: {
+			"offset": Vector2(-26.0, 97.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		11: {
+			"offset": Vector2(-10.0, 97.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		12: {
+			"offset": Vector2(-10.0, 65.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		13: {
+			"offset": Vector2(-26.0, 48.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		14: {
+			"offset": Vector2(-26.0, 6.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		15: {
+			"offset": Vector2(-26.0, -28.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		16: {
+			"offset": Vector2(-26.0, -63.0),
+			"scale": Vector2(2.0, 2.0)
+		}
 	},
 
 	# --------------------------------------------------------
@@ -97,23 +182,23 @@ var animation_visuals: Dictionary = {
 	# --------------------------------------------------------
 
 	&"LightPunch": {
-		"scale": Vector2(1.0, 1.0),
-		"offset": Vector2(0.0, 0.0)
+		"scale": Vector2(1.956, 1.921),
+		"offset": Vector2(45.0, -10.0)
 	},
 
 	&"HighPunch": {
-		"scale": Vector2(1.0, 1.0),
-		"offset": Vector2(0.0, 0.0)
+		"scale": Vector2(1.956, 1.921),
+		"offset": Vector2(45.0, -10.00)
 	},
 
 	&"Kick": {
-		"scale": Vector2(1.0, 1.0),
-		"offset": Vector2(0.0, 0.0)
+		"scale": Vector2(1.956, 1.921),
+		"offset": Vector2(45.0, -10.0)
 	},
 
 	&"LowKick": {
-		"scale": Vector2(1.0, 1.0),
-		"offset": Vector2(0.0, 0.0)
+		"scale": Vector2(1.956, 1.921),
+		"offset": Vector2(45.0, -10.0)
 	},
 
 	# --------------------------------------------------------
@@ -121,23 +206,23 @@ var animation_visuals: Dictionary = {
 	# --------------------------------------------------------
 
 	&"CrouchLightPunch": {
-		"scale": Vector2(1.0, 1.0),
-		"offset": Vector2(0.0, 0.0)
+		"scale": Vector2(1.910, 1.910),
+		"offset": Vector2(15.0, 0.0)
 	},
 
 	&"CrouchHighPunch": {
-		"scale": Vector2(1.0, 1.0),
-		"offset": Vector2(0.0, 0.0)
+		"scale": Vector2(1.910, 1.910),
+		"offset": Vector2(15.0, 0.0)
 	},
 
 	&"CrouchKick": {
-		"scale": Vector2(1.0, 1.0),
-		"offset": Vector2(0.0, 0.0)
+		"scale": Vector2(1.910, 1.910),
+		"offset": Vector2(15.0, 0.0)
 	},
 
 	&"CrouchLowKick": {
-		"scale": Vector2(1.0, 1.0),
-		"offset": Vector2(0.0, 0.0)
+		"scale": Vector2(1.910, 1.910),
+		"offset": Vector2(15.0, 0.0)
 	},
 
 	# --------------------------------------------------------
@@ -145,23 +230,263 @@ var animation_visuals: Dictionary = {
 	# --------------------------------------------------------
 
 	&"AirLightPunch": {
-		"scale": Vector2(1.0, 1.0),
-		"offset": Vector2(0.0, 0.0)
+		# EXEMPLOS.
+		# Troque pelos valores reais depois.
+		0: {
+			"offset": Vector2(10.0, -2.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		1: {
+			"offset": Vector2(10.0, -2.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		2: {
+			"offset": Vector2(10.0, 5.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		3: {
+			"offset": Vector2(10.0, 24.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		4: {
+			"offset": Vector2(10.0, 28.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		5: {
+			"offset": Vector2(10.0, 39.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		6: {
+			"offset": Vector2(10.0, 48.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		7: {
+			"offset": Vector2(10.0, 50.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		8: {
+			"offset": Vector2(10.0, 55.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		9: {
+			"offset": Vector2(10.0, 55.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		10: {
+			"offset": Vector2(10.0, 50.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		11: {
+			"offset": Vector2(10.0, 46.0),
+			"scale": Vector2(2.0, 2.0)
+		}
 	},
 
 	&"AirHighPunch": {
-		"scale": Vector2(1.0, 1.0),
-		"offset": Vector2(0.0, 0.0)
+		# EXEMPLOS.
+		# Troque pelos valores reais depois.
+		0: {
+			"offset": Vector2(10.0, -40.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		1: {
+			"offset": Vector2(10.0, -16.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		2: {
+			"offset": Vector2(10.0, 2.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		3: {
+			"offset": Vector2(10.0, 22.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		4: {
+			"offset": Vector2(10.0, 34.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		5: {
+			"offset": Vector2(10.0, 40.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		6: {
+			"offset": Vector2(10.0, 50.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		7: {
+			"offset": Vector2(10.0, 56.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		8: {
+			"offset": Vector2(10.0, 64.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		9: {
+			"offset": Vector2(10.0, 66.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		10: {
+			"offset": Vector2(10.0, 68.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		11: {
+			"offset": Vector2(10.0, 45.0),
+			"scale": Vector2(2.0, 2.0)
+		}
 	},
 
 	&"AirKick": {
-		"scale": Vector2(1.0, 1.0),
-		"offset": Vector2(0.0, 0.0)
+		# EXEMPLOS.
+		# Troque pelos valores reais depois.
+		0: {
+			"offset": Vector2(10.0, 22.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		1: {
+			"offset": Vector2(10.0, 22.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		2: {
+			"offset": Vector2(10.0, 36.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		3: {
+			"offset": Vector2(10.0, 45.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		4: {
+			"offset": Vector2(10.0, 52.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		5: {
+			"offset": Vector2(10.0, 56.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		6: {
+			"offset": Vector2(10.0, 56.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		7: {
+			"offset": Vector2(10.0, 50.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		8: {
+			"offset": Vector2(10.0, 40.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		9: {
+			"offset": Vector2(10.0, 40.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		10: {
+			"offset": Vector2(10.0, 25.0),
+			"scale": Vector2(2.0, 2.0)
+		}
 	},
 
 	&"AirLowKick": {
-		"scale": Vector2(1.0, 1.0),
-		"offset": Vector2(0.0, 0.0)
+		# EXEMPLOS.
+		# Troque pelos valores reais depois.
+		0: {
+			"offset": Vector2(10.0, -5.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		1: {
+			"offset": Vector2(10.0, -4.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		2: {
+			"offset": Vector2(10.0, 25.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		3: {
+			"offset": Vector2(10.0, 30.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		4: {
+			"offset": Vector2(10.0, 40.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		5: {
+			"offset": Vector2(10.0, 44.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		6: {
+			"offset": Vector2(10.0, 52.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		7: {
+			"offset": Vector2(10.0, 58.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		8: {
+			"offset": Vector2(10.0, 58.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		9: {
+			"offset": Vector2(10.0, 58.0),
+			"scale": Vector2(2.0, 2.0)
+		},
+
+		10: {
+			"offset": Vector2(10.0, 40.0),
+			"scale": Vector2(2.0, 2.0)
+		}
+	},
+
+	# --------------------------------------------------------
+	# AGARRÕES
+	# --------------------------------------------------------
+
+	&"Throw": {
+		"scale": Vector2(1.956, 1.956),
+		"offset": Vector2(40.0, 0.0)
+	},
+
+	&"TryGrab": {
+		"scale": Vector2(1.956, 1.956),
+		"offset": Vector2(40.0, 0.0)
 	},
 
 	# --------------------------------------------------------
@@ -169,52 +494,340 @@ var animation_visuals: Dictionary = {
 	# --------------------------------------------------------
 
 	&"SoulFist": {
-		"scale": Vector2(1.0, 1.0),
-		"offset": Vector2(0.0, 0.0)
+		"scale": Vector2(1.960, 1.1960),
+		"offset": Vector2(80.0, -10.0)
 	},
 
 	&"AirSoulFist": {
-		"scale": Vector2(1.0, 1.0),
-		"offset": Vector2(0.0, 0.0)
+		"scale": Vector2(1.1960, 1.960),
+		"offset": Vector2(75.0, 25.0)
 	},
 
 	&"ShadowBlade": {
-		"scale": Vector2(1.0, 1.0),
-		"offset": Vector2(0.0, 0.0)
+		0: {
+			"offset": Vector2(18.0, -28.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		1: {
+			"offset": Vector2(18.0, -28.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		2: {
+			"offset": Vector2(18.0, -28.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		3: {
+			"offset": Vector2(18.0, -28.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		4: {
+			"offset": Vector2(2.0, -28.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		5: {
+			"offset": Vector2(-28, -5.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		6: {
+			"offset": Vector2(-35.0, 5.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		7: {
+			"offset": Vector2(-52.0, 15.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		8: {
+			"offset": Vector2(-56.0, 20.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		9: {
+			"offset": Vector2(-30.0, 15.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		10: {
+			"offset": Vector2(-30.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		11: {
+			"offset": Vector2(-30.0, -20.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		12: {
+			"offset": Vector2(-30.0, -30.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		13: {
+			"offset": Vector2(-30.0, -30.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		14: {
+			"offset": Vector2(-30.0, -30.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		15: {
+			"offset": Vector2(-30.0, -30.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		16: {
+			"offset": Vector2(-30.0, -30.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+		17: {
+			"offset": Vector2(-30.0, -30.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		18: {
+			"offset": Vector2(-30.0, -30.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		19: {
+			"offset": Vector2(-30.0, -30.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		20: {
+			"offset": Vector2(-30.0, -30.0),
+			"scale": Vector2(1.94, 1.94)
+		},
+
+		21: {
+			"offset": Vector2(-30.0, -30.0),
+			"scale": Vector2(1.94, 1.94)
+		},
+
+		22: {
+			"offset": Vector2(-30.0, -30.0),
+			"scale": Vector2(1.94, 1.94)
+		},
+
+		23: {
+			"offset": Vector2(-30.0, -30.0),
+			"scale": Vector2(1.94, 1.94)
+		},
+
+		24: {
+			"offset": Vector2(-30.0, -30.0),
+			"scale": Vector2(1.94, 1.94)
+		},
+
+		25: {
+			"offset": Vector2(-30.0, -30.0),
+			"scale": Vector2(1.94, 1.94)
+		},
+
+		26: {
+			"offset": Vector2(-30.0, -30.0),
+			"scale": Vector2(1.94, 1.94)
+		},
+
+
+		27: {
+			"offset": Vector2(-30.0, -30.0),
+			"scale": Vector2(1.94, 1.94)
+		},
+
+		28: {
+			"offset": Vector2(-30.0, -30.0),
+			"scale": Vector2(1.94, 1.94)
+		},
+
+		29: {
+			"offset": Vector2(-30.0, -30.0),
+			"scale": Vector2(1.94, 1.94)
+		},
+
+		30: {
+			"offset": Vector2(-30.0, -30.0),
+			"scale": Vector2(1.94, 1.94)
+		},
+
+		31: {
+			"offset": Vector2(-30.0, -30.0),
+			"scale": Vector2(1.94, 1.94)
+		},
+
+		32: {
+			"offset": Vector2(-30.0, -30.0),
+			"scale": Vector2(1.94, 1.94)
+		}
 	},
 
-	&"ShellKick": {
+&"SoulEraser": {
 		"scale": Vector2(1.0, 1.0),
 		"offset": Vector2(0.0, 0.0)
-	},
+},
 
 	# --------------------------------------------------------
 	# DANO / RESULTADO
 	# --------------------------------------------------------
 
 	&"Hurt": {
-		"scale": Vector2(1.0, 1.0),
-		"offset": Vector2(0.0, 0.0)
+		"scale": Vector2(1.956, 1.956),
+		"offset": Vector2(-158.0, 6.0)
 	},
 
 	&"Fall": {
-		"scale": Vector2(1.0, 1.0),
+		"scale": Vector2(1.956, 1.956),
 		"offset": Vector2(0.0, 0.0)
 	},
 
 	&"Victory": {
-		"scale": Vector2(1.0, 1.0),
-		"offset": Vector2(0.0, 0.0)
+		"scale": Vector2(1.96, 1.96),
+		"offset": Vector2(-82.0, -20.0)
 	},
 
 	&"Defeated": {
-		"scale": Vector2(1.0, 1.0),
-		"offset": Vector2(0.0, 0.0)
+		"scale": Vector2(1.956, 1.956),
+		"offset": Vector2(-8.0, -2.0)
 	},
 
 	&"FallDefeated": {
-		"scale": Vector2(1.0, 1.0),
-		"offset": Vector2(0.0, 0.0)
+		0: {
+			"offset": Vector2(-160.0, -10.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		1: {
+			"offset": Vector2(-160.0, -10.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		2: {
+			"offset": Vector2(-160.0, -10.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		3: {
+			"offset": Vector2(-160.0, -10.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		4: {
+			"offset": Vector2(-160.0, -10.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		5: {
+			"offset": Vector2(-160.0, -10.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		6: {
+			"offset": Vector2(-160.0, -10.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		8: {
+			"offset": Vector2(-160.0, -10.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		9: {
+			"offset": Vector2(-160.0, -10.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		10: {
+			"offset": Vector2(-120.0, -2.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		11: {
+			"offset": Vector2(-80.0, 14.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		12: {
+			"offset": Vector2(-50.0, 22.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		13: {
+			"offset": Vector2(-20.0, 27.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		14: {
+			"offset": Vector2(24.0, 29.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		15: {
+			"offset": Vector2(60.0, 22.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		16: {
+			"offset": Vector2(88.0, 18.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+		17: {
+			"offset": Vector2(120.0, 10.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		18: {
+			"offset": Vector2(180.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		19: {
+			"offset": Vector2(180.0, -15.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		20: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.94, 1.94)
+		},
+
+		21: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.94, 1.94)
+		},
+
+		22: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.94, 1.94)
+		},
+
+		23: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.94, 1.94)
+		},
+
+		24: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.94, 1.94)
+		},
+
+		25: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.94, 1.94)
+		},
+
+		26: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.94, 1.94)
+		}
 	}
 }
 

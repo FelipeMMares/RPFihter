@@ -1,3 +1,4 @@
 res://Cenas/Morrigan/Morrigan.tscn
 res://Cenas/HUD/guardProgress.tres
 res://Scripts/Morrigan/Morrigan.gd
+res://Scripts/Player/StateMachine/StateMachine.gd

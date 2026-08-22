@@ -270,6 +270,17 @@ func _on_request_play_animation(
 		anim_name
 	)
 
+	if (
+		_character != null
+		and _character.has_method(
+			"apply_animation_visual"
+		)
+	):
+		_character.call(
+			"apply_animation_visual",
+			StringName(anim_name)
+		)
+
 	if backwards:
 		animated_sprite.play_backwards(
 			anim_name

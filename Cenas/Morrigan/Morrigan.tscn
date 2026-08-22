@@ -123,7 +123,6 @@
 [ext_resource type="Texture2D" uid="uid://d3ahutemo7yd3" path="res://assets/Morrigan/AirAttack/frame_074_delay-0.06s.png" id="46_ecqwt"]
 [ext_resource type="Texture2D" uid="uid://c3l2yvmo60m8p" path="res://assets/Morrigan/Entry/frame_45_delay-0.06s-removebg-preview.png" id="46_sl5by"]
 [ext_resource type="Texture2D" uid="uid://cqq5sdhp78lte" path="res://assets/Morrigan/Entry/frame_46_delay-0.06s-removebg-preview.png" id="47_e6yta"]
-[ext_resource type="Texture2D" uid="uid://3yn4qe60fhhj" path="res://assets/Morrigan/AirAttack/frame_103_delay-0.06s.png" id="47_t7ja5"]
 [ext_resource type="Texture2D" uid="uid://cf7x8m7uekcq4" path="res://assets/Morrigan/Entry/frame_47_delay-0.06s-removebg-preview.png" id="48_ifp1s"]
 [ext_resource type="Texture2D" uid="uid://blot6durwys20" path="res://assets/Morrigan/AirSoulFirst/frame_13_delay-0.06s.png" id="48_kryhc"]
 [ext_resource type="Texture2D" uid="uid://d0gu6jnq22el" path="res://assets/Morrigan/AirSoulFirst/frame_14_delay-0.06s.png" id="49_8sycq"]
@@ -475,22 +474,7 @@
 [ext_resource type="Texture2D" uid="uid://c2hglev0i820d" path="res://assets/Morrigan/Guard/frame_4_delay-0.15s.png" id="211_ssp5v"]
 [ext_resource type="Texture2D" uid="uid://c6bqd3jjl5dab" path="res://assets/Morrigan/Jump/frame_18_delay-0.06s.png" id="212_f2orw"]
 [ext_resource type="Texture2D" uid="uid://cbtq3wwck6y5s" path="res://assets/Morrigan/Guard/frame_5_delay-0.15s.png" id="212_qhn8m"]
-[ext_resource type="Texture2D" uid="uid://bx25fd848npc1" path="res://assets/Morrigan/Jump/frame_19_delay-0.06s.png" id="213_xcr6m"]
 [ext_resource type="Texture2D" uid="uid://lqcwp01nfprv" path="res://assets/Morrigan/Guard/frame_6_delay-0.06s.png" id="213_ymgwt"]
-[ext_resource type="Texture2D" uid="uid://dd6trdxy1fjva" path="res://assets/Morrigan/Jump/frame_20_delay-0.06s.png" id="214_rxell"]
-[ext_resource type="Texture2D" uid="uid://88lkg0m13orq" path="res://assets/Morrigan/Jump/frame_21_delay-0.06s.png" id="215_rdlrm"]
-[ext_resource type="Texture2D" uid="uid://c2lv111keqxlp" path="res://assets/Morrigan/Jump/frame_22_delay-0.06s.png" id="216_yh08g"]
-[ext_resource type="Texture2D" uid="uid://cpq217yv4eaxe" path="res://assets/Morrigan/Jump/frame_23_delay-0.06s.png" id="217_q6esh"]
-[ext_resource type="Texture2D" uid="uid://jbhbdqc0gpab" path="res://assets/Morrigan/Jump/frame_24_delay-0.06s.png" id="218_vkv21"]
-[ext_resource type="Texture2D" uid="uid://vd6l1ulglbxo" path="res://assets/Morrigan/Jump/frame_25_delay-0.06s.png" id="219_u8gta"]
-[ext_resource type="Texture2D" uid="uid://d65obbli1s1l" path="res://assets/Morrigan/Jump/frame_26_delay-0.06s.png" id="220_tsqc3"]
-[ext_resource type="Texture2D" uid="uid://cl8wo60aysu6l" path="res://assets/Morrigan/Jump/frame_27_delay-0.06s.png" id="221_ipy57"]
-[ext_resource type="Texture2D" uid="uid://byseftb74hgbf" path="res://assets/Morrigan/Jump/frame_28_delay-0.06s.png" id="222_j7pir"]
-[ext_resource type="Texture2D" uid="uid://dqohgc6gele3" path="res://assets/Morrigan/Jump/frame_29_delay-0.06s.png" id="223_km5sn"]
-[ext_resource type="Texture2D" uid="uid://by7lepee28ea5" path="res://assets/Morrigan/Jump/frame_30_delay-0.06s.png" id="224_kjeds"]
-[ext_resource type="Texture2D" uid="uid://b7f4fbmcng5kq" path="res://assets/Morrigan/Jump/frame_31_delay-0.06s.png" id="225_gxwhw"]
-[ext_resource type="Texture2D" uid="uid://kaoeokeutuq1" path="res://assets/Morrigan/Jump/frame_32_delay-0.06s.png" id="226_ianli"]
-[ext_resource type="Texture2D" uid="uid://6muyfkjyy2gi" path="res://assets/Morrigan/Jump/frame_33_delay-0.06s.png" id="227_hi8k3"]
 [ext_resource type="Texture2D" uid="uid://bblm6k4084den" path="res://assets/Morrigan/Jump/frame_00_delay-0.06s.png" id="282_badmu"]
 [ext_resource type="Texture2D" uid="uid://lou8f1rp4nxa" path="res://assets/Morrigan/Jump/frame_01_delay-0.06s.png" id="283_on657"]
 [ext_resource type="Texture2D" uid="uid://crt1l1cpqkips" path="res://assets/Morrigan/ShellKick/frame_02_delay-0.06s.png" id="341_hvh0a"]
@@ -947,9 +931,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("12_d0key")
-}, {
-"duration": 1.0,
 "texture": ExtResource("13_34qsv")
 }, {
 "duration": 1.0,
@@ -1060,9 +1041,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("46_ecqwt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("47_t7ja5")
 }],
 "loop": 0,
 "name": &"AirLowKick",
@@ -1731,9 +1709,6 @@ animations = [{
 "texture": ExtResource("195_sspql")
 }, {
 "duration": 1.0,
-"texture": ExtResource("77_vqhcn")
-}, {
-"duration": 1.0,
 "texture": ExtResource("91_q3pbn")
 }, {
 "duration": 1.0,
@@ -2105,51 +2080,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("212_f2orw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("213_xcr6m")
-}, {
-"duration": 1.0,
-"texture": ExtResource("214_rxell")
-}, {
-"duration": 1.0,
-"texture": ExtResource("215_rdlrm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("216_yh08g")
-}, {
-"duration": 1.0,
-"texture": ExtResource("217_q6esh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("218_vkv21")
-}, {
-"duration": 1.0,
-"texture": ExtResource("219_u8gta")
-}, {
-"duration": 1.0,
-"texture": ExtResource("220_tsqc3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("221_ipy57")
-}, {
-"duration": 1.0,
-"texture": ExtResource("222_j7pir")
-}, {
-"duration": 1.0,
-"texture": ExtResource("223_km5sn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("224_kjeds")
-}, {
-"duration": 1.0,
-"texture": ExtResource("225_gxwhw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("226_ianli")
-}, {
-"duration": 1.0,
-"texture": ExtResource("227_hi8k3")
 }],
 "loop": 0,
 "name": &"Jump",
@@ -3439,7 +3369,7 @@ script = ExtResource("789_a0iqy")
 metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6tpw0"]
-size = Vector2(58, 82.75)
+size = Vector2(108.5, 41.5)
 
 [sub_resource type="Resource" id="Resource_mbyxv"]
 script = ExtResource("789_a0iqy")
@@ -3461,12 +3391,15 @@ damage = 140
 metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2fwhh"]
-size = Vector2(58.25, 79.875)
+size = Vector2(136.125, 48)
 
 [sub_resource type="Resource" id="Resource_c828g"]
 script = ExtResource("789_a0iqy")
 damage = 180
 metadata/_custom_type_script = "uid://c48umgmbmjtf1"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(131, 34)
 
 [sub_resource type="Resource" id="Resource_5eklt"]
 script = ExtResource("789_a0iqy")
@@ -3482,35 +3415,26 @@ damage = 180
 metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oay3g"]
-size = Vector2(140, 37)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_23jmv"]
-size = Vector2(160, 33)
+size = Vector2(125, 37)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hvt0"]
-size = Vector2(125, 22.236992)
+size = Vector2(153.31561, 29.324526)
 
 [sub_resource type="Resource" id="Resource_qxayb"]
 script = ExtResource("789_a0iqy")
 metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8wvuv"]
-size = Vector2(150.08823, 26.493317)
+size = Vector2(190.04413, 33.24666)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vexq3"]
-size = Vector2(151.52924, 34.583866)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_deitc"]
-size = Vector2(159.31342, 39.034557)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r4ipp"]
-size = Vector2(32, 136.5)
+size = Vector2(153.34108, 37.094597)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ttoju"]
-size = Vector2(168.99886, 28.977777)
+size = Vector2(152.55182, 42.76845)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2d54m"]
-size = Vector2(159.06714, 47.24742)
+size = Vector2(112.25499, 47.24742)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o1poj"]
 size = Vector2(84, 99)
@@ -3557,22 +3481,24 @@ metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 script = ExtResource("1_0sgn8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2063367094]
-scale = Vector2(1.9559231, 1.921373)
+scale = Vector2(1.956, 1.956)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"Jump"
-frame = 31
-frame_progress = 1.0
+animation = &"ShadowBlade"
+frame = 15
+offset = Vector2(-30, -30)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1137279768]
 visible = false
 position = Vector2(9, 19.5)
 shape = SubResource("RectangleShape2D_qkyit")
 
-[node name="Hurtbox" type="Area2D" parent="." unique_id=241036802 node_paths=PackedStringArray("head_shape", "torso_shape", "feet_shape", "crouch_shape")]
+[node name="Hurtbox" type="Area2D" parent="." unique_id=241036802 node_paths=PackedStringArray("health", "state_machine", "head_shape", "torso_shape", "feet_shape", "crouch_shape")]
 collision_layer = 2
 collision_mask = 0
 monitoring = false
 script = ExtResource("722_jrdn6")
+health = NodePath("../Health")
+state_machine = NodePath("../StateMachine")
 head_shape = NodePath("HeadShape")
 torso_shape = NodePath("TorsoShape")
 feet_shape = NodePath("FeetShape")
@@ -3601,8 +3527,9 @@ shape = SubResource("RectangleShape2D_y8txj")
 [node name="Health" type="Node" parent="." unique_id=1045650779]
 script = ExtResource("723_ca7b4")
 
-[node name="DummyAI" type="Node" parent="." unique_id=1945919831]
+[node name="DummyAI" type="Node" parent="." unique_id=1945919831 node_paths=PackedStringArray("state_machine")]
 script = ExtResource("724_5v1o4")
+state_machine = NodePath("../StateMachine")
 crouch_attack_chance = 0.85
 crouch_attack_delay_min = 0.1
 crouch_attack_delay_max = 0.3
@@ -3626,8 +3553,11 @@ far_jump_weight = 5
 far_wait_weight = 3
 far_crouch_weight = 0
 
-[node name="FacingController" type="Node" parent="." unique_id=112873430]
+[node name="FacingController" type="Node" parent="." unique_id=112873430 node_paths=PackedStringArray("character", "animated_sprite", "hitboxes_root")]
 script = ExtResource("725_2yrik")
+character = NodePath("..")
+animated_sprite = NodePath("../AnimatedSprite2D")
+hitboxes_root = NodePath("../Hitboxers")
 
 [node name="MagicPoints" type="Node" parent="." unique_id=674181029]
 script = ExtResource("726_r304o")
@@ -3638,9 +3568,10 @@ script = ExtResource("727_v56fe")
 input_prefix = "Player1_"
 player_controls = SubResource("Resource_7djc3")
 
-[node name="CommandParser" type="Node" parent="." unique_id=486781128]
+[node name="CommandParser" type="Node" parent="." unique_id=486781128 node_paths=PackedStringArray("input_buffer")]
 script = ExtResource("729_6bvnj")
 commands = Array[ExtResource("730_avmsw")]([ExtResource("731_qd4k8"), ExtResource("732_e7iy8"), ExtResource("733_jthta")])
+input_buffer = NodePath("../InputBuffer")
 
 [node name="VoicePlayer" type="Node" parent="." unique_id=842979086]
 script = ExtResource("734_o4x32")
@@ -3648,10 +3579,12 @@ script = ExtResource("734_o4x32")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VoicePlayer" unique_id=673996188]
 bus = &"Voices"
 
-[node name="StateMachine" type="Node" parent="." unique_id=1356490975 node_paths=PackedStringArray("initial_state")]
+[node name="StateMachine" type="Node" parent="." unique_id=1356490975 node_paths=PackedStringArray("initial_state", "animated_sprite", "command_parser")]
 script = ExtResource("735_ixjbv")
 initial_state = NodePath("Idle")
+animated_sprite = NodePath("../AnimatedSprite2D")
 player_controls = SubResource("Resource_vbn5p")
+command_parser = NodePath("../CommandParser")
 on_ready = true
 charge_special_enabled = true
 
@@ -3871,7 +3804,7 @@ position = Vector2(0, 4)
 
 [node name="LightPunch" type="Area2D" parent="Hitboxers" unique_id=1445031812]
 visible = false
-position = Vector2(81, -42)
+position = Vector2(81, -67)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("786_b7n4m")
@@ -3881,8 +3814,7 @@ impact_volume_db = -1.0
 hit_data = SubResource("Resource_eswd0")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/LightPunch" unique_id=1322697006]
-position = Vector2(17, -6)
-rotation = 0.7853982
+position = Vector2(7.75, 1.25)
 shape = SubResource("RectangleShape2D_6tpw0")
 
 [node name="LightPunch2" type="Area2D" parent="Hitboxers" unique_id=1307688482]
@@ -3915,7 +3847,7 @@ shape = SubResource("RectangleShape2D_y05eu")
 
 [node name="HighPunch" type="Area2D" parent="Hitboxers" unique_id=671267806]
 visible = false
-position = Vector2(65, -32)
+position = Vector2(163, -26)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("786_b7n4m")
@@ -3925,12 +3857,12 @@ guard_sound = ExtResource("788_o3jew")
 hit_data = SubResource("Resource_1y82m")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/HighPunch" unique_id=620222040]
-position = Vector2(23, -27)
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_2fwhh")
 
 [node name="Kick" type="Area2D" parent="Hitboxers" unique_id=40085513]
 visible = false
-position = Vector2(107, -8)
+position = Vector2(163, -4)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("786_b7n4m")
@@ -3939,13 +3871,13 @@ hit_sound = ExtResource("787_7ocxr")
 guard_sound = ExtResource("788_o3jew")
 hit_data = SubResource("Resource_c828g")
 
-[node name="HitColision" type="CollisionPolygon2D" parent="Hitboxers/Kick" unique_id=715369419]
-position = Vector2(-6, 2)
-polygon = PackedVector2Array(-6, -32, 25, -34, 34, 15, 2, 61, -58, 81, -13, 18)
+[node name="HitColision" type="CollisionShape2D" parent="Hitboxers/Kick" unique_id=1286226779]
+position = Vector2(-0.5, 3)
+shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="LowKick" type="Area2D" parent="Hitboxers" unique_id=1772527158]
 visible = false
-position = Vector2(67, 61)
+position = Vector2(97, 37)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("786_b7n4m")
@@ -3954,40 +3886,39 @@ guard_sound = ExtResource("788_o3jew")
 hit_data = SubResource("Resource_5eklt")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/LowKick" unique_id=737385493]
-position = Vector2(-2.0000076, -4.5000076)
-rotation = -0.7853982
+rotation = -0.87266463
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_ypqdr")
 
 [node name="CrouchLightPunch" type="Area2D" parent="Hitboxers" unique_id=1200799207]
 visible = false
-position = Vector2(18, 58)
+position = Vector2(24, 45)
 script = ExtResource("786_b7n4m")
 hit_sound = ExtResource("787_7ocxr")
 guard_sound = ExtResource("788_o3jew")
 hit_data = SubResource("Resource_jpp6u")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/CrouchLightPunch" unique_id=1466533505]
-position = Vector2(79, 0.5)
+position = Vector2(71.5, 0.5)
 shape = SubResource("RectangleShape2D_oay3g")
 
 [node name="CrouchHighPunch" type="Area2D" parent="Hitboxers" unique_id=280327612]
 visible = false
-position = Vector2(59, -31)
+position = Vector2(44, 70)
 script = ExtResource("786_b7n4m")
 hit_spark_type = 1
 hit_sound = ExtResource("790_jb3rs")
 guard_sound = ExtResource("788_o3jew")
 hit_data = SubResource("Resource_jpp6u")
 
-[node name="HitColision" type="CollisionShape2D" parent="Hitboxers/CrouchHighPunch" unique_id=1033565889]
-position = Vector2(8, -3)
+[node name="HitColision" type="CollisionPolygon2D" parent="Hitboxers/CrouchHighPunch" unique_id=506132740]
+position = Vector2(162, -77)
 rotation = 2.5307274
-shape = SubResource("RectangleShape2D_23jmv")
+polygon = PackedVector2Array(101.166145, 64.733406, 71.352066, 21.883423, 66.19667, -19.570427, 92.251495, -42.832985, 122.56352, -46.023766, 144.68063, -30.537209, 107.157684, -15.30471, 101.66409, 18.692642)
 
 [node name="CrouchKick" type="Area2D" parent="Hitboxers" unique_id=1712473104]
 visible = false
-position = Vector2(114, 45)
+position = Vector2(58, 93)
 script = ExtResource("786_b7n4m")
 hit_spark_type = 1
 hit_sound = ExtResource("787_7ocxr")
@@ -3995,13 +3926,14 @@ guard_sound = ExtResource("788_o3jew")
 hit_data = SubResource("Resource_jpp6u")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/CrouchKick" unique_id=90840365]
-position = Vector2(-1, -1)
-rotation = -0.034906585
+position = Vector2(45.33629, 11.197807)
+rotation = 0.26179934
+scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_4hvt0")
 
 [node name="CrouchLowKick" type="Area2D" parent="Hitboxers" unique_id=555818963]
 visible = false
-position = Vector2(82, 70)
+position = Vector2(113, 93)
 monitoring = false
 script = ExtResource("786_b7n4m")
 hit_sound = ExtResource("791_arml7")
@@ -4010,13 +3942,12 @@ hit_data = SubResource("Resource_qxayb")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/CrouchLowKick" unique_id=1763550637]
 visible = false
-position = Vector2(4, 6.0000076)
-rotation = 0.2687807
+position = Vector2(19.977936, 3.3766708)
 shape = SubResource("RectangleShape2D_8wvuv")
 
 [node name="AirLightPunch" type="Area2D" parent="Hitboxers" unique_id=1763649255]
 visible = false
-position = Vector2(67, 8)
+position = Vector2(96, -29)
 monitoring = false
 script = ExtResource("786_b7n4m")
 hit_sound = ExtResource("791_arml7")
@@ -4024,14 +3955,15 @@ guard_sound = ExtResource("788_o3jew")
 hit_data = SubResource("Resource_qxayb")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/AirLightPunch" unique_id=1939671706]
-position = Vector2(22, 6)
-rotation = 0.26179937
+visible = false
+position = Vector2(-6.9999995, 28)
+rotation = 0.43633232
 scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_vexq3")
 
 [node name="AirHighPunch" type="Area2D" parent="Hitboxers" unique_id=690415318]
 visible = false
-position = Vector2(3, -41)
+position = Vector2(0, -4)
 monitoring = false
 script = ExtResource("786_b7n4m")
 hit_spark_type = 1
@@ -4039,16 +3971,11 @@ hit_sound = ExtResource("790_jb3rs")
 guard_sound = ExtResource("788_o3jew")
 hit_data = SubResource("Resource_qxayb")
 
-[node name="FirstHitShape" type="CollisionShape2D" parent="Hitboxers/AirHighPunch" unique_id=956964030]
-position = Vector2(90, 60.000008)
+[node name="FirstHitShape" type="CollisionPolygon2D" parent="Hitboxers/AirHighPunch" unique_id=571118486]
+position = Vector2(89.00001, 20.000008)
 rotation = 0.43633232
 scale = Vector2(0.99999976, 0.99999976)
-shape = SubResource("RectangleShape2D_deitc")
-
-[node name="SecondHitShape" type="CollisionShape2D" parent="Hitboxers/AirHighPunch" unique_id=599962027]
-position = Vector2(20, -44.000008)
-rotation = 0.17453292
-shape = SubResource("RectangleShape2D_r4ipp")
+polygon = PackedVector2Array(-28.982346, -52.68802, 33.604225, -50.978027, 50.504074, 1.8272476, 32.973984, 37.58612, -23.52246, 74.96463)
 
 [node name="AirKick" type="Area2D" parent="Hitboxers" unique_id=696165616]
 visible = false
@@ -4061,8 +3988,8 @@ guard_sound = ExtResource("788_o3jew")
 hit_data = SubResource("Resource_qxayb")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/AirKick" unique_id=504835751]
-position = Vector2(44, 11.999989)
-rotation = 0.26179937
+position = Vector2(18.20681, 6.1523714)
+rotation = 0.087266445
 scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_ttoju")
 
@@ -4074,9 +4001,9 @@ hit_sound = ExtResource("790_jb3rs")
 guard_sound = ExtResource("788_o3jew")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/AirLowKick" unique_id=1674312462]
-position = Vector2(10.999954, -2.0000095)
-rotation = 0.26179937
-scale = Vector2(0.9999998, 0.9999998)
+position = Vector2(-11.608574, -8.057945)
+rotation = 0.26179934
+scale = Vector2(0.9999997, 0.9999997)
 shape = SubResource("RectangleShape2D_2d54m")
 
 [node name="ThrowBox" type="Area2D" parent="Hitboxers" unique_id=2028054100]
@@ -4092,7 +4019,7 @@ shape = SubResource("RectangleShape2D_o1poj")
 
 [node name="ThrowAnchor" type="Marker2D" parent="Hitboxers/ThrowPathRoot" unique_id=1696759609]
 visible = false
-position = Vector2(-102, 41)
+position = Vector2(62, -43)
 
 [node name="ScratchWheelLow" type="Area2D" parent="Hitboxers" unique_id=1489769917]
 visible = false
