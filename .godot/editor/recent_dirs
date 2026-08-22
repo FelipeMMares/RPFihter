@@ -1,3 +1,7 @@
+res://Scripts/Morrigan/States/
+res://Cenas/Morrigan/
+res://assets/Morrigan/SoulFirstProjectle/
+res://assets/Morrigan/SoulEraser/
 res://Scripts/Morrigan/
 res://assets/Morrigan/SilhouetteBlade/
 res://assets/Morrigan/Crouch/
@@ -16,7 +20,3 @@ res://assets/Morrigan/Jump/
 res://assets/Morrigan/crouchAttack/
 res://assets/Morrigan/ShadowBlade/
 res://assets/Morrigan/attaks/
-res://assets/Morrigan/Victory/
-res://assets/Audio/Voice/Elena/Defeated/
-res://assets/Audio/Voice/Elena/Victory/
-res://assets/Morrigan/Taunt/

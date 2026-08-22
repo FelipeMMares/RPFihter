@@ -599,80 +599,80 @@ var animation_visuals: Dictionary = {
 		},
 
 		19: {
-			"offset": Vector2(-30.0, -30.0),
+			"offset": Vector2(-9.0, -30.0),
 			"scale": Vector2(1.956, 1.956)
 		},
 
 		20: {
-			"offset": Vector2(-30.0, -30.0),
+			"offset": Vector2(-9.0, -30.0),
 			"scale": Vector2(1.94, 1.94)
 		},
 
 		21: {
-			"offset": Vector2(-30.0, -30.0),
+			"offset": Vector2(-9.0, -30.0),
 			"scale": Vector2(1.94, 1.94)
 		},
 
 		22: {
-			"offset": Vector2(-30.0, -30.0),
+			"offset": Vector2(-9.0, -30.0),
 			"scale": Vector2(1.94, 1.94)
 		},
 
 		23: {
-			"offset": Vector2(-30.0, -30.0),
+			"offset": Vector2(-9.0, -30.0),
 			"scale": Vector2(1.94, 1.94)
 		},
 
 		24: {
-			"offset": Vector2(-30.0, -30.0),
+			"offset": Vector2(-9.0, -30.0),
 			"scale": Vector2(1.94, 1.94)
 		},
 
 		25: {
-			"offset": Vector2(-30.0, -30.0),
+			"offset": Vector2(-9.0, -30.0),
 			"scale": Vector2(1.94, 1.94)
 		},
 
 		26: {
-			"offset": Vector2(-30.0, -30.0),
+			"offset": Vector2(-9.0, -30.0),
 			"scale": Vector2(1.94, 1.94)
 		},
 
 
 		27: {
-			"offset": Vector2(-30.0, -30.0),
+			"offset": Vector2(-9.0, -30.0),
 			"scale": Vector2(1.94, 1.94)
 		},
 
 		28: {
-			"offset": Vector2(-30.0, -30.0),
+			"offset": Vector2(-9.0, -30.0),
 			"scale": Vector2(1.94, 1.94)
 		},
 
 		29: {
-			"offset": Vector2(-30.0, -30.0),
+			"offset": Vector2(-9.0, -30.0),
 			"scale": Vector2(1.94, 1.94)
 		},
 
 		30: {
-			"offset": Vector2(-30.0, -30.0),
+			"offset": Vector2(-9.0, -30.0),
 			"scale": Vector2(1.94, 1.94)
 		},
 
 		31: {
-			"offset": Vector2(-30.0, -30.0),
+			"offset": Vector2(-9.0, -30.0),
 			"scale": Vector2(1.94, 1.94)
 		},
 
 		32: {
-			"offset": Vector2(-30.0, -30.0),
+			"offset": Vector2(-9.0, -30.0),
 			"scale": Vector2(1.94, 1.94)
 		}
 	},
 
 &"SoulEraser": {
-		"scale": Vector2(1.0, 1.0),
-		"offset": Vector2(0.0, 0.0)
+		"scale": Vector2(1.956, 1.956),
+		"offset": Vector2(17.0, -15.0)
 },
 
 	# --------------------------------------------------------

@@ -613,65 +613,128 @@
 [ext_resource type="Texture2D" uid="uid://dmvrxs7agbjed" path="res://assets/Morrigan/VectorDrain/frame_36_delay-0.06s.png" id="482_y8txj"]
 [ext_resource type="Texture2D" uid="uid://covabnk4rj2od" path="res://assets/Morrigan/SilhouetteBlade/frame_34_delay-0.06s.png" id="483_3x4it"]
 [ext_resource type="Texture2D" uid="uid://hp2lvhr1lxyg" path="res://assets/Morrigan/VectorDrain/frame_37_delay-0.06s.png" id="483_7djc3"]
+[ext_resource type="Texture2D" uid="uid://uifil8xvlvng" path="res://assets/Morrigan/SoulEraser/frame_00_delay-0.06s.png" id="484_0g5j3"]
 [ext_resource type="Texture2D" uid="uid://buf0hqh7vw0xf" path="res://assets/Morrigan/VectorDrain/frame_38_delay-0.06s.png" id="484_mwse5"]
 [ext_resource type="Texture2D" uid="uid://jj7tcs32u52h" path="res://assets/Morrigan/SilhouetteBlade/frame_35_delay-0.06s.png" id="484_pi6qc"]
+[ext_resource type="Texture2D" uid="uid://hu4iprsrmc5y" path="res://assets/Morrigan/SoulEraser/frame_01_delay-0.06s.png" id="485_4lyma"]
 [ext_resource type="Texture2D" uid="uid://bqpals2mujmlw" path="res://assets/Morrigan/SilhouetteBlade/frame_36_delay-0.06s.png" id="485_8iuuv"]
 [ext_resource type="Texture2D" uid="uid://dsu7rbpti63x3" path="res://assets/Morrigan/VectorDrain/frame_39_delay-0.06s.png" id="485_agas6"]
 [ext_resource type="Texture2D" uid="uid://bmjphyksb7lmh" path="res://assets/Morrigan/SilhouetteBlade/frame_37_delay-0.06s.png" id="486_3pw14"]
 [ext_resource type="Texture2D" uid="uid://ciuacqd53wv2j" path="res://assets/Morrigan/VectorDrain/frame_40_delay-0.06s.png" id="486_nwhx0"]
+[ext_resource type="Texture2D" uid="uid://bcwi073nfe4f6" path="res://assets/Morrigan/SoulEraser/frame_02_delay-0.06s.png" id="486_oxq44"]
+[ext_resource type="Texture2D" uid="uid://j2summ6v28g4" path="res://assets/Morrigan/SoulEraser/frame_03_delay-0.06s.png" id="487_b7n4m"]
 [ext_resource type="Texture2D" uid="uid://bus6ashr74j8i" path="res://assets/Morrigan/VectorDrain/frame_41_delay-0.06s.png" id="487_hgfy3"]
 [ext_resource type="Texture2D" uid="uid://d0ygu4uu0xjms" path="res://assets/Morrigan/SilhouetteBlade/frame_38_delay-0.06s.png" id="487_ixjbv"]
 [ext_resource type="Texture2D" uid="uid://dy1p5hakqgqal" path="res://assets/Morrigan/SilhouetteBlade/frame_39_delay-0.06s.png" id="488_0sgn8"]
+[ext_resource type="Texture2D" uid="uid://b8p3f1nbfh86h" path="res://assets/Morrigan/SoulEraser/frame_04_delay-0.06s.png" id="488_7ocxr"]
 [ext_resource type="Texture2D" uid="uid://ts8eknv3vlex" path="res://assets/Morrigan/VectorDrain/frame_42_delay-0.06s.png" id="488_slhyv"]
 [ext_resource type="Texture2D" uid="uid://1dv64k50kfym" path="res://assets/Morrigan/VectorDrain/frame_43_delay-0.06s.png" id="489_16273"]
 [ext_resource type="Texture2D" uid="uid://crcdkaje5cpvr" path="res://assets/Morrigan/SilhouetteBlade/frame_40_delay-0.06s.png" id="489_auysa"]
+[ext_resource type="Texture2D" uid="uid://b75gug8l1nls4" path="res://assets/Morrigan/SoulEraser/frame_05_delay-0.06s.png" id="489_o3jew"]
+[ext_resource type="Texture2D" uid="uid://cmxkakul2r8ny" path="res://assets/Morrigan/SoulEraser/frame_06_delay-0.06s.png" id="490_a0iqy"]
 [ext_resource type="Texture2D" uid="uid://b7njd6pnm2eqv" path="res://assets/Morrigan/SilhouetteBlade/frame_41_delay-0.06s.png" id="490_dvuys"]
 [ext_resource type="Texture2D" uid="uid://dqk3vf3o5686o" path="res://assets/Morrigan/VectorDrain/frame_44_delay-0.06s.png" id="490_ur0h7"]
 [ext_resource type="Texture2D" uid="uid://c7fdlqeb3ted2" path="res://assets/Morrigan/SilhouetteBlade/frame_42_delay-0.06s.png" id="491_1wnm2"]
+[ext_resource type="Texture2D" uid="uid://db4w117rfwag7" path="res://assets/Morrigan/SoulEraser/frame_07_delay-0.06s.png" id="491_jb3rs"]
 [ext_resource type="Texture2D" uid="uid://d247g8f7mg6ct" path="res://assets/Morrigan/VectorDrain/frame_45_delay-0.06s.png" id="491_qfp5l"]
+[ext_resource type="Texture2D" uid="uid://bxc73uvbbu72g" path="res://assets/Morrigan/SoulEraser/frame_08_delay-0.06s.png" id="492_arml7"]
 [ext_resource type="Texture2D" uid="uid://dluijjsxgyeh7" path="res://assets/Morrigan/SilhouetteBlade/frame_43_delay-0.06s.png" id="492_mx65j"]
 [ext_resource type="Texture2D" uid="uid://c2wbh51y3pccx" path="res://assets/Morrigan/VectorDrain/frame_46_delay-0.06s.png" id="492_ynx8f"]
 [ext_resource type="Texture2D" uid="uid://ba1brk2hqtfbu" path="res://assets/Morrigan/VectorDrain/frame_47_delay-0.06s.png" id="493_1i6bf"]
 [ext_resource type="Texture2D" uid="uid://dcxq34ld2fvww" path="res://assets/Morrigan/SilhouetteBlade/frame_44_delay-0.06s.png" id="493_lfs34"]
+[ext_resource type="Texture2D" uid="uid://cb0myjb8nsnws" path="res://assets/Morrigan/SoulEraser/frame_09_delay-0.06s.png" id="493_oyvtd"]
 [ext_resource type="Texture2D" uid="uid://cre4ngu6rf8b2" path="res://assets/Morrigan/SilhouetteBlade/frame_45_delay-0.06s.png" id="494_atbdc"]
 [ext_resource type="Texture2D" uid="uid://det84ejgwo5xu" path="res://assets/Morrigan/VectorDrain/frame_48_delay-0.06s.png" id="494_d778d"]
+[ext_resource type="Texture2D" uid="uid://genxhdadrs34" path="res://assets/Morrigan/SoulEraser/frame_10_delay-0.06s.png" id="494_jr8sl"]
 [ext_resource type="Texture2D" uid="uid://c7wd4kpbb2i0c" path="res://assets/Morrigan/SilhouetteBlade/frame_46_delay-0.06s.png" id="495_36cfm"]
 [ext_resource type="Texture2D" uid="uid://duoyq3v7f4yh4" path="res://assets/Morrigan/VectorDrain/frame_49_delay-0.06s.png" id="495_josqp"]
+[ext_resource type="Texture2D" uid="uid://bpunugqfv4t8n" path="res://assets/Morrigan/SoulEraser/frame_11_delay-0.06s.png" id="495_vbn5p"]
 [ext_resource type="Texture2D" uid="uid://jo13a5percjs" path="res://assets/Morrigan/SilhouetteBlade/frame_47_delay-0.06s.png" id="496_c4py5"]
 [ext_resource type="Texture2D" uid="uid://broj3pgki5ulu" path="res://assets/Morrigan/VectorDrain/frame_50_delay-0.06s.png" id="496_cha4s"]
+[ext_resource type="Texture2D" uid="uid://p8uxgiifwfqc" path="res://assets/Morrigan/SoulEraser/frame_12_delay-0.06s.png" id="496_tqx13"]
 [ext_resource type="Texture2D" uid="uid://difgsfao2ekbe" path="res://assets/Morrigan/SilhouetteBlade/frame_48_delay-0.06s.png" id="497_qltex"]
 [ext_resource type="Texture2D" uid="uid://bvf1vt4kwmkoc" path="res://assets/Morrigan/VectorDrain/frame_51_delay-0.06s.png" id="497_xwdpj"]
+[ext_resource type="Texture2D" uid="uid://by3dl3572ts3k" path="res://assets/Morrigan/SoulEraser/frame_13_delay-0.06s.png" id="497_y6mde"]
 [ext_resource type="Texture2D" uid="uid://dufyokwoevi0v" path="res://assets/Morrigan/SilhouetteBlade/frame_49_delay-0.06s.png" id="498_5p064"]
+[ext_resource type="Texture2D" uid="uid://nm5to1wkef4t" path="res://assets/Morrigan/SoulEraser/frame_14_delay-0.06s.png" id="498_eswd0"]
 [ext_resource type="Texture2D" uid="uid://b3t02q7e4x13g" path="res://assets/Morrigan/VectorDrain/frame_52_delay-0.06s.png" id="498_ws7qu"]
 [ext_resource type="Texture2D" uid="uid://bycf83m5nwdj2" path="res://assets/Morrigan/VectorDrain/frame_53_delay-0.06s.png" id="499_5mwqx"]
+[ext_resource type="Texture2D" uid="uid://fu1e1t7tsvdo" path="res://assets/Morrigan/SoulEraser/frame_15_delay-0.06s.png" id="499_6tpw0"]
+[ext_resource type="Texture2D" uid="uid://b7sepnxlmrc5b" path="res://assets/Morrigan/SoulEraser/frame_16_delay-0.06s.png" id="500_mbyxv"]
 [ext_resource type="Texture2D" uid="uid://bip7rj12np6lm" path="res://assets/Morrigan/VectorDrain/frame_54_delay-0.06s.png" id="500_tlbcl"]
 [ext_resource type="Texture2D" uid="uid://d3xlkseoa8ney" path="res://assets/Morrigan/VectorDrain/frame_55_delay-0.06s.png" id="501_8lpcr"]
+[ext_resource type="Texture2D" uid="uid://cvxnf0uw5185f" path="res://assets/Morrigan/SoulEraser/frame_17_delay-0.06s.png" id="501_fo4lk"]
+[ext_resource type="Texture2D" uid="uid://cq6oteqvlv6o8" path="res://assets/Morrigan/SoulEraser/frame_18_delay-0.06s.png" id="502_a5upi"]
 [ext_resource type="Texture2D" uid="uid://cebb7tblujc15" path="res://assets/Morrigan/VectorDrain/frame_56_delay-0.06s.png" id="502_p8flg"]
 [ext_resource type="Texture2D" uid="uid://coo6p0vj2oc37" path="res://assets/Morrigan/VectorDrain/frame_57_delay-0.06s.png" id="503_b0e6a"]
+[ext_resource type="Texture2D" uid="uid://jv561tyft8rs" path="res://assets/Morrigan/SoulEraser/frame_19_delay-0.06s.png" id="503_y05eu"]
+[ext_resource type="Texture2D" uid="uid://chehx7u1t21gf" path="res://assets/Morrigan/SoulEraser/frame_20_delay-0.06s.png" id="504_1y82m"]
 [ext_resource type="Texture2D" uid="uid://dyuc0iq85makf" path="res://assets/Morrigan/VectorDrain/frame_58_delay-0.06s.png" id="504_rbag1"]
+[ext_resource type="Texture2D" uid="uid://dsg4bvu1tioa4" path="res://assets/Morrigan/SoulEraser/frame_21_delay-0.06s.png" id="505_2fwhh"]
 [ext_resource type="Texture2D" uid="uid://cg24wqooima8n" path="res://assets/Morrigan/VectorDrain/frame_59_delay-0.06s.png" id="505_k06wo"]
 [ext_resource type="Texture2D" uid="uid://cvw0uvuaw4p00" path="res://assets/Morrigan/VectorDrain/frame_60_delay-0.06s.png" id="506_13lu0"]
+[ext_resource type="Texture2D" uid="uid://dy562cbvrmlt7" path="res://assets/Morrigan/SoulEraser/frame_22_delay-0.06s.png" id="506_c828g"]
+[ext_resource type="Texture2D" uid="uid://gomw1ocre73i" path="res://assets/Morrigan/SoulEraser/frame_23_delay-0.06s.png" id="507_5eklt"]
 [ext_resource type="Texture2D" uid="uid://cuushs1yrgfou" path="res://assets/Morrigan/VectorDrain/frame_61_delay-0.06s.png" id="507_pwpf3"]
 [ext_resource type="Texture2D" uid="uid://c7gfwyx52s8ai" path="res://assets/Morrigan/VectorDrain/frame_62_delay-0.06s.png" id="508_lk4ie"]
+[ext_resource type="Texture2D" uid="uid://dcbrnylmw180c" path="res://assets/Morrigan/SoulEraser/frame_24_delay-0.06s.png" id="508_ypqdr"]
 [ext_resource type="Texture2D" uid="uid://d1tjstucnalnu" path="res://assets/Morrigan/VectorDrain/frame_63_delay-0.06s.png" id="509_6smkh"]
+[ext_resource type="Texture2D" uid="uid://boqdijkd0xd0q" path="res://assets/Morrigan/SoulEraser/frame_25_delay-0.06s.png" id="509_jpp6u"]
 [ext_resource type="Texture2D" uid="uid://c4f84p3kq78gh" path="res://assets/Morrigan/VectorDrain/frame_64_delay-0.06s.png" id="510_ke4qq"]
+[ext_resource type="Texture2D" uid="uid://eib755j0mi21" path="res://assets/Morrigan/SoulEraser/frame_26_delay-0.06s.png" id="510_oay3g"]
+[ext_resource type="Texture2D" uid="uid://dcufd808wbgda" path="res://assets/Morrigan/SoulEraser/frame_27_delay-0.06s.png" id="511_23jmv"]
 [ext_resource type="Texture2D" uid="uid://dn88ia7nlbi1x" path="res://assets/Morrigan/VectorDrain/frame_65_delay-0.06s.png" id="511_hfjki"]
+[ext_resource type="Texture2D" uid="uid://gax6f6770luv" path="res://assets/Morrigan/SoulEraser/frame_28_delay-0.06s.png" id="512_4hvt0"]
 [ext_resource type="Texture2D" uid="uid://cfaj2446mhwxi" path="res://assets/Morrigan/VectorDrain/frame_66_delay-0.06s.png" id="512_ybq4o"]
 [ext_resource type="Texture2D" uid="uid://cvqjx8pr13eam" path="res://assets/Morrigan/VectorDrain/frame_67_delay-0.06s.png" id="513_gk3o2"]
+[ext_resource type="Texture2D" uid="uid://b4ix7w7qtaqm7" path="res://assets/Morrigan/SoulEraser/frame_29_delay-0.06s.png" id="513_qxayb"]
 [ext_resource type="Texture2D" uid="uid://bgreauf33ioee" path="res://assets/Morrigan/VectorDrain/frame_68_delay-0.06s.png" id="514_8qgeb"]
+[ext_resource type="Texture2D" uid="uid://oeot6gwxabex" path="res://assets/Morrigan/SoulEraser/frame_30_delay-0.06s.png" id="514_8wvuv"]
 [ext_resource type="Texture2D" uid="uid://dhv88i4hq1mqp" path="res://assets/Morrigan/VectorDrain/frame_69_delay-0.06s.png" id="515_pu5g8"]
+[ext_resource type="Texture2D" uid="uid://dyqm3yk13kq3l" path="res://assets/Morrigan/SoulEraser/frame_31_delay-0.06s.png" id="515_vexq3"]
 [ext_resource type="Texture2D" uid="uid://b3esjul48bhe2" path="res://assets/Morrigan/VectorDrain/frame_70_delay-0.06s.png" id="516_3mnlm"]
+[ext_resource type="Texture2D" uid="uid://85l818qdukp" path="res://assets/Morrigan/SoulEraser/frame_32_delay-0.06s.png" id="516_deitc"]
 [ext_resource type="Texture2D" uid="uid://h4eo6ngmnmmd" path="res://assets/Morrigan/VectorDrain/frame_71_delay-0.06s.png" id="517_eurky"]
+[ext_resource type="Texture2D" uid="uid://dbshahkwufsln" path="res://assets/Morrigan/SoulEraser/frame_33_delay-0.06s.png" id="517_r4ipp"]
 [ext_resource type="Texture2D" uid="uid://8ydl7fdevx6h" path="res://assets/Morrigan/VectorDrain/frame_72_delay-0.06s.png" id="518_oq7re"]
+[ext_resource type="Texture2D" uid="uid://c06h6upcqjgkn" path="res://assets/Morrigan/SoulEraser/frame_34_delay-0.06s.png" id="518_ttoju"]
 [ext_resource type="Texture2D" uid="uid://bgyt41jmt2tm8" path="res://assets/Morrigan/VectorDrain/frame_73_delay-0.06s.png" id="519_0iduw"]
+[ext_resource type="Texture2D" uid="uid://sv0dfvyr800q" path="res://assets/Morrigan/SoulEraser/frame_35_delay-0.06s.png" id="519_2d54m"]
 [ext_resource type="Texture2D" uid="uid://705cmb2jpwnn" path="res://assets/Morrigan/VectorDrain/frame_74_delay-0.06s.png" id="520_ggmu6"]
+[ext_resource type="Texture2D" uid="uid://cmc55xshcqlgd" path="res://assets/Morrigan/SoulEraser/frame_36_delay-0.06s.png" id="520_o1poj"]
 [ext_resource type="Texture2D" uid="uid://dq3g83lvkef7" path="res://assets/Morrigan/VectorDrain/frame_75_delay-0.06s.png" id="521_3x4it"]
+[ext_resource type="Texture2D" uid="uid://4d67s4d0lfgu" path="res://assets/Morrigan/SoulEraser/frame_37_delay-0.06s.png" id="521_oyjs5"]
+[ext_resource type="Texture2D" uid="uid://bxajq3oraunt8" path="res://assets/Morrigan/SoulEraser/frame_38_delay-0.06s.png" id="522_8ieyf"]
 [ext_resource type="Texture2D" uid="uid://cui3w0v7qylb3" path="res://assets/Morrigan/VectorDrain/frame_76_delay-0.06s.png" id="522_pi6qc"]
 [ext_resource type="Texture2D" uid="uid://dhag38kdh817h" path="res://assets/Morrigan/VectorDrain/frame_77_delay-0.06s.png" id="523_8iuuv"]
+[ext_resource type="Texture2D" uid="uid://pxpwyu8rjl0b" path="res://assets/Morrigan/SoulEraser/frame_39_delay-0.06s.png" id="523_62ykc"]
 [ext_resource type="Texture2D" uid="uid://cp118ni3g5sco" path="res://assets/Morrigan/VectorDrain/frame_78_delay-0.06s.png" id="524_3pw14"]
+[ext_resource type="Texture2D" uid="uid://b27pw4p4unlyj" path="res://assets/Morrigan/SoulEraser/frame_40_delay-0.06s.png" id="524_mdolu"]
+[ext_resource type="Texture2D" uid="uid://bin3yxw83u8lh" path="res://assets/Morrigan/SoulEraser/frame_41_delay-0.06s.png" id="525_gjhvu"]
 [ext_resource type="Texture2D" uid="uid://bgyjoxrl76dhp" path="res://assets/Morrigan/VectorDrain/frame_79_delay-0.06s.png" id="525_ixjbv"]
 [ext_resource type="Texture2D" uid="uid://cdmd07na8b753" path="res://assets/Morrigan/VectorDrain/frame_80_delay-0.06s.png" id="526_0sgn8"]
+[ext_resource type="Texture2D" uid="uid://bsff8knj5as0l" path="res://assets/Morrigan/SoulEraser/frame_42_delay-0.06s.png" id="526_ca8k3"]
 [ext_resource type="Texture2D" uid="uid://d3h1pu4pyxcu3" path="res://assets/Morrigan/VectorDrain/frame_81_delay-0.06s.png" id="527_auysa"]
+[ext_resource type="Texture2D" uid="uid://br1ybhs4jrpy" path="res://assets/Morrigan/SoulEraser/frame_43_delay-0.06s.png" id="527_oyjal"]
+[ext_resource type="Texture2D" uid="uid://dr238vh6ir125" path="res://assets/Morrigan/SoulEraser/frame_44_delay-0.06s.png" id="528_50w2u"]
+[ext_resource type="Texture2D" uid="uid://8patgmc5k37g" path="res://assets/Morrigan/SoulEraser/frame_45_delay-0.06s.png" id="529_mkbod"]
+[ext_resource type="Texture2D" uid="uid://bghahvlbjffjy" path="res://assets/Morrigan/SoulEraser/frame_46_delay-0.06s.png" id="530_blobp"]
+[ext_resource type="Texture2D" uid="uid://btdtpiccvylkv" path="res://assets/Morrigan/SoulEraser/frame_47_delay-0.06s.png" id="531_7om6p"]
+[ext_resource type="Texture2D" uid="uid://dw2vioarn7mes" path="res://assets/Morrigan/SoulEraser/frame_48_delay-0.06s.png" id="532_llxdg"]
+[ext_resource type="Texture2D" uid="uid://lxsulch7awob" path="res://assets/Morrigan/SoulEraser/frame_49_delay-0.06s.png" id="533_v1mvw"]
+[ext_resource type="Texture2D" uid="uid://b4d1uhchtmvef" path="res://assets/Morrigan/SoulEraser/frame_50_delay-0.06s.png" id="534_wj4xl"]
+[ext_resource type="Texture2D" uid="uid://bjo01ptjjnymi" path="res://assets/Morrigan/SoulEraser/frame_51_delay-0.06s.png" id="535_g6p07"]
+[ext_resource type="Texture2D" uid="uid://dkun2jxdkncmm" path="res://assets/Morrigan/SoulEraser/frame_52_delay-0.06s.png" id="536_drdee"]
+[ext_resource type="Texture2D" uid="uid://5eriqcjtsmes" path="res://assets/Morrigan/SoulEraser/frame_53_delay-0.06s.png" id="537_3c4jg"]
+[ext_resource type="Texture2D" uid="uid://b3opsxvjrw8wl" path="res://assets/Morrigan/SoulEraser/frame_54_delay-0.06s.png" id="538_4ski3"]
+[ext_resource type="Texture2D" uid="uid://dupe3inht0bup" path="res://assets/Morrigan/SoulEraser/frame_55_delay-0.06s.png" id="539_esxcc"]
+[ext_resource type="Texture2D" uid="uid://sr222kd562o1" path="res://assets/Morrigan/SoulEraser/frame_56_delay-0.06s.png" id="540_xwv3x"]
+[ext_resource type="Texture2D" uid="uid://coei46wddp6q4" path="res://assets/Morrigan/SoulEraser/frame_57_delay-0.06s.png" id="541_ubd5x"]
+[ext_resource type="Texture2D" uid="uid://dfi84m3jnpain" path="res://assets/Morrigan/SoulEraser/frame_58_delay-0.06s.png" id="542_23khc"]
+[ext_resource type="Texture2D" uid="uid://1nregf7r48sn" path="res://assets/Morrigan/SoulEraser/frame_59_delay-0.06s.png" id="543_s6rh5"]
+[ext_resource type="Texture2D" uid="uid://xixf4ufsvtfr" path="res://assets/Morrigan/SoulEraser/frame_60_delay-0.06s.png" id="544_j3lst"]
+[ext_resource type="Texture2D" uid="uid://1jdwcil632jy" path="res://assets/Morrigan/SoulEraser/frame_61_delay-0.06s.png" id="545_bk50g"]
+[ext_resource type="Texture2D" uid="uid://cqke4k2t66d21" path="res://assets/Morrigan/SoulEraser/frame_62_delay-0.06s.png" id="546_4nchk"]
 [ext_resource type="Texture2D" uid="uid://b5hsikal7x836" path="res://assets/Morrigan/AirDash/frame_00_delay-0.06s.png" id="604_ssp5v"]
 [ext_resource type="Texture2D" uid="uid://bfle5nf5ti75i" path="res://assets/Morrigan/AirDash/frame_01_delay-0.06s.png" id="605_qhn8m"]
 [ext_resource type="Texture2D" uid="uid://bhie6s41q428u" path="res://assets/Morrigan/AirDash/frame_02_delay-0.06s.png" id="606_ymgwt"]
@@ -761,11 +824,6 @@
 [ext_resource type="Script" uid="uid://belnn3cnc712f" path="res://Scripts/Player/StateMachine/States/Ground/Stun.gd" id="774_ogyfu"]
 [ext_resource type="Script" uid="uid://0q5b8gbojtju" path="res://Scripts/Player/StateMachine/States/Ground/GuardWhile.gd" id="775_x1mq7"]
 [ext_resource type="Script" uid="uid://mpusglrs05cc" path="res://Scripts/Components/ParryRecoil.gd" id="776_4f256"]
-[ext_resource type="Script" uid="uid://ccu8c3mk7qr5i" path="res://Scripts/Combat/MultiHitSpecialState.gd" id="777_i28do"]
-[ext_resource type="Script" uid="uid://dscrs3ri13jd2" path="res://Scripts/Combat/FrameHitboxStep.gd" id="778_63qkw"]
-[ext_resource type="AudioStream" uid="uid://ghjpcpm6xjpm" path="res://assets/Audio/Voice/Elena/Scrat wheel/PL08_00011.wav" id="779_nt5e4"]
-[ext_resource type="AudioStream" uid="uid://cwexj6s1glsuq" path="res://assets/Audio/Voice/Elena/Rhino Horn/PL08_00015.wav" id="780_iivvn"]
-[ext_resource type="AudioStream" uid="uid://dkhmnsotw5lus" path="res://assets/Audio/Voice/Elena/Lynux Tail/PL08_00012.wav" id="781_frvf7"]
 [ext_resource type="Script" uid="uid://0avj1tmmibwt" path="res://Scripts/Player/StateMachine/States/Ground/Entry.gd" id="782_17kss"]
 [ext_resource type="AudioStream" uid="uid://dg3nsfxxwr8oy" path="res://assets/Audio/Voice/Elena/Entry/PL08_00016.wav" id="783_0g5j3"]
 [ext_resource type="AudioStream" uid="uid://bnm2pe80n3cjw" path="res://assets/Audio/Voice/Elena/Entry/PL08_00019.wav" id="784_4lyma"]
@@ -777,7 +835,11 @@
 [ext_resource type="AudioStream" uid="uid://bi8h37ajawew2" path="res://assets/Audio/SFX/Combat/Hits/sword-hit.mp3" id="790_jb3rs"]
 [ext_resource type="AudioStream" uid="uid://d22bgxty3l74y" path="res://assets/Audio/SFX/Combat/Hits/hitmarker_lPlclg2.mp3" id="791_arml7"]
 [ext_resource type="Script" uid="uid://cgjhpb6ihl6r5" path="res://Scripts/Player/StateMachine/States/Ground/ThrowBox.gd" id="792_oyvtd"]
-[ext_resource type="AudioStream" uid="uid://76ivwn2ew2u1" path="res://assets/Audio/SFX/Combat/Strikes/critical-hit-sounds-effect.mp3" id="793_jr8sl"]
+[ext_resource type="Script" uid="uid://cpvj7eii77dkc" path="res://Scripts/Morrigan/States/SoulFist.gd" id="829_iivvn"]
+[ext_resource type="PackedScene" uid="uid://dvqw3fu7jlp2j" path="res://Cenas/Morrigan/SoulFistProjectile.tscn" id="830_17kss"]
+[ext_resource type="Script" uid="uid://bkklrvtapkren" path="res://Scripts/Player/StateMachine/State.gd" id="830_frvf7"]
+[ext_resource type="Script" uid="uid://c2181buhbkud5" path="res://Scripts/Morrigan/States/ShadowBlade.gd" id="832_17kss"]
+[ext_resource type="Script" uid="uid://cd8h6xvy66kq8" path="res://Scripts/Morrigan/States/AirSoulFist.gd" id="833_0g5j3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
@@ -2528,6 +2590,200 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("484_0g5j3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("485_4lyma")
+}, {
+"duration": 1.0,
+"texture": ExtResource("486_oxq44")
+}, {
+"duration": 1.0,
+"texture": ExtResource("487_b7n4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("488_7ocxr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("489_o3jew")
+}, {
+"duration": 1.0,
+"texture": ExtResource("490_a0iqy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("491_jb3rs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("492_arml7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("493_oyvtd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("494_jr8sl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("495_vbn5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("496_tqx13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("497_y6mde")
+}, {
+"duration": 1.0,
+"texture": ExtResource("498_eswd0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("499_6tpw0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("500_mbyxv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("501_fo4lk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("502_a5upi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("503_y05eu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("504_1y82m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("505_2fwhh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("506_c828g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("507_5eklt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("508_ypqdr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("509_jpp6u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("510_oay3g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("511_23jmv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("512_4hvt0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("513_qxayb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("514_8wvuv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("515_vexq3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("516_deitc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("517_r4ipp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("518_ttoju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("519_2d54m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("520_o1poj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("521_oyjs5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("522_8ieyf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("523_62ykc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("524_mdolu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("525_gjhvu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("526_ca8k3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("527_oyjal")
+}, {
+"duration": 1.0,
+"texture": ExtResource("528_50w2u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("529_mkbod")
+}, {
+"duration": 1.0,
+"texture": ExtResource("530_blobp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("531_7om6p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("532_llxdg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("533_v1mvw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("534_wj4xl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("535_g6p07")
+}, {
+"duration": 1.0,
+"texture": ExtResource("536_drdee")
+}, {
+"duration": 1.0,
+"texture": ExtResource("537_3c4jg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("538_4ski3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("539_esxcc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("540_xwv3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("541_ubd5x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("542_23khc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("543_s6rh5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("544_j3lst")
+}, {
+"duration": 1.0,
+"texture": ExtResource("545_bk50g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("546_4nchk")
+}],
+"loop": 0,
+"name": &"SoulEraser",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("370_t2di4")
 }, {
 "duration": 1.0,
@@ -3310,60 +3566,6 @@ func _enter():
 	print(\"Chute baixo\")
 "
 
-[sub_resource type="Resource" id="Resource_ls5r5"]
-script = ExtResource("778_63qkw")
-end_frame = 2
-metadata/_custom_type_script = "uid://dscrs3ri13jd2"
-
-[sub_resource type="Resource" id="Resource_on12j"]
-script = ExtResource("778_63qkw")
-start_frame = 3
-end_frame = 4
-hitbox_indices = Array[int]([1])
-metadata/_custom_type_script = "uid://dscrs3ri13jd2"
-
-[sub_resource type="Resource" id="Resource_8n1f2"]
-script = ExtResource("778_63qkw")
-start_frame = 5
-end_frame = 8
-hitbox_indices = Array[int]([2])
-metadata/_custom_type_script = "uid://dscrs3ri13jd2"
-
-[sub_resource type="Resource" id="Resource_665jr"]
-script = ExtResource("778_63qkw")
-start_frame = 17
-end_frame = 22
-hitbox_indices = Array[int]([0])
-metadata/_custom_type_script = "uid://dscrs3ri13jd2"
-
-[sub_resource type="Resource" id="Resource_adrkm"]
-script = ExtResource("778_63qkw")
-start_frame = 30
-end_frame = 31
-hitbox_indices = Array[int]([1])
-metadata/_custom_type_script = "uid://dscrs3ri13jd2"
-
-[sub_resource type="Resource" id="Resource_ytdht"]
-script = ExtResource("778_63qkw")
-start_frame = 2
-end_frame = 4
-hitbox_indices = Array[int]([0])
-metadata/_custom_type_script = "uid://dscrs3ri13jd2"
-
-[sub_resource type="Resource" id="Resource_7dhyc"]
-script = ExtResource("778_63qkw")
-start_frame = 6
-end_frame = 8
-hitbox_indices = Array[int]([1])
-metadata/_custom_type_script = "uid://dscrs3ri13jd2"
-
-[sub_resource type="Resource" id="Resource_gfn6i"]
-script = ExtResource("778_63qkw")
-start_frame = 16
-end_frame = 19
-hitbox_indices = Array[int]([2])
-metadata/_custom_type_script = "uid://dscrs3ri13jd2"
-
 [sub_resource type="Resource" id="Resource_eswd0"]
 script = ExtResource("789_a0iqy")
 metadata/_custom_type_script = "uid://c48umgmbmjtf1"
@@ -3439,44 +3641,6 @@ size = Vector2(112.25499, 47.24742)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o1poj"]
 size = Vector2(84, 99)
 
-[sub_resource type="Resource" id="Resource_oyjs5"]
-script = ExtResource("789_a0iqy")
-metadata/_custom_type_script = "uid://c48umgmbmjtf1"
-
-[sub_resource type="Resource" id="Resource_8ieyf"]
-script = ExtResource("789_a0iqy")
-metadata/_custom_type_script = "uid://c48umgmbmjtf1"
-
-[sub_resource type="Resource" id="Resource_62ykc"]
-script = ExtResource("789_a0iqy")
-metadata/_custom_type_script = "uid://c48umgmbmjtf1"
-
-[sub_resource type="Resource" id="Resource_mdolu"]
-script = ExtResource("789_a0iqy")
-metadata/_custom_type_script = "uid://c48umgmbmjtf1"
-
-[sub_resource type="Resource" id="Resource_gjhvu"]
-script = ExtResource("789_a0iqy")
-metadata/_custom_type_script = "uid://c48umgmbmjtf1"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ca8k3"]
-size = Vector2(114.5, 39)
-
-[sub_resource type="Resource" id="Resource_oyjal"]
-script = ExtResource("789_a0iqy")
-metadata/_custom_type_script = "uid://c48umgmbmjtf1"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_50w2u"]
-size = Vector2(102.5, 53.5)
-
-[sub_resource type="Resource" id="Resource_mkbod"]
-script = ExtResource("789_a0iqy")
-damage = 80
-hitstun = 80
-pushback = 120.0
-launch = Vector2(200, -500)
-metadata/_custom_type_script = "uid://c48umgmbmjtf1"
-
 [node name="Morrigan" type="CharacterBody2D" unique_id=1892667997]
 script = ExtResource("1_0sgn8")
 
@@ -3484,8 +3648,8 @@ script = ExtResource("1_0sgn8")
 scale = Vector2(1.956, 1.956)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"ShadowBlade"
-frame = 15
-offset = Vector2(-30, -30)
+frame = 4
+offset = Vector2(2, -28)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1137279768]
 visible = false
@@ -3766,37 +3930,34 @@ metadata/_custom_type_script = "uid://bkklrvtapkren"
 script = ExtResource("776_4f256")
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
-[node name="ScratchWheel" type="Node" parent="StateMachine" unique_id=1766373871 node_paths=PackedStringArray("hitboxes")]
-script = ExtResource("777_i28do")
-animation_name = &"ScratchWheel"
-animation_sprite_offset = Vector2(60, -30)
-hitboxes = [null, null, null]
-hitbox_steps = Array[ExtResource("778_63qkw")]([SubResource("Resource_ls5r5"), SubResource("Resource_on12j"), SubResource("Resource_8n1f2")])
-special_voices = Array[AudioStream]([ExtResource("779_nt5e4")])
-vertical_velocity_on_enter = -500.0
-return_to_jump_if_airborne = true
-metadata/_custom_type_script = "uid://bkklrvtapkren"
-
-[node name="RhinoHorn" type="Node" parent="StateMachine" unique_id=1807903506 node_paths=PackedStringArray("hitboxes")]
-script = ExtResource("777_i28do")
-animation_name = &"RhinoHorn"
-hitboxes = [null, null]
-hitbox_steps = Array[ExtResource("778_63qkw")]([SubResource("Resource_665jr"), SubResource("Resource_adrkm")])
-special_voices = Array[AudioStream]([ExtResource("780_iivvn")])
-horizontal_velocity = 350.0
-metadata/_custom_type_script = "uid://bkklrvtapkren"
-
-[node name="LynxTail" type="Node" parent="StateMachine" unique_id=1487905069 node_paths=PackedStringArray("hitboxes")]
-script = ExtResource("777_i28do")
-animation_name = &"LynxTail"
-hitboxes = [null, null, null]
-hitbox_steps = Array[ExtResource("778_63qkw")]([SubResource("Resource_ytdht"), SubResource("Resource_7dhyc"), SubResource("Resource_gfn6i")])
-special_voices = Array[AudioStream]([ExtResource("781_frvf7")])
-metadata/_custom_type_script = "uid://bkklrvtapkren"
-
 [node name="Entry" type="Node" parent="StateMachine" unique_id=387776087]
 script = ExtResource("782_17kss")
 special_voices = Array[AudioStream]([ExtResource("783_0g5j3"), ExtResource("784_4lyma"), ExtResource("785_oxq44")])
+metadata/_custom_type_script = "uid://bkklrvtapkren"
+
+[node name="SoulFist" type="Node" parent="StateMachine" unique_id=1032070533]
+script = ExtResource("829_iivvn")
+projectile_scene = ExtResource("830_17kss")
+spawn_marker_path = NodePath("../../SoulFistSpawn")
+spawn_frame = 7
+metadata/_custom_type_script = "uid://bkklrvtapkren"
+
+[node name="SoulEraser" type="Node" parent="StateMachine" unique_id=2059872131]
+script = ExtResource("830_frvf7")
+metadata/_custom_type_script = "uid://bkklrvtapkren"
+
+[node name="ShadowBlade" type="Node" parent="StateMachine" unique_id=571941399]
+script = ExtResource("832_17kss")
+active_start_frame = 4
+active_end_frame = 8
+hitbox_path = NodePath("../../Hitboxers/ShadowBlade")
+metadata/_custom_type_script = "uid://bkklrvtapkren"
+
+[node name="AirSoulFist" type="Node" parent="StateMachine" unique_id=1807803701]
+script = ExtResource("833_0g5j3")
+projectile_scene = ExtResource("830_17kss")
+spawn_marker_path = NodePath("../../SoulFistSpawn")
+spawn_frame = 8
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="Hitboxers" type="Node2D" parent="." unique_id=1330527987]
@@ -4021,116 +4182,13 @@ shape = SubResource("RectangleShape2D_o1poj")
 visible = false
 position = Vector2(62, -43)
 
-[node name="ScratchWheelLow" type="Area2D" parent="Hitboxers" unique_id=1489769917]
+[node name="ShadowBlade" type="Area2D" parent="Hitboxers" unique_id=1471658006]
 visible = false
-position = Vector2(-49, 77)
-script = ExtResource("786_b7n4m")
-hit_spark_type = 2
-impact_sound_type = 1
-guard_sound = ExtResource("788_o3jew")
-strike_sound = ExtResource("793_jr8sl")
-hit_data = SubResource("Resource_oyjs5")
+position = Vector2(81, -67)
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Hitboxers/ScratchWheelLow" unique_id=1711490194]
-position = Vector2(74.00001, 84)
-rotation = -0.08726646
-polygon = PackedVector2Array(70, -41, 25, -20, -46, 8, 1, 8, 53, -15)
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Hitboxers/ShadowBlade" unique_id=1525028086]
+position = Vector2(-72, 67)
+polygon = PackedVector2Array(46, 67, 91, 29, 133, -13, 157, -90, 137, -188, 105, -234, 91, -265, 154, -220, 182, -157, 196, -83, 164, 1)
 
-[node name="ScratchWheelMiddle" type="Area2D" parent="Hitboxers" unique_id=682594137]
-visible = false
-position = Vector2(-26, 16)
-script = ExtResource("786_b7n4m")
-hit_spark_type = 2
-impact_sound_type = 1
-guard_sound = ExtResource("788_o3jew")
-strike_sound = ExtResource("793_jr8sl")
-hit_data = SubResource("Resource_8ieyf")
-
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Hitboxers/ScratchWheelMiddle" unique_id=1801205430]
-position = Vector2(29, -78)
-rotation = -0.5235988
-polygon = PackedVector2Array(60, 114, 26, 164, -37, 197, -78, 216, 4, 208, 35, 190)
-
-[node name="ScratchWheelHigh" type="Area2D" parent="Hitboxers" unique_id=523787128]
-visible = false
-position = Vector2(-26, 2)
-script = ExtResource("786_b7n4m")
-hit_spark_type = 2
-impact_sound_type = 1
-guard_sound = ExtResource("788_o3jew")
-strike_sound = ExtResource("793_jr8sl")
-hit_data = SubResource("Resource_62ykc")
-
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Hitboxers/ScratchWheelHigh" unique_id=756662257]
-position = Vector2(87, -58)
-polygon = PackedVector2Array(61, 65, 55, -5, 27, -56, -28, -87, -54, -93, 7, -99, 49, -80, 75, -34, 82, 28)
-
-[node name="RhinoHornFirstKick" type="Area2D" parent="Hitboxers" unique_id=1290858533]
-visible = false
-position = Vector2(5, 15)
-script = ExtResource("786_b7n4m")
-hit_spark_type = 2
-impact_sound_type = 1
-guard_sound = ExtResource("788_o3jew")
-strike_sound = ExtResource("793_jr8sl")
-hit_data = SubResource("Resource_mdolu")
-
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Hitboxers/RhinoHornFirstKick" unique_id=1620752965]
-position = Vector2(-116, 35)
-polygon = PackedVector2Array(6, -5, 34, -97, 88, -154, 175, -176, 238, -152, 349, -49, 259, -190, 181, -225, 88, -205, 14, -119)
-
-[node name="RhinoHornFinalKick" type="Area2D" parent="Hitboxers" unique_id=344993404]
-visible = false
-position = Vector2(24, -14)
-script = ExtResource("786_b7n4m")
-hit_spark_type = 2
-impact_sound_type = 1
-guard_sound = ExtResource("788_o3jew")
-strike_sound = ExtResource("793_jr8sl")
-hit_data = SubResource("Resource_gjhvu")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/RhinoHornFinalKick" unique_id=1121506300]
-position = Vector2(88.75, -10)
-shape = SubResource("RectangleShape2D_ca8k3")
-
-[node name="LynxTail" type="Area2D" parent="Hitboxers" unique_id=1019291867]
-visible = false
-position = Vector2(16, 13)
-script = ExtResource("786_b7n4m")
-hit_spark_type = 2
-impact_sound_type = 1
-guard_sound = ExtResource("788_o3jew")
-strike_sound = ExtResource("793_jr8sl")
-hit_data = SubResource("Resource_oyjal")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/LynxTail" unique_id=1926776704]
-position = Vector2(129, 54)
-shape = SubResource("RectangleShape2D_50w2u")
-
-[node name="LynxTail2" type="Area2D" parent="Hitboxers" unique_id=437873242]
-visible = false
-position = Vector2(16, 13)
-script = ExtResource("786_b7n4m")
-hit_spark_type = 2
-impact_sound_type = 1
-guard_sound = ExtResource("788_o3jew")
-strike_sound = ExtResource("793_jr8sl")
-hit_data = SubResource("Resource_oyjal")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/LynxTail2" unique_id=932386508]
-position = Vector2(106, 80)
-shape = SubResource("RectangleShape2D_50w2u")
-
-[node name="LynxTail3" type="Area2D" parent="Hitboxers" unique_id=1945076916]
-visible = false
-position = Vector2(-10, 65)
-script = ExtResource("786_b7n4m")
-hit_spark_type = 2
-impact_sound_type = 1
-guard_sound = ExtResource("788_o3jew")
-strike_sound = ExtResource("793_jr8sl")
-hit_data = SubResource("Resource_mkbod")
-
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Hitboxers/LynxTail3" unique_id=1833142288]
-position = Vector2(140, 15)
-polygon = PackedVector2Array(-164.75, 49.25, -86.75, -19.75, -26.75, -82.75, -51.75, -146.75, -92.75, -224.75, -5.75, -156.75, 32.25, -86.75, -40.75, -12.75)
+[node name="SoulFistSpawn" type="Marker2D" parent="." unique_id=457924131]
+position = Vector2(128, 0)

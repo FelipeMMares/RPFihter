@@ -1,4 +1,7 @@
 res://Cenas/Morrigan/Morrigan.tscn
 res://Cenas/HUD/guardProgress.tres
 res://Scripts/Morrigan/Morrigan.gd
-res://Scripts/Player/StateMachine/StateMachine.gd
+res://Cenas/Morrigan/SoulFistProjectile.gd
+res://Scripts/Morrigan/States/SoulFist.gd
+res://Scripts/Morrigan/States/AirSoulFist.gd
+res://Scripts/Morrigan/States/ShadowBlade.gd
