@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CommandSequence" format=3 uid="uid://bvvrrg3y8052k"]
+
+[ext_resource type="Script" uid="uid://brg7ixgqu5kif" path="res://Scripts/Player/CommandParser/CommandSequence.gd" id="1_lbhv5"]
+
+[resource]
+script = ExtResource("1_lbhv5")
+name = "SoulFist"
+inputs = Array[String](["right", "left", "lightPunch"])
+is_special = true
+metadata/_custom_type_script = "uid://brg7ixgqu5kif"

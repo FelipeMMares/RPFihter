@@ -17,11 +17,13 @@ var hitstun_timer: int = 0
 
 var _hurt_animation_finished: bool = false
 
+var _launch_active: bool = false
 
 
 func set_hit_data(
 	data: HitData
 ) -> void:
+
 	if data == null:
 		return
 
@@ -47,6 +49,7 @@ func set_hit_data(
 		"Hitstun: ",
 		data.hitstun
 	)
+
 
 
 func _enter() -> void:
@@ -88,9 +91,15 @@ func _enter() -> void:
 func _physics_process(
 	_delta: float
 ) -> void:
-	move.emit(
-		Vector2.ZERO
-	)
+
+	# Golpe normal continua zerando movimento.
+	#
+	# Um golpe com launch precisa preservar
+	# a velocidade recebida.
+	if not _launch_active:
+		move.emit(
+			Vector2.ZERO
+		)
 
 	if hitstun_timer > 0:
 		hitstun_timer -= 1
@@ -110,6 +119,23 @@ func _try_finish_hurt() -> void:
 
 	if hitstun_timer > 0:
 		return
+
+
+	# Se foi lançado, espera aterrissar.
+	if _launch_active:
+		var character := (
+			get_parent().get_parent()
+			as CharacterBody2D
+		)
+
+		if (
+			character != null
+			and not character.is_on_floor()
+		):
+			return
+
+		_launch_active = false
+
 
 	transition_to.emit(
 		&"Idle"
@@ -138,3 +164,6 @@ func _play_hurt_voice() -> void:
 			hurt_voices,
 			false
 		)
+
+func _exit() -> void:
+	_launch_active = false

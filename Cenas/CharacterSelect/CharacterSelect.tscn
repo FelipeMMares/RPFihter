@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cstb08wm4agtb" path="res://assets/Menus/SelectionCharacter/Gemini_Generated_Image_k3i7zvk3i7zvk3i7.png" id="4_wef75"]
 [ext_resource type="Texture2D" uid="uid://bqwmt40vtqblh" path="res://assets/Menus/SelectionCharacter/Gemini_Generated_Image_hbgs6ehbgs6ehbgs.png" id="5_ft0tq"]
 [ext_resource type="Texture2D" uid="uid://dcgrovxavbknq" path="res://assets/Menus/SelectionCharacter/Gemini_Generated_Image_n9ubk8n9ubk8n9ub.png" id="6_0ps5n"]
-[ext_resource type="Texture2D" uid="uid://c41aj0mkpi7pe" path="res://assets/Menus/SelectionCharacter/Gemini_Generated_Image_skubg5skubg5skub.png" id="7_j1wye"]
+[ext_resource type="Texture2D" uid="uid://bouf4wag4u5ip" path="res://assets/Menus/SelectionCharacter/Morrigan.jpg" id="9_j1wye"]
 [ext_resource type="FontFile" uid="uid://ct6yapfcrys5m" path="res://assets/fontes/PressStart2P-Regular.ttf" id="10_j1wye"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
@@ -354,7 +354,7 @@ text = "?????"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="LockedButton4" type="Button" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid" unique_id=1841347550]
+[node name="MorriganButton4" type="Button" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid" unique_id=1841347550]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 220)
 custom_maximum_size = Vector2(180, 220)
@@ -363,7 +363,7 @@ theme_override_constants/icon_max_width = 100
 icon_alignment = 1
 vertical_icon_alignment = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton4" unique_id=577453563]
+[node name="MarginContainer" type="MarginContainer" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/MorriganButton4" unique_id=577453563]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -381,25 +381,25 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton4/MarginContainer" unique_id=1841014587]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/MorriganButton4/MarginContainer" unique_id=1841014587]
 layout_mode = 2
 theme_override_constants/separation = 24
 
-[node name="Portrait" type="TextureRect" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton4/MarginContainer/VBoxContainer" unique_id=516959950]
+[node name="Portrait" type="TextureRect" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/MorriganButton4/MarginContainer/VBoxContainer" unique_id=516959950]
 custom_minimum_size = Vector2(110, 110)
 custom_maximum_size = Vector2(110, 110)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 mouse_filter = 2
-texture = ExtResource("7_j1wye")
+texture = ExtResource("9_j1wye")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton4/MarginContainer/VBoxContainer" unique_id=537257343]
+[node name="NameLabel" type="Label" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/MorriganButton4/MarginContainer/VBoxContainer" unique_id=537257343]
 unique_name_in_owner = true
 layout_mode = 2
-text = "?????"
+text = "MORRIGAN"
 horizontal_alignment = 1
 vertical_alignment = 2
 

@@ -1,5 +1,8 @@
 extends State
 
+@export_group("Voice")
+
+@export var special_voices: Array[AudioStream] = []
 
 @export_group("Projétil")
 
@@ -32,6 +35,7 @@ func _enter() -> void:
 		false
 	)
 
+	_play_special_voice()
 
 func _physics_process(
 	_delta: float
@@ -155,4 +159,27 @@ func _get_facing_direction() -> float:
 func _animation_finished() -> void:
 	transition_to.emit(
 		return_state
+	)
+
+func _play_special_voice() -> void:
+	if special_voices.is_empty():
+		return
+
+	var character := (
+		get_parent().get_parent()
+		as CharacterBody2D
+	)
+
+	if character == null:
+		return
+
+	if not character.has_method(
+		"play_random_voice"
+	):
+		return
+
+	character.call(
+		"play_random_voice",
+		special_voices,
+		true
 	)

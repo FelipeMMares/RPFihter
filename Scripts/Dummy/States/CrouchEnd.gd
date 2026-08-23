@@ -5,19 +5,38 @@ extends State
 
 
 func _enter() -> void:
-	move.emit(Vector2.ZERO)
+	move.emit(
+		Vector2.ZERO
+	)
 
-	# Continua com a forma agachada enquanto
-	# ainda está levantando.
-	set_crouching_hurtbox(true)
+	set_crouching_hurtbox(
+		true
+	)
 
 	play_animation.emit(
-		"CrouchEnd",
+		&"CrouchEnd",
 		false
 	)
 
 
-func _animation_finished() -> void:
-	set_crouching_hurtbox(false)
+func _physics_process(
+	_delta: float
+) -> void:
+	if not player_input_enabled:
+		return
 
-	transition_to.emit(next_state)
+	if check_special_move():
+		set_crouching_hurtbox(
+			false
+		)
+		return
+
+
+func _animation_finished() -> void:
+	set_crouching_hurtbox(
+		false
+	)
+
+	transition_to.emit(
+		next_state
+	)

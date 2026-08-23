@@ -55,6 +55,11 @@ func _physics_process(
 		)
 
 		if _has_left_ground:
+			# Especiais aéreos têm prioridade
+			# sobre ataques normais aéreos.
+			if _try_air_special():
+				return
+
 			if _try_air_attack():
 				return
 
@@ -108,4 +113,59 @@ func _get_character() -> CharacterBody2D:
 	return (
 		get_parent().get_parent()
 		as CharacterBody2D
+	)
+
+func _try_air_special() -> bool:
+	if command_parser == null:
+		return false
+
+	var move_name: String = (
+		command_parser.get_current_special_move()
+	)
+
+	if move_name.is_empty():
+		return false
+
+	# Ignora combos normais.
+	if not command_parser.is_special_move(
+		move_name
+	):
+		return false
+
+	var air_state: StringName = &""
+
+	# Traduz o comando terrestre para
+	# sua versão aérea.
+	match StringName(move_name):
+
+		&"SoulFist":
+			air_state = &"AirSoulFist"
+
+		_:
+			# Qualquer outro especial é
+			# proibido durante Jump.
+			return false
+
+	var character := _get_character()
+
+	if character == null:
+		return false
+
+	if not character.has_method(
+		"request_special_attack"
+	):
+		return false
+
+	print(
+		"Especial aéreo reconhecido | ",
+		move_name,
+		" -> ",
+		air_state
+	)
+
+	return bool(
+		character.call(
+			"request_special_attack",
+			air_state
+		)
 	)

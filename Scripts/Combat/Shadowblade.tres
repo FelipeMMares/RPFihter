@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CommandSequence" format=3 uid="uid://cvkdrd3k4l2m2"]
+
+[ext_resource type="Script" uid="uid://brg7ixgqu5kif" path="res://Scripts/Player/CommandParser/CommandSequence.gd" id="1_32lh2"]
+
+[resource]
+script = ExtResource("1_32lh2")
+name = "ShadowBlade"
+inputs = Array[String](["down", "left", "highPunch"])
+is_special = true
+metadata/_custom_type_script = "uid://brg7ixgqu5kif"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="HitData" format=3 uid="uid://crh4pw5x0lra7"]
+
+[ext_resource type="Script" uid="uid://c48umgmbmjtf1" path="res://Scripts/Dummy/HitData.gd" id="1_mkfvs"]
+
+[resource]
+script = ExtResource("1_mkfvs")
+damage = 80
+hitstun = 30
+pushback = 0.0
+launch = Vector2(450, -220)
+metadata/_custom_type_script = "uid://c48umgmbmjtf1"

@@ -16,7 +16,8 @@ func _physics_process(delta: float) -> void:
 	if player_controls == null:
 		return
 
-	check_special_move()
+	if check_special_move():
+		return
 
 	var direction: float = Input.get_axis(
 		player_controls.left,

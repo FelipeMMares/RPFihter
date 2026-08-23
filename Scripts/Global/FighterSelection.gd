@@ -3,7 +3,8 @@ extends Node
 
 enum Fighter {
 	CHUN_LI,
-	ELENA
+	ELENA,
+	MORRIGAN
 }
 
 

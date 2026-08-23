@@ -28,6 +28,16 @@ func is_jumping() -> bool:
 		up
 	)
 
+func is_jump_held() -> bool:
+	return _is_pressed(
+		up
+	)
+
+
+func is_crouch_held() -> bool:
+	return _is_pressed(
+		down
+	)
 
 func just_crouched() -> bool:
 	return _is_just_pressed(

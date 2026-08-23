@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CommandSequence" format=3 uid="uid://ddfdvb5t07w8k"]
+
+[ext_resource type="Script" uid="uid://brg7ixgqu5kif" path="res://Scripts/Player/CommandParser/CommandSequence.gd" id="1_df06g"]
+
+[resource]
+script = ExtResource("1_df06g")
+name = "SoulEraser"
+inputs = Array[String](["down", "left"])
+simultaneous_inputs = Array[String](["lightPuch", "highPunch"])
+is_special = true
+metadata/_custom_type_script = "uid://brg7ixgqu5kif"

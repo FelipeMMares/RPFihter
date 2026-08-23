@@ -1,74 +1,41 @@
 [gd_scene format=3 uid="uid://dvqw3fu7jlp2j"]
 
 [ext_resource type="Script" uid="uid://c4c84yotb07q8" path="res://Cenas/Morrigan/SoulFistProjectile.gd" id="1_b2bea"]
-[ext_resource type="Texture2D" uid="uid://crud3bnr2i5rh" path="res://assets/Morrigan/SoulFirstProjectle/ChatGPT Image 22 de ago. de 2026, 11_46_43.png" id="2_blkhn"]
+[ext_resource type="Texture2D" uid="uid://c66nr51wbrqrn" path="res://assets/Morrigan/SoulFirstProjectle/MVC2_Morrigan_1729-removebg-preview.png" id="2_k8ruy"]
+[ext_resource type="Texture2D" uid="uid://chppstqtjklj6" path="res://assets/Morrigan/SoulFirstProjectle/MVC2_Morrigan_1730-removebg-preview.png" id="3_5w8ps"]
 [ext_resource type="Script" uid="uid://do3du61yy2b2o" path="res://Scripts/Player/Hitbox/Hitboxers.gd" id="3_j5436"]
+[ext_resource type="Texture2D" uid="uid://dvrh0xiainuiw" path="res://assets/Morrigan/SoulFirstProjectle/MVC2_Morrigan_1731-removebg-preview.png" id="4_66fip"]
 [ext_resource type="AudioStream" uid="uid://b8asxc7p44qtf" path="res://assets/Audio/SFX/Combat/Guard/hitstop.mp3" id="4_lymd8"]
 [ext_resource type="AudioStream" uid="uid://bsoue2ktyu0ck" path="res://assets/Audio/SFX/Combat/Strikes/smash-bros-magic-hit.mp3" id="5_0v6ss"]
+[ext_resource type="Texture2D" uid="uid://djsas6kftuqat" path="res://assets/Morrigan/SoulFirstProjectle/MVC2_Morrigan_1732-removebg-preview.png" id="5_3pael"]
+[ext_resource type="Texture2D" uid="uid://djrhe3j0halxl" path="res://assets/Morrigan/SoulFirstProjectle/MVC2_Morrigan_1733-removebg-preview.png" id="6_6s0rm"]
 [ext_resource type="Resource" uid="uid://c7nitndijsqn2" path="res://Scripts/Combat/new_resource.tres" id="6_yjdy8"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k8ruy"]
-atlas = ExtResource("2_blkhn")
-region = Rect2(0, 0, 241, 362)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5w8ps"]
-atlas = ExtResource("2_blkhn")
-region = Rect2(241, 0, 241, 362)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_66fip"]
-atlas = ExtResource("2_blkhn")
-region = Rect2(482, 0, 241, 362)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3pael"]
-atlas = ExtResource("2_blkhn")
-region = Rect2(723, 0, 241, 362)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6s0rm"]
-atlas = ExtResource("2_blkhn")
-region = Rect2(964, 0, 241, 362)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d3j5r"]
-atlas = ExtResource("2_blkhn")
-region = Rect2(1205, 0, 241, 362)
+[ext_resource type="Texture2D" uid="uid://b0ujni2j3ferk" path="res://assets/Morrigan/SoulFirstProjectle/MVC2_Morrigan_1734-removebg-preview.png" id="7_d3j5r"]
+[ext_resource type="Texture2D" uid="uid://lgf8k3uqnh7h" path="res://assets/Morrigan/SoulFirstProjectle/MVC2_Morrigan_1735-removebg-preview.png" id="8_tw4yx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k8ruy")
+"texture": ExtResource("2_k8ruy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5w8ps")
+"texture": ExtResource("3_5w8ps")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_66fip")
+"texture": ExtResource("4_66fip")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3pael")
+"texture": ExtResource("5_3pael")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5w8ps")
+"texture": ExtResource("6_6s0rm")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_66fip")
+"texture": ExtResource("7_d3j5r")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3pael")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5w8ps")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_66fip")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3pael")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6s0rm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d3j5r")
+"texture": ExtResource("8_tw4yx")
 }],
 "loop": 0,
 "name": &"default",
@@ -83,7 +50,7 @@ script = ExtResource("1_b2bea")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=985325072]
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-frame = 11
+frame = 6
 frame_progress = 1.0
 
 [node name="HitBox" type="Area2D" parent="." unique_id=1455835637]

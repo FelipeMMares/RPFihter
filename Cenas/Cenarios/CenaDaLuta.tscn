@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cda2qv106s50p" path="res://Scripts/Fight/FightManager.gd" id="1_oi066"]
 [ext_resource type="Texture2D" uid="uid://c3ggcoutar7gl" path="res://icon.svg" id="2_umdng"]
 [ext_resource type="PackedScene" uid="uid://cxwujt80wiqyw" path="res://Cenas/HUD/HUD.tscn" id="3_hvrgt"]
+[ext_resource type="PackedScene" uid="uid://bk0sg1wq7opev" path="res://Cenas/Morrigan/Morrigan.tscn" id="4_g4c8h"]
 [ext_resource type="PackedScene" uid="uid://cifi2eaq8od35" path="res://Cenas/Player/Player.tscn" id="4_oi066"]
 [ext_resource type="PackedScene" uid="uid://dbdr6mi4gid2l" path="res://Cenas/Cenarios/Arenas/Arena01.tscn" id="4_ywvde"]
 [ext_resource type="PackedScene" uid="uid://c7euq3glrhph6" path="res://Cenas/Cenarios/Arenas/Arena02.tscn" id="5_g4c8h"]
@@ -70,6 +71,7 @@ corner_radius_bottom_left = 4
 script = ExtResource("1_oi066")
 chun_li_scene = ExtResource("4_oi066")
 elena_scene = ExtResource("5_hvrgt")
+morrigan_scene = ExtResource("4_g4c8h")
 arena_01_scene = ExtResource("4_ywvde")
 arena_02_scene = ExtResource("5_g4c8h")
 arena_03_scene = ExtResource("6_pin31")

@@ -695,139 +695,32 @@ var animation_visuals: Dictionary = {
 	},
 
 	&"Defeated": {
-		"scale": Vector2(1.956, 1.956),
-		"offset": Vector2(-8.0, -2.0)
+		"scale": Vector2(1.98, 1.98),
+		"offset": Vector2(-25.0, -75.0)
 	},
 
 	&"FallDefeated": {
-		0: {
-			"offset": Vector2(-160.0, -10.0),
+			"offset": Vector2(-40.0, 0.0),
 			"scale": Vector2(1.956, 1.956)
-		},
+	},
+	&"Thrown":{
+		"offset": Vector2 (-40.0, 0.0),
+		"scale": Vector2(1.956, 1.956)
+	},
 
-		1: {
-			"offset": Vector2(-160.0, -10.0),
-			"scale": Vector2(1.956, 1.956)
-		},
+	&"Guard":{
+		"offset": Vector2 (-40.0, 0.0),
+		"scale": Vector2(1.956, 1.956)
+	},
 
-		2: {
-			"offset": Vector2(-160.0, -10.0),
-			"scale": Vector2(1.956, 1.956)
-		},
+	&"GuardWhile":{
+		"offset": Vector2 (-40.0, 0.0),
+		"scale": Vector2(1.956, 1.956)
+	},
 
-		3: {
-			"offset": Vector2(-160.0, -10.0),
-			"scale": Vector2(1.956, 1.956)
-		},
-
-		4: {
-			"offset": Vector2(-160.0, -10.0),
-			"scale": Vector2(1.956, 1.956)
-		},
-
-		5: {
-			"offset": Vector2(-160.0, -10.0),
-			"scale": Vector2(1.956, 1.956)
-		},
-
-		6: {
-			"offset": Vector2(-160.0, -10.0),
-			"scale": Vector2(1.956, 1.956)
-		},
-
-		8: {
-			"offset": Vector2(-160.0, -10.0),
-			"scale": Vector2(1.956, 1.956)
-		},
-
-		9: {
-			"offset": Vector2(-160.0, -10.0),
-			"scale": Vector2(1.956, 1.956)
-		},
-
-		10: {
-			"offset": Vector2(-120.0, -2.0),
-			"scale": Vector2(1.956, 1.956)
-		},
-
-		11: {
-			"offset": Vector2(-80.0, 14.0),
-			"scale": Vector2(1.956, 1.956)
-		},
-
-		12: {
-			"offset": Vector2(-50.0, 22.0),
-			"scale": Vector2(1.956, 1.956)
-		},
-
-		13: {
-			"offset": Vector2(-20.0, 27.0),
-			"scale": Vector2(1.956, 1.956)
-		},
-
-		14: {
-			"offset": Vector2(24.0, 29.0),
-			"scale": Vector2(1.956, 1.956)
-		},
-
-		15: {
-			"offset": Vector2(60.0, 22.0),
-			"scale": Vector2(1.956, 1.956)
-		},
-
-		16: {
-			"offset": Vector2(88.0, 18.0),
-			"scale": Vector2(1.956, 1.956)
-		},
-		17: {
-			"offset": Vector2(120.0, 10.0),
-			"scale": Vector2(1.956, 1.956)
-		},
-
-		18: {
-			"offset": Vector2(180.0, 0.0),
-			"scale": Vector2(1.956, 1.956)
-		},
-
-		19: {
-			"offset": Vector2(180.0, -15.0),
-			"scale": Vector2(1.956, 1.956)
-		},
-
-		20: {
-			"offset": Vector2(0.0, 0.0),
-			"scale": Vector2(1.94, 1.94)
-		},
-
-		21: {
-			"offset": Vector2(0.0, 0.0),
-			"scale": Vector2(1.94, 1.94)
-		},
-
-		22: {
-			"offset": Vector2(0.0, 0.0),
-			"scale": Vector2(1.94, 1.94)
-		},
-
-		23: {
-			"offset": Vector2(0.0, 0.0),
-			"scale": Vector2(1.94, 1.94)
-		},
-
-		24: {
-			"offset": Vector2(0.0, 0.0),
-			"scale": Vector2(1.94, 1.94)
-		},
-
-		25: {
-			"offset": Vector2(0.0, 0.0),
-			"scale": Vector2(1.94, 1.94)
-		},
-
-		26: {
-			"offset": Vector2(0.0, 0.0),
-			"scale": Vector2(1.94, 1.94)
-		}
+	&"Parry":{
+		"offset": Vector2 (-40.0, 0.0),
+		"scale": Vector2(1.956, 1.956)
 	}
 }
 

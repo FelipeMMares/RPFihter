@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CommandSequence" format=3 uid="uid://ch8f4o5ktt75k"]
+
+[ext_resource type="Script" uid="uid://brg7ixgqu5kif" path="res://Scripts/Player/CommandParser/CommandSequence.gd" id="1_uy620"]
+
+[resource]
+script = ExtResource("1_uy620")
+name = "AirSoulFist"
+inputs = Array[String](["right", "left", "lightPunch"])
+metadata/_custom_type_script = "uid://brg7ixgqu5kif"

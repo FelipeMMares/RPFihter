@@ -14,6 +14,7 @@ var opponent_select_scene_path: String = (
 
 @export var chun_li_frames: SpriteFrames
 @export var elena_frames: SpriteFrames
+@export var morrigan_frames: SpriteFrames
 
 @export_range(0.5, 10.0, 0.1)
 var idle_before_taunt_time: float = 3.0

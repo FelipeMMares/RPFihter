@@ -579,6 +579,38 @@ func receive_combat_hit(
 		hit_data
 	)
 
+
+	# ============================================================
+	# LANÇAMENTO
+	# ============================================================
+
+	if not hit_data.launch.is_zero_approx():
+		var launch_direction: float = 1.0
+
+		if attacker != null:
+			launch_direction = signf(
+				global_position.x
+				- attacker.global_position.x
+			)
+
+			if is_zero_approx(
+				launch_direction
+			):
+				launch_direction = 1.0
+
+
+		# X sempre empurra para longe do atacante.
+		velocity.x = (
+			absf(hit_data.launch.x)
+			* launch_direction
+		)
+
+		# Y negativo = para cima.
+		velocity.y = (
+			hit_data.launch.y
+		)
+
+
 	# O golpe realmente causou dano.
 	return true
 

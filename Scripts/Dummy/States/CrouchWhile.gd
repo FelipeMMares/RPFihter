@@ -33,6 +33,15 @@ func _physics_process(_delta: float) -> void:
 	if player_controls == null:
 		return
 
+	# Especial sempre possui prioridade
+	# sobre ataques agachados normais.
+	if check_special_move():
+		# O especial volta para HurtBox normal.
+		set_crouching_hurtbox(
+			false
+		)
+		return
+
 	if Input.is_action_just_pressed(
 		player_controls.light_punch
 	):

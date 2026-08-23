@@ -23,7 +23,8 @@ func _physics_process(_delta: float) -> void:
 
 	move.emit(Vector2.ZERO)
 
-	check_special_move()
+	if check_special_move():
+		return
 
 	var throw_direction: float = (
 		player_controls.get_throw_direction()
