@@ -341,16 +341,27 @@
 [ext_resource type="Texture2D" uid="uid://cljg6v37nq5h" path="res://assets/Morrigan/attaks/frame_36_delay-0.06s.png" id="356_5q8re"]
 [ext_resource type="Texture2D" uid="uid://cuyimeav04d3a" path="res://assets/Morrigan/attaks/frame_37_delay-0.06s.png" id="357_jowha"]
 [ext_resource type="Texture2D" uid="uid://gqac3tk7sg7n" path="res://assets/Morrigan/attaks/frame_38_delay-0.06s.png" id="358_n1yay"]
+[ext_resource type="Texture2D" uid="uid://csmcijpddjx7h" path="res://assets/Morrigan/FallDamage/frame_00_delay-0.06s.png" id="359_me6kg"]
 [ext_resource type="Texture2D" uid="uid://bm0bufdmsf3iv" path="res://assets/Morrigan/attaks/frame_39_delay-0.06s.png" id="359_pipoj"]
+[ext_resource type="Texture2D" uid="uid://bdi0dkx4s5sr" path="res://assets/Morrigan/FallDamage/frame_01_delay-0.06s.png" id="360_av3yk"]
 [ext_resource type="Texture2D" uid="uid://bs4jtf6ln7dvm" path="res://assets/Morrigan/attaks/frame_40_delay-0.06s.png" id="360_wpgoy"]
+[ext_resource type="Texture2D" uid="uid://n7jb5ti7lvhn" path="res://assets/Morrigan/FallDamage/frame_02_delay-0.06s.png" id="361_0mq55"]
 [ext_resource type="Texture2D" uid="uid://gx126nvvl70r" path="res://assets/Morrigan/attaks/frame_41_delay-0.06s.png" id="361_pnn37"]
 [ext_resource type="Texture2D" uid="uid://b4hdwxdfoys6g" path="res://assets/Morrigan/attaks/frame_42_delay-0.06s.png" id="362_bolro"]
+[ext_resource type="Texture2D" uid="uid://bn5im7jtsghui" path="res://assets/Morrigan/FallDamage/frame_03_delay-0.06s.png" id="362_f76th"]
+[ext_resource type="Texture2D" uid="uid://cjdipi6e2xiqd" path="res://assets/Morrigan/FallDamage/frame_04_delay-0.06s.png" id="363_6riaw"]
 [ext_resource type="Texture2D" uid="uid://cimplygxmnnri" path="res://assets/Morrigan/attaks/frame_43_delay-0.06s.png" id="363_yblkp"]
+[ext_resource type="Texture2D" uid="uid://befy24e2s7uxp" path="res://assets/Morrigan/FallDamage/frame_05_delay-0.06s.png" id="364_2j04t"]
 [ext_resource type="Texture2D" uid="uid://dfd5cvrlwkq" path="res://assets/Morrigan/attaks/frame_44_delay-0.06s.png" id="364_erjig"]
+[ext_resource type="Texture2D" uid="uid://c8i3pf604y34f" path="res://assets/Morrigan/FallDamage/frame_06_delay-0.06s.png" id="365_ftdh6"]
 [ext_resource type="Texture2D" uid="uid://cqdr3jylcsr7t" path="res://assets/Morrigan/attaks/frame_01_delay-0.06s.png" id="365_gwjlu"]
+[ext_resource type="Texture2D" uid="uid://bf2ypnciby3g7" path="res://assets/Morrigan/FallDamage/frame_07_delay-0.06s.png" id="366_k1hkj"]
 [ext_resource type="Texture2D" uid="uid://dj2rgt8f6rdat" path="res://assets/Morrigan/attaks/frame_02_delay-0.06s.png" id="366_rvrm7"]
+[ext_resource type="Texture2D" uid="uid://d4autky0b63o8" path="res://assets/Morrigan/FallDamage/frame_08_delay-0.06s.png" id="367_6cb0s"]
 [ext_resource type="Texture2D" uid="uid://c6443pahbr7dd" path="res://assets/Morrigan/attaks/frame_03_delay-0.06s.png" id="367_ocer7"]
 [ext_resource type="Texture2D" uid="uid://cbgkuli5yhbtq" path="res://assets/Morrigan/attaks/frame_04_delay-0.06s.png" id="368_0erfe"]
+[ext_resource type="Texture2D" uid="uid://g3f77ob336u2" path="res://assets/Morrigan/FallDamage/frame_09_delay-0.06s.png" id="368_agpa1"]
+[ext_resource type="Texture2D" uid="uid://b5c3gcmac2kwk" path="res://assets/Morrigan/FallDamage/frame_10_delay-0.06s.png" id="369_fqy5b"]
 [ext_resource type="Texture2D" uid="uid://c0ub5twu2gmu6" path="res://assets/Morrigan/attaks/frame_05_delay-0.06s.png" id="369_o2luy"]
 [ext_resource type="Texture2D" uid="uid://c7l8jvmwjh0ei" path="res://assets/Morrigan/attaks/frame_29_delay-0.06s.png" id="370_e1ohm"]
 [ext_resource type="Texture2D" uid="uid://b61wfgiq20hmb" path="res://assets/Morrigan/attaks/frame_30_delay-0.06s.png" id="371_r362b"]
@@ -1031,7 +1042,7 @@ animations = [{
 "texture": ExtResource("69_0mbf6")
 }],
 "loop": 0,
-"name": &"AirLightPuch",
+"name": &"AirLightPunch",
 "speed": 15.0
 }, {
 "frames": [{
@@ -1107,7 +1118,7 @@ animations = [{
 "texture": ExtResource("91_cqm78")
 }],
 "loop": 0,
-"name": &"AirSoulFirst",
+"name": &"AirSoulFist",
 "speed": 15.0
 }, {
 "frames": [{
@@ -2115,6 +2126,47 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("359_me6kg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("360_av3yk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("361_0mq55")
+}, {
+"duration": 1.0,
+"texture": ExtResource("362_f76th")
+}, {
+"duration": 1.0,
+"texture": ExtResource("363_6riaw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("364_2j04t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("365_ftdh6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("366_k1hkj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("367_6cb0s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("368_agpa1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("369_fqy5b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("359_me6kg")
+}],
+"loop": 0,
+"name": &"ParryRecoil",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("376_concm")
 }, {
 "duration": 1.0,
@@ -2687,7 +2739,7 @@ animations = [{
 "texture": ExtResource("559_whp2t")
 }],
 "loop": 0,
-"name": &"SoulFirst",
+"name": &"SoulFist",
 "speed": 15.0
 }, {
 "frames": [{

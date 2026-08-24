@@ -376,7 +376,7 @@ metadata/_custom_type_script = "uid://bycvcpito73xu"
 script = ExtResource("2_77oq4")
 frame = 1
 override_offset = true
-offset = Vector2(-26, -70)
+offset = Vector2(-15, -30)
 override_scale = true
 scale = Vector2(2.11, 2.07)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
@@ -981,13 +981,72 @@ override_scale = true
 scale = Vector2(1.956, 1.921)
 metadata/_custom_type_script = "uid://bu7ghhff457v2"
 
-[sub_resource type="Resource" id="Resource_37rts"]
-script = ExtResource("1_qfgdn")
-animation_name = &"Hurt"
+[sub_resource type="Resource" id="Resource_kvgvj"]
+script = ExtResource("2_77oq4")
 override_offset = true
 offset = Vector2(-158, -5)
 override_scale = true
 scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_0dqtx"]
+script = ExtResource("2_77oq4")
+frame = 1
+override_offset = true
+offset = Vector2(-158, -5)
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_vcwkc"]
+script = ExtResource("2_77oq4")
+frame = 2
+override_offset = true
+offset = Vector2(-158, -5)
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_j4j5e"]
+script = ExtResource("2_77oq4")
+frame = 3
+override_offset = true
+offset = Vector2(-158, -5)
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ygea7"]
+script = ExtResource("2_77oq4")
+frame = 4
+override_offset = true
+offset = Vector2(-158, -5)
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_nsfcb"]
+script = ExtResource("2_77oq4")
+frame = 5
+override_offset = true
+offset = Vector2(-158, -5)
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_e6ewb"]
+script = ExtResource("2_77oq4")
+frame = 6
+override_offset = true
+offset = Vector2(-158, -5)
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_37rts"]
+script = ExtResource("1_qfgdn")
+animation_name = &"Hurt"
+frame_adjustments = Array[ExtResource("2_77oq4")]([SubResource("Resource_kvgvj"), SubResource("Resource_0dqtx"), SubResource("Resource_vcwkc"), SubResource("Resource_j4j5e"), SubResource("Resource_ygea7"), SubResource("Resource_nsfcb"), SubResource("Resource_e6ewb")])
 metadata/_custom_type_script = "uid://bu7ghhff457v2"
 
 [sub_resource type="Resource" id="Resource_sae5v"]
@@ -1402,7 +1461,6 @@ metadata/_custom_type_script = "uid://bu7ghhff457v2"
 script = ExtResource("1_qfgdn")
 animation_name = &"CrouchStart"
 override_offset = true
-offset = Vector2(-25, 0)
 override_scale = true
 scale = Vector2(1.956, 1.921)
 metadata/_custom_type_script = "uid://bu7ghhff457v2"
@@ -1411,7 +1469,6 @@ metadata/_custom_type_script = "uid://bu7ghhff457v2"
 script = ExtResource("1_qfgdn")
 animation_name = &"CrouchWhile"
 override_offset = true
-offset = Vector2(-25, 0)
 override_scale = true
 scale = Vector2(1.956, 1.921)
 metadata/_custom_type_script = "uid://bu7ghhff457v2"
@@ -1420,7 +1477,6 @@ metadata/_custom_type_script = "uid://bu7ghhff457v2"
 script = ExtResource("1_qfgdn")
 animation_name = &"CrouchEnd"
 override_offset = true
-offset = Vector2(-40, 0)
 override_scale = true
 scale = Vector2(1.956, 1.921)
 metadata/_custom_type_script = "uid://bu7ghhff457v2"
@@ -1539,7 +1595,16 @@ override_scale = true
 scale = Vector2(1.956, 1.921)
 metadata/_custom_type_script = "uid://bu7ghhff457v2"
 
+[sub_resource type="Resource" id="Resource_g4v7s"]
+script = ExtResource("1_qfgdn")
+animation_name = &"ParryRecoil"
+override_offset = true
+offset = Vector2(-8, 0)
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
 [resource]
 script = ExtResource("3_asrua")
-animation_adjustments = Array[ExtResource("1_qfgdn")]([SubResource("Resource_7r7cm"), SubResource("Resource_sicu8"), SubResource("Resource_ovkv8"), SubResource("Resource_5xpmy"), SubResource("Resource_iaqsm"), SubResource("Resource_py6m7"), SubResource("Resource_qf7wh"), SubResource("Resource_c4xx6"), SubResource("Resource_dygre"), SubResource("Resource_37rts"), SubResource("Resource_sae5v"), SubResource("Resource_kkqlh"), SubResource("Resource_q64ie"), SubResource("Resource_4uvha"), SubResource("Resource_5rcso"), SubResource("Resource_dnmuf"), SubResource("Resource_8g8yc"), SubResource("Resource_a3u4j"), SubResource("Resource_0rqfn"), SubResource("Resource_f1rnt"), SubResource("Resource_vivb4"), SubResource("Resource_i6m0m"), SubResource("Resource_oakkm"), SubResource("Resource_son57"), SubResource("Resource_bqki5"), SubResource("Resource_4t215"), SubResource("Resource_6gpbn"), SubResource("Resource_ahenj"), SubResource("Resource_gy1q7"), SubResource("Resource_10v0l"), SubResource("Resource_rag01"), SubResource("Resource_nvq86"), SubResource("Resource_fnet3"), SubResource("Resource_wfnpo"), SubResource("Resource_0jod5"), SubResource("Resource_maw8r"), SubResource("Resource_ut285"), SubResource("Resource_drr2n"), SubResource("Resource_dnf0m")])
+animation_adjustments = Array[ExtResource("1_qfgdn")]([SubResource("Resource_7r7cm"), SubResource("Resource_sicu8"), SubResource("Resource_ovkv8"), SubResource("Resource_5xpmy"), SubResource("Resource_iaqsm"), SubResource("Resource_py6m7"), SubResource("Resource_qf7wh"), SubResource("Resource_c4xx6"), SubResource("Resource_dygre"), SubResource("Resource_37rts"), SubResource("Resource_sae5v"), SubResource("Resource_kkqlh"), SubResource("Resource_q64ie"), SubResource("Resource_4uvha"), SubResource("Resource_5rcso"), SubResource("Resource_dnmuf"), SubResource("Resource_8g8yc"), SubResource("Resource_a3u4j"), SubResource("Resource_0rqfn"), SubResource("Resource_f1rnt"), SubResource("Resource_vivb4"), SubResource("Resource_i6m0m"), SubResource("Resource_oakkm"), SubResource("Resource_son57"), SubResource("Resource_bqki5"), SubResource("Resource_4t215"), SubResource("Resource_6gpbn"), SubResource("Resource_ahenj"), SubResource("Resource_gy1q7"), SubResource("Resource_10v0l"), SubResource("Resource_rag01"), SubResource("Resource_nvq86"), SubResource("Resource_fnet3"), SubResource("Resource_wfnpo"), SubResource("Resource_0jod5"), SubResource("Resource_maw8r"), SubResource("Resource_ut285"), SubResource("Resource_drr2n"), SubResource("Resource_dnf0m"), SubResource("Resource_g4v7s")])
 metadata/_custom_type_script = "uid://daxf6scsvh673"

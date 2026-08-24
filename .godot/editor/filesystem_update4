@@ -1,16 +1,4 @@
-res://Cenas/OpponentSelect/OpponentSelect.tscn
-res://Cenas/HUD/guardProgress.tres
-res://Cenas/OpponentSelect/OpponentSelect.gd
-res://Cenas/CharacterSelect/CharacterSelect.gd
-res://Cenas/CharacterSelect/CharacterSelect.tscn
 res://Cenas/Morrigan/Morrigan.tscn
-res://Scripts/Morrigan/Morrigan.gd
-res://Scripts/Components/FrameVisualAdjustment/FrameVisualAdjustment.gd
-res://Scripts/Components/FrameVisualAdjustment/AnimationVisualAdjustment.gd
-res://Scripts/Components/FrameVisualAdjustment/AnimationVisualController.gd
-res://Cenas/Player/Player.tscn
-res://Cenas/Dummy/dummy.tscn
-res://Scripts/Components/FrameVisualAdjustment/AnimationVisualProfile.gd
+res://Cenas/HUD/guardProgress.tres
 res://MorriganVisualProfile.tres
 res://Cenas/Morrigan/MorriganFrames.tres
-res://Scripts/Combat/Hurtbox.gd
