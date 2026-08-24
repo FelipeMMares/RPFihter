@@ -5,8 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://c4g01xh6rnav2" path="res://assets/Menus/SelectionCharacter/images.jpg" id="2_eeovy"]
 [ext_resource type="SpriteFrames" uid="uid://dafuseydhwltb" path="res://assets/Elena.tres" id="3_j1wye"]
 [ext_resource type="Texture2D" uid="uid://dupk2bq1d6pdd" path="res://assets/Menus/SelectionCharacter/images (1).jpg" id="3_mwvdt"]
+[ext_resource type="SpriteFrames" uid="uid://diuwka3dh7h6k" path="res://Cenas/Morrigan/MorriganFrames.tres" id="4_kwa0p"]
 [ext_resource type="Texture2D" uid="uid://cstb08wm4agtb" path="res://assets/Menus/SelectionCharacter/Gemini_Generated_Image_k3i7zvk3i7zvk3i7.png" id="4_wef75"]
 [ext_resource type="Texture2D" uid="uid://bqwmt40vtqblh" path="res://assets/Menus/SelectionCharacter/Gemini_Generated_Image_hbgs6ehbgs6ehbgs.png" id="5_ft0tq"]
+[ext_resource type="Script" uid="uid://iki0228sltc8" path="res://Scripts/Components/FrameVisualAdjustment/AnimationVisualController.gd" id="5_n3c64"]
 [ext_resource type="Texture2D" uid="uid://dcgrovxavbknq" path="res://assets/Menus/SelectionCharacter/Gemini_Generated_Image_n9ubk8n9ubk8n9ub.png" id="6_0ps5n"]
 [ext_resource type="Texture2D" uid="uid://bouf4wag4u5ip" path="res://assets/Menus/SelectionCharacter/Morrigan.jpg" id="9_j1wye"]
 [ext_resource type="FontFile" uid="uid://ct6yapfcrys5m" path="res://assets/fontes/PressStart2P-Regular.ttf" id="10_j1wye"]
@@ -35,6 +37,7 @@ grow_vertical = 2
 script = ExtResource("1_ffqft")
 chun_li_frames = ExtResource("2_0ps5n")
 elena_frames = ExtResource("3_j1wye")
+morrigan_frames = ExtResource("4_kwa0p")
 
 [node name="Background" type="ColorRect" parent="." unique_id=1239753899]
 layout_mode = 1
@@ -92,6 +95,10 @@ offset_top = 389.0
 offset_right = 424.0
 offset_bottom = 438.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_yf5fn")
+
+[node name="AnimationVisualController" type="Node" parent="MainMargin/MainRow/PreviewPanel/PreviewBox" unique_id=2002446150 node_paths=PackedStringArray("animated_sprite")]
+script = ExtResource("5_n3c64")
+animated_sprite = NodePath("../FighterPreview")
 
 [node name="FighterName" type="Label" parent="MainMargin/MainRow/PreviewPanel" unique_id=134779943]
 unique_name_in_owner = true
@@ -354,7 +361,7 @@ text = "?????"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="MorriganButton4" type="Button" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid" unique_id=1841347550]
+[node name="MorriganButton" type="Button" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid" unique_id=1841347550]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 220)
 custom_maximum_size = Vector2(180, 220)
@@ -363,7 +370,7 @@ theme_override_constants/icon_max_width = 100
 icon_alignment = 1
 vertical_icon_alignment = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/MorriganButton4" unique_id=577453563]
+[node name="MarginContainer" type="MarginContainer" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/MorriganButton" unique_id=577453563]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -381,11 +388,11 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/MorriganButton4/MarginContainer" unique_id=1841014587]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/MorriganButton/MarginContainer" unique_id=1841014587]
 layout_mode = 2
 theme_override_constants/separation = 24
 
-[node name="Portrait" type="TextureRect" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/MorriganButton4/MarginContainer/VBoxContainer" unique_id=516959950]
+[node name="Portrait" type="TextureRect" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/MorriganButton/MarginContainer/VBoxContainer" unique_id=516959950]
 custom_minimum_size = Vector2(110, 110)
 custom_maximum_size = Vector2(110, 110)
 layout_mode = 2
@@ -396,7 +403,7 @@ texture = ExtResource("9_j1wye")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/MorriganButton4/MarginContainer/VBoxContainer" unique_id=537257343]
+[node name="NameLabel" type="Label" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/MorriganButton/MarginContainer/VBoxContainer" unique_id=537257343]
 unique_name_in_owner = true
 layout_mode = 2
 text = "MORRIGAN"

@@ -679,6 +679,234 @@ var animation_visuals: Dictionary = {
 	# DANO / RESULTADO
 	# --------------------------------------------------------
 
+	&"Taunt": {
+		0: {
+			"offset": Vector2(20.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		1: {
+			"offset": Vector2(20.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		2: {
+			"offset": Vector2(20.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		3: {
+			"offset": Vector2(20.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		4: {
+			"offset": Vector2(20.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		5: {
+			"offset": Vector2(20.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		6: {
+			"offset": Vector2(20.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		7: {
+			"offset": Vector2(20.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		8: {
+			"offset": Vector2(20.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		9: {
+			"offset": Vector2(20.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		10: {
+			"offset": Vector2(20.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		11: {
+			"offset": Vector2(20.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		12: {
+			"offset": Vector2(20.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		13: {
+			"offset": Vector2(20.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		14: {
+			"offset": Vector2(15.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		15: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		16: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+		17: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		18: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		19: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		20: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		21: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		22: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		23: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		24: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		25: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		26: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+
+		27: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		28: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		29: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		30: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		31: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		32: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		33: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		34: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		35: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+
+		36: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		37: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		38: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		39: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		40: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		41: {
+			"offset": Vector2(0.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		42: {
+			"offset": Vector2(15.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		43: {
+			"offset": Vector2(20.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		},
+
+		44: {
+			"offset": Vector2(20.0, 0.0),
+			"scale": Vector2(1.956, 1.956)
+		}
+	},
+
 	&"Hurt": {
 		"scale": Vector2(1.956, 1.956),
 		"offset": Vector2(-158.0, 6.0)
@@ -690,7 +918,7 @@ var animation_visuals: Dictionary = {
 	},
 
 	&"Victory": {
-		"scale": Vector2(1.96, 1.96),
+		"scale": Vector2(1.956, 1.956),
 		"offset": Vector2(-82.0, -20.0)
 	},
 

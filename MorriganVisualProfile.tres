@@ -1,0 +1,370 @@
+[gd_resource type="Resource" script_class="AnimationVisualProfile" format=3 uid="uid://dytnv83eeppwf"]
+
+[ext_resource type="Script" uid="uid://bu7ghhff457v2" path="res://Scripts/Components/FrameVisualAdjustment/AnimationVisualAdjustment.gd" id="1_qfgdn"]
+[ext_resource type="Script" uid="uid://bycvcpito73xu" path="res://Scripts/Components/FrameVisualAdjustment/FrameVisualAdjustment.gd" id="2_77oq4"]
+[ext_resource type="Script" uid="uid://daxf6scsvh673" path="res://Scripts/Components/FrameVisualAdjustment/AnimationVisualProfile.gd" id="3_asrua"]
+
+[sub_resource type="Resource" id="Resource_4j8l4"]
+script = ExtResource("2_77oq4")
+override_offset = true
+offset = Vector2(20, 0)
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_2g45v"]
+script = ExtResource("2_77oq4")
+frame = 1
+override_offset = true
+offset = Vector2(20, 1.921)
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_bujfl"]
+script = ExtResource("2_77oq4")
+frame = 2
+override_offset = true
+offset = Vector2(20, 0)
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_3adtd"]
+script = ExtResource("2_77oq4")
+frame = 3
+override_offset = true
+offset = Vector2(20, 0)
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_aohca"]
+script = ExtResource("2_77oq4")
+frame = 4
+override_offset = true
+offset = Vector2(20, 0)
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_tngug"]
+script = ExtResource("2_77oq4")
+frame = 5
+override_offset = true
+offset = Vector2(20, 0)
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_lawef"]
+script = ExtResource("2_77oq4")
+frame = 6
+override_offset = true
+offset = Vector2(20, 0)
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_b3464"]
+script = ExtResource("2_77oq4")
+frame = 7
+override_offset = true
+offset = Vector2(20, 0)
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_rmk6h"]
+script = ExtResource("2_77oq4")
+frame = 8
+override_offset = true
+offset = Vector2(20, 0)
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_mfqtg"]
+script = ExtResource("2_77oq4")
+frame = 9
+override_offset = true
+offset = Vector2(20, 0)
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_s1bmn"]
+script = ExtResource("2_77oq4")
+frame = 10
+override_offset = true
+offset = Vector2(20, 0)
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_503xd"]
+script = ExtResource("2_77oq4")
+frame = 11
+override_offset = true
+offset = Vector2(20, 0)
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_4qxg5"]
+script = ExtResource("2_77oq4")
+frame = 12
+override_offset = true
+offset = Vector2(20, 0)
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_5hsf3"]
+script = ExtResource("2_77oq4")
+frame = 13
+override_offset = true
+offset = Vector2(20, 0)
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_aunxi"]
+script = ExtResource("2_77oq4")
+frame = 14
+override_offset = true
+offset = Vector2(15, 0)
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_vfcr3"]
+script = ExtResource("2_77oq4")
+frame = 15
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_jn37r"]
+script = ExtResource("2_77oq4")
+frame = 16
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_jl5tx"]
+script = ExtResource("2_77oq4")
+frame = 17
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_i4puk"]
+script = ExtResource("2_77oq4")
+frame = 18
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_wtooy"]
+script = ExtResource("2_77oq4")
+frame = 19
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_7kuaq"]
+script = ExtResource("2_77oq4")
+frame = 20
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_f6e7o"]
+script = ExtResource("2_77oq4")
+frame = 21
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ckwyt"]
+script = ExtResource("2_77oq4")
+frame = 22
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_qfnia"]
+script = ExtResource("2_77oq4")
+frame = 23
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_4vfun"]
+script = ExtResource("2_77oq4")
+frame = 24
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_l68pj"]
+script = ExtResource("2_77oq4")
+frame = 25
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_866eq"]
+script = ExtResource("2_77oq4")
+frame = 26
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_4nyaj"]
+script = ExtResource("2_77oq4")
+frame = 27
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_618t6"]
+script = ExtResource("2_77oq4")
+frame = 28
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_2irde"]
+script = ExtResource("2_77oq4")
+frame = 29
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_6vbcc"]
+script = ExtResource("2_77oq4")
+frame = 30
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_rsd6m"]
+script = ExtResource("2_77oq4")
+frame = 31
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_036if"]
+script = ExtResource("2_77oq4")
+frame = 32
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ht4en"]
+script = ExtResource("2_77oq4")
+frame = 33
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_dk0wa"]
+script = ExtResource("2_77oq4")
+frame = 34
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_q03w0"]
+script = ExtResource("2_77oq4")
+frame = 35
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_toab8"]
+script = ExtResource("2_77oq4")
+frame = 36
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_3bys0"]
+script = ExtResource("2_77oq4")
+frame = 37
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_e31hl"]
+script = ExtResource("2_77oq4")
+frame = 38
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_u7lwp"]
+script = ExtResource("2_77oq4")
+frame = 39
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_js74v"]
+script = ExtResource("2_77oq4")
+frame = 40
+override_offset = true
+offset = Vector2(20, 0)
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_584o2"]
+script = ExtResource("2_77oq4")
+frame = 41
+override_offset = true
+offset = Vector2(20, 0)
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ed1e8"]
+script = ExtResource("2_77oq4")
+frame = 42
+override_offset = true
+offset = Vector2(20, 0)
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_d4xld"]
+script = ExtResource("2_77oq4")
+frame = 43
+override_offset = true
+offset = Vector2(1.956, 0)
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_25pa6"]
+script = ExtResource("2_77oq4")
+frame = 44
+override_offset = true
+offset = Vector2(20, 0)
+override_scale = true
+scale = Vector2(1.956, 1.921)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_7r7cm"]
+script = ExtResource("1_qfgdn")
+animation_name = &"Taunt"
+frame_adjustments = Array[ExtResource("2_77oq4")]([SubResource("Resource_4j8l4"), SubResource("Resource_2g45v"), SubResource("Resource_bujfl"), SubResource("Resource_3adtd"), SubResource("Resource_aohca"), SubResource("Resource_tngug"), SubResource("Resource_lawef"), SubResource("Resource_b3464"), SubResource("Resource_rmk6h"), SubResource("Resource_mfqtg"), SubResource("Resource_s1bmn"), SubResource("Resource_503xd"), SubResource("Resource_4qxg5"), SubResource("Resource_5hsf3"), SubResource("Resource_aunxi"), SubResource("Resource_vfcr3"), SubResource("Resource_jn37r"), SubResource("Resource_jl5tx"), SubResource("Resource_i4puk"), SubResource("Resource_wtooy"), SubResource("Resource_7kuaq"), SubResource("Resource_f6e7o"), SubResource("Resource_ckwyt"), SubResource("Resource_qfnia"), SubResource("Resource_4vfun"), SubResource("Resource_l68pj"), SubResource("Resource_866eq"), SubResource("Resource_4nyaj"), SubResource("Resource_618t6"), SubResource("Resource_2irde"), SubResource("Resource_6vbcc"), SubResource("Resource_rsd6m"), SubResource("Resource_036if"), SubResource("Resource_ht4en"), SubResource("Resource_dk0wa"), SubResource("Resource_q03w0"), SubResource("Resource_toab8"), SubResource("Resource_3bys0"), SubResource("Resource_e31hl"), SubResource("Resource_u7lwp"), SubResource("Resource_js74v"), SubResource("Resource_584o2"), SubResource("Resource_ed1e8"), SubResource("Resource_d4xld"), SubResource("Resource_25pa6")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[resource]
+script = ExtResource("3_asrua")
+animation_adjustments = Array[ExtResource("1_qfgdn")]([SubResource("Resource_7r7cm")])
+metadata/_custom_type_script = "uid://daxf6scsvh673"

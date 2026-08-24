@@ -1,3 +1,4 @@
+Node
 CollisionShape2D
 Area2D
 State
@@ -7,7 +8,6 @@ VisibleOnScreenNotifier2D
 AnimatedSprite2D
 CharacterBody2D
 AudioStreamPlayer
-Node
 PanelContainer
 MarginContainer
 Timer

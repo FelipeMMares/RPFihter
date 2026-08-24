@@ -42,6 +42,7 @@
 [ext_resource type="Script" uid="uid://i478e5jfr2tp" path="res://Scripts/Audio/CharacterVoicePlayer.gd" id="68_j6gfk"]
 [ext_resource type="Script" uid="uid://docbt7ybhit04" path="res://Scripts/Player/StateMachine/States/hurt.gd" id="69_3mxc2"]
 [ext_resource type="Script" uid="uid://yv74ok4maffr" path="res://Scripts/Combat/Hurtbox.gd" id="69_dnvsn"]
+[ext_resource type="Script" uid="uid://iki0228sltc8" path="res://Scripts/Components/FrameVisualAdjustment/AnimationVisualController.gd" id="75_v50a7"]
 [ext_resource type="Script" uid="uid://bmcu27nb7ioun" path="res://Scripts/Components/Health.gd" id="76_0tpov"]
 [ext_resource type="Script" uid="uid://b08hbttop7cej" path="res://Scripts/Dummy/DummyAI.gd" id="179_twm28"]
 [ext_resource type="Script" uid="uid://f7sf84711255" path="res://Scripts/Dummy/States/DummyLightPunch.gd" id="201_vbhik"]
@@ -985,3 +986,6 @@ script = ExtResource("68_j6gfk")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VoicePlayer" unique_id=442742319]
 bus = &"Voices"
+
+[node name="AnimationVisualController" type="Node" parent="." unique_id=1410385303]
+script = ExtResource("75_v50a7")

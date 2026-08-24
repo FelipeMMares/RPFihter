@@ -19,6 +19,10 @@ var opponent_select_scene_path: String = (
 @export_range(0.5, 10.0, 0.1)
 var idle_before_taunt_time: float = 3.0
 
+@export_group("Ajustes visuais")
+
+@export var morrigan_visual_profile: AnimationVisualProfile
+
 @export_group("Visual dos botões")
 
 @export var button_hover_scale: float = 1.08
@@ -50,12 +54,18 @@ var idle_before_taunt_time: float = 3.0
 	$MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/ElenaButton
 )
 
+@onready var morrigan_button: Button = (
+	$MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/MorriganButton
+)
+
+@onready var preview_visual_controller: AnimationVisualController = (
+	$MainMargin/MainRow/PreviewPanel/PreviewBox/AnimationVisualController
+)
 
 @onready var locked_buttons: Array[Button] = [
 	$MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton,
 	$MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton2,
-	$MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton3,
-	$MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton4
+	$MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton3
 ]
 
 
@@ -121,6 +131,10 @@ func _connect_buttons() -> void:
 		_on_elena_pressed
 	)
 
+	morrigan_button.pressed.connect(
+		_on_morrigan_pressed
+	)
+
 	# Mouse em cima do personagem troca o preview.
 	chun_li_button.mouse_entered.connect(
 		_preview_chun_li
@@ -130,6 +144,10 @@ func _connect_buttons() -> void:
 		_preview_elena
 	)
 
+	morrigan_button.mouse_entered.connect(
+		_preview_morrigan
+	)
+
 	# Também funciona com teclado/controle.
 	chun_li_button.focus_entered.connect(
 		_preview_chun_li
@@ -137,6 +155,10 @@ func _connect_buttons() -> void:
 
 	elena_button.focus_entered.connect(
 		_preview_elena
+	)
+
+	morrigan_button.focus_entered.connect(
+		_preview_morrigan
 	)
 
 	for button in locked_buttons:
@@ -149,6 +171,10 @@ func _preview_chun_li() -> void:
 	if _character_confirmed:
 		return
 
+	preview_visual_controller.set_enabled(
+		false
+	)
+
 	_show_fighter_preview(
 		chun_li_frames,
 		"CHUN-LI"
@@ -159,11 +185,31 @@ func _preview_elena() -> void:
 	if _character_confirmed:
 		return
 
+	preview_visual_controller.set_enabled(
+		false
+	)
+
 	_show_fighter_preview(
 		elena_frames,
 		"ELENA"
 	)
 
+func _preview_morrigan() -> void:
+	if _character_confirmed:
+		return
+
+	_show_fighter_preview(
+		morrigan_frames,
+		"MORRIGAN"
+	)
+
+	preview_visual_controller.set_visual_profile(
+		morrigan_visual_profile
+	)
+
+	preview_visual_controller.set_enabled(
+		true
+	)
 
 func _show_fighter_preview(
 	frames: SpriteFrames,
@@ -273,6 +319,21 @@ func _on_elena_pressed() -> void:
 
 	await _confirm_selection()
 
+func _on_morrigan_pressed() -> void:
+	if _character_confirmed:
+		return
+
+	_preview_morrigan()
+
+	_select_character_button(
+		morrigan_button
+	)
+
+	FighterSelection.select_player(
+		FighterSelection.Fighter.MORRIGAN
+	)
+
+	await _confirm_selection()
 
 func _confirm_selection() -> void:
 	_character_confirmed = true
@@ -286,6 +347,7 @@ func _confirm_selection() -> void:
 	# durante a animação Victory.
 	chun_li_button.disabled = true
 	elena_button.disabled = true
+	morrigan_button.disabled = true
 
 	for button in locked_buttons:
 		button.disabled = true
@@ -359,7 +421,8 @@ func _start_fight() -> void:
 func _setup_character_buttons() -> void:
 	var buttons: Array[Button] = [
 		chun_li_button,
-		elena_button
+		elena_button,
+		morrigan_button
 	]
 
 	for locked_button in locked_buttons:

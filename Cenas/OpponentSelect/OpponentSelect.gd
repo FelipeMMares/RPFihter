@@ -14,6 +14,7 @@ var fight_scene_path: String = (
 
 @export var chun_li_frames: SpriteFrames
 @export var elena_frames: SpriteFrames
+@export var morrigan_frames: SpriteFrames
 
 @export_range(0.5, 10.0, 0.1)
 var idle_before_taunt_time: float = 3.0
@@ -56,12 +57,14 @@ var idle_before_taunt_time: float = 3.0
 	$MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/ElenaButton
 )
 
+@onready var morrigan_button: Button = (
+	$MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/MorriganButton
+)
 
 @onready var locked_buttons: Array[Button] = [
 	$MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton,
 	$MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton2,
-	$MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton3,
-	$MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton4
+	$MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton3
 ]
 
 
@@ -127,6 +130,10 @@ func _connect_buttons() -> void:
 		_on_elena_pressed
 	)
 
+	morrigan_button.pressed.connect(
+		_on_morrigan_pressed
+	)
+
 	# Mouse em cima do personagem troca o preview.
 	chun_li_button.mouse_entered.connect(
 		_preview_chun_li
@@ -136,6 +143,10 @@ func _connect_buttons() -> void:
 		_preview_elena
 	)
 
+	morrigan_button.mouse_entered.connect(
+		_preview_morrigan
+	)
+
 	# Também funciona com teclado/controle.
 	chun_li_button.focus_entered.connect(
 		_preview_chun_li
@@ -143,6 +154,10 @@ func _connect_buttons() -> void:
 
 	elena_button.focus_entered.connect(
 		_preview_elena
+	)
+
+	morrigan_button.focus_entered.connect(
+		_preview_morrigan
 	)
 
 	for button in locked_buttons:
@@ -183,6 +198,25 @@ func _preview_elena() -> void:
 		== FighterSelection.Fighter.ELENA
 	):
 		fighter_preview.modulate = mirror_cpu_color
+	else:
+		fighter_preview.modulate = Color.WHITE
+
+func _preview_morrigan() -> void:
+	if _character_confirmed:
+		return
+
+	_show_fighter_preview(
+		morrigan_frames,
+		"MORRIGAN"
+	)
+
+	if (
+		FighterSelection.player_fighter
+		== FighterSelection.Fighter.MORRIGAN
+	):
+		fighter_preview.modulate = (
+			mirror_cpu_color
+		)
 	else:
 		fighter_preview.modulate = Color.WHITE
 
@@ -294,6 +328,21 @@ func _on_elena_pressed() -> void:
 
 	await _confirm_selection()
 
+func _on_morrigan_pressed() -> void:
+	if _character_confirmed:
+		return
+
+	_preview_morrigan()
+
+	_select_character_button(
+		morrigan_button
+	)
+
+	FighterSelection.select_opponent(
+		FighterSelection.Fighter.MORRIGAN
+	)
+
+	await _confirm_selection()
 
 func _confirm_selection() -> void:
 	_character_confirmed = true
@@ -305,6 +354,7 @@ func _confirm_selection() -> void:
 
 	chun_li_button.disabled = true
 	elena_button.disabled = true
+	morrigan_button.disabled = true
 
 	for button in locked_buttons:
 		button.disabled = true
@@ -377,7 +427,8 @@ func _start_fight() -> void:
 func _setup_character_buttons() -> void:
 	var buttons: Array[Button] = [
 		chun_li_button,
-		elena_button
+		elena_button,
+		morrigan_button
 	]
 
 	for locked_button in locked_buttons:
