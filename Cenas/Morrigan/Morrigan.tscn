@@ -214,14 +214,14 @@ metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
 size = Vector2(77, 91)
 
-[node name="Morrigan" type="CharacterBody2D" unique_id=1892667997]
+[node name="Morrigan" type="CharacterBody2D" unique_id=1892667997 node_paths=PackedStringArray("body_collision")]
 script = ExtResource("1_0sgn8")
+body_collision = NodePath("CollisionShape2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2063367094]
 scale = Vector2(1.956, 1.956)
 sprite_frames = ExtResource("2_54ovl")
-animation = &"Idle"
-offset = Vector2(-82, -20)
+animation = &"Thrown"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1137279768]
 visible = false

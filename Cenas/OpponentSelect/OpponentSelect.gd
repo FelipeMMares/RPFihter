@@ -19,6 +19,10 @@ var fight_scene_path: String = (
 @export_range(0.5, 10.0, 0.1)
 var idle_before_taunt_time: float = 3.0
 
+@export_group("Ajustes visuais")
+
+@export var morrigan_visual_profile: AnimationVisualProfile
+
 @export var mirror_cpu_color: Color = Color(
 	0.65,
 	0.80,
@@ -59,6 +63,10 @@ var idle_before_taunt_time: float = 3.0
 
 @onready var morrigan_button: Button = (
 	$MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/MorriganButton
+)
+
+@onready var preview_visual_controller: AnimationVisualController = (
+	$MainMargin/MainRow/PreviewPanel/PreviewBox/AnimationVisualController
 )
 
 @onready var locked_buttons: Array[Button] = [
@@ -170,6 +178,10 @@ func _preview_chun_li() -> void:
 	if _character_confirmed:
 		return
 
+	preview_visual_controller.set_enabled(
+		false
+	)
+
 	_show_fighter_preview(
 		chun_li_frames,
 		"CHUN-LI"
@@ -187,6 +199,10 @@ func _preview_chun_li() -> void:
 func _preview_elena() -> void:
 	if _character_confirmed:
 		return
+
+	preview_visual_controller.set_enabled(
+		false
+	)
 
 	_show_fighter_preview(
 		elena_frames,
@@ -208,6 +224,14 @@ func _preview_morrigan() -> void:
 	_show_fighter_preview(
 		morrigan_frames,
 		"MORRIGAN"
+	)
+
+	preview_visual_controller.set_visual_profile(
+		morrigan_visual_profile
+	)
+
+	preview_visual_controller.set_enabled(
+		true
 	)
 
 	if (

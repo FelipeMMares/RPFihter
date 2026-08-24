@@ -198,6 +198,13 @@ func _preview_morrigan() -> void:
 	if _character_confirmed:
 		return
 
+	if morrigan_visual_profile == null:
+		printerr(
+			"CharacterSelect: MorriganVisualProfile "
+			+ "não configurado."
+		)
+		return
+
 	_show_fighter_preview(
 		morrigan_frames,
 		"MORRIGAN"

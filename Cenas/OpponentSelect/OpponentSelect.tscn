@@ -8,7 +8,9 @@
 [ext_resource type="SpriteFrames" uid="uid://diuwka3dh7h6k" path="res://Cenas/Morrigan/MorriganFrames.tres" id="4_hrt8f"]
 [ext_resource type="Texture2D" uid="uid://cstb08wm4agtb" path="res://assets/Menus/SelectionCharacter/Gemini_Generated_Image_k3i7zvk3i7zvk3i7.png" id="4_wef75"]
 [ext_resource type="Texture2D" uid="uid://bqwmt40vtqblh" path="res://assets/Menus/SelectionCharacter/Gemini_Generated_Image_hbgs6ehbgs6ehbgs.png" id="5_ft0tq"]
+[ext_resource type="Resource" uid="uid://dytnv83eeppwf" path="res://MorriganVisualProfile.tres" id="5_w8vcp"]
 [ext_resource type="Texture2D" uid="uid://dcgrovxavbknq" path="res://assets/Menus/SelectionCharacter/Gemini_Generated_Image_n9ubk8n9ubk8n9ub.png" id="6_0ps5n"]
+[ext_resource type="Script" uid="uid://iki0228sltc8" path="res://Scripts/Components/FrameVisualAdjustment/AnimationVisualController.gd" id="6_036nf"]
 [ext_resource type="Texture2D" uid="uid://bouf4wag4u5ip" path="res://assets/Menus/SelectionCharacter/Morrigan.jpg" id="9_l0wdq"]
 [ext_resource type="FontFile" uid="uid://ct6yapfcrys5m" path="res://assets/fontes/PressStart2P-Regular.ttf" id="10_j1wye"]
 
@@ -37,6 +39,8 @@ script = ExtResource("1_xnlyl")
 chun_li_frames = ExtResource("2_0ps5n")
 elena_frames = ExtResource("3_j1wye")
 morrigan_frames = ExtResource("4_hrt8f")
+morrigan_visual_profile = ExtResource("5_w8vcp")
+mirror_cpu_color = Color(0.60868, 0.003620395, 0.9365153, 1)
 
 [node name="Background" type="ColorRect" parent="." unique_id=1239753899]
 layout_mode = 1
@@ -94,6 +98,13 @@ offset_top = 389.0
 offset_right = 424.0
 offset_bottom = 438.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_yf5fn")
+
+[node name="AnimationVisualController" type="Node" parent="MainMargin/MainRow/PreviewPanel/PreviewBox" unique_id=1134662272 node_paths=PackedStringArray("animated_sprite")]
+script = ExtResource("6_036nf")
+enabled = true
+animated_sprite = NodePath("../FighterPreview")
+visual_profile = ExtResource("5_w8vcp")
+debug_visual = true
 
 [node name="FighterName" type="Label" parent="MainMargin/MainRow/PreviewPanel" unique_id=134779943]
 unique_name_in_owner = true

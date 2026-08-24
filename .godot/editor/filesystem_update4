@@ -12,3 +12,5 @@ res://Cenas/Player/Player.tscn
 res://Cenas/Dummy/dummy.tscn
 res://Scripts/Components/FrameVisualAdjustment/AnimationVisualProfile.gd
 res://MorriganVisualProfile.tres
+res://Cenas/Morrigan/MorriganFrames.tres
+res://Scripts/Combat/Hurtbox.gd

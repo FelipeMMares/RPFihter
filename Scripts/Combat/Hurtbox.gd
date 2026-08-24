@@ -44,14 +44,19 @@ func _ready() -> void:
 	monitoring = false
 	monitorable = true
 
-	var found_shape := false
+	var found_shape: bool = (
+		head_shape != null
+		and torso_shape != null
+		and feet_shape != null
+		and crouch_shape != null
+	)
 
 	_validate_hurtbox_shapes()
 	set_crouching(false)
 
 	if not found_shape:
 		printerr(
-			"HurtBox sem CollisionShape2D: ",
+			"HurtBox sem todas as CollisionShape2D: ",
 			get_path()
 		)
 
