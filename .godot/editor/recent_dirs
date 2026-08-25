@@ -1,22 +1,22 @@
-res://Cenas/Zangief/
-res://assets/Audio/Voice/Morrigan/Morrigan/LightPunch/
-res://assets/Morrigan/FallDamage/
-res://assets/Morrigan/Fall/
-res://assets/Morrigan/Stun/
-res://
-res://Cenas/Morrigan/
-res://assets/Menus/SelectionCharacter/
-res://Scripts/Combat/
-res://assets/Audio/SFX/Combat/Strikes/
-res://assets/Audio/Voice/Morrigan/Morrigan/SoulFist/
-res://assets/Audio/Voice/Morrigan/Morrigan/SoulEraser/
-res://assets/Audio/Voice/Morrigan/Morrigan/Entry/
-res://assets/Audio/Voice/Morrigan/Morrigan/Hurt/
-res://assets/Audio/Voice/Morrigan/Morrigan/LowKick/
-res://assets/Audio/Voice/Morrigan/Morrigan/Kick/
-res://assets/Audio/Voice/Morrigan/Morrigan/HighPuch/
-res://assets/Audio/Voice/Morrigan/Morrigan/Defeated/
-res://assets/Audio/Voice/Morrigan/Morrigan/Victory/
-res://assets/Morrigan/Defeated/
-res://assets/Morrigan/Thrown/
-res://assets/Morrigan/SoulFirstProjectle/
+res://assets/Zangief/Banishing Flat/
+res://assets/Zangief/DoubleLariat/
+res://assets/Zangief/Spinning Piledriver/
+res://assets/Zangief/Spinning Pildriver TryGrab/
+res://assets/Zangief/Taunt/
+res://assets/Zangief/Thrown/
+res://assets/Zangief/TryGrab/
+res://assets/Zangief/Throw/
+res://assets/Zangief/Stun/
+res://assets/Zangief/AirLowKick/
+res://assets/Zangief/Airkick/
+res://assets/Zangief/AirHighPunch/
+res://assets/Zangief/AirLightPunch/
+res://assets/Zangief/CrouchLowKick/
+res://assets/Zangief/CrouchKick/
+res://assets/Zangief/CrouchLightPunch/
+res://assets/Zangief/LowKick/
+res://assets/Zangief/Kick/
+res://assets/Zangief/HighPunch/
+res://assets/Zangief/LightPunch/
+res://assets/Zangief/GetUp/
+res://assets/Zangief/HurtFall/

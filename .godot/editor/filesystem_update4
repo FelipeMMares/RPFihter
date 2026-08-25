@@ -1,13 +1,3 @@
-res://Cenas/Morrigan/Morrigan.tscn
-res://Cenas/HUD/guardProgress.tres
+res://Cenas/Zangief/Zangief.tscn
 res://MorriganVisualProfile.tres
-res://Scripts/Morrigan/States/AirSoulFist.gd
-res://Scripts/Morrigan/States/SoulFist.gd
-res://Cenas/Dummy/dummy.tscn
-res://Scripts/Components/FrameVisualAdjustment/AnimationVisualController.gd
-res://Cenas/Player/Player.tscn
-res://Cenas/Morrigan/SoulFistProjectile.tscn
-res://Cenas/Morrigan/SoulFistProjectile.gd
-res://Scripts/Fight/FightManager.gd
-res://Scripts/Player/Player.gd
-res://Cenas/Dummy/Dummy.gd
+res://Cenas/HUD/guardProgress.tres
