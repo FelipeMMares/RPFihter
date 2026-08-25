@@ -4,7 +4,7 @@ class_name AnimationVisualController
 
 @export_group("Configuração")
 
-@export var enabled: bool = false
+@export var enabled: bool = true
 
 @export var force_every_frame: bool = true
 
@@ -14,6 +14,7 @@ class_name AnimationVisualController
 
 @export var debug_visual: bool = false
 
+@export var mirror_offset_when_flipped: bool = true
 
 var _default_offset: Vector2 = Vector2.ZERO
 var _default_scale: Vector2 = Vector2.ONE
@@ -27,8 +28,6 @@ var _last_debug_frame: int = -1
 
 
 func _ready() -> void:
-	# Faz este componente processar depois
-	# da maioria dos outros nós.
 	process_priority = 1000
 
 	if animated_sprite == null:
@@ -38,13 +37,8 @@ func _ready() -> void:
 		)
 		return
 
-	_default_offset = (
-		animated_sprite.offset
-	)
-
-	_default_scale = (
-		animated_sprite.scale
-	)
+	_default_offset = animated_sprite.offset
+	_default_scale = animated_sprite.scale
 
 	_build_adjustment_map()
 
@@ -64,7 +58,8 @@ func _ready() -> void:
 			_on_frame_changed
 		)
 
-	_apply_current_visual()
+	# ALTERADO
+	call_deferred("_apply_current_visual")
 
 
 func _process(
@@ -182,6 +177,18 @@ func _apply_current_visual() -> void:
 						frame_adjustment.scale
 					)
 
+
+	# ============================================
+	# NOVO: ESPELHA O OFFSET JUNTO COM O SPRITE
+	# ============================================
+
+	if (
+		mirror_offset_when_flipped
+		and animated_sprite.flip_h
+	):
+		final_offset.x = -final_offset.x
+
+
 	animated_sprite.offset = (
 		final_offset
 	)
@@ -261,6 +268,8 @@ func _debug_current_visual(
 		animation_name,
 		" | frame: ",
 		animated_sprite.frame,
+		" | flip_h: ",
+		animated_sprite.flip_h,
 		" | offset: ",
 		final_offset,
 		" | scale: ",

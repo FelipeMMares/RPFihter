@@ -1,3 +1,5 @@
+res://Cenas/Zangief/
+res://assets/Audio/Voice/Morrigan/Morrigan/LightPunch/
 res://assets/Morrigan/FallDamage/
 res://assets/Morrigan/Fall/
 res://assets/Morrigan/Stun/
@@ -13,10 +15,8 @@ res://assets/Audio/Voice/Morrigan/Morrigan/Hurt/
 res://assets/Audio/Voice/Morrigan/Morrigan/LowKick/
 res://assets/Audio/Voice/Morrigan/Morrigan/Kick/
 res://assets/Audio/Voice/Morrigan/Morrigan/HighPuch/
-res://assets/Audio/Voice/Morrigan/Morrigan/LightPunch/
 res://assets/Audio/Voice/Morrigan/Morrigan/Defeated/
 res://assets/Audio/Voice/Morrigan/Morrigan/Victory/
 res://assets/Morrigan/Defeated/
 res://assets/Morrigan/Thrown/
 res://assets/Morrigan/SoulFirstProjectle/
-res://Scripts/Morrigan/States/

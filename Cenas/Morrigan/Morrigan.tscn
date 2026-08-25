@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://crx2vt1l5qaua" path="res://Scripts/Morrigan/Morrigan.gd" id="1_0sgn8"]
 [ext_resource type="SpriteFrames" uid="uid://diuwka3dh7h6k" path="res://Cenas/Morrigan/MorriganFrames.tres" id="2_54ovl"]
+[ext_resource type="Script" uid="uid://bf1hd7jna787l" path="res://Scripts/Player/StateMachine/States/Ground/LightPuch.gd" id="24_drr2n"]
 [ext_resource type="Script" uid="uid://iki0228sltc8" path="res://Scripts/Components/FrameVisualAdjustment/AnimationVisualController.gd" id="73_6dxap"]
 [ext_resource type="Resource" uid="uid://dytnv83eeppwf" path="res://MorriganVisualProfile.tres" id="74_drr2n"]
 [ext_resource type="Script" uid="uid://yv74ok4maffr" path="res://Scripts/Combat/Hurtbox.gd" id="722_jrdn6"]
@@ -22,7 +23,6 @@
 [ext_resource type="Script" uid="uid://rup4bo6gvffh" path="res://Scripts/Dummy/States/CrouchEnd.gd" id="740_mx65j"]
 [ext_resource type="Script" uid="uid://c0vg4x7xgk1qp" path="res://Scripts/Player/StateMachine/States/Air/jump.gd" id="741_lfs34"]
 [ext_resource type="Script" uid="uid://c3ookyq3ypabc" path="res://Scripts/Player/StateMachine/States/Air/start_jump.gd" id="742_atbdc"]
-[ext_resource type="Script" uid="uid://f7sf84711255" path="res://Scripts/Dummy/States/DummyLightPunch.gd" id="743_36cfm"]
 [ext_resource type="Script" uid="uid://docbt7ybhit04" path="res://Scripts/Player/StateMachine/States/hurt.gd" id="745_qltex"]
 [ext_resource type="Script" uid="uid://dsei8tgiddvv2" path="res://Scripts/Components/RoundResultState.gd" id="750_3hgdh"]
 [ext_resource type="Script" uid="uid://bgxa7hy42shv" path="res://Scripts/Combat/CrouchAttackState.gd" id="757_7o2co"]
@@ -76,7 +76,7 @@
 [ext_resource type="AudioStream" uid="uid://721hxxh63nh4" path="res://assets/Audio/SFX/Combat/Strikes/freesound_community-laser-104024.mp3" id="844_a0iqy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qkyit"]
-size = Vector2(62, 115)
+size = Vector2(143, 150)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_flcoc"]
 radius = 30.870699
@@ -214,21 +214,26 @@ metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
 size = Vector2(77, 91)
 
-[node name="Morrigan" type="CharacterBody2D" unique_id=1892667997 node_paths=PackedStringArray("body_collision")]
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_drr2n"]
+points = PackedVector2Array(-102, 75, 93, 77, 0, 0)
+
+[node name="Morrigan" type="CharacterBody2D" unique_id=1892667997 node_paths=PackedStringArray("body_collision", "anti_stack_collision")]
 script = ExtResource("1_0sgn8")
 body_collision = NodePath("CollisionShape2D")
+anti_stack_collision = NodePath("AntiStackCollision")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2063367094]
 scale = Vector2(1.956, 1.956)
 sprite_frames = ExtResource("2_54ovl")
-animation = &"AirSoulFist"
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1137279768]
 visible = false
-position = Vector2(9, 19.5)
+position = Vector2(0.5, 2)
 shape = SubResource("RectangleShape2D_qkyit")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=241036802 node_paths=PackedStringArray("health", "state_machine", "head_shape", "torso_shape", "feet_shape", "crouch_shape")]
+visible = false
 collision_layer = 2
 collision_mask = 0
 monitoring = false
@@ -350,10 +355,9 @@ script = ExtResource("742_atbdc")
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="LightPunch" type="Node" parent="StateMachine" unique_id=134337298 node_paths=PackedStringArray("hitbox")]
-script = ExtResource("743_36cfm")
+script = ExtResource("24_drr2n")
 hitbox = NodePath("../../Hitboxers/LightPunch")
 active_start_frame = 2
-active_end_frame = 4
 attack_voices = Array[AudioStream]([ExtResource("799_4lyma")])
 metadata/_custom_type_script = "uid://bprajussohidd"
 
@@ -560,6 +564,7 @@ spawn_frame = 8
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="Hitboxers" type="Node2D" parent="." unique_id=1330527987]
+visible = false
 position = Vector2(0, 4)
 
 [node name="LightPunch" type="Area2D" parent="Hitboxers" unique_id=1445031812]
@@ -826,7 +831,12 @@ position = Vector2(128, 0)
 
 [node name="AnimationVisualController" type="Node" parent="." unique_id=1290380281 node_paths=PackedStringArray("animated_sprite")]
 script = ExtResource("73_6dxap")
-enabled = true
 animated_sprite = NodePath("../AnimatedSprite2D")
 visual_profile = ExtResource("74_drr2n")
 debug_visual = true
+
+[node name="AntiStackCollision" type="CollisionShape2D" parent="." unique_id=152907459]
+visible = false
+z_index = 1
+position = Vector2(0, -149)
+shape = SubResource("ConvexPolygonShape2D_drr2n")

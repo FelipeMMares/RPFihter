@@ -981,72 +981,13 @@ override_scale = true
 scale = Vector2(1.956, 1.921)
 metadata/_custom_type_script = "uid://bu7ghhff457v2"
 
-[sub_resource type="Resource" id="Resource_kvgvj"]
-script = ExtResource("2_77oq4")
-override_offset = true
-offset = Vector2(-158, -5)
-override_scale = true
-scale = Vector2(1.956, 1.921)
-metadata/_custom_type_script = "uid://bycvcpito73xu"
-
-[sub_resource type="Resource" id="Resource_0dqtx"]
-script = ExtResource("2_77oq4")
-frame = 1
-override_offset = true
-offset = Vector2(-158, -5)
-override_scale = true
-scale = Vector2(1.956, 1.921)
-metadata/_custom_type_script = "uid://bycvcpito73xu"
-
-[sub_resource type="Resource" id="Resource_vcwkc"]
-script = ExtResource("2_77oq4")
-frame = 2
-override_offset = true
-offset = Vector2(-158, -5)
-override_scale = true
-scale = Vector2(1.956, 1.921)
-metadata/_custom_type_script = "uid://bycvcpito73xu"
-
-[sub_resource type="Resource" id="Resource_j4j5e"]
-script = ExtResource("2_77oq4")
-frame = 3
-override_offset = true
-offset = Vector2(-158, -5)
-override_scale = true
-scale = Vector2(1.956, 1.921)
-metadata/_custom_type_script = "uid://bycvcpito73xu"
-
-[sub_resource type="Resource" id="Resource_ygea7"]
-script = ExtResource("2_77oq4")
-frame = 4
-override_offset = true
-offset = Vector2(-158, -5)
-override_scale = true
-scale = Vector2(1.956, 1.921)
-metadata/_custom_type_script = "uid://bycvcpito73xu"
-
-[sub_resource type="Resource" id="Resource_nsfcb"]
-script = ExtResource("2_77oq4")
-frame = 5
-override_offset = true
-offset = Vector2(-158, -5)
-override_scale = true
-scale = Vector2(1.956, 1.921)
-metadata/_custom_type_script = "uid://bycvcpito73xu"
-
-[sub_resource type="Resource" id="Resource_e6ewb"]
-script = ExtResource("2_77oq4")
-frame = 6
-override_offset = true
-offset = Vector2(-158, -5)
-override_scale = true
-scale = Vector2(1.956, 1.921)
-metadata/_custom_type_script = "uid://bycvcpito73xu"
-
 [sub_resource type="Resource" id="Resource_37rts"]
 script = ExtResource("1_qfgdn")
 animation_name = &"Hurt"
-frame_adjustments = Array[ExtResource("2_77oq4")]([SubResource("Resource_kvgvj"), SubResource("Resource_0dqtx"), SubResource("Resource_vcwkc"), SubResource("Resource_j4j5e"), SubResource("Resource_ygea7"), SubResource("Resource_nsfcb"), SubResource("Resource_e6ewb")])
+override_offset = true
+offset = Vector2(-158, -5)
+override_scale = true
+scale = Vector2(1.956, 1.921)
 metadata/_custom_type_script = "uid://bu7ghhff457v2"
 
 [sub_resource type="Resource" id="Resource_sae5v"]
@@ -1483,7 +1424,7 @@ metadata/_custom_type_script = "uid://bu7ghhff457v2"
 
 [sub_resource type="Resource" id="Resource_6gpbn"]
 script = ExtResource("1_qfgdn")
-animation_name = &"Startjump"
+animation_name = &"StartJump"
 override_offset = true
 offset = Vector2(-10, -100)
 override_scale = true

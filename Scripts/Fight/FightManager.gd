@@ -1020,6 +1020,33 @@ func _prepare_round_intro_states() -> void:
 	var cpu_intro_state: StringName = &"Idle"
 
 	if current_round_number == 1:
+		# ==========================================
+		# ENTRY PADRÃO DE TODOS OS PERSONAGENS
+		# ==========================================
+
+		if (
+			player_1_state_machine != null
+			and player_1_state_machine.has_state(
+				&"Entry"
+			)
+		):
+			player_intro_state = &"Entry"
+
+		if (
+			player_2_state_machine != null
+			and player_2_state_machine.has_state(
+				&"Entry"
+			)
+		):
+			cpu_intro_state = &"Entry"
+
+
+		# ==========================================
+		# CHUN-LI
+		# Possui preparação especial de posição
+		# antes da animação Entry.
+		# ==========================================
+
 		# PLAYER É CHUN-LI
 		if (
 			FighterSelection.player_fighter
@@ -1034,7 +1061,7 @@ func _prepare_round_intro_states() -> void:
 				)
 			)
 
-		# DUMMY É CHUN-LI
+		# CPU É CHUN-LI
 		if (
 			FighterSelection.opponent_fighter
 			== FighterSelection.Fighter.CHUN_LI
@@ -1047,6 +1074,11 @@ func _prepare_round_intro_states() -> void:
 					true
 				)
 			)
+
+
+	# ==========================================
+	# APLICA OS ESTADOS
+	# ==========================================
 
 	_set_character_intro_state(
 		player_1_state_machine,

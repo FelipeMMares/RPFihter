@@ -44,6 +44,7 @@
 [ext_resource type="Script" uid="uid://yv74ok4maffr" path="res://Scripts/Combat/Hurtbox.gd" id="69_dnvsn"]
 [ext_resource type="Script" uid="uid://iki0228sltc8" path="res://Scripts/Components/FrameVisualAdjustment/AnimationVisualController.gd" id="75_v50a7"]
 [ext_resource type="Script" uid="uid://bmcu27nb7ioun" path="res://Scripts/Components/Health.gd" id="76_0tpov"]
+[ext_resource type="Resource" uid="uid://dytnv83eeppwf" path="res://MorriganVisualProfile.tres" id="76_7i3rb"]
 [ext_resource type="Script" uid="uid://b08hbttop7cej" path="res://Scripts/Dummy/DummyAI.gd" id="179_twm28"]
 [ext_resource type="Script" uid="uid://f7sf84711255" path="res://Scripts/Dummy/States/DummyLightPunch.gd" id="201_vbhik"]
 [ext_resource type="Script" uid="uid://dprlu31ukgm8l" path="res://Scripts/Components/FacingController.gd" id="209_4os6k"]
@@ -302,18 +303,20 @@ metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 script = ExtResource("558_8rjmn")
 metadata/_custom_type_script = "uid://byslak2i1ykxe"
 
-[node name="Dummy" type="CharacterBody2D" unique_id=597853256 node_paths=PackedStringArray("body_collision")]
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_0tpov"]
+points = PackedVector2Array(-93, 94, 99, 94, 0, 0)
+
+[node name="Dummy" type="CharacterBody2D" unique_id=597853256 node_paths=PackedStringArray("body_collision", "anti_stack_collision")]
 floor_snap_length = 5.0
 script = ExtResource("1_7u85y")
 body_collision = NodePath("CollisionShape2D")
+anti_stack_collision = NodePath("AntiStackCollision")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1082718433]
 position = Vector2(2.9999924, -8)
 scale = Vector2(1.3985853, 1.7576089)
 sprite_frames = ExtResource("2_ii0w8")
-animation = &"ScratchWheel"
-frame = 26
-frame_progress = 1.0
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1128512923]
 visible = false
@@ -987,5 +990,14 @@ script = ExtResource("68_j6gfk")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VoicePlayer" unique_id=442742319]
 bus = &"Voices"
 
-[node name="AnimationVisualController" type="Node" parent="." unique_id=1410385303]
+[node name="AnimationVisualController" type="Node" parent="." unique_id=1410385303 node_paths=PackedStringArray("animated_sprite")]
 script = ExtResource("75_v50a7")
+animated_sprite = NodePath("../AnimatedSprite2D")
+visual_profile = ExtResource("76_7i3rb")
+debug_visual = true
+
+[node name="AntiStackCollision" type="CollisionShape2D" parent="." unique_id=2026335110]
+visible = false
+z_index = 1
+position = Vector2(0, -149)
+shape = SubResource("ConvexPolygonShape2D_0tpov")

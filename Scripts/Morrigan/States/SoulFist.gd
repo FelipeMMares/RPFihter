@@ -90,7 +90,7 @@ func _spawn_projectile() -> bool:
 		return false
 
 	var spawn_marker := (
-		character.get_node_or_null(
+		get_node_or_null(
 			spawn_marker_path
 		) as Marker2D
 	)
@@ -133,7 +133,8 @@ func _spawn_projectile() -> bool:
 			Vector2(
 				facing,
 				0.0
-			)
+			),
+			character
 		)
 
 	return true

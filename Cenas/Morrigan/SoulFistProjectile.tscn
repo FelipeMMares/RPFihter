@@ -69,3 +69,11 @@ shape = SubResource("CircleShape2D_tw4yx")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=843937421]
 rect = Rect2(-90, -55, 211, 173)
+
+[node name="CollisionDetector" type="Area2D" parent="." unique_id=623441523]
+collision_layer = 0
+monitorable = false
+
+[node name="HitColision" type="CollisionShape2D" parent="CollisionDetector" unique_id=1198293646]
+position = Vector2(0, 32)
+shape = SubResource("CircleShape2D_tw4yx")

@@ -39,6 +39,7 @@
 [ext_resource type="Script" uid="uid://c3ookyq3ypabc" path="res://Scripts/Player/StateMachine/States/Air/start_jump.gd" id="69_vao2x"]
 [ext_resource type="Script" uid="uid://julkhtuc7ncf" path="res://Scripts/Player/StateMachine/States/Ground/IdleCrouched.gd" id="70_wj34k"]
 [ext_resource type="Script" uid="uid://iki0228sltc8" path="res://Scripts/Components/FrameVisualAdjustment/AnimationVisualController.gd" id="76_m7th6"]
+[ext_resource type="Resource" uid="uid://dytnv83eeppwf" path="res://MorriganVisualProfile.tres" id="77_u26fn"]
 [ext_resource type="Script" uid="uid://dtsgngx4yj4eu" path="res://Scripts/Player/StateMachine/States/Ground/light_punch.gd" id="111_jj3b6"]
 [ext_resource type="Script" uid="uid://do3du61yy2b2o" path="res://Scripts/Player/Hitbox/Hitboxers.gd" id="112_lmw0p"]
 [ext_resource type="Script" uid="uid://bmcu27nb7ioun" path="res://Scripts/Components/Health.gd" id="114_jj3b6"]
@@ -76,6 +77,9 @@
 [ext_resource type="Script" uid="uid://0avj1tmmibwt" path="res://Scripts/Player/StateMachine/States/Ground/Entry.gd" id="453_6vnjy"]
 [ext_resource type="Script" uid="uid://3x8qds2djahs" path="res://Scripts/Combat/MagicPoints.gd" id="462_x5aoj"]
 [ext_resource type="Script" uid="uid://b08hbttop7cej" path="res://Scripts/Dummy/DummyAI.gd" id="463_by7ee"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_fcnqv"]
+points = PackedVector2Array(-102, 75, 93, 77, 0, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r8ryd"]
 size = Vector2(127, 161)
@@ -241,8 +245,15 @@ floor_snap_length = 5.0
 script = ExtResource("1_htvwm")
 body_collision = NodePath("Colisao")
 
+[node name="AntiStackCollision" type="CollisionShape2D" parent="." unique_id=1661183145]
+visible = false
+z_index = 1
+position = Vector2(0, -149)
+shape = SubResource("ConvexPolygonShape2D_fcnqv")
+
 [node name="Colisao" type="CollisionShape2D" parent="." unique_id=1334167780]
 visible = false
+z_index = 1
 position = Vector2(-8.5, 7.5)
 shape = SubResource("RectangleShape2D_r8ryd")
 
@@ -250,7 +261,7 @@ shape = SubResource("RectangleShape2D_r8ryd")
 position = Vector2(16, -20)
 scale = Vector2(1.3767501, 1.5799999)
 sprite_frames = ExtResource("2_ybk73")
-animation = &"AirKick"
+animation = &"Idle"
 
 [node name="KikokenSpawn" type="Marker2D" parent="." unique_id=1453849635]
 position = Vector2(94, -29)
@@ -841,5 +852,9 @@ script = ExtResource("56_ok0yd")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VoicePlayer" unique_id=1064558309]
 bus = &"Voices"
 
-[node name="AnimationVisualController" type="Node" parent="." unique_id=164171773]
+[node name="AnimationVisualController" type="Node" parent="." unique_id=164171773 node_paths=PackedStringArray("animated_sprite")]
 script = ExtResource("76_m7th6")
+enabled = false
+animated_sprite = NodePath("../AnimatedSprite2D")
+visual_profile = ExtResource("77_u26fn")
+debug_visual = true

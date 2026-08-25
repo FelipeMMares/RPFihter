@@ -1,6 +1,6 @@
-Node
 CollisionShape2D
 Area2D
+Node
 State
 CollisionPolygon2D
 Marker2D

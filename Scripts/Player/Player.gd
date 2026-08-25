@@ -19,28 +19,35 @@ var throw_role: int = ThrowRole.NONE
 # Esta era a variável que estava faltando.
 var _throw_victim_locked_position: Vector2 = Vector2.ZERO
 
-@export_group("Separação entre lutadores")
+@export_group("Escorregamento entre lutadores")
 
-# Distância aplicada imediatamente quando
-# um personagem está sobre o outro.
-@export_range(1.0, 20.0, 1.0)
-var stack_separation_distance: float = 5.0
+# Velocidade lateral usada para tirar rapidamente
+# um lutador de cima do outro.
+@export var stack_knockback_speed: float = 720.0
 
-# Velocidade lateral aplicada junto com a separação.
-@export var stack_knockback_speed: float = 260.0
+# Quanto tempo o "escorregamento" fica forçado.
+@export_range(0.05, 0.40, 0.01)
+var stack_slide_duration: float = 0.18
 
-# Define o quanto a colisão precisa ser vertical.
-# Valores próximos de 1 exigem uma colisão mais
-# claramente vinda de cima ou de baixo.
+# Pequena força para baixo.
+# Assim que sair da cabeça do oponente,
+# começa a cair imediatamente.
+@export var stack_slide_downward_speed: float = 100.0
+
+# Define quando consideramos que a colisão
+# ocorreu por cima/baixo.
 @export_range(0.1, 1.0, 0.05)
-var stack_vertical_normal_threshold: float = 0.65
+var stack_vertical_normal_threshold: float = 0.55
 
-# Evita aplicar a separação muitas vezes seguidas.
-@export_range(0.0, 0.5, 0.01)
-var stack_push_cooldown: float = 0.06
+# Evita disparar novamente toda frame.
+@export_range(0.0, 0.20, 0.01)
+var stack_push_cooldown: float = 0.03
 
 
 var _stack_push_cooldown_left: float = 0.0
+
+var _stack_slide_time_left: float = 0.0
+var _stack_slide_direction: float = 0.0
 
 @onready var health: Health = $Health
 @onready var state_machine: StateMachine = $StateMachine
@@ -113,6 +120,8 @@ var _pending_parry_recoil_velocity: float = 0.0
 
 @export var body_collision: CollisionShape2D
 
+@export var anti_stack_collision: CollisionShape2D
+
 var pending_grab_target: CharacterBody2D = null
 var grab_attempt_active: bool = false
 var grab_attempt_started_msec: int = -1
@@ -140,10 +149,6 @@ var pending_throw_direction: float = 0.0
 
 
 func _physics_process(delta: float) -> void:
-	_stack_push_cooldown_left = maxf(
-		_stack_push_cooldown_left - delta,
-		0.0
-	)
 
 	if throw_attacker_locked:
 		velocity = Vector2.ZERO
@@ -166,7 +171,20 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
+
+	# Se estiver escorregando de cima do outro
+	# lutador, essa velocidade tem prioridade
+	# temporariamente sobre Walk/Idle/AI.
+	_update_stack_slide(delta)
+
+
 	move_and_slide()
+
+
+	# Se estiver escorregando contra uma parede,
+	# tenta escapar para o outro lado.
+	_redirect_stack_slide_from_wall()
+
 
 	_resolve_fighter_stacking()
 
@@ -341,14 +359,20 @@ func set_throw_invulnerable(active: bool) -> void:
 		hurt_box.set_invulnerable(active)
 
 
-func _set_body_collision_enabled(enabled: bool) -> void:
-	if body_collision == null:
-		return
+func _set_body_collision_enabled(
+	enabled: bool
+) -> void:
+	if body_collision != null:
+		body_collision.set_deferred(
+			"disabled",
+			not enabled
+		)
 
-	body_collision.set_deferred(
-		"disabled",
-		not enabled
-	)
+	if anti_stack_collision != null:
+		anti_stack_collision.set_deferred(
+			"disabled",
+			not enabled
+		)
 
 func set_throw_visual_rotation(
 	rotation_in_degrees: float
@@ -735,28 +759,33 @@ func _resolve_fighter_stacking() -> void:
 	if _stack_push_cooldown_left > 0.0:
 		return
 
-	# Durante o Throw, os personagens podem ficar
-	# propositalmente sobrepostos.
+	if _stack_slide_time_left > 0.0:
+		return
+
+	# Durante Throw a sobreposição é intencional.
 	if throw_locked or throw_attacker_locked:
 		return
 
-	# Não altera a posição durante Victory,
-	# Defeated ou FallDefeated.
+	# Não mexe durante os estados finais do round.
 	if (
 		state_machine != null
 		and state_machine.is_round_result_locked()
 	):
 		return
 
+
 	for collision_index in range(
 		get_slide_collision_count()
 	):
 		var collision: KinematicCollision2D = (
-			get_slide_collision(collision_index)
+			get_slide_collision(
+				collision_index
+			)
 		)
 
 		if collision == null:
 			continue
+
 
 		var other_character := (
 			collision.get_collider()
@@ -774,21 +803,21 @@ func _resolve_fighter_stacking() -> void:
 		):
 			continue
 
+
 		var collision_normal: Vector2 = (
 			collision.get_normal()
 		)
 
-		# Ignora colisões predominantemente laterais.
-		# Queremos apenas o caso em que um personagem
-		# está sobre o outro.
+
+		# Ignora contato predominantemente lateral.
 		if (
 			absf(collision_normal.y)
 			< stack_vertical_normal_threshold
 		):
 			continue
 
-		# No Godot, um Y menor significa que o nó
-		# está visualmente mais alto.
+
+		# Y menor = personagem mais alto na tela.
 		var self_is_above: bool = (
 			global_position.y
 			< other_character.global_position.y
@@ -797,13 +826,25 @@ func _resolve_fighter_stacking() -> void:
 		if not self_is_above:
 			continue
 
+
+		# Escolhe para qual lado escorrer.
 		var push_direction: float = signf(
 			global_position.x
 			- other_character.global_position.x
 		)
 
-		# Caso estejam exatamente no mesmo X,
-		# escolhe uma direção determinística.
+
+		# Se estiver exatamente no centro,
+		# continua para o lado em que já estava
+		# se movimentando.
+		if is_zero_approx(push_direction):
+			push_direction = signf(
+				velocity.x
+			)
+
+
+		# Se ainda não existe direção,
+		# escolhe uma deterministicamente.
 		if is_zero_approx(push_direction):
 			push_direction = (
 				-1.0
@@ -812,35 +853,48 @@ func _resolve_fighter_stacking() -> void:
 				else 1.0
 			)
 
-		_apply_stack_side_push(
+
+		_begin_stack_slide(
 			push_direction
 		)
 
-		_stack_push_cooldown_left = (
-			stack_push_cooldown
-		)
-
-		# Uma colisão válida já é suficiente.
 		break
 
-func _apply_stack_side_push(
-	push_direction: float
+func _begin_stack_slide(
+	direction: float
 ) -> void:
-	var normalized_direction: float = signf(
-		push_direction
+	var normalized_direction := signf(
+		direction
 	)
 
-	if is_zero_approx(normalized_direction):
+	if is_zero_approx(
+		normalized_direction
+	):
 		normalized_direction = 1.0
 
-	var separation_motion := Vector2(
+
+	_stack_slide_direction = (
 		normalized_direction
-		* stack_separation_distance,
-		0.0
 	)
 
-	move_and_collide(
-		separation_motion
+	_stack_slide_time_left = (
+		stack_slide_duration
+	)
+
+	_stack_push_cooldown_left = (
+		stack_push_cooldown
+	)
+
+
+	# Começa a escapar já nesta frame.
+	velocity.x = (
+		_stack_slide_direction
+		* stack_knockback_speed
+	)
+
+	velocity.y = maxf(
+		velocity.y,
+		stack_slide_downward_speed
 	)
 
 func reset_for_new_round() -> void:
@@ -1085,3 +1139,83 @@ func play_random_voice(
 		voices,
 		interrupt_current
 	)
+
+func _update_stack_slide(
+	delta: float
+) -> void:
+	if _stack_slide_time_left <= 0.0:
+		return
+
+	_stack_slide_time_left = maxf(
+		_stack_slide_time_left - delta,
+		0.0
+	)
+
+	# Força lateral forte.
+	velocity.x = (
+		_stack_slide_direction
+		* stack_knockback_speed
+	)
+
+	# Mantém uma leve intenção para baixo.
+	#
+	# Enquanto ainda estiver sobre o adversário,
+	# a colisão segura o personagem.
+	# Assim que sair da cabeça, ele cai.
+	velocity.y = maxf(
+		velocity.y,
+		stack_slide_downward_speed
+	)
+
+	if _stack_slide_time_left <= 0.0:
+		_stack_slide_direction = 0.0
+		
+func _redirect_stack_slide_from_wall() -> void:
+	if _stack_slide_time_left <= 0.0:
+		return
+
+
+	for collision_index in range(
+		get_slide_collision_count()
+	):
+		var collision := get_slide_collision(
+			collision_index
+		)
+
+		if collision == null:
+			continue
+
+
+		var collider := (
+			collision.get_collider()
+		)
+
+
+		# Colisão com outro lutador não é parede.
+		if (
+			collider is CharacterBody2D
+			and collider.is_in_group(&"fighters")
+		):
+			continue
+
+
+		var normal := collision.get_normal()
+
+
+		# Só interessa obstáculo lateral.
+		if absf(normal.x) < 0.5:
+			continue
+
+
+		# A normal aponta para fora da parede.
+		# Então ela já indica o lado de escape.
+		_stack_slide_direction = signf(
+			normal.x
+		)
+
+		velocity.x = (
+			_stack_slide_direction
+			* stack_knockback_speed
+		)
+
+		break
