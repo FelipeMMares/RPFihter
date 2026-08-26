@@ -225,7 +225,8 @@ anti_stack_collision = NodePath("AntiStackCollision")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2063367094]
 scale = Vector2(1.956, 1.956)
 sprite_frames = ExtResource("2_54ovl")
-animation = &"Idle"
+animation = &"TryGrab"
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1137279768]
 visible = false
@@ -564,10 +565,10 @@ spawn_frame = 8
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="Hitboxers" type="Node2D" parent="." unique_id=1330527987]
-visible = false
 position = Vector2(0, 4)
 
 [node name="LightPunch" type="Area2D" parent="Hitboxers" unique_id=1445031812]
+visible = false
 position = Vector2(81, -67)
 collision_layer = 0
 collision_mask = 2
@@ -772,12 +773,11 @@ scale = Vector2(0.9999997, 0.9999997)
 shape = SubResource("RectangleShape2D_2d54m")
 
 [node name="ThrowBox" type="Area2D" parent="Hitboxers" unique_id=2028054100]
-visible = false
 position = Vector2(-86, 66)
 script = ExtResource("792_oyvtd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/ThrowBox" unique_id=1756148402]
-position = Vector2(214, 6.5)
+position = Vector2(249, -116)
 shape = SubResource("RectangleShape2D_o1poj")
 
 [node name="ThrowPathRoot" type="Node" parent="Hitboxers" unique_id=1992079360]

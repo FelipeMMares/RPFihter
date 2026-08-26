@@ -22,6 +22,7 @@ class_name FightManager
 @export var chun_li_scene: PackedScene
 @export var elena_scene: PackedScene
 @export var morrigan_scene: PackedScene
+@export var zangief_scene: PackedScene
 
 @export_group("Mirror Match")
 
@@ -1354,6 +1355,9 @@ func _get_fighter_scene(
 
 		FighterSelection.Fighter.MORRIGAN:
 			return morrigan_scene
+
+		FighterSelection.Fighter.ZANGIEF:
+			return zangief_scene
 
 	return null
 

@@ -1,6 +1,13 @@
 extends State
 class_name TryGrabState
 
+@export_group("Animação")
+
+@export var grab_animation: StringName = &"TryGrab"
+
+@export_group("Regras")
+
+@export var allow_counter_grab: bool = true
 
 @export_group("Detecção")
 
@@ -82,7 +89,10 @@ func _enter() -> void:
 
 	character.call("begin_grab_attempt")
 
-	play_animation.emit(&"TryGrab", false)
+	play_animation.emit(
+		grab_animation,
+		false
+	)
 
 
 func _physics_process(_delta: float) -> void:
@@ -155,16 +165,68 @@ func _on_target_found(
 	):
 		return
 
-	# O Counter Grab é verificado antes da captura.
-	if _try_counter_grab(attacker, target):
+	# -------------------------------------------------
+	# PARRY CONTRA GRAB
+	# -------------------------------------------------
+
+	if target.has_method("try_parry_grab"):
+		var grab_was_parried: bool = bool(
+			target.call(
+				"try_parry_grab",
+				attacker
+			)
+		)
+
+		if grab_was_parried:
+			_counter_resolved = true
+			_throw_box_active = false
+
+			if throw_box != null:
+				throw_box.disable()
+
+			print(
+				"TryGrab frustrado por Parry | atacante: ",
+				attacker.name,
+				" | defensor: ",
+				target.name
+			)
+
+			return
+
+
+	# -------------------------------------------------
+	# COUNTER GRAB
+	# -------------------------------------------------
+
+	if _try_counter_grab(
+		attacker,
+		target
+	):
 		return
 
-	if not target.has_method("can_be_thrown"):
+
+	# -------------------------------------------------
+	# CAPTURA NORMAL
+	# -------------------------------------------------
+
+	if not target.has_method(
+		"can_be_thrown"
+	):
 		printerr(
 			"TryGrab: alvo não possui can_be_thrown(): ",
 			target.name
 		)
 		return
+
+	if not bool(
+		target.call("can_be_thrown")
+	):
+		return
+
+	_confirm_grab(
+		attacker,
+		target
+	)
 
 	if not bool(target.call("can_be_thrown")):
 		return

@@ -1,13 +1,18 @@
 extends State
 
 
+@export var thrown_animation: StringName = &"Hurt"
+
+
 func _enter() -> void:
 	move.emit(Vector2.ZERO)
 
 	set_crouching_hurtbox(false)
 
-	# Mantém o alvo usando o sprite de dano.
-	play_animation.emit(&"Hurt", false)
+	play_animation.emit(
+		thrown_animation,
+		false
+	)
 
 
 func _physics_process(_delta: float) -> void:
@@ -16,15 +21,22 @@ func _physics_process(_delta: float) -> void:
 	if character == null:
 		return
 
-	if character.has_method("update_throw_capture"):
-		character.call("update_throw_capture")
+	if character.has_method(
+		"update_throw_capture"
+	):
+		character.call(
+			"update_throw_capture"
+		)
 
 
-# Não sai quando a animação Hurt termina.
-# O atacante decide quando o personagem será solto.
+# A animação terminar não encerra o estado.
+# O atacante controla quando a vítima é liberada.
 func _animation_finished() -> void:
 	pass
 
 
 func _get_character() -> CharacterBody2D:
-	return get_parent().get_parent() as CharacterBody2D
+	return (
+		get_parent().get_parent()
+		as CharacterBody2D
+	)

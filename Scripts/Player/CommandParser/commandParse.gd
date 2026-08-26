@@ -485,7 +485,7 @@ func _matches_simultaneous_command(
 
 		# O movimento precisa acontecer ANTES
 		# dos botões finais.
-		if input.timeframe >= chord_first_frame:
+		if input.timeframe > chord_first_frame:
 			continue
 
 		var expected_action: String = (

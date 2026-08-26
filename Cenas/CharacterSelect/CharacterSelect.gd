@@ -15,6 +15,7 @@ var opponent_select_scene_path: String = (
 @export var chun_li_frames: SpriteFrames
 @export var elena_frames: SpriteFrames
 @export var morrigan_frames: SpriteFrames
+@export var zangief_frames: SpriteFrames
 
 @export_range(0.5, 10.0, 0.1)
 var idle_before_taunt_time: float = 3.0
@@ -58,12 +59,15 @@ var idle_before_taunt_time: float = 3.0
 	$MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/MorriganButton
 )
 
+@onready var zangief_button: Button = (
+	$MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/ZangiefButton
+)
+
 @onready var preview_visual_controller: AnimationVisualController = (
 	$MainMargin/MainRow/PreviewPanel/PreviewBox/AnimationVisualController
 )
 
 @onready var locked_buttons: Array[Button] = [
-	$MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton,
 	$MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton2,
 	$MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton3
 ]
@@ -135,6 +139,10 @@ func _connect_buttons() -> void:
 		_on_morrigan_pressed
 	)
 
+	zangief_button.pressed.connect(
+		_on_zangief_pressed
+	)
+
 	# Mouse em cima do personagem troca o preview.
 	chun_li_button.mouse_entered.connect(
 		_preview_chun_li
@@ -148,6 +156,10 @@ func _connect_buttons() -> void:
 		_preview_morrigan
 	)
 
+	zangief_button.mouse_entered.connect(
+		_preview_zangief
+	)
+
 	# Também funciona com teclado/controle.
 	chun_li_button.focus_entered.connect(
 		_preview_chun_li
@@ -159,6 +171,10 @@ func _connect_buttons() -> void:
 
 	morrigan_button.focus_entered.connect(
 		_preview_morrigan
+	)
+
+	zangief_button.focus_entered.connect(
+		_preview_zangief
 	)
 
 	for button in locked_buttons:
@@ -216,6 +232,21 @@ func _preview_morrigan() -> void:
 
 	preview_visual_controller.set_enabled(
 		true
+	)
+
+func _preview_zangief() -> void:
+	if _character_confirmed:
+		return
+
+	preview_visual_controller.set_enabled(
+		false
+	)
+
+	fighter_preview.modulate = Color.WHITE
+
+	_show_fighter_preview(
+		zangief_frames,
+		"ZANGIEF"
 	)
 
 func _show_fighter_preview(
@@ -342,6 +373,22 @@ func _on_morrigan_pressed() -> void:
 
 	await _confirm_selection()
 
+func _on_zangief_pressed() -> void:
+	if _character_confirmed:
+		return
+
+	_preview_zangief()
+
+	_select_character_button(
+		zangief_button
+	)
+
+	FighterSelection.select_player(
+		FighterSelection.Fighter.ZANGIEF
+	)
+
+	await _confirm_selection()
+
 func _confirm_selection() -> void:
 	_character_confirmed = true
 
@@ -355,6 +402,7 @@ func _confirm_selection() -> void:
 	chun_li_button.disabled = true
 	elena_button.disabled = true
 	morrigan_button.disabled = true
+	zangief_button.disabled = true
 
 	for button in locked_buttons:
 		button.disabled = true
@@ -429,7 +477,8 @@ func _setup_character_buttons() -> void:
 	var buttons: Array[Button] = [
 		chun_li_button,
 		elena_button,
-		morrigan_button
+		morrigan_button,
+		zangief_button
 	]
 
 	for locked_button in locked_buttons:

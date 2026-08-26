@@ -1,6 +1,9 @@
 extends State
 class_name ThrowState
 
+@export_group("Animação")
+
+@export var throw_animation: StringName = &"Throw"
 
 @export_group("Movimento visual da vítima")
 
@@ -40,6 +43,9 @@ var horizontal_throw_multiplier: float = 10.0
 
 @export var return_state: StringName = &"Idle"
 
+@export_group("Impacto")
+
+@export var release_frame: int = -1
 
 @onready var animated_sprite: AnimatedSprite2D = (
 	get_parent()
@@ -64,8 +70,10 @@ var _victim_start_position: Vector2 = Vector2.ZERO
 var _throw_completed: bool = false
 var _attacker_locked: bool = false
 
+var _victim_released: bool = false
 
 func _enter() -> void:
+	_victim_released = false
 	_grabbed_target = null
 
 	_selected_direction = 0.0
@@ -186,21 +194,33 @@ func _enter() -> void:
 		_selected_direction
 	)
 
-	play_animation.emit(&"Throw", false)
+	play_animation.emit(
+		throw_animation,
+		false
+	)
 
 
 func _physics_process(_delta: float) -> void:
 	move.emit(Vector2.ZERO)
 
-	if not is_instance_valid(_grabbed_target):
-		_grabbed_target = null
-		transition_to.emit(return_state)
+	if _victim_released:
 		return
 
-	if animated_sprite != null:
-		_apply_throw_pose(
-			animated_sprite.frame
-		)
+	if not is_instance_valid(_grabbed_target):
+		return
+
+	if animated_sprite == null:
+		return
+
+	var current_frame := animated_sprite.frame
+
+	_apply_throw_pose(current_frame)
+
+	if (
+		release_frame >= 0
+		and current_frame >= release_frame
+	):
+		_release_victim()
 
 
 func _apply_throw_pose(
@@ -237,12 +257,14 @@ func _apply_victim_path(
 		victim_path_by_frame[path_index]
 	)
 
-	# O caminho é criado considerando que a vítima
-	# começou à direita do Dummy.
-	#
-	# Se ela começou à esquerda, o eixo X é espelhado.
+	var path_direction: float = (
+		_selected_direction
+		if allow_direction_choice
+		else _target_side_direction
+	)
+
 	var mirrored_offset := Vector2(
-		path_offset.x * _target_side_direction,
+		path_offset.x * path_direction,
 		path_offset.y
 	)
 
@@ -285,9 +307,9 @@ func _apply_victim_rotation(
 	#
 	# No Throw da Chun-Li, acompanha a direção escolhida.
 	var rotation_direction: float = (
-		_target_side_direction
-		if move_victim_during_throw
-		else _selected_direction
+		_selected_direction
+		if allow_direction_choice
+		else _target_side_direction
 	)
 
 	_grabbed_target.call(
@@ -389,3 +411,38 @@ func _get_character() -> CharacterBody2D:
 		get_parent().get_parent()
 		as CharacterBody2D
 	)
+
+func _release_victim() -> void:
+	if _victim_released:
+		return
+
+	if not is_instance_valid(_grabbed_target):
+		return
+
+	_victim_released = true
+
+	if _grabbed_target.has_method(
+		"reset_throw_visual_rotation"
+	):
+		_grabbed_target.call(
+			"reset_throw_visual_rotation"
+		)
+
+	var final_horizontal_velocity: float = (
+		absf(throw_velocity.x)
+		* horizontal_throw_multiplier
+	)
+
+	var final_velocity := Vector2(
+		final_horizontal_velocity
+		* _selected_direction,
+		throw_velocity.y
+	)
+
+	_grabbed_target.call(
+		"release_from_throw",
+		throw_damage,
+		final_velocity
+	)
+
+	_grabbed_target = null

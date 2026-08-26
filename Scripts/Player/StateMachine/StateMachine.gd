@@ -53,7 +53,9 @@ class_name StateMachine
 	&"Walk",
 	&"Crouch",
 	&"CrouchWhile",
-	&"TryGrab"
+	&"TryGrab",
+	&"Guard",
+	&"GuardWhile"
 ]
 
 var _started : bool = false

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c3rhc1cn4j50o"
+path="res://.godot/imported/PL10_00021.wav-5e9ced6d86e456b98900d4c18479390f.sample"
+
+[deps]
+
+source_file="res://assets/Audio/Voice/zangief/Banishing Flat/PL10_00021.wav"
+dest_files=["res://.godot/imported/PL10_00021.wav-5e9ced6d86e456b98900d4c18479390f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

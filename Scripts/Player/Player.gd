@@ -1219,3 +1219,51 @@ func _redirect_stack_slide_from_wall() -> void:
 		)
 
 		break
+
+func try_parry_grab(
+	attacker: CharacterBody2D
+) -> bool:
+	if state_machine == null:
+		return false
+
+	var current_state: StringName = (
+		state_machine.get_current_state_name()
+	)
+
+	var is_defending: bool = (
+		current_state == &"Guard"
+		or current_state == &"GuardWhile"
+	)
+
+	if not is_defending:
+		return false
+
+	if not guard_active:
+		return false
+
+	if not is_parry_window_active():
+		return false
+
+	print(
+		name,
+		" realizou Parry contra Grab de ",
+		attacker.name if attacker != null else "null"
+	)
+
+	# Cancela explicitamente a tentativa antes
+	# de aplicar a reação de Parry.
+	if (
+		is_instance_valid(attacker)
+		and attacker.has_method(
+			"cancel_grab_attempt"
+		)
+	):
+		attacker.call(
+			"cancel_grab_attempt"
+		)
+
+	# Reutiliza exatamente o Parry que já existe
+	# contra ataques normais.
+	_perform_parry(attacker)
+
+	return true

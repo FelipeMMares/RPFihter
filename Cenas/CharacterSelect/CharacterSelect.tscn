@@ -6,12 +6,13 @@
 [ext_resource type="SpriteFrames" uid="uid://dafuseydhwltb" path="res://assets/Elena.tres" id="3_j1wye"]
 [ext_resource type="Texture2D" uid="uid://dupk2bq1d6pdd" path="res://assets/Menus/SelectionCharacter/images (1).jpg" id="3_mwvdt"]
 [ext_resource type="SpriteFrames" uid="uid://diuwka3dh7h6k" path="res://Cenas/Morrigan/MorriganFrames.tres" id="4_kwa0p"]
-[ext_resource type="Texture2D" uid="uid://cstb08wm4agtb" path="res://assets/Menus/SelectionCharacter/Gemini_Generated_Image_k3i7zvk3i7zvk3i7.png" id="4_wef75"]
+[ext_resource type="SpriteFrames" uid="uid://bq40n4pwgdyk6" path="res://Scripts/Zangief/Zangief.tres" id="5_7r7cm"]
 [ext_resource type="Texture2D" uid="uid://bqwmt40vtqblh" path="res://assets/Menus/SelectionCharacter/Gemini_Generated_Image_hbgs6ehbgs6ehbgs.png" id="5_ft0tq"]
 [ext_resource type="Script" uid="uid://iki0228sltc8" path="res://Scripts/Components/FrameVisualAdjustment/AnimationVisualController.gd" id="5_n3c64"]
 [ext_resource type="Resource" uid="uid://dytnv83eeppwf" path="res://MorriganVisualProfile.tres" id="5_sicu8"]
 [ext_resource type="Texture2D" uid="uid://dcgrovxavbknq" path="res://assets/Menus/SelectionCharacter/Gemini_Generated_Image_n9ubk8n9ubk8n9ub.png" id="6_0ps5n"]
 [ext_resource type="Texture2D" uid="uid://bouf4wag4u5ip" path="res://assets/Menus/SelectionCharacter/Morrigan.jpg" id="9_j1wye"]
+[ext_resource type="Texture2D" uid="uid://btosaf4qgyxdr" path="res://assets/Menus/SelectionCharacter/250px-Zangief.jpg" id="10_4j8l4"]
 [ext_resource type="FontFile" uid="uid://ct6yapfcrys5m" path="res://assets/fontes/PressStart2P-Regular.ttf" id="10_j1wye"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
@@ -39,6 +40,7 @@ script = ExtResource("1_ffqft")
 chun_li_frames = ExtResource("2_0ps5n")
 elena_frames = ExtResource("3_j1wye")
 morrigan_frames = ExtResource("4_kwa0p")
+zangief_frames = ExtResource("5_7r7cm")
 morrigan_visual_profile = ExtResource("5_sicu8")
 
 [node name="Background" type="ColorRect" parent="." unique_id=1239753899]
@@ -219,7 +221,7 @@ text = "ELENA"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="LockedButton" type="Button" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid" unique_id=1647146744]
+[node name="ZangiefButton" type="Button" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid" unique_id=1647146744]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 220)
 custom_maximum_size = Vector2(180, 220)
@@ -228,7 +230,7 @@ theme_override_constants/icon_max_width = 110
 icon_alignment = 1
 vertical_icon_alignment = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton" unique_id=1643885054]
+[node name="MarginContainer" type="MarginContainer" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/ZangiefButton" unique_id=1643885054]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -246,24 +248,24 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton/MarginContainer" unique_id=994587446]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/ZangiefButton/MarginContainer" unique_id=994587446]
 layout_mode = 2
 theme_override_constants/separation = 24
 
-[node name="Portrait" type="TextureRect" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton/MarginContainer/VBoxContainer" unique_id=1295369881]
+[node name="Portrait" type="TextureRect" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/ZangiefButton/MarginContainer/VBoxContainer" unique_id=1295369881]
 custom_minimum_size = Vector2(110, 110)
 custom_maximum_size = Vector2(110, 110)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 mouse_filter = 2
-texture = ExtResource("4_wef75")
+texture = ExtResource("10_4j8l4")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton/MarginContainer/VBoxContainer" unique_id=106831712]
+[node name="NameLabel" type="Label" parent="MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/ZangiefButton/MarginContainer/VBoxContainer" unique_id=106831712]
 layout_mode = 2
-text = "?????"
+text = "ZANGIEF"
 horizontal_alignment = 1
 vertical_alignment = 2
 

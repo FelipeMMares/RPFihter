@@ -1,8 +1,8 @@
+State
 CollisionShape2D
 Area2D
-Node
-State
 CollisionPolygon2D
+Node
 Marker2D
 VisibleOnScreenNotifier2D
 AnimatedSprite2D
