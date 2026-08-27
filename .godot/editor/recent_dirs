@@ -1,22 +1,22 @@
-res://assets/Menus/SelectionCharacter/
-res://Scripts/Zangief/
-res://assets/Audio/Voice/zangief/Entry/
-res://assets/Audio/Voice/zangief/Throw/
-res://assets/Audio/Voice/zangief/Hurt/
-res://assets/Audio/Voice/zangief/lowKick/
-res://assets/Audio/Voice/zangief/Kick/
-res://assets/Audio/Voice/zangief/highPunhc/
-res://assets/Audio/Voice/zangief/LightPunch/
-res://assets/Audio/Voice/zangief/Defeated/
-res://Scripts/Zangief/specials/
-res://Scripts/Zangief/States/
-res://assets/Zangief/CrouchKick/
-res://assets/Zangief/CrouchHighPunch/
-res://assets/Zangief/Banishing Flat/
-res://assets/Zangief/DoubleLariat/
-res://assets/Zangief/Spinning Piledriver/
-res://assets/Zangief/Spinning Pildriver TryGrab/
-res://assets/Zangief/Taunt/
-res://assets/Zangief/Thrown/
-res://assets/Zangief/TryGrab/
-res://assets/Zangief/Throw/
+res://Cenas/Potenkim/
+res://assets/Potenkim/Stun/
+res://assets/Potenkim/SlideHead/
+res://assets/Potenkim/MegaFist/
+res://assets/Potenkim/PotenkimBuster/
+res://assets/Potenkim/Throw/
+res://assets/Potenkim/Thrown/
+res://assets/Potenkim/HurtFall-FallDefeated/
+res://assets/Potenkim/GetUp/
+res://assets/Potenkim/Hurt/
+res://assets/Potenkim/Victory/
+res://assets/Potenkim/Defeated/
+res://assets/Potenkim/AirLowKick/
+res://assets/Potenkim/AirKick/
+res://assets/Potenkim/AirHighPunch/
+res://assets/Potenkim/AirLightPunch/
+res://assets/Potenkim/CrouchLowKick/
+res://assets/Potenkim/Crouchkick/
+res://assets/Potenkim/CrouchHighPunch/
+res://assets/Potenkim/CrouchLightPunch/
+res://assets/Potenkim/Lowkick/
+res://assets/Potenkim/Kick/

@@ -74,6 +74,7 @@
 [ext_resource type="Texture2D" uid="uid://dnt6abs264mdm" path="res://assets/Zangief/CrouchLowKick/SFA3_Zangief_58128-removebg-preview.png" id="72_yic3d"]
 [ext_resource type="Texture2D" uid="uid://8cr8daafu4hg" path="res://assets/Zangief/CrouchLowKick/SFA3_Zangief_58328-removebg-preview.png" id="73_e55d1"]
 [ext_resource type="Texture2D" uid="uid://dfklpcg3u6wma" path="res://assets/Zangief/CrouchLowKick/SFA3_Zangief_58348-removebg-preview.png" id="74_5kc63"]
+[ext_resource type="Texture2D" uid="uid://bv8vhnul4ifw3" path="res://assets/Zangief/Crouch/SFA3_Zangief_49924-removebg-preview.png" id="75_8jjvl"]
 [ext_resource type="Texture2D" uid="uid://ch7605g4yib66" path="res://assets/Zangief/CrouchLowKick/SFA3_Zangief_58368-removebg-preview.png" id="75_u1dys"]
 [ext_resource type="Texture2D" uid="uid://ot24l50e4nu8" path="res://assets/Zangief/CrouchLowKick/SFA3_Zangief_58388-removebg-preview.png" id="76_pyo26"]
 [ext_resource type="Texture2D" uid="uid://dwacfocquu3rw" path="res://assets/Zangief/Taunt/SFA3_Zangief_52336-removebg-preview.png" id="77_r5o1p"]
@@ -505,26 +506,6 @@ animations = [{
 "texture": ExtResource("38_o5cf7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("39_m7vry")
-}, {
-"duration": 1.0,
-"texture": ExtResource("40_2hsas")
-}, {
-"duration": 1.0,
-"texture": ExtResource("41_bte0q")
-}, {
-"duration": 1.0,
-"texture": ExtResource("42_41d6n")
-}],
-"loop": 1,
-"name": &"CrocuhWhile",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("38_o5cf7")
-}, {
-"duration": 1.0,
 "texture": ExtResource("40_2hsas")
 }, {
 "duration": 1.0,
@@ -674,6 +655,29 @@ animations = [{
 }],
 "loop": 0,
 "name": &"CrouchStart",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("38_o5cf7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_m7vry")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_8jjvl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_2hsas")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_bte0q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_41d6n")
+}],
+"loop": 1,
+"name": &"CrouchWhile",
 "speed": 15.0
 }, {
 "frames": [{
@@ -1260,6 +1264,32 @@ animations = [{
 }],
 "loop": 0,
 "name": &"Parry",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("126_ymxqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("127_kaxsp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("128_oxlo6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("129_thilg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("128_oxlo6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("127_kaxsp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("126_ymxqi")
+}],
+"loop": 0,
+"name": &"ParryRecoil",
 "speed": 15.0
 }, {
 "frames": [{

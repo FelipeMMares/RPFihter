@@ -48,7 +48,6 @@
 [ext_resource type="Script" uid="uid://cgjhpb6ihl6r5" path="res://Scripts/Player/StateMachine/States/Ground/ThrowBox.gd" id="68_unt7v"]
 [ext_resource type="AudioStream" uid="uid://bsoue2ktyu0ck" path="res://assets/Audio/SFX/Combat/Strikes/smash-bros-magic-hit.mp3" id="69_dqgvb"]
 [ext_resource type="Script" uid="uid://iki0228sltc8" path="res://Scripts/Components/FrameVisualAdjustment/AnimationVisualController.gd" id="73_frtbn"]
-[ext_resource type="Resource" uid="uid://dytnv83eeppwf" path="res://MorriganVisualProfile.tres" id="74_5x5rh"]
 [ext_resource type="Resource" uid="uid://lxgac64ipn7f" path="res://Scripts/Zangief/specials/SpinningPiledriverTry.tres" id="366_a3cvl"]
 [ext_resource type="Resource" uid="uid://gsxa6y0ksfdc" path="res://Scripts/Zangief/specials/SpinningPiledriverTry2.tres" id="367_b522q"]
 [ext_resource type="AudioStream" uid="uid://cb4o55vyask5m" path="res://assets/Audio/Voice/zangief/LightPunch/PL10_00006.wav" id="378_1jxkx"]
@@ -194,7 +193,7 @@ metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 size = Vector2(99.5, 88)
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_drr2n"]
-points = PackedVector2Array(-186, 129, 140, 129, -21, -4)
+points = PackedVector2Array(-148, 80, 111, 80, -20, 34)
 
 [node name="Zangief" type="CharacterBody2D" unique_id=1892667997 node_paths=PackedStringArray("body_collision", "anti_stack_collision")]
 script = ExtResource("1_kyap7")
@@ -204,7 +203,7 @@ anti_stack_collision = NodePath("AntiStackCollision")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2063367094]
 scale = Vector2(1.956, 1.956)
 sprite_frames = ExtResource("2_evfbc")
-animation = &"Walk"
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1137279768]
 visible = false
@@ -225,22 +224,18 @@ feet_shape = NodePath("FeetShape")
 crouch_shape = NodePath("CrouchShape")
 
 [node name="HeadShape" type="CollisionShape2D" parent="Hurtbox" unique_id=1999467920]
-visible = false
 position = Vector2(5, -20)
 shape = SubResource("CircleShape2D_flcoc")
 
 [node name="TorsoShape" type="CollisionShape2D" parent="Hurtbox" unique_id=1381567128]
-visible = false
 position = Vector2(-22.5, 30.25)
 shape = SubResource("RectangleShape2D_gloog")
 
 [node name="FeetShape" type="CollisionShape2D" parent="Hurtbox" unique_id=676081703]
-visible = false
 position = Vector2(-38.5, 137.75)
 shape = SubResource("RectangleShape2D_jeabl")
 
 [node name="CrouchShape" type="CollisionShape2D" parent="Hurtbox" unique_id=1989103608]
-visible = false
 position = Vector2(-22.5, 100)
 shape = SubResource("RectangleShape2D_y8txj")
 
@@ -771,8 +766,8 @@ shape = SubResource("RectangleShape2D_d0u6y")
 
 [node name="AnimationVisualController" type="Node" parent="." unique_id=1290380281 node_paths=PackedStringArray("animated_sprite")]
 script = ExtResource("73_frtbn")
+enabled = false
 animated_sprite = NodePath("../AnimatedSprite2D")
-visual_profile = ExtResource("74_5x5rh")
 debug_visual = true
 
 [node name="AntiStackCollision" type="CollisionShape2D" parent="." unique_id=152907459]

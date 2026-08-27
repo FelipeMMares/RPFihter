@@ -39,7 +39,6 @@
 [ext_resource type="Script" uid="uid://c3ookyq3ypabc" path="res://Scripts/Player/StateMachine/States/Air/start_jump.gd" id="69_vao2x"]
 [ext_resource type="Script" uid="uid://julkhtuc7ncf" path="res://Scripts/Player/StateMachine/States/Ground/IdleCrouched.gd" id="70_wj34k"]
 [ext_resource type="Script" uid="uid://iki0228sltc8" path="res://Scripts/Components/FrameVisualAdjustment/AnimationVisualController.gd" id="76_m7th6"]
-[ext_resource type="Resource" uid="uid://dytnv83eeppwf" path="res://MorriganVisualProfile.tres" id="77_u26fn"]
 [ext_resource type="Script" uid="uid://dtsgngx4yj4eu" path="res://Scripts/Player/StateMachine/States/Ground/light_punch.gd" id="111_jj3b6"]
 [ext_resource type="Script" uid="uid://do3du61yy2b2o" path="res://Scripts/Player/Hitbox/Hitboxers.gd" id="112_lmw0p"]
 [ext_resource type="Script" uid="uid://bmcu27nb7ioun" path="res://Scripts/Components/Health.gd" id="114_jj3b6"]
@@ -852,9 +851,7 @@ script = ExtResource("56_ok0yd")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VoicePlayer" unique_id=1064558309]
 bus = &"Voices"
 
-[node name="AnimationVisualController" type="Node" parent="." unique_id=164171773 node_paths=PackedStringArray("animated_sprite")]
+[node name="AnimationVisualController" type="Node" parent="." unique_id=164171773]
 script = ExtResource("76_m7th6")
 enabled = false
-animated_sprite = NodePath("../AnimatedSprite2D")
-visual_profile = ExtResource("77_u26fn")
 debug_visual = true
