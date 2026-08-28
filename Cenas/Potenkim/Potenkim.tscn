@@ -256,8 +256,7 @@
 [ext_resource type="Script" uid="uid://byslak2i1ykxe" path="res://Scripts/Player/PlayerControls/PlayerControls.gd" id="254_khx8l"]
 [ext_resource type="Script" uid="uid://dbu8ihntj2ffr" path="res://Scripts/Player/CommandParser/commandParse.gd" id="255_0pcji"]
 [ext_resource type="Script" uid="uid://brg7ixgqu5kif" path="res://Scripts/Player/CommandParser/CommandSequence.gd" id="256_vafe2"]
-[ext_resource type="Resource" uid="uid://lxgac64ipn7f" path="res://Scripts/Zangief/specials/SpinningPiledriverTry.tres" id="257_12frs"]
-[ext_resource type="Resource" uid="uid://gsxa6y0ksfdc" path="res://Scripts/Zangief/specials/SpinningPiledriverTry2.tres" id="258_48fas"]
+[ext_resource type="Resource" uid="uid://qsc53uxyhf5y" path="res://Scripts/Combat/MegaFist.tres" id="257_cbsdk"]
 [ext_resource type="Script" uid="uid://i478e5jfr2tp" path="res://Scripts/Audio/CharacterVoicePlayer.gd" id="259_ba83p"]
 [ext_resource type="Script" uid="uid://cmprwqp560lvn" path="res://Scripts/Player/StateMachine/StateMachine.gd" id="260_mdvwc"]
 [ext_resource type="Script" uid="uid://bi6q5kxootr01" path="res://Scripts/Player/StateMachine/States/Ground/Idle.gd" id="261_8c876"]
@@ -298,9 +297,10 @@
 [ext_resource type="Script" uid="uid://mpusglrs05cc" path="res://Scripts/Components/ParryRecoil.gd" id="296_lrdpi"]
 [ext_resource type="Script" uid="uid://0avj1tmmibwt" path="res://Scripts/Player/StateMachine/States/Ground/Entry.gd" id="297_r2a6g"]
 [ext_resource type="AudioStream" uid="uid://bj8tdr8rghtft" path="res://assets/Audio/Voice/zangief/Entry/PL10_00016.wav" id="298_ueof3"]
+[ext_resource type="Script" uid="uid://bcfo411m8d1q1" path="res://Scripts/Potenkim/States/MegaFist.gd" id="299_8gwx2"]
 [ext_resource type="AudioStream" uid="uid://dxud3fiosicjt" path="res://assets/Audio/Voice/zangief/Entry/PL10_00019.wav" id="299_mup8r"]
-[ext_resource type="Script" uid="uid://ds5wmj10casc3" path="res://Scripts/Zangief/States/BanishingFlat.gd" id="300_yesab"]
-[ext_resource type="Script" uid="uid://fsicwrnesrxg" path="res://Scripts/Zangief/States/DoubleLariat.gd" id="301_wsi31"]
+[ext_resource type="Script" uid="uid://c5bf4qf28j27m" path="res://Scripts/Potenkim/States/SlideHead.gd" id="300_0q0t6"]
+[ext_resource type="Script" uid="uid://bkklrvtapkren" path="res://Scripts/Player/StateMachine/State.gd" id="300_8gwx2"]
 [ext_resource type="Script" uid="uid://do3du61yy2b2o" path="res://Scripts/Player/Hitbox/Hitboxers.gd" id="302_ynej5"]
 [ext_resource type="AudioStream" uid="uid://v8n41tqls7ke" path="res://assets/Audio/SFX/Combat/Hits/smash-bros-hit-2.mp3" id="303_4nxg1"]
 [ext_resource type="AudioStream" uid="uid://b8asxc7p44qtf" path="res://assets/Audio/SFX/Combat/Guard/hitstop.mp3" id="304_myb47"]
@@ -308,8 +308,11 @@
 [ext_resource type="AudioStream" uid="uid://bi8h37ajawew2" path="res://assets/Audio/SFX/Combat/Hits/sword-hit.mp3" id="306_ua1mk"]
 [ext_resource type="AudioStream" uid="uid://d22bgxty3l74y" path="res://assets/Audio/SFX/Combat/Hits/hitmarker_lPlclg2.mp3" id="307_jk8ob"]
 [ext_resource type="Script" uid="uid://cgjhpb6ihl6r5" path="res://Scripts/Player/StateMachine/States/Ground/ThrowBox.gd" id="308_1nd5b"]
-[ext_resource type="AudioStream" uid="uid://bsoue2ktyu0ck" path="res://assets/Audio/SFX/Combat/Strikes/smash-bros-magic-hit.mp3" id="309_xk2gr"]
+[ext_resource type="AudioStream" uid="uid://76ivwn2ew2u1" path="res://assets/Audio/SFX/Combat/Strikes/critical-hit-sounds-effect.mp3" id="308_aok8r"]
 [ext_resource type="Script" uid="uid://iki0228sltc8" path="res://Scripts/Components/FrameVisualAdjustment/AnimationVisualController.gd" id="310_071p4"]
+[ext_resource type="Script" uid="uid://bu7ghhff457v2" path="res://Scripts/Components/FrameVisualAdjustment/AnimationVisualAdjustment.gd" id="311_0q0t6"]
+[ext_resource type="Script" uid="uid://bycvcpito73xu" path="res://Scripts/Components/FrameVisualAdjustment/FrameVisualAdjustment.gd" id="312_4mqji"]
+[ext_resource type="Script" uid="uid://daxf6scsvh673" path="res://Scripts/Components/FrameVisualAdjustment/AnimationVisualProfile.gd" id="313_j30mk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
@@ -374,6 +377,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("18_tmdwa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_nad7d")
 }, {
 "duration": 1.0,
 "texture": ExtResource("19_nad7d")
@@ -1439,19 +1445,19 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qkyit"]
-size = Vector2(203.5, 186)
+size = Vector2(255, 308)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_flcoc"]
-radius = 44.102154
+radius = 76.05919
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gloog"]
-size = Vector2(227, 145.5)
+size = Vector2(336.25, 294.375)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jeabl"]
-size = Vector2(203, 112.5)
+size = Vector2(302, 184.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8txj"]
-size = Vector2(227, 168)
+size = Vector2(471.5, 445)
 
 [sub_resource type="Resource" id="Resource_7djc3"]
 script = ExtResource("254_khx8l")
@@ -1500,16 +1506,13 @@ script = ExtResource("305_200k5")
 damage = 140
 metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2fwhh"]
-size = Vector2(136.125, 53)
-
 [sub_resource type="Resource" id="Resource_c828g"]
 script = ExtResource("305_200k5")
 damage = 180
 metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(196.96555, 57)
+size = Vector2(193.30536, 135.44011)
 
 [sub_resource type="Resource" id="Resource_5eklt"]
 script = ExtResource("305_200k5")
@@ -1517,7 +1520,7 @@ damage = 110
 metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ypqdr"]
-size = Vector2(61.408974, 175.966)
+size = Vector2(137.57176, 462.56024)
 
 [sub_resource type="Resource" id="Resource_jpp6u"]
 script = ExtResource("305_200k5")
@@ -1525,47 +1528,2369 @@ damage = 180
 metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oay3g"]
-size = Vector2(166.5, 37)
+size = Vector2(420.28522, 189.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hvt0"]
-size = Vector2(164.00005, 50.00001)
+size = Vector2(245.00006, 87.000015)
 
 [sub_resource type="Resource" id="Resource_qxayb"]
 script = ExtResource("305_200k5")
 metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8wvuv"]
-size = Vector2(205.2949, 55.233627)
+size = Vector2(262.58865, 75.966095)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vexq3"]
-size = Vector2(166.67056, 40.547302)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ttoju"]
-size = Vector2(219.60333, 84.377625)
+size = Vector2(195.00003, 156.00003)
 
 [sub_resource type="Resource" id="Resource_d0u6y"]
 script = ExtResource("305_200k5")
 metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(204.62755, 128.34247)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o1poj"]
-size = Vector2(84, 99)
+size = Vector2(84, 108.5)
 
-[sub_resource type="Resource" id="Resource_3gngh"]
+[sub_resource type="Resource" id="Resource_aok8r"]
 script = ExtResource("305_200k5")
+hitstun = 60
+launch = Vector2(-60, -50)
 metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
-size = Vector2(168, 66)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gngh"]
+size = Vector2(209.88872, 363.59607)
 
-[sub_resource type="Resource" id="Resource_fcnqv"]
+[sub_resource type="Resource" id="Resource_wsi31"]
 script = ExtResource("305_200k5")
+damage = 90
+hitstun = 30
+launch = Vector2(60, -170)
+hurt_animation = &"HurtFall"
 metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0u6y"]
-size = Vector2(99.5, 88)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7numd"]
+size = Vector2(1585.959, 146)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fcnqv"]
+size = Vector2(135.5, 380.5)
+
+[sub_resource type="Resource" id="Resource_mk8jo"]
+script = ExtResource("312_4mqji")
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_w684u"]
+script = ExtResource("312_4mqji")
+frame = 1
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_e2544"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(4, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ujhrq"]
+script = ExtResource("312_4mqji")
+frame = 3
+override_offset = true
+offset = Vector2(4, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_3qqne"]
+script = ExtResource("312_4mqji")
+frame = 4
+override_offset = true
+offset = Vector2(4, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_3ubo4"]
+script = ExtResource("312_4mqji")
+frame = 5
+override_offset = true
+offset = Vector2(4, -8)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_0bti0"]
+script = ExtResource("312_4mqji")
+frame = 6
+override_offset = true
+offset = Vector2(4, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_cx28t"]
+script = ExtResource("312_4mqji")
+frame = 7
+override_offset = true
+offset = Vector2(4, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_bt66d"]
+script = ExtResource("312_4mqji")
+frame = 8
+override_offset = true
+offset = Vector2(4, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_h30ne"]
+script = ExtResource("312_4mqji")
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_uj6dr"]
+script = ExtResource("312_4mqji")
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_lvtm5"]
+script = ExtResource("311_0q0t6")
+animation_name = &"Idle"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_mk8jo"), SubResource("Resource_w684u"), SubResource("Resource_e2544"), SubResource("Resource_ujhrq"), SubResource("Resource_3qqne"), SubResource("Resource_3ubo4"), SubResource("Resource_0bti0"), SubResource("Resource_cx28t"), SubResource("Resource_bt66d"), SubResource("Resource_h30ne"), SubResource("Resource_uj6dr")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_0q0t6"]
+script = ExtResource("312_4mqji")
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_4mqji"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(4, 8)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_j30mk"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(14, 12)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_lsao5"]
+script = ExtResource("312_4mqji")
+frame = 3
+override_offset = true
+offset = Vector2(-2, -4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_7xy41"]
+script = ExtResource("312_4mqji")
+frame = 4
+override_offset = true
+offset = Vector2(-12, -8)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ylvrn"]
+script = ExtResource("312_4mqji")
+frame = 5
+override_offset = true
+offset = Vector2(0, -8)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_f8p0l"]
+script = ExtResource("312_4mqji")
+frame = 6
+override_offset = true
+offset = Vector2(10, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_tmgh2"]
+script = ExtResource("312_4mqji")
+frame = 7
+override_offset = true
+offset = Vector2(16, 8)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_hha5u"]
+script = ExtResource("312_4mqji")
+frame = 8
+override_offset = true
+offset = Vector2(2, -8)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_lxf6m"]
+script = ExtResource("312_4mqji")
+frame = 9
+override_offset = true
+offset = Vector2(-14, -4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_0ym0e"]
+script = ExtResource("312_4mqji")
+frame = 10
+override_offset = true
+offset = Vector2(-6, -4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_s7sc3"]
+script = ExtResource("311_0q0t6")
+animation_name = &"Walk"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_0q0t6"), SubResource("Resource_4mqji"), SubResource("Resource_j30mk"), SubResource("Resource_lsao5"), SubResource("Resource_7xy41"), SubResource("Resource_ylvrn"), SubResource("Resource_f8p0l"), SubResource("Resource_tmgh2"), SubResource("Resource_hha5u"), SubResource("Resource_lxf6m"), SubResource("Resource_0ym0e")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_vc7wu"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(-4, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_v2mv3"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(4, 24)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_fs55d"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(4, 16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_jir4t"]
+script = ExtResource("311_0q0t6")
+animation_name = &"CrouchStart"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_vc7wu"), SubResource("Resource_v2mv3"), SubResource("Resource_fs55d")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_tmdwa"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(4, 16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_e0n2h"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(4, 24)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_nad7d"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(-4, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_nsc3p"]
+script = ExtResource("311_0q0t6")
+animation_name = &"CrouchEnd"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_tmdwa"), SubResource("Resource_e0n2h"), SubResource("Resource_nad7d")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_1bs54"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(4, 24)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_0ubxg"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(4, 16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_owwfy"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(4, 16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_wj5gs"]
+script = ExtResource("312_4mqji")
+frame = 3
+override_offset = true
+offset = Vector2(4, 16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_6hgdb"]
+script = ExtResource("312_4mqji")
+frame = 4
+override_offset = true
+offset = Vector2(0, 16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_hl4ys"]
+script = ExtResource("312_4mqji")
+frame = 5
+override_offset = true
+offset = Vector2(0, 16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_wsbfa"]
+script = ExtResource("312_4mqji")
+frame = 6
+override_offset = true
+offset = Vector2(0, 16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_7xj7a"]
+script = ExtResource("312_4mqji")
+frame = 7
+override_offset = true
+offset = Vector2(0, 16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_lil3d"]
+script = ExtResource("312_4mqji")
+frame = 8
+override_offset = true
+offset = Vector2(0, 16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_wtes8"]
+script = ExtResource("312_4mqji")
+frame = 9
+override_offset = true
+offset = Vector2(4, 16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_l1sp8"]
+script = ExtResource("312_4mqji")
+frame = 10
+override_offset = true
+offset = Vector2(4, 16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_vy1ut"]
+script = ExtResource("312_4mqji")
+frame = 11
+override_offset = true
+offset = Vector2(4, 16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_5i4un"]
+script = ExtResource("312_4mqji")
+frame = 12
+override_offset = true
+offset = Vector2(4, 24)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_5v305"]
+script = ExtResource("311_0q0t6")
+animation_name = &"CrouchWhile"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_1bs54"), SubResource("Resource_0ubxg"), SubResource("Resource_owwfy"), SubResource("Resource_wj5gs"), SubResource("Resource_6hgdb"), SubResource("Resource_hl4ys"), SubResource("Resource_wsbfa"), SubResource("Resource_7xj7a"), SubResource("Resource_lil3d"), SubResource("Resource_wtes8"), SubResource("Resource_l1sp8"), SubResource("Resource_vy1ut"), SubResource("Resource_5i4un")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_2e3fk"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(4, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_v8dru"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(8, -4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_w0m65"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(2, -16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_pon77"]
+script = ExtResource("312_4mqji")
+frame = 3
+override_offset = true
+offset = Vector2(12, -16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_re17o"]
+script = ExtResource("312_4mqji")
+frame = 4
+override_offset = true
+offset = Vector2(16, 4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_yitdh"]
+script = ExtResource("312_4mqji")
+frame = 5
+override_offset = true
+offset = Vector2(48, -52)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_oolxd"]
+script = ExtResource("312_4mqji")
+frame = 6
+override_offset = true
+offset = Vector2(18, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_2c7yg"]
+script = ExtResource("311_0q0t6")
+animation_name = &"MegaFist"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_2e3fk"), SubResource("Resource_v8dru"), SubResource("Resource_w0m65"), SubResource("Resource_pon77"), SubResource("Resource_re17o"), SubResource("Resource_yitdh"), SubResource("Resource_oolxd")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_pklmh"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(-2, -4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_d44wc"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(10, -4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_kg5he"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(10, 16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_8sfky"]
+script = ExtResource("312_4mqji")
+frame = 3
+override_offset = true
+offset = Vector2(32, 60)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_xypif"]
+script = ExtResource("312_4mqji")
+frame = 4
+override_offset = true
+offset = Vector2(40, 60)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_6n05w"]
+script = ExtResource("312_4mqji")
+frame = 5
+override_offset = true
+offset = Vector2(40, 60)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_4y8xl"]
+script = ExtResource("312_4mqji")
+frame = 6
+override_offset = true
+offset = Vector2(40, 60)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_41y0j"]
+script = ExtResource("312_4mqji")
+frame = 7
+override_offset = true
+offset = Vector2(32, 48)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_pxs4n"]
+script = ExtResource("312_4mqji")
+frame = 8
+override_offset = true
+offset = Vector2(24, 28)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_8yndd"]
+script = ExtResource("312_4mqji")
+frame = 9
+override_offset = true
+offset = Vector2(10, 28)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_rtlte"]
+script = ExtResource("312_4mqji")
+frame = 10
+override_offset = true
+offset = Vector2(6, 16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_fic8c"]
+script = ExtResource("312_4mqji")
+frame = 11
+override_offset = true
+offset = Vector2(4, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_nnd20"]
+script = ExtResource("311_0q0t6")
+animation_name = &"Slidehead"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_pklmh"), SubResource("Resource_d44wc"), SubResource("Resource_kg5he"), SubResource("Resource_8sfky"), SubResource("Resource_xypif"), SubResource("Resource_6n05w"), SubResource("Resource_4y8xl"), SubResource("Resource_41y0j"), SubResource("Resource_pxs4n"), SubResource("Resource_8yndd"), SubResource("Resource_rtlte"), SubResource("Resource_fic8c")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_obuqo"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(-2, -4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_plsb5"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(4, -4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_l63ke"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(20, -36)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ysmrg"]
+script = ExtResource("311_0q0t6")
+animation_name = &"PotenkimBusterTry"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_obuqo"), SubResource("Resource_plsb5"), SubResource("Resource_l63ke")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_t47p8"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(30, -48)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_jcn8x"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(30, -32)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_n4woi"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(32, -20)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_4kjb7"]
+script = ExtResource("312_4mqji")
+frame = 3
+override_offset = true
+offset = Vector2(30, -40)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_cwq0i"]
+script = ExtResource("312_4mqji")
+frame = 4
+override_offset = true
+offset = Vector2(30, -56)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_chrks"]
+script = ExtResource("312_4mqji")
+frame = 5
+override_offset = true
+offset = Vector2(30, -56)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ch7y1"]
+script = ExtResource("312_4mqji")
+frame = 6
+override_offset = true
+offset = Vector2(36, -72)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_aw0po"]
+script = ExtResource("312_4mqji")
+frame = 7
+override_offset = true
+offset = Vector2(36, -20)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_rtk4t"]
+script = ExtResource("312_4mqji")
+frame = 8
+override_offset = true
+offset = Vector2(32, -24)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_k2u5q"]
+script = ExtResource("312_4mqji")
+frame = 9
+override_offset = true
+offset = Vector2(32, -24)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ed0e8"]
+script = ExtResource("312_4mqji")
+frame = 10
+override_offset = true
+offset = Vector2(10, -4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_41fkc"]
+script = ExtResource("312_4mqji")
+frame = 11
+override_offset = true
+offset = Vector2(14, -8)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_n1jpq"]
+script = ExtResource("312_4mqji")
+frame = 12
+override_offset = true
+offset = Vector2(46, -8)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_qptl8"]
+script = ExtResource("312_4mqji")
+frame = 13
+override_offset = true
+offset = Vector2(24, -4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_rqy52"]
+script = ExtResource("312_4mqji")
+frame = 14
+override_offset = true
+offset = Vector2(10, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ypn7n"]
+script = ExtResource("311_0q0t6")
+animation_name = &"PotenkimBuster"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_t47p8"), SubResource("Resource_jcn8x"), SubResource("Resource_n4woi"), SubResource("Resource_4kjb7"), SubResource("Resource_cwq0i"), SubResource("Resource_chrks"), SubResource("Resource_ch7y1"), SubResource("Resource_aw0po"), SubResource("Resource_rtk4t"), SubResource("Resource_k2u5q"), SubResource("Resource_ed0e8"), SubResource("Resource_41fkc"), SubResource("Resource_n1jpq"), SubResource("Resource_qptl8"), SubResource("Resource_rqy52")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_riul1"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(20, -16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_r7jvm"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(20, -16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_sg4iy"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(20, -16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_tts21"]
+script = ExtResource("312_4mqji")
+frame = 3
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_1t2ac"]
+script = ExtResource("312_4mqji")
+frame = 4
+override_offset = true
+offset = Vector2(60, -16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_0574c"]
+script = ExtResource("312_4mqji")
+frame = 5
+override_offset = true
+offset = Vector2(60, -16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_sxwcl"]
+script = ExtResource("312_4mqji")
+frame = 6
+override_offset = true
+offset = Vector2(20, -16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ps1y3"]
+script = ExtResource("311_0q0t6")
+animation_name = &"LightPunch"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_riul1"), SubResource("Resource_r7jvm"), SubResource("Resource_sg4iy"), SubResource("Resource_tts21"), SubResource("Resource_1t2ac"), SubResource("Resource_0574c"), SubResource("Resource_sxwcl")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_kbnep"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(16, -4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_x8pmq"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(14, -24)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_eqdax"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(36, -48)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ftys8"]
+script = ExtResource("312_4mqji")
+frame = 3
+override_offset = true
+offset = Vector2(16, 4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_asrua"]
+script = ExtResource("312_4mqji")
+frame = 4
+override_offset = true
+offset = Vector2(10, -20)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_77oq4"]
+script = ExtResource("312_4mqji")
+frame = 5
+override_offset = true
+offset = Vector2(4, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_qfgdn"]
+script = ExtResource("312_4mqji")
+frame = 6
+override_offset = true
+offset = Vector2(-8, -4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_yjk88"]
+script = ExtResource("311_0q0t6")
+animation_name = &"HighPunch"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_kbnep"), SubResource("Resource_x8pmq"), SubResource("Resource_eqdax"), SubResource("Resource_ftys8"), SubResource("Resource_asrua"), SubResource("Resource_77oq4"), SubResource("Resource_qfgdn")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_xailq"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(20, -16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_8dcy2"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(20, -16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_vhc15"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(20, -16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_diodl"]
+script = ExtResource("312_4mqji")
+frame = 3
+override_offset = true
+offset = Vector2(40, -16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ye0iq"]
+script = ExtResource("311_0q0t6")
+animation_name = &"Kick"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_xailq"), SubResource("Resource_8dcy2"), SubResource("Resource_vhc15"), SubResource("Resource_diodl")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_f23qa"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(4, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_oo7pi"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(-4, -8)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_4wgh4"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(2, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_qfyai"]
+script = ExtResource("312_4mqji")
+frame = 3
+override_offset = true
+offset = Vector2(8, 4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_5poid"]
+script = ExtResource("312_4mqji")
+frame = 4
+override_offset = true
+offset = Vector2(16, -20)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_arpwk"]
+script = ExtResource("312_4mqji")
+frame = 5
+override_offset = true
+offset = Vector2(8, -8)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_3ntyk"]
+script = ExtResource("312_4mqji")
+frame = 6
+override_offset = true
+offset = Vector2(16, -8)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_chf3f"]
+script = ExtResource("312_4mqji")
+frame = 7
+override_offset = true
+offset = Vector2(46, -4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_3pn53"]
+script = ExtResource("312_4mqji")
+frame = 8
+override_offset = true
+offset = Vector2(68, -4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_644r0"]
+script = ExtResource("312_4mqji")
+frame = 9
+override_offset = true
+offset = Vector2(68, -4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_r37xo"]
+script = ExtResource("311_0q0t6")
+animation_name = &"LowKick"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_f23qa"), SubResource("Resource_oo7pi"), SubResource("Resource_4wgh4"), SubResource("Resource_qfyai"), SubResource("Resource_5poid"), SubResource("Resource_arpwk"), SubResource("Resource_3ntyk"), SubResource("Resource_chf3f"), SubResource("Resource_3pn53"), SubResource("Resource_644r0")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_o8iic"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(-2, 12)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_qnjv8"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(20, 12)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_86pmp"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(16, 8)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ws08y"]
+script = ExtResource("312_4mqji")
+frame = 3
+override_offset = true
+offset = Vector2(28, 16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_isjtc"]
+script = ExtResource("312_4mqji")
+frame = 4
+override_offset = true
+offset = Vector2(46, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_to74h"]
+script = ExtResource("312_4mqji")
+frame = 5
+override_offset = true
+offset = Vector2(2, 16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_rutc0"]
+script = ExtResource("312_4mqji")
+frame = 6
+override_offset = true
+offset = Vector2(8, 20)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_0wl0n"]
+script = ExtResource("312_4mqji")
+frame = 7
+override_offset = true
+offset = Vector2(2, 16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ikt4b"]
+script = ExtResource("311_0q0t6")
+animation_name = &"CrouchLightPunch"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_o8iic"), SubResource("Resource_qnjv8"), SubResource("Resource_86pmp"), SubResource("Resource_ws08y"), SubResource("Resource_isjtc"), SubResource("Resource_to74h"), SubResource("Resource_rutc0"), SubResource("Resource_0wl0n")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_cci1b"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(2, 20)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_irx6n"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(0, 12)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_aygnd"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(-6, 8)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_hki0p"]
+script = ExtResource("312_4mqji")
+frame = 3
+override_offset = true
+offset = Vector2(0, 16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_wtgqs"]
+script = ExtResource("312_4mqji")
+frame = 4
+override_offset = true
+offset = Vector2(2, 24)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ol530"]
+script = ExtResource("312_4mqji")
+frame = 5
+override_offset = true
+offset = Vector2(-2, -10)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_so4f8"]
+script = ExtResource("312_4mqji")
+frame = 6
+override_offset = true
+offset = Vector2(-2, -4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_y8wit"]
+script = ExtResource("311_0q0t6")
+animation_name = &"CrouchHighPunch"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_cci1b"), SubResource("Resource_irx6n"), SubResource("Resource_aygnd"), SubResource("Resource_hki0p"), SubResource("Resource_wtgqs"), SubResource("Resource_ol530"), SubResource("Resource_so4f8")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_jdbm7"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(-8, 20)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_16kg0"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(-6, 20)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_vapci"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(14, 16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_g4j6f"]
+script = ExtResource("312_4mqji")
+frame = 3
+override_offset = true
+offset = Vector2(48, 24)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_y18va"]
+script = ExtResource("311_0q0t6")
+animation_name = &"CrouchKick"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_jdbm7"), SubResource("Resource_16kg0"), SubResource("Resource_vapci"), SubResource("Resource_g4j6f")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_cnmcp"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(4, 20)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_tyh75"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(16, 20)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_q8v8p"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(58, 16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_o2yfu"]
+script = ExtResource("312_4mqji")
+frame = 3
+override_offset = true
+offset = Vector2(54, -16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_gcxwt"]
+script = ExtResource("312_4mqji")
+frame = 4
+override_offset = true
+offset = Vector2(52, -20)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_pyuxk"]
+script = ExtResource("312_4mqji")
+frame = 5
+override_offset = true
+offset = Vector2(54, -24)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_3gckw"]
+script = ExtResource("311_0q0t6")
+animation_name = &"CrouchLowKick"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_cnmcp"), SubResource("Resource_tyh75"), SubResource("Resource_q8v8p"), SubResource("Resource_o2yfu"), SubResource("Resource_gcxwt"), SubResource("Resource_pyuxk")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_j0d4p"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(12, -16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ay1ek"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(4, -12)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ptp62"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(-4, -20)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_2nnfm"]
+script = ExtResource("312_4mqji")
+frame = 3
+override_offset = true
+offset = Vector2(-8, -20)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_qpqcs"]
+script = ExtResource("312_4mqji")
+frame = 4
+override_offset = true
+offset = Vector2(24, -48)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ljvp4"]
+script = ExtResource("312_4mqji")
+frame = 5
+override_offset = true
+offset = Vector2(24, -48)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_yesab"]
+script = ExtResource("312_4mqji")
+frame = 6
+override_offset = true
+offset = Vector2(10, -8)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_d2vny"]
+script = ExtResource("311_0q0t6")
+animation_name = &"AirLightPunch"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_j0d4p"), SubResource("Resource_ay1ek"), SubResource("Resource_ptp62"), SubResource("Resource_2nnfm"), SubResource("Resource_qpqcs"), SubResource("Resource_ljvp4"), SubResource("Resource_yesab")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_nhl8b"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(30, 8)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_tyroj"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(48, -8)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_fdkss"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(46, -12)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_10nvl"]
+script = ExtResource("312_4mqji")
+frame = 3
+override_offset = true
+offset = Vector2(40, -12)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_u2sut"]
+script = ExtResource("312_4mqji")
+frame = 4
+override_offset = true
+offset = Vector2(28, -4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_rlvc4"]
+script = ExtResource("311_0q0t6")
+animation_name = &"AirHighPunch"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_nhl8b"), SubResource("Resource_tyroj"), SubResource("Resource_fdkss"), SubResource("Resource_10nvl"), SubResource("Resource_u2sut")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_wfn2u"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(-4, -24)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_3sqyj"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(4, -4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_uksds"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(0, 16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_xewjc"]
+script = ExtResource("312_4mqji")
+frame = 3
+override_offset = true
+offset = Vector2(38, 20)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_gspvs"]
+script = ExtResource("312_4mqji")
+frame = 4
+override_offset = true
+offset = Vector2(32, -16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ruxcx"]
+script = ExtResource("312_4mqji")
+frame = 5
+override_offset = true
+offset = Vector2(34, -24)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_5ettp"]
+script = ExtResource("312_4mqji")
+frame = 6
+override_offset = true
+offset = Vector2(34, -28)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_yupml"]
+script = ExtResource("312_4mqji")
+frame = 7
+override_offset = true
+offset = Vector2(8, -72)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ogfoq"]
+script = ExtResource("311_0q0t6")
+animation_name = &"AirKick"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_wfn2u"), SubResource("Resource_3sqyj"), SubResource("Resource_uksds"), SubResource("Resource_xewjc"), SubResource("Resource_gspvs"), SubResource("Resource_ruxcx"), SubResource("Resource_5ettp"), SubResource("Resource_yupml")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_75830"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(16, -4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_rg8vj"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(8, -16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_s1e0c"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(12, -8)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_aktvi"]
+script = ExtResource("312_4mqji")
+frame = 3
+override_offset = true
+offset = Vector2(32, -4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_8xgbe"]
+script = ExtResource("312_4mqji")
+frame = 4
+override_offset = true
+offset = Vector2(22, -8)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_pqbwp"]
+script = ExtResource("311_0q0t6")
+animation_name = &"AirLowKick"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_75830"), SubResource("Resource_rg8vj"), SubResource("Resource_s1e0c"), SubResource("Resource_aktvi"), SubResource("Resource_8xgbe")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_7o6mh"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(22, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_a0sid"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(26, -40)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_78ox4"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(30, -32)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_wa3ll"]
+script = ExtResource("312_4mqji")
+frame = 3
+override_offset = true
+offset = Vector2(16, -24)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_wkfxk"]
+script = ExtResource("312_4mqji")
+frame = 4
+override_offset = true
+offset = Vector2(18, -56)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_i0sxq"]
+script = ExtResource("312_4mqji")
+frame = 5
+override_offset = true
+offset = Vector2(14, -72)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ftj2c"]
+script = ExtResource("312_4mqji")
+frame = 6
+override_offset = true
+offset = Vector2(8, -84)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_qsu8n"]
+script = ExtResource("311_0q0t6")
+animation_name = &"Jump"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_7o6mh"), SubResource("Resource_a0sid"), SubResource("Resource_78ox4"), SubResource("Resource_wa3ll"), SubResource("Resource_wkfxk"), SubResource("Resource_i0sxq"), SubResource("Resource_ftj2c")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_s77yb"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(-4, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_cmnun"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(4, 24)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_p5468"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(4, 16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_aqjk3"]
+script = ExtResource("312_4mqji")
+frame = 3
+override_offset = true
+offset = Vector2(4, 16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_n1qbh"]
+script = ExtResource("312_4mqji")
+frame = 4
+override_offset = true
+offset = Vector2(4, 16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_a7xsw"]
+script = ExtResource("312_4mqji")
+frame = 5
+override_offset = true
+offset = Vector2(0, 16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_hq6mf"]
+script = ExtResource("312_4mqji")
+frame = 6
+override_offset = true
+offset = Vector2(0, 16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ka6n6"]
+script = ExtResource("312_4mqji")
+frame = 7
+override_offset = true
+offset = Vector2(0, 16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ifav8"]
+script = ExtResource("311_0q0t6")
+animation_name = &"StartJump"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_s77yb"), SubResource("Resource_cmnun"), SubResource("Resource_p5468"), SubResource("Resource_aqjk3"), SubResource("Resource_n1qbh"), SubResource("Resource_a7xsw"), SubResource("Resource_hq6mf"), SubResource("Resource_ka6n6")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_5gjpm"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(16, 8)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_tyyre"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(4, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_el432"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(-2, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_i2ahn"]
+script = ExtResource("311_0q0t6")
+animation_name = &"Guard"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_5gjpm"), SubResource("Resource_tyyre"), SubResource("Resource_el432")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_wdw3r"]
+script = ExtResource("311_0q0t6")
+animation_name = &"GuardWhile"
+override_offset = true
+offset = Vector2(-2, 0)
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_6871g"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(-2, 4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_xtr6b"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(4, 4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_sq1fx"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(6, 4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_hmg2f"]
+script = ExtResource("312_4mqji")
+frame = 3
+override_offset = true
+offset = Vector2(14, 24)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_eow2n"]
+script = ExtResource("312_4mqji")
+frame = 4
+override_offset = true
+offset = Vector2(20, 28)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_70oxx"]
+script = ExtResource("312_4mqji")
+frame = 5
+override_offset = true
+offset = Vector2(26, 12)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_728sw"]
+script = ExtResource("311_0q0t6")
+animation_name = &"ParryRecoil"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_6871g"), SubResource("Resource_xtr6b"), SubResource("Resource_sq1fx"), SubResource("Resource_hmg2f"), SubResource("Resource_eow2n"), SubResource("Resource_70oxx")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_ftong"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(6, -12)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_e3s1r"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(4, -12)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_qpwsp"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(6, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_cu22s"]
+script = ExtResource("312_4mqji")
+frame = 3
+override_offset = true
+offset = Vector2(10, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_oukjy"]
+script = ExtResource("312_4mqji")
+frame = 4
+override_offset = true
+offset = Vector2(14, 4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_xbla5"]
+script = ExtResource("312_4mqji")
+frame = 5
+override_offset = true
+offset = Vector2(20, -8)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ck5e0"]
+script = ExtResource("312_4mqji")
+frame = 6
+override_offset = true
+offset = Vector2(14, 4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_a17x5"]
+script = ExtResource("312_4mqji")
+frame = 7
+override_offset = true
+offset = Vector2(10, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_i88n7"]
+script = ExtResource("312_4mqji")
+frame = 8
+override_offset = true
+offset = Vector2(6, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_q8vxk"]
+script = ExtResource("312_4mqji")
+frame = 9
+override_offset = true
+offset = Vector2(4, -12)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_7p24f"]
+script = ExtResource("312_4mqji")
+frame = 10
+override_offset = true
+offset = Vector2(6, -12)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_enxpy"]
+script = ExtResource("311_0q0t6")
+animation_name = &"Hurt"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_ftong"), SubResource("Resource_e3s1r"), SubResource("Resource_qpwsp"), SubResource("Resource_cu22s"), SubResource("Resource_oukjy"), SubResource("Resource_xbla5"), SubResource("Resource_ck5e0"), SubResource("Resource_a17x5"), SubResource("Resource_i88n7"), SubResource("Resource_q8vxk"), SubResource("Resource_7p24f")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_nwa76"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(6, -8)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_kq6dp"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(8, 16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_1l1nx"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(16, 16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_qtb8w"]
+script = ExtResource("312_4mqji")
+frame = 3
+override_offset = true
+offset = Vector2(18, 22)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_dg8p6"]
+script = ExtResource("312_4mqji")
+frame = 4
+override_offset = true
+offset = Vector2(22, 20)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_5vs2u"]
+script = ExtResource("312_4mqji")
+frame = 5
+override_offset = true
+offset = Vector2(24, 20)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_sksjr"]
+script = ExtResource("312_4mqji")
+frame = 6
+override_offset = true
+offset = Vector2(28, 4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_g58ge"]
+script = ExtResource("312_4mqji")
+frame = 7
+override_offset = true
+offset = Vector2(28, 8)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_04k1r"]
+script = ExtResource("312_4mqji")
+frame = 8
+override_offset = true
+offset = Vector2(24, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_1llj4"]
+script = ExtResource("312_4mqji")
+frame = 9
+override_offset = true
+offset = Vector2(12, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_vyhsw"]
+script = ExtResource("312_4mqji")
+frame = 10
+override_offset = true
+offset = Vector2(22, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_s7206"]
+script = ExtResource("312_4mqji")
+frame = 11
+override_offset = true
+offset = Vector2(24, 28)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_opwb2"]
+script = ExtResource("312_4mqji")
+frame = 12
+override_offset = true
+offset = Vector2(26, 44)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_gwhi6"]
+script = ExtResource("312_4mqji")
+frame = 13
+override_offset = true
+offset = Vector2(34, 56)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_mal33"]
+script = ExtResource("311_0q0t6")
+animation_name = &"HurtFall"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_nwa76"), SubResource("Resource_kq6dp"), SubResource("Resource_1l1nx"), SubResource("Resource_qtb8w"), SubResource("Resource_dg8p6"), SubResource("Resource_5vs2u"), SubResource("Resource_sksjr"), SubResource("Resource_g58ge"), SubResource("Resource_04k1r"), SubResource("Resource_1llj4"), SubResource("Resource_vyhsw"), SubResource("Resource_s7206"), SubResource("Resource_opwb2"), SubResource("Resource_gwhi6")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_8ciln"]
+script = ExtResource("311_0q0t6")
+animation_name = &"Fall"
+override_offset = true
+offset = Vector2(34, 56)
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_4r3ac"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(6, -8)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_6xyxx"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(8, 16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_b3m5s"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(16, 16)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_7d1q5"]
+script = ExtResource("312_4mqji")
+frame = 3
+override_offset = true
+offset = Vector2(18, 20)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_owa58"]
+script = ExtResource("312_4mqji")
+frame = 4
+override_offset = true
+offset = Vector2(22, 20)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_0wdtg"]
+script = ExtResource("312_4mqji")
+frame = 5
+override_offset = true
+offset = Vector2(24, 20)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_bt3ip"]
+script = ExtResource("312_4mqji")
+frame = 6
+override_offset = true
+offset = Vector2(28, 4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ian6r"]
+script = ExtResource("312_4mqji")
+frame = 7
+override_offset = true
+offset = Vector2(28, 8)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_g83d4"]
+script = ExtResource("312_4mqji")
+frame = 8
+override_offset = true
+offset = Vector2(24, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_jo8n4"]
+script = ExtResource("312_4mqji")
+frame = 9
+override_offset = true
+offset = Vector2(12, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ebwyc"]
+script = ExtResource("312_4mqji")
+frame = 10
+override_offset = true
+offset = Vector2(22, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_iy3kk"]
+script = ExtResource("312_4mqji")
+frame = 11
+override_offset = true
+offset = Vector2(24, 28)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_hemqq"]
+script = ExtResource("312_4mqji")
+frame = 12
+override_offset = true
+offset = Vector2(26, 44)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_8f08k"]
+script = ExtResource("312_4mqji")
+frame = 13
+override_offset = true
+offset = Vector2(34, 56)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_rfpqx"]
+script = ExtResource("312_4mqji")
+frame = 14
+override_offset = true
+offset = Vector2(50, 56)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_am1je"]
+script = ExtResource("311_0q0t6")
+animation_name = &"FallDefeated"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_4r3ac"), SubResource("Resource_6xyxx"), SubResource("Resource_b3m5s"), SubResource("Resource_7d1q5"), SubResource("Resource_owa58"), SubResource("Resource_0wdtg"), SubResource("Resource_bt3ip"), SubResource("Resource_ian6r"), SubResource("Resource_g83d4"), SubResource("Resource_jo8n4"), SubResource("Resource_ebwyc"), SubResource("Resource_iy3kk"), SubResource("Resource_hemqq"), SubResource("Resource_8f08k"), SubResource("Resource_rfpqx")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_53s5n"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(26, 28)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_laemp"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(18, 12)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_8y0dk"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(10, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_q2tln"]
+script = ExtResource("312_4mqji")
+frame = 3
+override_offset = true
+offset = Vector2(18, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_hpakg"]
+script = ExtResource("312_4mqji")
+frame = 4
+override_offset = true
+offset = Vector2(-2, -12)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_jli0n"]
+script = ExtResource("311_0q0t6")
+animation_name = &"GetUp"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_53s5n"), SubResource("Resource_laemp"), SubResource("Resource_8y0dk"), SubResource("Resource_q2tln"), SubResource("Resource_hpakg")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_fqaj4"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(4, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_0yyh8"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(8, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_3ft8w"]
+script = ExtResource("311_0q0t6")
+animation_name = &"Defeated"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_fqaj4"), SubResource("Resource_0yyh8")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_cwwt3"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(-6, 4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_8u35u"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(-6, 4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_qivge"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(-6, 4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_aolri"]
+script = ExtResource("312_4mqji")
+frame = 3
+override_offset = true
+offset = Vector2(-6, 4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ic6gm"]
+script = ExtResource("312_4mqji")
+frame = 4
+override_offset = true
+offset = Vector2(-6, 4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_taus5"]
+script = ExtResource("312_4mqji")
+frame = 5
+override_offset = true
+offset = Vector2(-6, 4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_dskml"]
+script = ExtResource("312_4mqji")
+frame = 6
+override_offset = true
+offset = Vector2(-6, 4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_54e28"]
+script = ExtResource("312_4mqji")
+frame = 7
+override_offset = true
+offset = Vector2(-6, 4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_f5vjs"]
+script = ExtResource("311_0q0t6")
+animation_name = &"Stun"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_cwwt3"), SubResource("Resource_8u35u"), SubResource("Resource_qivge"), SubResource("Resource_aolri"), SubResource("Resource_ic6gm"), SubResource("Resource_taus5"), SubResource("Resource_dskml"), SubResource("Resource_54e28")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_drbnh"]
+script = ExtResource("311_0q0t6")
+animation_name = &"TryGrab"
+override_offset = true
+offset = Vector2(6, 0)
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_pg2au"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(8, -4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_jjo71"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(-6, -44)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_t4gr8"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(4, -40)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_que7l"]
+script = ExtResource("312_4mqji")
+frame = 3
+override_offset = true
+offset = Vector2(0, -44)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_j5eq6"]
+script = ExtResource("312_4mqji")
+frame = 4
+override_offset = true
+offset = Vector2(0, -44)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_mts5i"]
+script = ExtResource("311_0q0t6")
+animation_name = &"Throw"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_pg2au"), SubResource("Resource_jjo71"), SubResource("Resource_t4gr8"), SubResource("Resource_que7l"), SubResource("Resource_j5eq6")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_vbge4"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(26, -24)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_cwy8y"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(24, -8)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_3kgai"]
+script = ExtResource("311_0q0t6")
+animation_name = &"Thrown"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_vbge4"), SubResource("Resource_cwy8y")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_q5uh5"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(12, -32)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_fvem3"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(0, -36)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_gihvi"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(6, -36)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_5bywt"]
+script = ExtResource("312_4mqji")
+frame = 3
+override_offset = true
+offset = Vector2(10, -36)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_2ihan"]
+script = ExtResource("312_4mqji")
+frame = 4
+override_offset = true
+offset = Vector2(16, -40)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_p1xai"]
+script = ExtResource("312_4mqji")
+frame = 5
+override_offset = true
+offset = Vector2(8, -72)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_a6r3g"]
+script = ExtResource("312_4mqji")
+frame = 6
+override_offset = true
+offset = Vector2(0, -84)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_7hl6g"]
+script = ExtResource("312_4mqji")
+frame = 7
+override_offset = true
+offset = Vector2(-6, -88)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_fd6px"]
+script = ExtResource("312_4mqji")
+frame = 8
+override_offset = true
+offset = Vector2(2, -56)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_bd6jp"]
+script = ExtResource("312_4mqji")
+frame = 9
+override_offset = true
+offset = Vector2(6, -36)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_h2341"]
+script = ExtResource("312_4mqji")
+frame = 10
+override_offset = true
+offset = Vector2(14, -8)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_rfwo7"]
+script = ExtResource("312_4mqji")
+frame = 11
+override_offset = true
+offset = Vector2(8, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_52r71"]
+script = ExtResource("312_4mqji")
+frame = 12
+override_offset = true
+offset = Vector2(2, -4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_tquae"]
+script = ExtResource("311_0q0t6")
+animation_name = &"Entry"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_q5uh5"), SubResource("Resource_fvem3"), SubResource("Resource_gihvi"), SubResource("Resource_5bywt"), SubResource("Resource_2ihan"), SubResource("Resource_p1xai"), SubResource("Resource_a6r3g"), SubResource("Resource_7hl6g"), SubResource("Resource_fd6px"), SubResource("Resource_bd6jp"), SubResource("Resource_h2341"), SubResource("Resource_rfwo7"), SubResource("Resource_52r71")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_5bv21"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(20, -32)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_y38y7"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(8, -12)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_kpajt"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(14, -20)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_khx8l"]
+script = ExtResource("312_4mqji")
+frame = 3
+override_offset = true
+offset = Vector2(26, -24)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_0pcji"]
+script = ExtResource("312_4mqji")
+frame = 4
+override_offset = true
+offset = Vector2(42, -36)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_vafe2"]
+script = ExtResource("312_4mqji")
+frame = 5
+override_offset = true
+offset = Vector2(40, -28)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_12frs"]
+script = ExtResource("312_4mqji")
+frame = 6
+override_offset = true
+offset = Vector2(50, -32)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_48fas"]
+script = ExtResource("312_4mqji")
+frame = 7
+override_offset = true
+offset = Vector2(54, -32)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ba83p"]
+script = ExtResource("312_4mqji")
+frame = 8
+override_offset = true
+offset = Vector2(60, -44)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_mdvwc"]
+script = ExtResource("312_4mqji")
+frame = 9
+override_offset = true
+offset = Vector2(56, -92)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_8c876"]
+script = ExtResource("312_4mqji")
+frame = 10
+override_offset = true
+offset = Vector2(56, -80)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_5k3wx"]
+script = ExtResource("312_4mqji")
+frame = 11
+override_offset = true
+offset = Vector2(52, -84)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_kfdyt"]
+script = ExtResource("312_4mqji")
+frame = 12
+override_offset = true
+offset = Vector2(52, -112)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_34bmi"]
+script = ExtResource("312_4mqji")
+frame = 13
+override_offset = true
+offset = Vector2(38, -32)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_18xve"]
+script = ExtResource("312_4mqji")
+frame = 14
+override_offset = true
+offset = Vector2(36, -28)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_y0mf1"]
+script = ExtResource("312_4mqji")
+frame = 15
+override_offset = true
+offset = Vector2(36, -32)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_vbsl5"]
+script = ExtResource("312_4mqji")
+frame = 16
+override_offset = true
+offset = Vector2(38, -28)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_i3jxx"]
+script = ExtResource("312_4mqji")
+frame = 17
+override_offset = true
+offset = Vector2(36, -28)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_fmgqv"]
+script = ExtResource("312_4mqji")
+frame = 18
+override_offset = true
+offset = Vector2(36, -28)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_8ebvg"]
+script = ExtResource("312_4mqji")
+frame = 19
+override_offset = true
+offset = Vector2(38, -28)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_a07hj"]
+script = ExtResource("312_4mqji")
+frame = 20
+override_offset = true
+offset = Vector2(40, -32)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_41wp1"]
+script = ExtResource("312_4mqji")
+frame = 21
+override_offset = true
+offset = Vector2(12, -32)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_rclnx"]
+script = ExtResource("312_4mqji")
+frame = 22
+override_offset = true
+offset = Vector2(0, -36)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_os28e"]
+script = ExtResource("312_4mqji")
+frame = 23
+override_offset = true
+offset = Vector2(6, -36)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_b61lu"]
+script = ExtResource("312_4mqji")
+frame = 24
+override_offset = true
+offset = Vector2(10, -36)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_koowe"]
+script = ExtResource("312_4mqji")
+frame = 25
+override_offset = true
+offset = Vector2(16, -40)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_k44by"]
+script = ExtResource("312_4mqji")
+frame = 26
+override_offset = true
+offset = Vector2(8, -72)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_aasmk"]
+script = ExtResource("312_4mqji")
+frame = 27
+override_offset = true
+offset = Vector2(0, -84)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ak5cq"]
+script = ExtResource("312_4mqji")
+frame = 28
+override_offset = true
+offset = Vector2(-6, -88)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_c8le7"]
+script = ExtResource("312_4mqji")
+frame = 29
+override_offset = true
+offset = Vector2(2, -56)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_0k85a"]
+script = ExtResource("312_4mqji")
+frame = 30
+override_offset = true
+offset = Vector2(6, -36)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ch07g"]
+script = ExtResource("312_4mqji")
+frame = 31
+override_offset = true
+offset = Vector2(14, -8)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_rbbm0"]
+script = ExtResource("312_4mqji")
+frame = 32
+override_offset = true
+offset = Vector2(8, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_yr2oa"]
+script = ExtResource("312_4mqji")
+frame = 33
+override_offset = true
+offset = Vector2(2, -4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_fm8fu"]
+script = ExtResource("311_0q0t6")
+animation_name = &"Taunt"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_5bv21"), SubResource("Resource_y38y7"), SubResource("Resource_kpajt"), SubResource("Resource_khx8l"), SubResource("Resource_0pcji"), SubResource("Resource_vafe2"), SubResource("Resource_12frs"), SubResource("Resource_48fas"), SubResource("Resource_ba83p"), SubResource("Resource_mdvwc"), SubResource("Resource_8c876"), SubResource("Resource_5k3wx"), SubResource("Resource_kfdyt"), SubResource("Resource_34bmi"), SubResource("Resource_18xve"), SubResource("Resource_y0mf1"), SubResource("Resource_vbsl5"), SubResource("Resource_i3jxx"), SubResource("Resource_fmgqv"), SubResource("Resource_8ebvg"), SubResource("Resource_a07hj"), SubResource("Resource_41wp1"), SubResource("Resource_rclnx"), SubResource("Resource_os28e"), SubResource("Resource_b61lu"), SubResource("Resource_koowe"), SubResource("Resource_k44by"), SubResource("Resource_aasmk"), SubResource("Resource_ak5cq"), SubResource("Resource_c8le7"), SubResource("Resource_0k85a"), SubResource("Resource_ch07g"), SubResource("Resource_rbbm0"), SubResource("Resource_yr2oa")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_qfvv5"]
+script = ExtResource("312_4mqji")
+override_offset = true
+offset = Vector2(0, -8)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ggs0i"]
+script = ExtResource("312_4mqji")
+frame = 1
+override_offset = true
+offset = Vector2(2, -8)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_jxw5o"]
+script = ExtResource("312_4mqji")
+frame = 2
+override_offset = true
+offset = Vector2(0, -8)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_35qye"]
+script = ExtResource("312_4mqji")
+frame = 3
+override_offset = true
+offset = Vector2(12, -28)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_i061u"]
+script = ExtResource("312_4mqji")
+frame = 4
+override_offset = true
+offset = Vector2(12, -36)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_lvhpu"]
+script = ExtResource("312_4mqji")
+frame = 5
+override_offset = true
+offset = Vector2(14, -56)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_25dxg"]
+script = ExtResource("312_4mqji")
+frame = 6
+override_offset = true
+offset = Vector2(14, -80)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_u150p"]
+script = ExtResource("312_4mqji")
+frame = 7
+override_offset = true
+offset = Vector2(40, -108)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_wq17p"]
+script = ExtResource("312_4mqji")
+frame = 8
+override_offset = true
+offset = Vector2(20, -61)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_fvu2x"]
+script = ExtResource("312_4mqji")
+frame = 9
+override_offset = true
+offset = Vector2(20, -61)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_hmpyu"]
+script = ExtResource("312_4mqji")
+frame = 10
+override_offset = true
+offset = Vector2(10, -45)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_lrdpi"]
+script = ExtResource("312_4mqji")
+frame = 11
+override_offset = true
+offset = Vector2(14, -96)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_r2a6g"]
+script = ExtResource("312_4mqji")
+frame = 12
+override_offset = true
+offset = Vector2(16, -92)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ueof3"]
+script = ExtResource("312_4mqji")
+frame = 13
+override_offset = true
+offset = Vector2(14, -96)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_mup8r"]
+script = ExtResource("311_0q0t6")
+animation_name = &"Victory"
+frame_adjustments = Array[ExtResource("312_4mqji")]([SubResource("Resource_qfvv5"), SubResource("Resource_ggs0i"), SubResource("Resource_jxw5o"), SubResource("Resource_35qye"), SubResource("Resource_i061u"), SubResource("Resource_lvhpu"), SubResource("Resource_25dxg"), SubResource("Resource_u150p"), SubResource("Resource_wq17p"), SubResource("Resource_fvu2x"), SubResource("Resource_hmpyu"), SubResource("Resource_lrdpi"), SubResource("Resource_r2a6g"), SubResource("Resource_ueof3")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_vmehk"]
+script = ExtResource("313_j30mk")
+animation_adjustments = Array[ExtResource("311_0q0t6")]([SubResource("Resource_lvtm5"), SubResource("Resource_s7sc3"), SubResource("Resource_jir4t"), SubResource("Resource_nsc3p"), SubResource("Resource_5v305"), SubResource("Resource_2c7yg"), SubResource("Resource_nnd20"), SubResource("Resource_ysmrg"), SubResource("Resource_ypn7n"), SubResource("Resource_ps1y3"), SubResource("Resource_yjk88"), SubResource("Resource_ye0iq"), SubResource("Resource_r37xo"), SubResource("Resource_ikt4b"), SubResource("Resource_y8wit"), SubResource("Resource_y18va"), SubResource("Resource_3gckw"), SubResource("Resource_d2vny"), SubResource("Resource_rlvc4"), SubResource("Resource_ogfoq"), SubResource("Resource_pqbwp"), SubResource("Resource_qsu8n"), SubResource("Resource_ifav8"), SubResource("Resource_i2ahn"), SubResource("Resource_wdw3r"), SubResource("Resource_728sw"), SubResource("Resource_enxpy"), SubResource("Resource_mal33"), SubResource("Resource_8ciln"), SubResource("Resource_am1je"), SubResource("Resource_jli0n"), SubResource("Resource_3ft8w"), SubResource("Resource_f5vjs"), SubResource("Resource_drbnh"), SubResource("Resource_mts5i"), SubResource("Resource_3kgai"), SubResource("Resource_tquae"), SubResource("Resource_fm8fu"), SubResource("Resource_mup8r")])
+metadata/_custom_type_script = "uid://daxf6scsvh673"
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_drr2n"]
-points = PackedVector2Array(-148, 80, 111, 80, -20, 34)
+points = PackedVector2Array(-194, 201, 190, 206, 11, -136)
 
 [node name="Potenkim" type="CharacterBody2D" unique_id=1892667997 node_paths=PackedStringArray("body_collision", "anti_stack_collision")]
 script = ExtResource("1_cbsdk")
@@ -1573,14 +3898,15 @@ body_collision = NodePath("CollisionShape2D")
 anti_stack_collision = NodePath("AntiStackCollision")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2063367094]
-scale = Vector2(1.956, 1.956)
+scale = Vector2(1.8, 1.8)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"Stun"
-frame_progress = 0.60887784
+animation = &"SlideHead"
+frame = 4
+offset = Vector2(40, 60)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1137279768]
 visible = false
-position = Vector2(-24.75, 52)
+position = Vector2(33.5, 41)
 shape = SubResource("RectangleShape2D_qkyit")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=241036802 node_paths=PackedStringArray("health", "state_machine", "head_shape", "torso_shape", "feet_shape", "crouch_shape")]
@@ -1597,19 +3923,19 @@ feet_shape = NodePath("FeetShape")
 crouch_shape = NodePath("CrouchShape")
 
 [node name="HeadShape" type="CollisionShape2D" parent="Hurtbox" unique_id=1999467920]
-position = Vector2(5, -20)
+position = Vector2(-93, -150)
 shape = SubResource("CircleShape2D_flcoc")
 
 [node name="TorsoShape" type="CollisionShape2D" parent="Hurtbox" unique_id=1381567128]
-position = Vector2(-22.5, 30.25)
+position = Vector2(32.875, -44.1875)
 shape = SubResource("RectangleShape2D_gloog")
 
 [node name="FeetShape" type="CollisionShape2D" parent="Hurtbox" unique_id=676081703]
-position = Vector2(-38.5, 137.75)
+position = Vector2(37, 191.875)
 shape = SubResource("RectangleShape2D_jeabl")
 
 [node name="CrouchShape" type="CollisionShape2D" parent="Hurtbox" unique_id=1989103608]
-position = Vector2(-22.5, 100)
+position = Vector2(0.25, 20.5)
 shape = SubResource("RectangleShape2D_y8txj")
 
 [node name="Health" type="Node" parent="." unique_id=1045650779]
@@ -1658,7 +3984,7 @@ player_controls = SubResource("Resource_7djc3")
 
 [node name="CommandParser" type="Node" parent="." unique_id=486781128 node_paths=PackedStringArray("input_buffer")]
 script = ExtResource("255_0pcji")
-commands = Array[ExtResource("256_vafe2")]([ExtResource("257_12frs"), ExtResource("258_48fas")])
+commands = Array[ExtResource("256_vafe2")]([ExtResource("257_cbsdk"), ExtResource("257_cbsdk")])
 input_buffer = NodePath("../InputBuffer")
 
 [node name="VoicePlayer" type="Node" parent="." unique_id=842979086]
@@ -1878,37 +4204,27 @@ script = ExtResource("297_r2a6g")
 special_voices = Array[AudioStream]([ExtResource("298_ueof3"), ExtResource("299_mup8r")])
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
-[node name="BanishingFlat" type="Node" parent="StateMachine" unique_id=1304454734 node_paths=PackedStringArray("hitbox")]
-script = ExtResource("300_yesab")
-hitbox = NodePath("../../Hitboxers/BanishingFlat")
-active_start_frame = 2
-active_end_frame = 5
+[node name="MegaFist" type="Node" parent="StateMachine" unique_id=1369972705 node_paths=PackedStringArray("hitbox")]
+script = ExtResource("299_8gwx2")
+hitbox = NodePath("../../Hitboxers/MegaFist")
+active_start_frame = 4
+active_end_frame = 6
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
-[node name="SpinningPildriver" type="Node" parent="StateMachine" unique_id=93576222]
-script = ExtResource("285_qfvv5")
-throw_animation = &"SpinningPiledriver"
-move_victim_during_throw = true
-victim_path_by_frame = Array[Vector2]([Vector2(0, 0), Vector2(5, -15), Vector2(8, -35), Vector2(4, -55), Vector2(-4, -68), Vector2(-8, -52), Vector2(-4, -28), Vector2(0, 5)])
-target_rotation_by_frame = Array[float]([0.0, 60.0, 130.0, 210.0, 290.0, 370.0, 450.0, 540.0])
-release_frame = 9
+[node name="SlideHead" type="Node" parent="StateMachine" unique_id=1178867562 node_paths=PackedStringArray("quake_hitbox")]
+script = ExtResource("300_0q0t6")
+quake_hitbox = NodePath("../../Hitboxers/SlideHead")
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
-[node name="SpinningPildriverTry" type="Node" parent="StateMachine" unique_id=1799989505 node_paths=PackedStringArray("throw_box")]
-script = ExtResource("291_25dxg")
-throw_box = NodePath("../../Hitboxers/SpinningPildriver")
-active_end_frame = 2
-throw_state = &"SpinningPiledriver"
+[node name="PotenkimBusterTry" type="Node" parent="StateMachine" unique_id=1933176017]
+script = ExtResource("300_8gwx2")
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
-[node name="DoubleLariat" type="Node" parent="StateMachine" unique_id=1578134121 node_paths=PackedStringArray("hitbox")]
-script = ExtResource("301_wsi31")
-hitbox = NodePath("../../Hitboxers/DoubleLariat")
-active_end_frame = 17
+[node name="potenkimBuster" type="Node" parent="StateMachine" unique_id=795461407]
+script = ExtResource("300_8gwx2")
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="Hitboxers" type="Node2D" parent="." unique_id=1330527987]
-visible = false
 position = Vector2(0, 4)
 
 [node name="LightPunch" type="Area2D" parent="Hitboxers" unique_id=1445031812]
@@ -1923,8 +4239,8 @@ impact_volume_db = -1.0
 hit_data = SubResource("Resource_eswd0")
 
 [node name="HitColision" type="CollisionPolygon2D" parent="Hitboxers/LightPunch" unique_id=1609064660]
-position = Vector2(82, 20)
-polygon = PackedVector2Array(-138, -114, -60, -83, 10, -82, 49, -69, 108, -13, 158, 75, 175, -6, 147, -69, 84, -117, -40, -125)
+position = Vector2(63, -130)
+polygon = PackedVector2Array(-271, 197, -216, 4, -191, -37, -106, -85, -21, -120, 59, -104, 139, -77, 49, -169, -80, -189, -180, -155, -282, -74, -320, 7)
 
 [node name="HighPunch" type="Area2D" parent="Hitboxers" unique_id=671267806]
 visible = false
@@ -1937,9 +4253,9 @@ hit_sound = ExtResource("306_ua1mk")
 guard_sound = ExtResource("304_myb47")
 hit_data = SubResource("Resource_1y82m")
 
-[node name="HitColision" type="CollisionShape2D" parent="Hitboxers/HighPunch" unique_id=620222040]
+[node name="HitColision" type="CollisionPolygon2D" parent="Hitboxers/HighPunch" unique_id=837219645]
 position = Vector2(110, 3.5)
-shape = SubResource("RectangleShape2D_2fwhh")
+polygon = PackedVector2Array(-21, -397.5, -276, -249.5, -358, -194.5, -407, -125.5, -455, -25.5, -425, 222.5, -475, 202.5, -500, 85.5, -524, -34.5, -512, -158.5, -450, -256.5, -326, -328.5, -209, -353.5)
 
 [node name="Kick" type="Area2D" parent="Hitboxers" unique_id=40085513]
 visible = false
@@ -1953,8 +4269,9 @@ guard_sound = ExtResource("304_myb47")
 hit_data = SubResource("Resource_c828g")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/Kick" unique_id=1286226779]
-position = Vector2(135.9933, -15.25882)
-rotation = -0.08726645
+position = Vector2(-181.2663, 96.68518)
+rotation = -0.34906584
+scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="LowKick" type="Area2D" parent="Hitboxers" unique_id=1772527158]
@@ -1968,8 +4285,8 @@ guard_sound = ExtResource("304_myb47")
 hit_data = SubResource("Resource_5eklt")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/LowKick" unique_id=737385493]
-position = Vector2(119.53108, 62.94615)
-rotation = -1.0471976
+position = Vector2(-170, -34)
+rotation = 1.2217305
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_ypqdr")
 
@@ -1982,7 +4299,9 @@ guard_sound = ExtResource("304_myb47")
 hit_data = SubResource("Resource_jpp6u")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/CrouchLightPunch" unique_id=1466533505]
-position = Vector2(70.75, 15)
+position = Vector2(-174.2482, -170.39594)
+rotation = 0.2617994
+scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_oay3g")
 
 [node name="CrouchHighPunch" type="Area2D" parent="Hitboxers" unique_id=280327612]
@@ -1995,9 +4314,9 @@ guard_sound = ExtResource("304_myb47")
 hit_data = SubResource("Resource_jpp6u")
 
 [node name="HitColision" type="CollisionPolygon2D" parent="Hitboxers/CrouchHighPunch" unique_id=506132740]
-position = Vector2(162, -77)
+position = Vector2(-130, -164)
 rotation = 2.5307274
-polygon = PackedVector2Array(-9.757599, 62.75181, -25.481232, 22.443413, 2.462555, -34.898933, 39.33291, -70.12077, 76.443726, -67.330215, 147.79407, -33.240234, 81.51839, -34.478302, 45.875916, 7.7071686, 23.013588, 49.075203)
+polygon = PackedVector2Array(-174.51169, 109.75276, -168.19215, 27.502762, -52.757133, -10.083908, 3.121952, -63.735817, 34.749386, -100.18724, 61.135593, -150.07478, 86.35597, -64.051926, 67.66843, 0.9924927, -7.549122, 87.49292, -118.890076, 140.15402)
 
 [node name="CrouchKick" type="Area2D" parent="Hitboxers" unique_id=1712473104]
 visible = false
@@ -2009,7 +4328,7 @@ guard_sound = ExtResource("304_myb47")
 hit_data = SubResource("Resource_jpp6u")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/CrouchKick" unique_id=90840365]
-position = Vector2(138, 3)
+position = Vector2(-245, -33)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_4hvt0")
 
@@ -2023,8 +4342,8 @@ guard_sound = ExtResource("304_myb47")
 hit_data = SubResource("Resource_qxayb")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/CrouchLowKick" unique_id=1763550637]
-position = Vector2(132.27164, 55.32408)
-rotation = 0.26179937
+position = Vector2(-209.37384, 82.53888)
+rotation = -0.43633232
 scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_8wvuv")
 
@@ -2038,7 +4357,7 @@ guard_sound = ExtResource("304_myb47")
 hit_data = SubResource("Resource_qxayb")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/AirLightPunch" unique_id=1939671706]
-position = Vector2(129.66473, 13.726351)
+position = Vector2(-177.5, 100.99999)
 scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_vexq3")
 
@@ -2053,10 +4372,10 @@ guard_sound = ExtResource("304_myb47")
 hit_data = SubResource("Resource_qxayb")
 
 [node name="FirstHitShape" type="CollisionPolygon2D" parent="Hitboxers/AirHighPunch" unique_id=571118486]
-position = Vector2(89.00001, 20.000008)
+position = Vector2(-172, 123.000015)
 rotation = 0.43633232
 scale = Vector2(0.99999976, 0.99999976)
-polygon = PackedVector2Array(-140.38252, -52.600033, -73.20335, -55.23836, -19.623672, -34.98447, 15.534248, -28.20794, 75.99796, 2.0764198, 121.96563, 22.569714, 128.4173, 64.79976, 73.92643, 61.52144, 8.024864, 33.7728, -36.06912, 10.199028, -86.2019, -21.592587)
+polygon = PackedVector2Array(-63.89598, -68.405495, -49.09456, -69.79059, -16.232956, -60.839905, 22.667465, -43.671356, 93.95557, -49.329086, 140.88573, -14.940689, 210.35144, 13.352707, 162.73973, 36.657776, 97.30721, 57.23906, 0.6522522, 41.624207, -68.01955, -15.727249)
 
 [node name="AirKick" type="Area2D" parent="Hitboxers" unique_id=696165616]
 visible = false
@@ -2068,11 +4387,11 @@ hit_sound = ExtResource("303_4nxg1")
 guard_sound = ExtResource("304_myb47")
 hit_data = SubResource("Resource_qxayb")
 
-[node name="HitColision" type="CollisionShape2D" parent="Hitboxers/AirKick" unique_id=504835751]
-position = Vector2(134.19954, 16.192432)
-rotation = 0.08726642
+[node name="HitColision" type="CollisionPolygon2D" parent="Hitboxers/AirKick" unique_id=1000279848]
+position = Vector2(-30.000008, 51)
+rotation = 1.0471976
 scale = Vector2(0.9999998, 0.9999998)
-shape = SubResource("RectangleShape2D_ttoju")
+polygon = PackedVector2Array(-131.13141, 117.12625, -88.58846, 117.43973, -21.091034, 112.53075, 13.059608, 103.38011, 75.19101, 105.76538, 116.064095, 118.971146, 152.61664, 99.66026, 179.08075, 61.823074, 209.00897, 25.9859, 219.61667, -16.387169, 209.50192, -56.867935, 143.9064, -61.2532, 96.96154, -47.942307, 66.33718, -22.89936, 16.000004, -27.71283, -35.908974, -13.803856, -79.75577, 0.1410141, -118.09294, -25.45707, -151.70767, -25.234634, -149.59296, 29.10254, -170.91345, 26.030746, -189.2077, 39.717285, -180.05704, 73.86792)
 
 [node name="AirLowKick" type="Area2D" parent="Hitboxers" unique_id=861251936]
 visible = false
@@ -2082,11 +4401,11 @@ hit_sound = ExtResource("306_ua1mk")
 guard_sound = ExtResource("304_myb47")
 hit_data = SubResource("Resource_d0u6y")
 
-[node name="HitColision" type="CollisionPolygon2D" parent="Hitboxers/AirLowKick" unique_id=1208654061]
-position = Vector2(77, 63)
-rotation = 0.26179934
-scale = Vector2(0.9999997, 0.9999997)
-polygon = PackedVector2Array(-12.362595, 58.18219, 6.8494186, 17.83496, 22.659622, -66.11767, 26.726402, -112.75953, 38.987465, -148.13844, 85.97607, -123.459045, 86.41076, -83.19972, 82.74149, -27.34689, 50.094444, 36.270515, -43.47531, 112.071)
+[node name="HitColision" type="CollisionShape2D" parent="Hitboxers/AirLowKick" unique_id=1257882839]
+position = Vector2(-178.00002, -16.000002)
+rotation = 0.17453295
+scale = Vector2(0.9999995, 0.9999995)
+shape = SubResource("RectangleShape2D_yf5fn")
 
 [node name="ThrowBox" type="Area2D" parent="Hitboxers" unique_id=2028054100]
 visible = false
@@ -2094,15 +4413,7 @@ position = Vector2(5, 26)
 script = ExtResource("308_1nd5b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/ThrowBox" unique_id=1756148402]
-position = Vector2(130, 0)
-shape = SubResource("RectangleShape2D_o1poj")
-
-[node name="SpinningPildriver" type="Area2D" parent="Hitboxers" unique_id=1725607186]
-position = Vector2(5, 26)
-script = ExtResource("308_1nd5b")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/SpinningPildriver" unique_id=270269182]
-position = Vector2(130, 0)
+position = Vector2(-177, -4.25)
 shape = SubResource("RectangleShape2D_o1poj")
 
 [node name="ThrowPathRoot" type="Node" parent="Hitboxers" unique_id=1992079360]
@@ -2111,40 +4422,52 @@ shape = SubResource("RectangleShape2D_o1poj")
 visible = false
 position = Vector2(62, -43)
 
-[node name="DoubleLariat" type="Area2D" parent="Hitboxers" unique_id=1770435633]
-visible = false
-position = Vector2(-22, -24)
-script = ExtResource("302_ynej5")
-hit_spark_type = 2
-hit_sound = ExtResource("303_4nxg1")
-guard_sound = ExtResource("304_myb47")
-hit_data = SubResource("Resource_3gngh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/DoubleLariat" unique_id=1636451498]
-position = Vector2(117, 0)
-shape = SubResource("RectangleShape2D_57qmd")
-
-[node name="BanishingFlat" type="Area2D" parent="Hitboxers" unique_id=446150343]
+[node name="MegaFist" type="Area2D" parent="Hitboxers" unique_id=251524934]
 visible = false
 script = ExtResource("302_ynej5")
 hit_spark_type = 2
 impact_sound_type = 1
-hit_sound = ExtResource("309_xk2gr")
+hit_sound = ExtResource("308_aok8r")
 guard_sound = ExtResource("304_myb47")
-hit_data = SubResource("Resource_fcnqv")
+strike_sound = ExtResource("308_aok8r")
+hit_data = SubResource("Resource_aok8r")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/BanishingFlat" unique_id=166622907]
-position = Vector2(83.25, 23)
-shape = SubResource("RectangleShape2D_d0u6y")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/MegaFist" unique_id=919471078]
+position = Vector2(-93, 73)
+rotation = 0.6981317
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_3gngh")
+
+[node name="SlideHead" type="Area2D" parent="Hitboxers" unique_id=754538235]
+visible = false
+script = ExtResource("302_ynej5")
+grounded_only = true
+hit_spark_type = 2
+impact_sound_type = 1
+hit_sound = ExtResource("303_4nxg1")
+strike_sound = ExtResource("303_4nxg1")
+hit_data = SubResource("Resource_wsi31")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/SlideHead" unique_id=1362289078]
+position = Vector2(0, 255)
+shape = SubResource("RectangleShape2D_7numd")
+
+[node name="PtenkimBusterTry" type="Area2D" parent="Hitboxers" unique_id=202198225]
+visible = false
+script = ExtResource("291_25dxg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/PtenkimBusterTry" unique_id=2064458842]
+position = Vector2(-188.25, 21.75)
+shape = SubResource("RectangleShape2D_fcnqv")
 
 [node name="AnimationVisualController" type="Node" parent="." unique_id=1290380281 node_paths=PackedStringArray("animated_sprite")]
 script = ExtResource("310_071p4")
-enabled = false
 animated_sprite = NodePath("../AnimatedSprite2D")
+visual_profile = SubResource("Resource_vmehk")
 debug_visual = true
 
 [node name="AntiStackCollision" type="CollisionShape2D" parent="." unique_id=152907459]
 visible = false
 z_index = 1
-position = Vector2(0, -124)
+position = Vector2(34, -214)
 shape = SubResource("ConvexPolygonShape2D_drr2n")

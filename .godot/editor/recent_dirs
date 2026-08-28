@@ -1,3 +1,5 @@
+res://Scripts/Potenkim/States/
+res://Scripts/Combat/
 res://Cenas/Potenkim/
 res://assets/Potenkim/Stun/
 res://assets/Potenkim/SlideHead/
@@ -18,5 +20,3 @@ res://assets/Potenkim/CrouchLowKick/
 res://assets/Potenkim/Crouchkick/
 res://assets/Potenkim/CrouchHighPunch/
 res://assets/Potenkim/CrouchLightPunch/
-res://assets/Potenkim/Lowkick/
-res://assets/Potenkim/Kick/

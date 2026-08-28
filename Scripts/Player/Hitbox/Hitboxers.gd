@@ -6,6 +6,8 @@ enum ImpactSoundType {
 	STRIKE
 }
 
+@export var grounded_only: bool = false
+
 @export_group("Hit Spark")
 
 @export_enum(
@@ -195,6 +197,15 @@ func _try_hit(area: Area2D) -> void:
 		and target_character == _owner_character
 	):
 		return
+
+	# ==================================================
+	# GOLPES QUE SÓ ATINGEM PERSONAGENS NO CHÃO
+	# ==================================================
+
+	if grounded_only:
+		if not target_character.is_on_floor():
+			return
+
 
 	if area in _already_hit:
 		return

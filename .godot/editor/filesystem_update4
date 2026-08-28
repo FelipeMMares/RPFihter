@@ -1,5 +1,8 @@
-res://Cenas/Zangief/Zangief.tscn
-res://MorriganVisualProfile.tres
+res://Cenas/Potenkim/Potenkim.tscn
 res://Cenas/HUD/guardProgress.tres
-res://Cenas/Player/Player.tscn
-res://Scripts/Zangief/Zangief.tres
+res://MorriganVisualProfile.tres
+res://Scripts/Combat/MegaFist.tres
+res://Scripts/Potenkim/States/MegaFist.gd
+res://Scripts/Potenkim/States/SlideHead.gd
+res://Scripts/Player/Hitbox/Hitboxers.gd
+res://Scripts/Player/StateMachine/States/hurt.gd
