@@ -1,6 +1,10 @@
 extends State
 class_name ThrowState
 
+@export_group("Voice")
+
+@export var throw_voices: Array[AudioStream] = []
+
 @export_group("Animação")
 
 @export var throw_animation: StringName = &"Throw"
@@ -110,6 +114,14 @@ func _enter() -> void:
 			attacker.call("consume_grab_target")
 			as CharacterBody2D
 		)
+
+	if not throw_voices.is_empty():
+		if attacker.has_method("play_random_voice"):
+			attacker.call(
+				"play_random_voice",
+				throw_voices,
+				true
+			)
 
 	if not is_instance_valid(_grabbed_target):
 		printerr(

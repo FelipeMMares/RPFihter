@@ -1,5 +1,8 @@
 extends State
 
+@export_group("Voice")
+
+@export var special_voices: Array[AudioStream] = []
 
 @export_group("Hitbox")
 
@@ -42,16 +45,15 @@ func _enter() -> void:
 		)
 		return
 
+	_play_special_voice(character)
+
 	_direction = _get_facing_direction()
 
-	# Impulso horizontal.
 	character.velocity.x = (
 		forward_speed
 		* _direction
 	)
 
-	# Impulso vertical.
-	# Y negativo = para cima.
 	character.velocity.y = (
 		-upward_speed
 	)
@@ -211,3 +213,21 @@ func _get_character() -> CharacterBody2D:
 		get_parent().get_parent()
 		as CharacterBody2D
 	)
+
+func _play_special_voice(
+	character: CharacterBody2D
+) -> void:
+	if special_voices.is_empty():
+		return
+
+	if character == null:
+		return
+
+	if character.has_method(
+		"play_random_voice"
+	):
+		character.call(
+			"play_random_voice",
+			special_voices,
+			true
+		)

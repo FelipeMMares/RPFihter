@@ -5,7 +5,8 @@ enum Fighter {
 	CHUN_LI,
 	ELENA,
 	MORRIGAN,
-	ZANGIEF
+	ZANGIEF,
+	POTEMKIN
 }
 
 

@@ -1,6 +1,11 @@
 extends State
 class_name TryGrabState
 
+@export_group("Voice")
+
+@export var whiff_voices: Array[AudioStream] = []
+@export var play_whiff_voice: bool = false
+
 @export_group("Animação")
 
 @export var grab_animation: StringName = &"TryGrab"

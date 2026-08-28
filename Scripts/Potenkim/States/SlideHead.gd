@@ -1,5 +1,8 @@
 extends State
 
+@export_group("Voice")
+
+@export var special_voices: Array[AudioStream] = []
 
 @export_group("Terremoto")
 
@@ -33,6 +36,8 @@ func _enter() -> void:
 
 	# Slide Head não desloca Potemkin.
 	character.velocity.x = 0.0
+
+	_play_special_voice(character)
 
 	play_animation.emit(
 		&"SlideHead",
@@ -155,3 +160,21 @@ func _get_character() -> CharacterBody2D:
 		get_parent().get_parent()
 		as CharacterBody2D
 	)
+
+func _play_special_voice(
+	character: CharacterBody2D
+) -> void:
+	if special_voices.is_empty():
+		return
+
+	if character == null:
+		return
+
+	if character.has_method(
+		"play_random_voice"
+	):
+		character.call(
+			"play_random_voice",
+			special_voices,
+			true
+		)

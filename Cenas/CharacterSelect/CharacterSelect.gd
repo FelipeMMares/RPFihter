@@ -9,13 +9,13 @@ var opponent_select_scene_path: String = (
 	"res://Cenas/OpponentSelect/OpponentSelect.tscn"
 )
 
-
 @export_group("Preview dos personagens")
 
 @export var chun_li_frames: SpriteFrames
 @export var elena_frames: SpriteFrames
 @export var morrigan_frames: SpriteFrames
 @export var zangief_frames: SpriteFrames
+@export var potemkin_frames: SpriteFrames
 
 @export_range(0.5, 10.0, 0.1)
 var idle_before_taunt_time: float = 3.0
@@ -23,6 +23,7 @@ var idle_before_taunt_time: float = 3.0
 @export_group("Ajustes visuais")
 
 @export var morrigan_visual_profile: AnimationVisualProfile
+@export var potemkin_visual_profile: AnimationVisualProfile
 
 @export_group("Visual dos botões")
 
@@ -63,13 +64,16 @@ var idle_before_taunt_time: float = 3.0
 	$MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/ZangiefButton
 )
 
+@onready var potemkin_button: Button = (
+	$MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/PotemkinButton
+)
+
 @onready var preview_visual_controller: AnimationVisualController = (
 	$MainMargin/MainRow/PreviewPanel/PreviewBox/AnimationVisualController
 )
 
 @onready var locked_buttons: Array[Button] = [
-	$MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton2,
-	$MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton3
+	$MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton2
 ]
 
 
@@ -143,6 +147,10 @@ func _connect_buttons() -> void:
 		_on_zangief_pressed
 	)
 
+	potemkin_button.pressed.connect(
+		_on_potemkin_pressed
+	)
+
 	# Mouse em cima do personagem troca o preview.
 	chun_li_button.mouse_entered.connect(
 		_preview_chun_li
@@ -160,6 +168,10 @@ func _connect_buttons() -> void:
 		_preview_zangief
 	)
 
+	potemkin_button.mouse_entered.connect(
+		_preview_potemkin
+	)
+
 	# Também funciona com teclado/controle.
 	chun_li_button.focus_entered.connect(
 		_preview_chun_li
@@ -175,6 +187,10 @@ func _connect_buttons() -> void:
 
 	zangief_button.focus_entered.connect(
 		_preview_zangief
+	)
+
+	potemkin_button.focus_entered.connect(
+		_preview_potemkin
 	)
 
 	for button in locked_buttons:
@@ -247,6 +263,32 @@ func _preview_zangief() -> void:
 	_show_fighter_preview(
 		zangief_frames,
 		"ZANGIEF"
+	)
+
+func _preview_potemkin() -> void:
+	if _character_confirmed:
+		return
+
+	if potemkin_visual_profile == null:
+		printerr(
+			"CharacterSelect: PotemkinVisualProfile "
+			+ "não configurado."
+		)
+		return
+
+	fighter_preview.modulate = Color.WHITE
+
+	_show_fighter_preview(
+		potemkin_frames,
+		"POTEMKIN"
+	)
+
+	preview_visual_controller.set_visual_profile(
+		potemkin_visual_profile
+	)
+
+	preview_visual_controller.set_enabled(
+		true
 	)
 
 func _show_fighter_preview(
@@ -389,6 +431,20 @@ func _on_zangief_pressed() -> void:
 
 	await _confirm_selection()
 
+func _on_potemkin_pressed() -> void:
+	if _character_confirmed:
+		return
+
+	_preview_potemkin()
+
+	_select_character_button(potemkin_button)
+
+	FighterSelection.select_player(
+		FighterSelection.Fighter.POTEMKIN
+	)
+
+	await _confirm_selection()
+
 func _confirm_selection() -> void:
 	_character_confirmed = true
 
@@ -403,6 +459,7 @@ func _confirm_selection() -> void:
 	elena_button.disabled = true
 	morrigan_button.disabled = true
 	zangief_button.disabled = true
+	potemkin_button.disabled = true
 
 	for button in locked_buttons:
 		button.disabled = true
@@ -478,7 +535,8 @@ func _setup_character_buttons() -> void:
 		chun_li_button,
 		elena_button,
 		morrigan_button,
-		zangief_button
+		zangief_button,
+		potemkin_button
 	]
 
 	for locked_button in locked_buttons:
