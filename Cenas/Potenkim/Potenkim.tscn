@@ -219,7 +219,7 @@ body_collision = NodePath("CollisionShape2D")
 anti_stack_collision = NodePath("AntiStackCollision")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2063367094]
-scale = Vector2(1.8, 1.8)
+scale = Vector2(1.2, 1.2)
 sprite_frames = ExtResource("2_yv6lr")
 animation = &"Throw"
 offset = Vector2(40, 60)

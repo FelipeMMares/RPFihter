@@ -1,22 +1,22 @@
-res://assets/Menus/SelectionCharacter/
-res://Cenas/Potenkim/
-res://assets/Audio/Voice/Potenkim/PotemkinBuster/
-res://assets/Audio/Voice/Potenkim/SlideHead1/
-res://assets/Audio/Voice/Potenkim/MegaFist1/
-res://assets/Audio/Voice/Potenkim/Hurt/
-res://assets/Audio/Voice/Potenkim/Defeated/
-res://assets/Audio/Voice/Potenkim/LowKick/
-res://assets/Audio/Voice/Potenkim/Kick/
-res://assets/Audio/Voice/Potenkim/HighPunch/
-res://assets/Audio/Voice/Potenkim/LightPunch/
-res://assets/Audio/Voice/Potenkim/Victory/
-res://Scripts/Potenkim/States/
-res://Scripts/Combat/
-res://assets/Potenkim/Stun/
-res://assets/Potenkim/SlideHead/
-res://assets/Potenkim/MegaFist/
-res://assets/Potenkim/PotenkimBuster/
-res://assets/Potenkim/Throw/
-res://assets/Potenkim/Thrown/
-res://assets/Potenkim/HurtFall-FallDefeated/
-res://assets/Potenkim/GetUp/
+res://Cenas/AxlLow/
+res://assets/Axl Low/Benten Gari/
+res://assets/Axl Low/Rensen Geki/
+res://assets/Axl Low/Raiei Sageki/
+res://assets/Axl Low/Taunt/
+res://assets/Axl Low/Victory/
+res://assets/Axl Low/Walk/
+res://assets/Axl Low/Entry/
+res://assets/Axl Low/AirLowKick/
+res://assets/Axl Low/AirKick/
+res://assets/Axl Low/AirHighPunch/
+res://assets/Axl Low/AirLightPunch/
+res://assets/Axl Low/CrouchLowKick/
+res://assets/Axl Low/CrouchKick/
+res://assets/Axl Low/CrouchHighPunch/
+res://assets/Axl Low/CrouchLightPunch/
+res://assets/Axl Low/LowKick/
+res://assets/Axl Low/Kick/
+res://assets/Axl Low/HighPunch/
+res://assets/Axl Low/LightPunch/
+res://assets/Axl Low/Stun/
+res://assets/Axl Low/Throw/
