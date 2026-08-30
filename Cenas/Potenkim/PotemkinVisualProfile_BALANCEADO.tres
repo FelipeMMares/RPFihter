@@ -1,0 +1,2890 @@
+[gd_resource type="Resource" script_class="AnimationVisualProfile" format=3 uid="uid://cnitpuf3siymu"]
+
+[ext_resource type="Script" uid="uid://bu7ghhff457v2" path="res://Scripts/Components/FrameVisualAdjustment/AnimationVisualAdjustment.gd" id="1_sb7c7"]
+[ext_resource type="Script" uid="uid://bycvcpito73xu" path="res://Scripts/Components/FrameVisualAdjustment/FrameVisualAdjustment.gd" id="2_cj0cn"]
+[ext_resource type="Script" uid="uid://daxf6scsvh673" path="res://Scripts/Components/FrameVisualAdjustment/AnimationVisualProfile.gd" id="3_d3rks"]
+
+[sub_resource type="Resource" id="Resource_54twh"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_gkeap"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_urmhe"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(4, 0)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_3o5pj"]
+script = ExtResource("2_cj0cn")
+frame = 3
+override_offset = true
+offset = Vector2(4, 0)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_dv8q4"]
+script = ExtResource("2_cj0cn")
+frame = 4
+override_offset = true
+offset = Vector2(4, 0)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_qvivx"]
+script = ExtResource("2_cj0cn")
+frame = 5
+override_offset = true
+offset = Vector2(4, -8)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_5erk6"]
+script = ExtResource("2_cj0cn")
+frame = 6
+override_offset = true
+offset = Vector2(4, 0)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_t6k3h"]
+script = ExtResource("2_cj0cn")
+frame = 7
+override_offset = true
+offset = Vector2(4, 0)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_yxf83"]
+script = ExtResource("2_cj0cn")
+frame = 8
+override_offset = true
+offset = Vector2(4, 0)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_x3qvk"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_4esvl"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ckkx3"]
+script = ExtResource("2_cj0cn")
+frame = 9
+override_offset = true
+scale = Vector2(1.1, 1.1)
+
+[sub_resource type="Resource" id="Resource_3r1rb"]
+script = ExtResource("2_cj0cn")
+frame = 10
+override_offset = true
+scale = Vector2(1.1, 1.1)
+
+[sub_resource type="Resource" id="Resource_y7e0a"]
+script = ExtResource("1_sb7c7")
+animation_name = &"Idle"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_54twh"), SubResource("Resource_gkeap"), SubResource("Resource_urmhe"), SubResource("Resource_3o5pj"), SubResource("Resource_dv8q4"), SubResource("Resource_qvivx"), SubResource("Resource_5erk6"), SubResource("Resource_t6k3h"), SubResource("Resource_yxf83"), SubResource("Resource_x3qvk"), SubResource("Resource_4esvl"), SubResource("Resource_ckkx3"), SubResource("Resource_3r1rb")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_41bsf"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_dre0t"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(4, 8)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_khspk"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(14, 12)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ep2lx"]
+script = ExtResource("2_cj0cn")
+frame = 3
+override_offset = true
+offset = Vector2(-2, -4)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_u38y8"]
+script = ExtResource("2_cj0cn")
+frame = 4
+override_offset = true
+offset = Vector2(-12, -8)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_4a7i7"]
+script = ExtResource("2_cj0cn")
+frame = 5
+override_offset = true
+offset = Vector2(0, -8)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_rlo1u"]
+script = ExtResource("2_cj0cn")
+frame = 6
+override_offset = true
+offset = Vector2(10, 0)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_nssgq"]
+script = ExtResource("2_cj0cn")
+frame = 7
+override_offset = true
+offset = Vector2(16, 8)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_6gll4"]
+script = ExtResource("2_cj0cn")
+frame = 8
+override_offset = true
+offset = Vector2(2, -8)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ukr4b"]
+script = ExtResource("2_cj0cn")
+frame = 9
+override_offset = true
+offset = Vector2(-14, -4)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ijqp6"]
+script = ExtResource("2_cj0cn")
+frame = 10
+override_offset = true
+offset = Vector2(-6, -4)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_7p43d"]
+script = ExtResource("1_sb7c7")
+animation_name = &"Walk"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_41bsf"), SubResource("Resource_dre0t"), SubResource("Resource_khspk"), SubResource("Resource_ep2lx"), SubResource("Resource_u38y8"), SubResource("Resource_4a7i7"), SubResource("Resource_rlo1u"), SubResource("Resource_nssgq"), SubResource("Resource_6gll4"), SubResource("Resource_ukr4b"), SubResource("Resource_ijqp6")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_6g2na"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(-4, 0)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_17dng"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(4, 24)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_xevnm"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(4, 16)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_67v8g"]
+script = ExtResource("1_sb7c7")
+animation_name = &"CrouchStart"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_6g2na"), SubResource("Resource_17dng"), SubResource("Resource_xevnm")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_2pe3s"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(4, 16)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_p3sdr"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(4, 24)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_4ekwy"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(-4, 0)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_eh0yn"]
+script = ExtResource("1_sb7c7")
+animation_name = &"CrouchEnd"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_2pe3s"), SubResource("Resource_p3sdr"), SubResource("Resource_4ekwy")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_agjhj"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(4, 24)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_30da3"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(4, 16)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_iiq0m"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(4, 16)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_3yxm7"]
+script = ExtResource("2_cj0cn")
+frame = 3
+override_offset = true
+offset = Vector2(4, 16)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_0mtvm"]
+script = ExtResource("2_cj0cn")
+frame = 4
+override_offset = true
+offset = Vector2(0, 16)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_pct8i"]
+script = ExtResource("2_cj0cn")
+frame = 5
+override_offset = true
+offset = Vector2(0, 16)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_eiaq7"]
+script = ExtResource("2_cj0cn")
+frame = 6
+override_offset = true
+offset = Vector2(0, 16)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_oxmix"]
+script = ExtResource("2_cj0cn")
+frame = 7
+override_offset = true
+offset = Vector2(0, 16)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_gniib"]
+script = ExtResource("2_cj0cn")
+frame = 8
+override_offset = true
+offset = Vector2(0, 16)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_kvwfs"]
+script = ExtResource("2_cj0cn")
+frame = 9
+override_offset = true
+offset = Vector2(4, 16)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_o6gye"]
+script = ExtResource("2_cj0cn")
+frame = 10
+override_offset = true
+offset = Vector2(4, 16)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_udoek"]
+script = ExtResource("2_cj0cn")
+frame = 11
+override_offset = true
+offset = Vector2(4, 16)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_1o0jy"]
+script = ExtResource("2_cj0cn")
+frame = 12
+override_offset = true
+offset = Vector2(4, 24)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_rvapv"]
+script = ExtResource("1_sb7c7")
+animation_name = &"CrouchWhile"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_agjhj"), SubResource("Resource_30da3"), SubResource("Resource_iiq0m"), SubResource("Resource_3yxm7"), SubResource("Resource_0mtvm"), SubResource("Resource_pct8i"), SubResource("Resource_eiaq7"), SubResource("Resource_oxmix"), SubResource("Resource_gniib"), SubResource("Resource_kvwfs"), SubResource("Resource_o6gye"), SubResource("Resource_udoek"), SubResource("Resource_1o0jy")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_fvofl"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(4, 0)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_70qws"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(8, -4)
+override_scale = true
+scale = Vector2(1.09, 1.09)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_tk6oj"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(2, -16)
+override_scale = true
+scale = Vector2(1.08, 1.08)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_oiu21"]
+script = ExtResource("2_cj0cn")
+frame = 3
+override_offset = true
+offset = Vector2(12, -16)
+override_scale = true
+scale = Vector2(1.07, 1.07)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_yuh83"]
+script = ExtResource("2_cj0cn")
+frame = 4
+override_offset = true
+offset = Vector2(16, 4)
+override_scale = true
+scale = Vector2(1.05, 1.05)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_k0bhn"]
+script = ExtResource("2_cj0cn")
+frame = 5
+override_offset = true
+offset = Vector2(48, -52)
+override_scale = true
+scale = Vector2(1.02, 1.02)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_2obsb"]
+script = ExtResource("2_cj0cn")
+frame = 6
+override_offset = true
+offset = Vector2(18, 0)
+override_scale = true
+scale = Vector2(1.08, 1.08)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_p180o"]
+script = ExtResource("1_sb7c7")
+animation_name = &"MegaFist"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_fvofl"), SubResource("Resource_70qws"), SubResource("Resource_tk6oj"), SubResource("Resource_oiu21"), SubResource("Resource_yuh83"), SubResource("Resource_k0bhn"), SubResource("Resource_2obsb")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_1q6wb"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(-2, -4)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_sui63"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(10, -4)
+override_scale = true
+scale = Vector2(1.09, 1.09)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_c85sa"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(10, 16)
+override_scale = true
+scale = Vector2(1.07, 1.07)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_p3yuk"]
+script = ExtResource("2_cj0cn")
+frame = 3
+override_offset = true
+offset = Vector2(32, 60)
+override_scale = true
+scale = Vector2(1.05, 1.05)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_fnrfj"]
+script = ExtResource("2_cj0cn")
+frame = 4
+override_offset = true
+offset = Vector2(40, 60)
+override_scale = true
+scale = Vector2(1.04, 1.04)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_uwdtc"]
+script = ExtResource("2_cj0cn")
+frame = 5
+override_offset = true
+offset = Vector2(40, 60)
+override_scale = true
+scale = Vector2(1.03, 1.03)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_4hao4"]
+script = ExtResource("2_cj0cn")
+frame = 6
+override_offset = true
+offset = Vector2(40, 60)
+override_scale = true
+scale = Vector2(1.03, 1.03)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_cqgpt"]
+script = ExtResource("2_cj0cn")
+frame = 7
+override_offset = true
+offset = Vector2(32, 48)
+override_scale = true
+scale = Vector2(1.05, 1.05)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_dwl46"]
+script = ExtResource("2_cj0cn")
+frame = 8
+override_offset = true
+offset = Vector2(24, 28)
+override_scale = true
+scale = Vector2(1.06, 1.06)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_yyac6"]
+script = ExtResource("2_cj0cn")
+frame = 9
+override_offset = true
+offset = Vector2(10, 28)
+override_scale = true
+scale = Vector2(1.08, 1.08)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_b2ok3"]
+script = ExtResource("2_cj0cn")
+frame = 10
+override_offset = true
+offset = Vector2(6, 16)
+override_scale = true
+scale = Vector2(1.09, 1.09)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_x1dir"]
+script = ExtResource("2_cj0cn")
+frame = 11
+override_offset = true
+offset = Vector2(4, 0)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_8yn7w"]
+script = ExtResource("1_sb7c7")
+animation_name = &"Slidehead"
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_1q6wb"), SubResource("Resource_sui63"), SubResource("Resource_c85sa"), SubResource("Resource_p3yuk"), SubResource("Resource_fnrfj"), SubResource("Resource_uwdtc"), SubResource("Resource_4hao4"), SubResource("Resource_cqgpt"), SubResource("Resource_dwl46"), SubResource("Resource_yyac6"), SubResource("Resource_b2ok3"), SubResource("Resource_x1dir")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_jxs1t"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(-2, -4)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_lyey3"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(4, -4)
+override_scale = true
+scale = Vector2(1.09, 1.09)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_x22ka"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(20, -36)
+override_scale = true
+scale = Vector2(1.06, 1.06)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ec4ox"]
+script = ExtResource("1_sb7c7")
+animation_name = &"PotenkimBusterTry"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_jxs1t"), SubResource("Resource_lyey3"), SubResource("Resource_x22ka")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_d7s74"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(30, -48)
+override_scale = true
+scale = Vector2(1.08, 1.08)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_j5mxd"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(30, -32)
+override_scale = true
+scale = Vector2(1.08, 1.08)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_es46c"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(32, -20)
+override_scale = true
+scale = Vector2(1.07, 1.07)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_eonsd"]
+script = ExtResource("2_cj0cn")
+frame = 3
+override_offset = true
+offset = Vector2(30, -40)
+override_scale = true
+scale = Vector2(1.06, 1.06)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_h03ft"]
+script = ExtResource("2_cj0cn")
+frame = 4
+override_offset = true
+offset = Vector2(30, -56)
+override_scale = true
+scale = Vector2(1.04, 1.04)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_d0i8d"]
+script = ExtResource("2_cj0cn")
+frame = 5
+override_offset = true
+offset = Vector2(30, -56)
+override_scale = true
+scale = Vector2(1.04, 1.04)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_2rwlf"]
+script = ExtResource("2_cj0cn")
+frame = 6
+override_offset = true
+offset = Vector2(36, -72)
+override_scale = true
+scale = Vector2(1.02, 1.02)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_df3tw"]
+script = ExtResource("2_cj0cn")
+frame = 7
+override_offset = true
+offset = Vector2(36, -20)
+override_scale = true
+scale = Vector2(1.03, 1.03)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ewd6s"]
+script = ExtResource("2_cj0cn")
+frame = 8
+override_offset = true
+offset = Vector2(32, -24)
+override_scale = true
+scale = Vector2(1.04, 1.04)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_btkiw"]
+script = ExtResource("2_cj0cn")
+frame = 9
+override_offset = true
+offset = Vector2(32, -24)
+override_scale = true
+scale = Vector2(1.04, 1.04)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_5w1xb"]
+script = ExtResource("2_cj0cn")
+frame = 10
+override_offset = true
+offset = Vector2(10, -4)
+override_scale = true
+scale = Vector2(1.06, 1.06)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_t6x2n"]
+script = ExtResource("2_cj0cn")
+frame = 11
+override_offset = true
+offset = Vector2(14, -8)
+override_scale = true
+scale = Vector2(1.07, 1.07)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_uaj57"]
+script = ExtResource("2_cj0cn")
+frame = 12
+override_offset = true
+offset = Vector2(46, -8)
+override_scale = true
+scale = Vector2(1.05, 1.05)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_gvcbd"]
+script = ExtResource("2_cj0cn")
+frame = 13
+override_offset = true
+offset = Vector2(24, -4)
+override_scale = true
+scale = Vector2(1.08, 1.08)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_2j03g"]
+script = ExtResource("2_cj0cn")
+frame = 14
+override_offset = true
+offset = Vector2(10, 0)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_g8fk4"]
+script = ExtResource("1_sb7c7")
+animation_name = &"PotenkimBuster"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_d7s74"), SubResource("Resource_j5mxd"), SubResource("Resource_es46c"), SubResource("Resource_eonsd"), SubResource("Resource_h03ft"), SubResource("Resource_d0i8d"), SubResource("Resource_2rwlf"), SubResource("Resource_df3tw"), SubResource("Resource_ewd6s"), SubResource("Resource_btkiw"), SubResource("Resource_5w1xb"), SubResource("Resource_t6x2n"), SubResource("Resource_uaj57"), SubResource("Resource_gvcbd"), SubResource("Resource_2j03g")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_wplur"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(20, -16)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_bnfgx"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(20, -16)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_bp3il"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(20, -16)
+override_scale = true
+scale = Vector2(1.09, 1.09)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_br14m"]
+script = ExtResource("2_cj0cn")
+frame = 3
+override_offset = true
+offset = Vector2(40, -16)
+override_scale = true
+scale = Vector2(1.07, 1.07)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_hc30h"]
+script = ExtResource("2_cj0cn")
+frame = 4
+override_offset = true
+offset = Vector2(60, -16)
+override_scale = true
+scale = Vector2(1.05, 1.05)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_0ypkj"]
+script = ExtResource("2_cj0cn")
+frame = 5
+override_offset = true
+offset = Vector2(60, -16)
+override_scale = true
+scale = Vector2(1.05, 1.05)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_st1x8"]
+script = ExtResource("2_cj0cn")
+frame = 6
+override_offset = true
+offset = Vector2(20, -16)
+override_scale = true
+scale = Vector2(1.09, 1.09)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_1tccq"]
+script = ExtResource("1_sb7c7")
+animation_name = &"LightPunch"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_wplur"), SubResource("Resource_bnfgx"), SubResource("Resource_bp3il"), SubResource("Resource_br14m"), SubResource("Resource_hc30h"), SubResource("Resource_0ypkj"), SubResource("Resource_st1x8")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_ffkmh"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(16, -4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_1qju1"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(14, -24)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_pdj0i"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(36, -48)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ogfni"]
+script = ExtResource("2_cj0cn")
+frame = 3
+override_offset = true
+offset = Vector2(16, 4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ipsdp"]
+script = ExtResource("2_cj0cn")
+frame = 4
+override_offset = true
+offset = Vector2(10, -20)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_6fwc3"]
+script = ExtResource("2_cj0cn")
+frame = 5
+override_offset = true
+offset = Vector2(4, 0)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_3byj3"]
+script = ExtResource("2_cj0cn")
+frame = 6
+override_offset = true
+offset = Vector2(-8, -4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_83gvs"]
+script = ExtResource("1_sb7c7")
+animation_name = &"HighPunch"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_ffkmh"), SubResource("Resource_1qju1"), SubResource("Resource_pdj0i"), SubResource("Resource_ogfni"), SubResource("Resource_ipsdp"), SubResource("Resource_6fwc3"), SubResource("Resource_3byj3")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_aphw8"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(20, -16)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ghfbs"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(20, -16)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_2igne"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(20, -16)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_jw20y"]
+script = ExtResource("2_cj0cn")
+frame = 3
+override_offset = true
+offset = Vector2(40, -16)
+override_scale = true
+scale = Vector2(1.07, 1.07)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_nb2we"]
+script = ExtResource("1_sb7c7")
+animation_name = &"Kick"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_aphw8"), SubResource("Resource_ghfbs"), SubResource("Resource_2igne"), SubResource("Resource_jw20y")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_yv5af"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(4, 0)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_vkud1"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(-4, -8)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_hhl2j"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(2, 0)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_3c4go"]
+script = ExtResource("2_cj0cn")
+frame = 3
+override_offset = true
+offset = Vector2(8, 4)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_vlqdf"]
+script = ExtResource("2_cj0cn")
+frame = 4
+override_offset = true
+offset = Vector2(16, -20)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_hqv07"]
+script = ExtResource("2_cj0cn")
+frame = 5
+override_offset = true
+offset = Vector2(8, -8)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_k3drv"]
+script = ExtResource("2_cj0cn")
+frame = 6
+override_offset = true
+offset = Vector2(16, -8)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_k5ip1"]
+script = ExtResource("2_cj0cn")
+frame = 7
+override_offset = true
+offset = Vector2(46, -4)
+override_scale = true
+scale = Vector2(1.08, 1.08)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_qmiin"]
+script = ExtResource("2_cj0cn")
+frame = 8
+override_offset = true
+offset = Vector2(68, -4)
+override_scale = true
+scale = Vector2(1.05, 1.05)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ryi40"]
+script = ExtResource("2_cj0cn")
+frame = 9
+override_offset = true
+offset = Vector2(68, -4)
+override_scale = true
+scale = Vector2(1.05, 1.05)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_xset5"]
+script = ExtResource("1_sb7c7")
+animation_name = &"LowKick"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_yv5af"), SubResource("Resource_vkud1"), SubResource("Resource_hhl2j"), SubResource("Resource_3c4go"), SubResource("Resource_vlqdf"), SubResource("Resource_hqv07"), SubResource("Resource_k3drv"), SubResource("Resource_k5ip1"), SubResource("Resource_qmiin"), SubResource("Resource_ryi40")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_m0uyk"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(-2, 12)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_t6mbw"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(20, 12)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_h8hc0"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(16, 8)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_jjnmc"]
+script = ExtResource("2_cj0cn")
+frame = 3
+override_offset = true
+offset = Vector2(28, 16)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_scxtx"]
+script = ExtResource("2_cj0cn")
+frame = 4
+override_offset = true
+offset = Vector2(46, 0)
+override_scale = true
+scale = Vector2(1.07, 1.07)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_tqp0p"]
+script = ExtResource("2_cj0cn")
+frame = 5
+override_offset = true
+offset = Vector2(2, 16)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_bqixl"]
+script = ExtResource("2_cj0cn")
+frame = 6
+override_offset = true
+offset = Vector2(8, 20)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_q8ahm"]
+script = ExtResource("2_cj0cn")
+frame = 7
+override_offset = true
+offset = Vector2(2, 16)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_5ggu5"]
+script = ExtResource("1_sb7c7")
+animation_name = &"CrouchLightPunch"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_m0uyk"), SubResource("Resource_t6mbw"), SubResource("Resource_h8hc0"), SubResource("Resource_jjnmc"), SubResource("Resource_scxtx"), SubResource("Resource_tqp0p"), SubResource("Resource_bqixl"), SubResource("Resource_q8ahm")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_0xxlg"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(2, 20)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ru671"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(0, 12)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_f6imr"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(-6, 8)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_fmrah"]
+script = ExtResource("2_cj0cn")
+frame = 3
+override_offset = true
+offset = Vector2(0, 16)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_fd128"]
+script = ExtResource("2_cj0cn")
+frame = 4
+override_offset = true
+offset = Vector2(2, 24)
+override_scale = true
+scale = Vector2(1.08, 1.08)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_l1wg2"]
+script = ExtResource("2_cj0cn")
+frame = 5
+override_offset = true
+offset = Vector2(-2, -10)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_og8ms"]
+script = ExtResource("2_cj0cn")
+frame = 6
+override_offset = true
+offset = Vector2(-2, -4)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_5bfk3"]
+script = ExtResource("1_sb7c7")
+animation_name = &"CrouchHighPunch"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_0xxlg"), SubResource("Resource_ru671"), SubResource("Resource_f6imr"), SubResource("Resource_fmrah"), SubResource("Resource_fd128"), SubResource("Resource_l1wg2"), SubResource("Resource_og8ms")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_f0rd8"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(-8, 20)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_7ygsj"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(-6, 20)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_gyo7s"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(14, 16)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_3m1vj"]
+script = ExtResource("2_cj0cn")
+frame = 3
+override_offset = true
+offset = Vector2(48, 24)
+override_scale = true
+scale = Vector2(1.05, 1.05)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_mktgv"]
+script = ExtResource("1_sb7c7")
+animation_name = &"CrouchKick"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_f0rd8"), SubResource("Resource_7ygsj"), SubResource("Resource_gyo7s"), SubResource("Resource_3m1vj")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_ly2wk"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(4, 20)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_1qqxr"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(16, 20)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_f3a6x"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(58, 16)
+override_scale = true
+scale = Vector2(1.06, 1.06)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_biym1"]
+script = ExtResource("2_cj0cn")
+frame = 3
+override_offset = true
+offset = Vector2(54, -16)
+override_scale = true
+scale = Vector2(1.05, 1.05)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_w0oeo"]
+script = ExtResource("2_cj0cn")
+frame = 4
+override_offset = true
+offset = Vector2(52, -20)
+override_scale = true
+scale = Vector2(1.05, 1.05)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_6owti"]
+script = ExtResource("2_cj0cn")
+frame = 5
+override_offset = true
+offset = Vector2(54, -24)
+override_scale = true
+scale = Vector2(1.05, 1.05)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_1djek"]
+script = ExtResource("1_sb7c7")
+animation_name = &"CrouchLowKick"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_ly2wk"), SubResource("Resource_1qqxr"), SubResource("Resource_f3a6x"), SubResource("Resource_biym1"), SubResource("Resource_w0oeo"), SubResource("Resource_6owti")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_j8pm5"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(12, -16)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_7a3tf"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(4, -12)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_by11q"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(-4, -20)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_4csrr"]
+script = ExtResource("2_cj0cn")
+frame = 3
+override_offset = true
+offset = Vector2(-8, -20)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ty63j"]
+script = ExtResource("2_cj0cn")
+frame = 4
+override_offset = true
+offset = Vector2(24, -48)
+override_scale = true
+scale = Vector2(1.07, 1.07)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_5wxlj"]
+script = ExtResource("2_cj0cn")
+frame = 5
+override_offset = true
+offset = Vector2(24, -48)
+override_scale = true
+scale = Vector2(1.07, 1.07)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_j7l3a"]
+script = ExtResource("2_cj0cn")
+frame = 6
+override_offset = true
+offset = Vector2(10, -8)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_7wphd"]
+script = ExtResource("1_sb7c7")
+animation_name = &"AirLightPunch"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_j8pm5"), SubResource("Resource_7a3tf"), SubResource("Resource_by11q"), SubResource("Resource_4csrr"), SubResource("Resource_ty63j"), SubResource("Resource_5wxlj"), SubResource("Resource_j7l3a")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_yvgqn"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(30, 8)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_o5hi4"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(48, -8)
+override_scale = true
+scale = Vector2(1.07, 1.07)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_d2xib"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(46, -12)
+override_scale = true
+scale = Vector2(1.06, 1.06)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_lraux"]
+script = ExtResource("2_cj0cn")
+frame = 3
+override_offset = true
+offset = Vector2(40, -12)
+override_scale = true
+scale = Vector2(1.07, 1.07)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_h751m"]
+script = ExtResource("2_cj0cn")
+frame = 4
+override_offset = true
+offset = Vector2(28, -4)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_adntf"]
+script = ExtResource("1_sb7c7")
+animation_name = &"AirHighPunch"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_yvgqn"), SubResource("Resource_o5hi4"), SubResource("Resource_d2xib"), SubResource("Resource_lraux"), SubResource("Resource_h751m")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_6tnla"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(-4, -24)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_s4wff"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(4, -4)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_cru3h"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(0, 16)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_7hmiy"]
+script = ExtResource("2_cj0cn")
+frame = 3
+override_offset = true
+offset = Vector2(38, 20)
+override_scale = true
+scale = Vector2(1.07, 1.07)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_jds5l"]
+script = ExtResource("2_cj0cn")
+frame = 4
+override_offset = true
+offset = Vector2(32, -16)
+override_scale = true
+scale = Vector2(1.05, 1.05)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_vuomm"]
+script = ExtResource("2_cj0cn")
+frame = 5
+override_offset = true
+offset = Vector2(34, -24)
+override_scale = true
+scale = Vector2(1.05, 1.05)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_y4bus"]
+script = ExtResource("2_cj0cn")
+frame = 6
+override_offset = true
+offset = Vector2(34, -28)
+override_scale = true
+scale = Vector2(1.05, 1.05)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_wdkji"]
+script = ExtResource("2_cj0cn")
+frame = 7
+override_offset = true
+offset = Vector2(8, -72)
+override_scale = true
+scale = Vector2(1.08, 1.08)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_aurd5"]
+script = ExtResource("1_sb7c7")
+animation_name = &"AirKick"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_6tnla"), SubResource("Resource_s4wff"), SubResource("Resource_cru3h"), SubResource("Resource_7hmiy"), SubResource("Resource_jds5l"), SubResource("Resource_vuomm"), SubResource("Resource_y4bus"), SubResource("Resource_wdkji")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_7rcj7"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(16, -4)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_55qu2"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(8, -16)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_u0rdw"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(12, -8)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ulp8b"]
+script = ExtResource("2_cj0cn")
+frame = 3
+override_offset = true
+offset = Vector2(32, -4)
+override_scale = true
+scale = Vector2(1.07, 1.07)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_smuk3"]
+script = ExtResource("2_cj0cn")
+frame = 4
+override_offset = true
+offset = Vector2(22, -8)
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_2260o"]
+script = ExtResource("1_sb7c7")
+animation_name = &"AirLowKick"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_7rcj7"), SubResource("Resource_55qu2"), SubResource("Resource_u0rdw"), SubResource("Resource_ulp8b"), SubResource("Resource_smuk3")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_4oiqq"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(22, 0)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_c2ubq"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(26, -40)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_708lm"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(30, -32)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ho5qr"]
+script = ExtResource("2_cj0cn")
+frame = 3
+override_offset = true
+offset = Vector2(16, -24)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_2pclu"]
+script = ExtResource("2_cj0cn")
+frame = 4
+override_offset = true
+offset = Vector2(18, -56)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_31q0x"]
+script = ExtResource("2_cj0cn")
+frame = 5
+override_offset = true
+offset = Vector2(14, -72)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_r81f3"]
+script = ExtResource("2_cj0cn")
+frame = 6
+override_offset = true
+offset = Vector2(8, -84)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_awfgr"]
+script = ExtResource("1_sb7c7")
+animation_name = &"Jump"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_4oiqq"), SubResource("Resource_c2ubq"), SubResource("Resource_708lm"), SubResource("Resource_ho5qr"), SubResource("Resource_2pclu"), SubResource("Resource_31q0x"), SubResource("Resource_r81f3")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_lg2si"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(-4, 0)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_7ed1c"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(4, 24)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_e8jbj"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(4, 16)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_xud83"]
+script = ExtResource("2_cj0cn")
+frame = 3
+override_offset = true
+offset = Vector2(4, 16)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_jhwcn"]
+script = ExtResource("2_cj0cn")
+frame = 4
+override_offset = true
+offset = Vector2(4, 16)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_6kvuk"]
+script = ExtResource("2_cj0cn")
+frame = 5
+override_offset = true
+offset = Vector2(0, 16)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_gw27g"]
+script = ExtResource("2_cj0cn")
+frame = 6
+override_offset = true
+offset = Vector2(0, 16)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_201bc"]
+script = ExtResource("2_cj0cn")
+frame = 7
+override_offset = true
+offset = Vector2(0, 16)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_o83cp"]
+script = ExtResource("1_sb7c7")
+animation_name = &"StartJump"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_lg2si"), SubResource("Resource_7ed1c"), SubResource("Resource_e8jbj"), SubResource("Resource_xud83"), SubResource("Resource_jhwcn"), SubResource("Resource_6kvuk"), SubResource("Resource_gw27g"), SubResource("Resource_201bc")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_8v3dx"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(16, 8)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_kyln1"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(4, 0)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_c1xt2"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(-2, 0)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_1mp82"]
+script = ExtResource("1_sb7c7")
+animation_name = &"Guard"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_8v3dx"), SubResource("Resource_kyln1"), SubResource("Resource_c1xt2")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_bvesw"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(-2, 0)
+scale = Vector2(1.1, 1.1)
+
+[sub_resource type="Resource" id="Resource_2mrva"]
+script = ExtResource("1_sb7c7")
+animation_name = &"GuardWhile"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_bvesw")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_i4pxr"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(-2, 4)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_tnsa5"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(4, 4)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_oux5r"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(6, 4)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_r1xum"]
+script = ExtResource("2_cj0cn")
+frame = 3
+override_offset = true
+offset = Vector2(14, 24)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_vh7pb"]
+script = ExtResource("2_cj0cn")
+frame = 4
+override_offset = true
+offset = Vector2(20, 28)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_02mcr"]
+script = ExtResource("2_cj0cn")
+frame = 5
+override_offset = true
+offset = Vector2(26, 12)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_fu3qn"]
+script = ExtResource("1_sb7c7")
+animation_name = &"ParryRecoil"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_i4pxr"), SubResource("Resource_tnsa5"), SubResource("Resource_oux5r"), SubResource("Resource_r1xum"), SubResource("Resource_vh7pb"), SubResource("Resource_02mcr")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_5heoi"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(6, -12)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_17mce"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(4, -12)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_d8i1g"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(6, 0)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_f4sw3"]
+script = ExtResource("2_cj0cn")
+frame = 3
+override_offset = true
+offset = Vector2(10, 0)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_kwvcc"]
+script = ExtResource("2_cj0cn")
+frame = 4
+override_offset = true
+offset = Vector2(14, 4)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_rbybn"]
+script = ExtResource("2_cj0cn")
+frame = 5
+override_offset = true
+offset = Vector2(20, -8)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_34oxg"]
+script = ExtResource("2_cj0cn")
+frame = 6
+override_offset = true
+offset = Vector2(14, 4)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_xpwub"]
+script = ExtResource("2_cj0cn")
+frame = 7
+override_offset = true
+offset = Vector2(10, 0)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ud8br"]
+script = ExtResource("2_cj0cn")
+frame = 8
+override_offset = true
+offset = Vector2(6, 0)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_r4bvu"]
+script = ExtResource("2_cj0cn")
+frame = 9
+override_offset = true
+offset = Vector2(4, -12)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_7hmmu"]
+script = ExtResource("2_cj0cn")
+frame = 10
+override_offset = true
+offset = Vector2(6, -12)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_dndo5"]
+script = ExtResource("1_sb7c7")
+animation_name = &"Hurt"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_5heoi"), SubResource("Resource_17mce"), SubResource("Resource_d8i1g"), SubResource("Resource_f4sw3"), SubResource("Resource_kwvcc"), SubResource("Resource_rbybn"), SubResource("Resource_34oxg"), SubResource("Resource_xpwub"), SubResource("Resource_ud8br"), SubResource("Resource_r4bvu"), SubResource("Resource_7hmmu")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_jobw6"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(6, -8)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_oihat"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(8, 16)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_h2iwx"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(16, 16)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_hq5yq"]
+script = ExtResource("2_cj0cn")
+frame = 3
+override_offset = true
+offset = Vector2(18, 22)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_5k7ib"]
+script = ExtResource("2_cj0cn")
+frame = 4
+override_offset = true
+offset = Vector2(22, 20)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_eunc4"]
+script = ExtResource("2_cj0cn")
+frame = 5
+override_offset = true
+offset = Vector2(24, 20)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_vdsdx"]
+script = ExtResource("2_cj0cn")
+frame = 6
+override_offset = true
+offset = Vector2(28, 4)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_1kx7a"]
+script = ExtResource("2_cj0cn")
+frame = 7
+override_offset = true
+offset = Vector2(28, 8)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_knpsi"]
+script = ExtResource("2_cj0cn")
+frame = 8
+override_offset = true
+offset = Vector2(24, 0)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_di5kq"]
+script = ExtResource("2_cj0cn")
+frame = 9
+override_offset = true
+offset = Vector2(12, 0)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_w4dbl"]
+script = ExtResource("2_cj0cn")
+frame = 10
+override_offset = true
+offset = Vector2(22, 0)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_2ukcv"]
+script = ExtResource("2_cj0cn")
+frame = 11
+override_offset = true
+offset = Vector2(24, 28)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_7yosa"]
+script = ExtResource("2_cj0cn")
+frame = 12
+override_offset = true
+offset = Vector2(26, 44)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_7ps51"]
+script = ExtResource("2_cj0cn")
+frame = 13
+override_offset = true
+offset = Vector2(34, 56)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_tf021"]
+script = ExtResource("1_sb7c7")
+animation_name = &"HurtFall"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_jobw6"), SubResource("Resource_oihat"), SubResource("Resource_h2iwx"), SubResource("Resource_hq5yq"), SubResource("Resource_5k7ib"), SubResource("Resource_eunc4"), SubResource("Resource_vdsdx"), SubResource("Resource_1kx7a"), SubResource("Resource_knpsi"), SubResource("Resource_di5kq"), SubResource("Resource_w4dbl"), SubResource("Resource_2ukcv"), SubResource("Resource_7yosa"), SubResource("Resource_7ps51")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_50gsv"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(34, 56)
+scale = Vector2(1.1, 1.1)
+
+[sub_resource type="Resource" id="Resource_t5crr"]
+script = ExtResource("1_sb7c7")
+animation_name = &"Fall"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_50gsv")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_lu5ps"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(6, -8)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_1j34w"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(8, 16)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_r2bhf"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(16, 16)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_hkax5"]
+script = ExtResource("2_cj0cn")
+frame = 3
+override_offset = true
+offset = Vector2(18, 22)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_k2yt5"]
+script = ExtResource("2_cj0cn")
+frame = 4
+override_offset = true
+offset = Vector2(22, 20)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_f1bcd"]
+script = ExtResource("2_cj0cn")
+frame = 5
+override_offset = true
+offset = Vector2(24, 20)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_4hfbl"]
+script = ExtResource("2_cj0cn")
+frame = 6
+override_offset = true
+offset = Vector2(28, 4)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_64s7o"]
+script = ExtResource("2_cj0cn")
+frame = 7
+override_offset = true
+offset = Vector2(28, 8)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_5h7kd"]
+script = ExtResource("2_cj0cn")
+frame = 8
+override_offset = true
+offset = Vector2(24, 0)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_tvan5"]
+script = ExtResource("2_cj0cn")
+frame = 9
+override_offset = true
+offset = Vector2(12, 0)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_l4kxm"]
+script = ExtResource("2_cj0cn")
+frame = 10
+override_offset = true
+offset = Vector2(22, 0)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_uss08"]
+script = ExtResource("2_cj0cn")
+frame = 11
+override_offset = true
+offset = Vector2(24, 28)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_aw1vl"]
+script = ExtResource("2_cj0cn")
+frame = 12
+override_offset = true
+offset = Vector2(26, 44)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_jx3uc"]
+script = ExtResource("2_cj0cn")
+frame = 13
+override_offset = true
+offset = Vector2(34, 56)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_i6nlv"]
+script = ExtResource("2_cj0cn")
+frame = 14
+override_offset = true
+offset = Vector2(50, 56)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_vdmmk"]
+script = ExtResource("1_sb7c7")
+animation_name = &"FallDefeated"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_lu5ps"), SubResource("Resource_1j34w"), SubResource("Resource_r2bhf"), SubResource("Resource_hkax5"), SubResource("Resource_k2yt5"), SubResource("Resource_f1bcd"), SubResource("Resource_4hfbl"), SubResource("Resource_64s7o"), SubResource("Resource_5h7kd"), SubResource("Resource_tvan5"), SubResource("Resource_l4kxm"), SubResource("Resource_uss08"), SubResource("Resource_aw1vl"), SubResource("Resource_jx3uc"), SubResource("Resource_i6nlv")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_8akco"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(26, 28)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_k8fq2"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(18, 12)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_p8gfh"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(10, 0)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_blq0f"]
+script = ExtResource("2_cj0cn")
+frame = 3
+override_offset = true
+offset = Vector2(18, 0)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_uwaf2"]
+script = ExtResource("2_cj0cn")
+frame = 4
+override_offset = true
+offset = Vector2(-2, -12)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_04jfu"]
+script = ExtResource("1_sb7c7")
+animation_name = &"GetUp"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_8akco"), SubResource("Resource_k8fq2"), SubResource("Resource_p8gfh"), SubResource("Resource_blq0f"), SubResource("Resource_uwaf2")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_8uvta"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(4, 0)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_qxk47"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(8, 0)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_uyamv"]
+script = ExtResource("1_sb7c7")
+animation_name = &"Defeated"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_8uvta"), SubResource("Resource_qxk47")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_xu3vp"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(-6, 4)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_swryw"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(-6, 4)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_6ge2s"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(-6, 4)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_8j78x"]
+script = ExtResource("2_cj0cn")
+frame = 3
+override_offset = true
+offset = Vector2(-6, 4)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_lldcg"]
+script = ExtResource("2_cj0cn")
+frame = 4
+override_offset = true
+offset = Vector2(-6, 4)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_2luhh"]
+script = ExtResource("2_cj0cn")
+frame = 5
+override_offset = true
+offset = Vector2(-6, 4)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_0buas"]
+script = ExtResource("2_cj0cn")
+frame = 6
+override_offset = true
+offset = Vector2(-6, 4)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_l0q0c"]
+script = ExtResource("2_cj0cn")
+frame = 7
+override_offset = true
+offset = Vector2(-6, 4)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_jfd07"]
+script = ExtResource("1_sb7c7")
+animation_name = &"Stun"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_xu3vp"), SubResource("Resource_swryw"), SubResource("Resource_6ge2s"), SubResource("Resource_8j78x"), SubResource("Resource_lldcg"), SubResource("Resource_2luhh"), SubResource("Resource_0buas"), SubResource("Resource_l0q0c")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_xfmim"]
+script = ExtResource("1_sb7c7")
+animation_name = &"TryGrab"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_no6l4"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(8, -4)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ngdb3"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(-6, -44)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_u6enr"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(4, -40)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_i1iv7"]
+script = ExtResource("2_cj0cn")
+frame = 3
+override_offset = true
+offset = Vector2(0, -44)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_spplv"]
+script = ExtResource("2_cj0cn")
+frame = 4
+override_offset = true
+offset = Vector2(0, -44)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_o5iri"]
+script = ExtResource("1_sb7c7")
+animation_name = &"Throw"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_no6l4"), SubResource("Resource_ngdb3"), SubResource("Resource_u6enr"), SubResource("Resource_i1iv7"), SubResource("Resource_spplv")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_xehvm"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(26, -24)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_77ly2"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(24, -8)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_mjjwa"]
+script = ExtResource("1_sb7c7")
+animation_name = &"Thrown"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_xehvm"), SubResource("Resource_77ly2")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_awb4u"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(12, -32)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_muspe"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(0, -36)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_h5b3c"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(6, -36)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ijhr4"]
+script = ExtResource("2_cj0cn")
+frame = 3
+override_offset = true
+offset = Vector2(10, -36)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_4v0c4"]
+script = ExtResource("2_cj0cn")
+frame = 4
+override_offset = true
+offset = Vector2(16, -40)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_q1rp5"]
+script = ExtResource("2_cj0cn")
+frame = 5
+override_offset = true
+offset = Vector2(8, -72)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_kddcy"]
+script = ExtResource("2_cj0cn")
+frame = 6
+override_offset = true
+offset = Vector2(0, -84)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_u3ly4"]
+script = ExtResource("2_cj0cn")
+frame = 7
+override_offset = true
+offset = Vector2(-6, -88)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_5ri4x"]
+script = ExtResource("2_cj0cn")
+frame = 8
+override_offset = true
+offset = Vector2(2, -56)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_x2lw5"]
+script = ExtResource("2_cj0cn")
+frame = 9
+override_offset = true
+offset = Vector2(6, -36)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_aqlny"]
+script = ExtResource("2_cj0cn")
+frame = 10
+override_offset = true
+offset = Vector2(14, -8)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ogdh2"]
+script = ExtResource("2_cj0cn")
+frame = 11
+override_offset = true
+offset = Vector2(8, 0)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_xxjei"]
+script = ExtResource("2_cj0cn")
+frame = 12
+override_offset = true
+offset = Vector2(2, -4)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_752c1"]
+script = ExtResource("1_sb7c7")
+animation_name = &"Entry"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_awb4u"), SubResource("Resource_muspe"), SubResource("Resource_h5b3c"), SubResource("Resource_ijhr4"), SubResource("Resource_4v0c4"), SubResource("Resource_q1rp5"), SubResource("Resource_kddcy"), SubResource("Resource_u3ly4"), SubResource("Resource_5ri4x"), SubResource("Resource_x2lw5"), SubResource("Resource_aqlny"), SubResource("Resource_ogdh2"), SubResource("Resource_xxjei")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_0qyxu"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(20, -32)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_c3q2k"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(8, -12)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_w1028"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(14, -20)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_xdick"]
+script = ExtResource("2_cj0cn")
+frame = 3
+override_offset = true
+offset = Vector2(26, -24)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_0hhga"]
+script = ExtResource("2_cj0cn")
+frame = 4
+override_offset = true
+offset = Vector2(42, -36)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_w0akj"]
+script = ExtResource("2_cj0cn")
+frame = 5
+override_offset = true
+offset = Vector2(40, -28)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_iv5s0"]
+script = ExtResource("2_cj0cn")
+frame = 6
+override_offset = true
+offset = Vector2(50, -32)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_0r5jl"]
+script = ExtResource("2_cj0cn")
+frame = 7
+override_offset = true
+offset = Vector2(54, -32)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_gvg5l"]
+script = ExtResource("2_cj0cn")
+frame = 8
+override_offset = true
+offset = Vector2(60, -44)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_k6j7d"]
+script = ExtResource("2_cj0cn")
+frame = 9
+override_offset = true
+offset = Vector2(56, -92)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_85es7"]
+script = ExtResource("2_cj0cn")
+frame = 10
+override_offset = true
+offset = Vector2(56, -80)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_dxbl4"]
+script = ExtResource("2_cj0cn")
+frame = 11
+override_offset = true
+offset = Vector2(52, -84)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_s5t4x"]
+script = ExtResource("2_cj0cn")
+frame = 12
+override_offset = true
+offset = Vector2(52, -112)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_arqtd"]
+script = ExtResource("2_cj0cn")
+frame = 13
+override_offset = true
+offset = Vector2(38, -32)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_loqbp"]
+script = ExtResource("2_cj0cn")
+frame = 14
+override_offset = true
+offset = Vector2(36, -28)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_q46m1"]
+script = ExtResource("2_cj0cn")
+frame = 15
+override_offset = true
+offset = Vector2(36, -32)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_4osqj"]
+script = ExtResource("2_cj0cn")
+frame = 16
+override_offset = true
+offset = Vector2(38, -28)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_xjdig"]
+script = ExtResource("2_cj0cn")
+frame = 17
+override_offset = true
+offset = Vector2(36, -28)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_a8p0n"]
+script = ExtResource("2_cj0cn")
+frame = 18
+override_offset = true
+offset = Vector2(36, -28)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_3kmw3"]
+script = ExtResource("2_cj0cn")
+frame = 19
+override_offset = true
+offset = Vector2(38, -28)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_7e6t8"]
+script = ExtResource("2_cj0cn")
+frame = 20
+override_offset = true
+offset = Vector2(40, -32)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_aokwy"]
+script = ExtResource("2_cj0cn")
+frame = 21
+override_offset = true
+offset = Vector2(12, -32)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_m1f3l"]
+script = ExtResource("2_cj0cn")
+frame = 22
+override_offset = true
+offset = Vector2(0, -36)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_f3qq3"]
+script = ExtResource("2_cj0cn")
+frame = 23
+override_offset = true
+offset = Vector2(6, -36)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_igkqe"]
+script = ExtResource("2_cj0cn")
+frame = 24
+override_offset = true
+offset = Vector2(10, -36)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_8w1vj"]
+script = ExtResource("2_cj0cn")
+frame = 25
+override_offset = true
+offset = Vector2(16, -40)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_e484s"]
+script = ExtResource("2_cj0cn")
+frame = 26
+override_offset = true
+offset = Vector2(8, -72)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_aj3x5"]
+script = ExtResource("2_cj0cn")
+frame = 27
+override_offset = true
+offset = Vector2(0, -84)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_eku2l"]
+script = ExtResource("2_cj0cn")
+frame = 28
+override_offset = true
+offset = Vector2(-6, -88)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_d21ks"]
+script = ExtResource("2_cj0cn")
+frame = 29
+override_offset = true
+offset = Vector2(2, -56)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ty003"]
+script = ExtResource("2_cj0cn")
+frame = 30
+override_offset = true
+offset = Vector2(6, -36)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_r4pn5"]
+script = ExtResource("2_cj0cn")
+frame = 31
+override_offset = true
+offset = Vector2(14, -8)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_rlygh"]
+script = ExtResource("2_cj0cn")
+frame = 32
+override_offset = true
+offset = Vector2(8, 0)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_hdund"]
+script = ExtResource("2_cj0cn")
+frame = 33
+override_offset = true
+offset = Vector2(2, -4)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_6r0d1"]
+script = ExtResource("1_sb7c7")
+animation_name = &"Taunt"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_0qyxu"), SubResource("Resource_c3q2k"), SubResource("Resource_w1028"), SubResource("Resource_xdick"), SubResource("Resource_0hhga"), SubResource("Resource_w0akj"), SubResource("Resource_iv5s0"), SubResource("Resource_0r5jl"), SubResource("Resource_gvg5l"), SubResource("Resource_k6j7d"), SubResource("Resource_85es7"), SubResource("Resource_dxbl4"), SubResource("Resource_s5t4x"), SubResource("Resource_arqtd"), SubResource("Resource_loqbp"), SubResource("Resource_q46m1"), SubResource("Resource_4osqj"), SubResource("Resource_xjdig"), SubResource("Resource_a8p0n"), SubResource("Resource_3kmw3"), SubResource("Resource_7e6t8"), SubResource("Resource_aokwy"), SubResource("Resource_m1f3l"), SubResource("Resource_f3qq3"), SubResource("Resource_igkqe"), SubResource("Resource_8w1vj"), SubResource("Resource_e484s"), SubResource("Resource_aj3x5"), SubResource("Resource_eku2l"), SubResource("Resource_d21ks"), SubResource("Resource_ty003"), SubResource("Resource_r4pn5"), SubResource("Resource_rlygh"), SubResource("Resource_hdund")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_iedfk"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+offset = Vector2(0, -8)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_jf4kb"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+offset = Vector2(2, -8)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_v27le"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+offset = Vector2(0, -8)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ax3qt"]
+script = ExtResource("2_cj0cn")
+frame = 3
+override_offset = true
+offset = Vector2(12, -28)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_lqeu1"]
+script = ExtResource("2_cj0cn")
+frame = 4
+override_offset = true
+offset = Vector2(12, -36)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_3xuax"]
+script = ExtResource("2_cj0cn")
+frame = 5
+override_offset = true
+offset = Vector2(14, -56)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_ogn6k"]
+script = ExtResource("2_cj0cn")
+frame = 6
+override_offset = true
+offset = Vector2(14, -80)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_t87ww"]
+script = ExtResource("2_cj0cn")
+frame = 7
+override_offset = true
+offset = Vector2(40, -108)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_7fki2"]
+script = ExtResource("2_cj0cn")
+frame = 8
+override_offset = true
+offset = Vector2(20, -61)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_td61j"]
+script = ExtResource("2_cj0cn")
+frame = 9
+override_offset = true
+offset = Vector2(20, -61)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_u0iuc"]
+script = ExtResource("2_cj0cn")
+frame = 10
+override_offset = true
+offset = Vector2(10, -45)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_qr4nr"]
+script = ExtResource("2_cj0cn")
+frame = 11
+override_offset = true
+offset = Vector2(14, -96)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_a2gjh"]
+script = ExtResource("2_cj0cn")
+frame = 12
+override_offset = true
+offset = Vector2(16, -92)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_1rmwe"]
+script = ExtResource("2_cj0cn")
+frame = 13
+override_offset = true
+offset = Vector2(14, -96)
+scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://bycvcpito73xu"
+
+[sub_resource type="Resource" id="Resource_uwfmc"]
+script = ExtResource("1_sb7c7")
+animation_name = &"Victory"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_iedfk"), SubResource("Resource_jf4kb"), SubResource("Resource_v27le"), SubResource("Resource_ax3qt"), SubResource("Resource_lqeu1"), SubResource("Resource_3xuax"), SubResource("Resource_ogn6k"), SubResource("Resource_t87ww"), SubResource("Resource_7fki2"), SubResource("Resource_td61j"), SubResource("Resource_u0iuc"), SubResource("Resource_qr4nr"), SubResource("Resource_a2gjh"), SubResource("Resource_1rmwe")])
+metadata/_custom_type_script = "uid://bu7ghhff457v2"
+
+[sub_resource type="Resource" id="Resource_iyild"]
+script = ExtResource("2_cj0cn")
+override_offset = true
+scale = Vector2(1.1, 1.1)
+
+[sub_resource type="Resource" id="Resource_j4lbm"]
+script = ExtResource("2_cj0cn")
+frame = 1
+override_offset = true
+scale = Vector2(1.1, 1.1)
+
+[sub_resource type="Resource" id="Resource_okfb6"]
+script = ExtResource("2_cj0cn")
+frame = 2
+override_offset = true
+scale = Vector2(1.1, 1.1)
+
+[sub_resource type="Resource" id="Resource_ki1sj"]
+script = ExtResource("1_sb7c7")
+animation_name = &"Parry"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+frame_adjustments = Array[ExtResource("2_cj0cn")]([SubResource("Resource_iyild"), SubResource("Resource_j4lbm"), SubResource("Resource_okfb6")])
+
+[sub_resource type="Resource" id="Resource_j1oqi"]
+script = ExtResource("1_sb7c7")
+animation_name = &"SlideHead"
+override_offset = true
+override_scale = true
+scale = Vector2(1.1, 1.1)
+
+[resource]
+script = ExtResource("3_d3rks")
+animation_adjustments = Array[ExtResource("1_sb7c7")]([SubResource("Resource_y7e0a"), SubResource("Resource_7p43d"), SubResource("Resource_67v8g"), SubResource("Resource_eh0yn"), SubResource("Resource_rvapv"), SubResource("Resource_p180o"), SubResource("Resource_8yn7w"), SubResource("Resource_ec4ox"), SubResource("Resource_g8fk4"), SubResource("Resource_1tccq"), SubResource("Resource_83gvs"), SubResource("Resource_nb2we"), SubResource("Resource_xset5"), SubResource("Resource_5ggu5"), SubResource("Resource_5bfk3"), SubResource("Resource_mktgv"), SubResource("Resource_1djek"), SubResource("Resource_7wphd"), SubResource("Resource_adntf"), SubResource("Resource_aurd5"), SubResource("Resource_2260o"), SubResource("Resource_awfgr"), SubResource("Resource_o83cp"), SubResource("Resource_1mp82"), SubResource("Resource_2mrva"), SubResource("Resource_fu3qn"), SubResource("Resource_dndo5"), SubResource("Resource_tf021"), SubResource("Resource_t5crr"), SubResource("Resource_vdmmk"), SubResource("Resource_04jfu"), SubResource("Resource_uyamv"), SubResource("Resource_jfd07"), SubResource("Resource_xfmim"), SubResource("Resource_o5iri"), SubResource("Resource_mjjwa"), SubResource("Resource_752c1"), SubResource("Resource_6r0d1"), SubResource("Resource_uwfmc"), SubResource("Resource_ki1sj"), SubResource("Resource_j1oqi")])
+metadata/_custom_type_script = "uid://daxf6scsvh673"

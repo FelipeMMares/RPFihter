@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CommandSequence" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Scripts/Player/CommandParser/CommandSequence.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+name = "RaieiSageki"
+inputs = Array[String](["down", "left", "kick"])
+max_gap_frames = 8
+is_special = true

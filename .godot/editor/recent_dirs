@@ -1,3 +1,7 @@
+res://Scripts/Axl Low/States/
+res://Scripts/Combat/
+res://Scripts/Axl Low/
+res://assets/Potenkim/Idle/
 res://Cenas/AxlLow/
 res://assets/Axl Low/Benten Gari/
 res://assets/Axl Low/Rensen Geki/
@@ -16,7 +20,3 @@ res://assets/Axl Low/CrouchHighPunch/
 res://assets/Axl Low/CrouchLightPunch/
 res://assets/Axl Low/LowKick/
 res://assets/Axl Low/Kick/
-res://assets/Axl Low/HighPunch/
-res://assets/Axl Low/LightPunch/
-res://assets/Axl Low/Stun/
-res://assets/Axl Low/Throw/

@@ -1,6 +1,8 @@
 State
 CollisionShape2D
 Area2D
+Sprite2D
+Node2D
 CollisionPolygon2D
 Node
 Marker2D
@@ -10,5 +12,3 @@ CharacterBody2D
 AudioStreamPlayer
 PanelContainer
 MarginContainer
-Timer
-Button

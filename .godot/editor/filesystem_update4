@@ -2,3 +2,11 @@ res://Cenas/Potenkim/Potenkim.tscn
 res://Cenas/HUD/guardProgress.tres
 res://MorriganVisualProfile.tres
 res://Cenas/Potenkim/PotemkinVisualProfile.tres
+res://Cenas/Potenkim/Potemkin_frames.tres
+res://Cenas/AxlLow/AxlLow.tscn
+res://Scripts/Axl Low/AxlChainEffect.gd
+res://Scripts/Axl Low/States/RensenGeki.gd
+res://Scripts/Components/FrameVisualAdjustment/AnimationVisualAdjustment.gd
+res://Scripts/Components/FrameVisualAdjustment/AnimationVisualProfile.gd
+res://Scripts/Components/FrameVisualAdjustment/FrameVisualAdjustment.gd
+res://Scripts/Tools/GerarPotemkinVisualProfileBalanceado.gd

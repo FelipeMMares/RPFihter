@@ -6,11 +6,13 @@
 
 [sub_resource type="Resource" id="Resource_mk8jo"]
 script = ExtResource("2_1l84j")
+override_offset = true
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_w684u"]
 script = ExtResource("2_1l84j")
 frame = 1
+override_offset = true
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_e2544"]
@@ -64,10 +66,12 @@ metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_h30ne"]
 script = ExtResource("2_1l84j")
+override_offset = true
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_uj6dr"]
 script = ExtResource("2_1l84j")
+override_offset = true
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_lvtm5"]
@@ -80,8 +84,7 @@ metadata/_custom_type_script = "uid://bu7ghhff457v2"
 
 [sub_resource type="Resource" id="Resource_0q0t6"]
 script = ExtResource("2_1l84j")
-override_scale = true
-scale = Vector2(1.1, 1.1)
+override_offset = true
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_4mqji"]
@@ -89,8 +92,6 @@ script = ExtResource("2_1l84j")
 frame = 1
 override_offset = true
 offset = Vector2(4, 8)
-override_scale = true
-scale = Vector2(1.1, 1.1)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_j30mk"]
@@ -98,8 +99,6 @@ script = ExtResource("2_1l84j")
 frame = 2
 override_offset = true
 offset = Vector2(14, 12)
-override_scale = true
-scale = Vector2(1.08, 1.08)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_lsao5"]
@@ -107,8 +106,6 @@ script = ExtResource("2_1l84j")
 frame = 3
 override_offset = true
 offset = Vector2(-2, -4)
-override_scale = true
-scale = Vector2(1.09, 1.09)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_7xy41"]
@@ -116,8 +113,6 @@ script = ExtResource("2_1l84j")
 frame = 4
 override_offset = true
 offset = Vector2(-12, -8)
-override_scale = true
-scale = Vector2(1.1, 1.1)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_ylvrn"]
@@ -125,8 +120,6 @@ script = ExtResource("2_1l84j")
 frame = 5
 override_offset = true
 offset = Vector2(0, -8)
-override_scale = true
-scale = Vector2(1.1, 1.1)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_f8p0l"]
@@ -134,8 +127,6 @@ script = ExtResource("2_1l84j")
 frame = 6
 override_offset = true
 offset = Vector2(10, 0)
-override_scale = true
-scale = Vector2(1.09, 1.09)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_tmgh2"]
@@ -143,8 +134,6 @@ script = ExtResource("2_1l84j")
 frame = 7
 override_offset = true
 offset = Vector2(16, 8)
-override_scale = true
-scale = Vector2(1.08, 1.08)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_hha5u"]
@@ -152,8 +141,6 @@ script = ExtResource("2_1l84j")
 frame = 8
 override_offset = true
 offset = Vector2(2, -8)
-override_scale = true
-scale = Vector2(1.09, 1.09)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_lxf6m"]
@@ -161,8 +148,6 @@ script = ExtResource("2_1l84j")
 frame = 9
 override_offset = true
 offset = Vector2(-14, -4)
-override_scale = true
-scale = Vector2(1.1, 1.1)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_0ym0e"]
@@ -170,13 +155,13 @@ script = ExtResource("2_1l84j")
 frame = 10
 override_offset = true
 offset = Vector2(-6, -4)
-override_scale = true
-scale = Vector2(1.1, 1.1)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_s7sc3"]
 script = ExtResource("1_ij4jk")
 animation_name = &"Walk"
+override_scale = true
+scale = Vector2(1.1, 1.1)
 frame_adjustments = Array[ExtResource("2_1l84j")]([SubResource("Resource_0q0t6"), SubResource("Resource_4mqji"), SubResource("Resource_j30mk"), SubResource("Resource_lsao5"), SubResource("Resource_7xy41"), SubResource("Resource_ylvrn"), SubResource("Resource_f8p0l"), SubResource("Resource_tmgh2"), SubResource("Resource_hha5u"), SubResource("Resource_lxf6m"), SubResource("Resource_0ym0e")])
 metadata/_custom_type_script = "uid://bu7ghhff457v2"
 
@@ -239,28 +224,28 @@ metadata/_custom_type_script = "uid://bu7ghhff457v2"
 [sub_resource type="Resource" id="Resource_1bs54"]
 script = ExtResource("2_1l84j")
 override_offset = true
-offset = Vector2(4, 24)
+offset = Vector2(-8, 16)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_0ubxg"]
 script = ExtResource("2_1l84j")
 frame = 1
 override_offset = true
-offset = Vector2(4, 16)
+offset = Vector2(-8, 16)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_owwfy"]
 script = ExtResource("2_1l84j")
 frame = 2
 override_offset = true
-offset = Vector2(4, 16)
+offset = Vector2(-8, 16)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_wj5gs"]
 script = ExtResource("2_1l84j")
 frame = 3
 override_offset = true
-offset = Vector2(4, 16)
+offset = Vector2(-8, 16)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_6hgdb"]
@@ -302,28 +287,28 @@ metadata/_custom_type_script = "uid://bycvcpito73xu"
 script = ExtResource("2_1l84j")
 frame = 9
 override_offset = true
-offset = Vector2(4, 16)
+offset = Vector2(-8, 16)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_l1sp8"]
 script = ExtResource("2_1l84j")
 frame = 10
 override_offset = true
-offset = Vector2(4, 16)
+offset = Vector2(-8, 16)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_vy1ut"]
 script = ExtResource("2_1l84j")
 frame = 11
 override_offset = true
-offset = Vector2(4, 16)
+offset = Vector2(-8, 16)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_5i4un"]
 script = ExtResource("2_1l84j")
 frame = 12
 override_offset = true
-offset = Vector2(4, 24)
+offset = Vector2(-8, 16)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_5v305"]
@@ -1656,6 +1641,8 @@ metadata/_custom_type_script = "uid://bu7ghhff457v2"
 script = ExtResource("2_1l84j")
 override_offset = true
 offset = Vector2(6, -12)
+override_scale = true
+scale = Vector2(1.1, 1.1)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_e3s1r"]
@@ -1663,6 +1650,8 @@ script = ExtResource("2_1l84j")
 frame = 1
 override_offset = true
 offset = Vector2(4, -12)
+override_scale = true
+scale = Vector2(1.1, 1.1)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_qpwsp"]
@@ -1670,6 +1659,8 @@ script = ExtResource("2_1l84j")
 frame = 2
 override_offset = true
 offset = Vector2(6, 0)
+override_scale = true
+scale = Vector2(1.1, 1.1)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_cu22s"]
@@ -1677,6 +1668,8 @@ script = ExtResource("2_1l84j")
 frame = 3
 override_offset = true
 offset = Vector2(10, 0)
+override_scale = true
+scale = Vector2(1.075, 1.075)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_oukjy"]
@@ -1684,6 +1677,8 @@ script = ExtResource("2_1l84j")
 frame = 4
 override_offset = true
 offset = Vector2(14, 4)
+override_scale = true
+scale = Vector2(1.05, 1.05)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_xbla5"]
@@ -1691,6 +1686,8 @@ script = ExtResource("2_1l84j")
 frame = 5
 override_offset = true
 offset = Vector2(20, -8)
+override_scale = true
+scale = Vector2(1.05, 1.05)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_ck5e0"]
@@ -1698,6 +1695,8 @@ script = ExtResource("2_1l84j")
 frame = 6
 override_offset = true
 offset = Vector2(14, 4)
+override_scale = true
+scale = Vector2(1.05, 1.05)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_a17x5"]
@@ -1705,6 +1704,8 @@ script = ExtResource("2_1l84j")
 frame = 7
 override_offset = true
 offset = Vector2(10, 0)
+override_scale = true
+scale = Vector2(1.075, 1.075)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_i88n7"]
@@ -1712,6 +1713,8 @@ script = ExtResource("2_1l84j")
 frame = 8
 override_offset = true
 offset = Vector2(6, 0)
+override_scale = true
+scale = Vector2(1.1, 1.1)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_q8vxk"]
@@ -1719,6 +1722,8 @@ script = ExtResource("2_1l84j")
 frame = 9
 override_offset = true
 offset = Vector2(4, -12)
+override_scale = true
+scale = Vector2(1.1, 1.1)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_7p24f"]
@@ -1726,13 +1731,13 @@ script = ExtResource("2_1l84j")
 frame = 10
 override_offset = true
 offset = Vector2(6, -12)
+override_scale = true
+scale = Vector2(1.1, 1.1)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_enxpy"]
 script = ExtResource("1_ij4jk")
 animation_name = &"Hurt"
-override_scale = true
-scale = Vector2(1.1, 1.1)
 frame_adjustments = Array[ExtResource("2_1l84j")]([SubResource("Resource_ftong"), SubResource("Resource_e3s1r"), SubResource("Resource_qpwsp"), SubResource("Resource_cu22s"), SubResource("Resource_oukjy"), SubResource("Resource_xbla5"), SubResource("Resource_ck5e0"), SubResource("Resource_a17x5"), SubResource("Resource_i88n7"), SubResource("Resource_q8vxk"), SubResource("Resource_7p24f")])
 metadata/_custom_type_script = "uid://bu7ghhff457v2"
 
@@ -1740,6 +1745,8 @@ metadata/_custom_type_script = "uid://bu7ghhff457v2"
 script = ExtResource("2_1l84j")
 override_offset = true
 offset = Vector2(6, -8)
+override_scale = true
+scale = Vector2(1.1, 1.1)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_kq6dp"]
@@ -1747,6 +1754,8 @@ script = ExtResource("2_1l84j")
 frame = 1
 override_offset = true
 offset = Vector2(8, 16)
+override_scale = true
+scale = Vector2(1.1, 1.1)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_1l1nx"]
@@ -1754,6 +1763,8 @@ script = ExtResource("2_1l84j")
 frame = 2
 override_offset = true
 offset = Vector2(16, 16)
+override_scale = true
+scale = Vector2(1.075, 1.075)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_qtb8w"]
@@ -1761,6 +1772,8 @@ script = ExtResource("2_1l84j")
 frame = 3
 override_offset = true
 offset = Vector2(18, 22)
+override_scale = true
+scale = Vector2(1.075, 1.075)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_dg8p6"]
@@ -1768,6 +1781,8 @@ script = ExtResource("2_1l84j")
 frame = 4
 override_offset = true
 offset = Vector2(22, 20)
+override_scale = true
+scale = Vector2(1.05, 1.05)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_5vs2u"]
@@ -1775,6 +1790,8 @@ script = ExtResource("2_1l84j")
 frame = 5
 override_offset = true
 offset = Vector2(24, 20)
+override_scale = true
+scale = Vector2(1.05, 1.05)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_sksjr"]
@@ -1782,6 +1799,8 @@ script = ExtResource("2_1l84j")
 frame = 6
 override_offset = true
 offset = Vector2(28, 4)
+override_scale = true
+scale = Vector2(1.025, 1.025)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_g58ge"]
@@ -1789,6 +1808,8 @@ script = ExtResource("2_1l84j")
 frame = 7
 override_offset = true
 offset = Vector2(28, 8)
+override_scale = true
+scale = Vector2(1.025, 1.025)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_04k1r"]
@@ -1796,6 +1817,8 @@ script = ExtResource("2_1l84j")
 frame = 8
 override_offset = true
 offset = Vector2(24, 0)
+override_scale = true
+scale = Vector2(1.025, 1.025)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_1llj4"]
@@ -1803,6 +1826,8 @@ script = ExtResource("2_1l84j")
 frame = 9
 override_offset = true
 offset = Vector2(12, 0)
+override_scale = true
+scale = Vector2(1.05, 1.05)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_vyhsw"]
@@ -1810,6 +1835,8 @@ script = ExtResource("2_1l84j")
 frame = 10
 override_offset = true
 offset = Vector2(22, 0)
+override_scale = true
+scale = Vector2(1.05, 1.05)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_s7206"]
@@ -1817,6 +1844,8 @@ script = ExtResource("2_1l84j")
 frame = 11
 override_offset = true
 offset = Vector2(24, 28)
+override_scale = true
+scale = Vector2(1.025, 1.025)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_opwb2"]
@@ -1824,6 +1853,7 @@ script = ExtResource("2_1l84j")
 frame = 12
 override_offset = true
 offset = Vector2(26, 44)
+override_scale = true
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_gwhi6"]
@@ -1831,13 +1861,12 @@ script = ExtResource("2_1l84j")
 frame = 13
 override_offset = true
 offset = Vector2(34, 56)
+override_scale = true
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_mal33"]
 script = ExtResource("1_ij4jk")
 animation_name = &"HurtFall"
-override_scale = true
-scale = Vector2(1.1, 1.1)
 frame_adjustments = Array[ExtResource("2_1l84j")]([SubResource("Resource_nwa76"), SubResource("Resource_kq6dp"), SubResource("Resource_1l1nx"), SubResource("Resource_qtb8w"), SubResource("Resource_dg8p6"), SubResource("Resource_5vs2u"), SubResource("Resource_sksjr"), SubResource("Resource_g58ge"), SubResource("Resource_04k1r"), SubResource("Resource_1llj4"), SubResource("Resource_vyhsw"), SubResource("Resource_s7206"), SubResource("Resource_opwb2"), SubResource("Resource_gwhi6")])
 metadata/_custom_type_script = "uid://bu7ghhff457v2"
 
@@ -1854,6 +1883,8 @@ metadata/_custom_type_script = "uid://bu7ghhff457v2"
 script = ExtResource("2_1l84j")
 override_offset = true
 offset = Vector2(6, -8)
+override_scale = true
+scale = Vector2(1.1, 1.1)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_6xyxx"]
@@ -1861,6 +1892,8 @@ script = ExtResource("2_1l84j")
 frame = 1
 override_offset = true
 offset = Vector2(8, 16)
+override_scale = true
+scale = Vector2(1.1, 1.1)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_b3m5s"]
@@ -1868,6 +1901,8 @@ script = ExtResource("2_1l84j")
 frame = 2
 override_offset = true
 offset = Vector2(16, 16)
+override_scale = true
+scale = Vector2(1.075, 1.075)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_7d1q5"]
@@ -1875,6 +1910,8 @@ script = ExtResource("2_1l84j")
 frame = 3
 override_offset = true
 offset = Vector2(18, 20)
+override_scale = true
+scale = Vector2(1.075, 1.075)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_owa58"]
@@ -1882,6 +1919,8 @@ script = ExtResource("2_1l84j")
 frame = 4
 override_offset = true
 offset = Vector2(22, 20)
+override_scale = true
+scale = Vector2(1.05, 1.05)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_0wdtg"]
@@ -1889,6 +1928,8 @@ script = ExtResource("2_1l84j")
 frame = 5
 override_offset = true
 offset = Vector2(24, 20)
+override_scale = true
+scale = Vector2(1.05, 1.05)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_bt3ip"]
@@ -1896,6 +1937,8 @@ script = ExtResource("2_1l84j")
 frame = 6
 override_offset = true
 offset = Vector2(28, 4)
+override_scale = true
+scale = Vector2(1.025, 1.025)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_ian6r"]
@@ -1903,6 +1946,8 @@ script = ExtResource("2_1l84j")
 frame = 7
 override_offset = true
 offset = Vector2(28, 8)
+override_scale = true
+scale = Vector2(1.025, 1.025)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_g83d4"]
@@ -1910,6 +1955,8 @@ script = ExtResource("2_1l84j")
 frame = 8
 override_offset = true
 offset = Vector2(24, 0)
+override_scale = true
+scale = Vector2(1.025, 1.025)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_jo8n4"]
@@ -1917,6 +1964,8 @@ script = ExtResource("2_1l84j")
 frame = 9
 override_offset = true
 offset = Vector2(12, 0)
+override_scale = true
+scale = Vector2(1.05, 1.05)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_ebwyc"]
@@ -1924,6 +1973,8 @@ script = ExtResource("2_1l84j")
 frame = 10
 override_offset = true
 offset = Vector2(22, 0)
+override_scale = true
+scale = Vector2(1.05, 1.05)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_iy3kk"]
@@ -1931,6 +1982,8 @@ script = ExtResource("2_1l84j")
 frame = 11
 override_offset = true
 offset = Vector2(24, 28)
+override_scale = true
+scale = Vector2(1.025, 1.025)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_hemqq"]
@@ -1938,6 +1991,7 @@ script = ExtResource("2_1l84j")
 frame = 12
 override_offset = true
 offset = Vector2(26, 44)
+override_scale = true
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_8f08k"]
@@ -1945,6 +1999,7 @@ script = ExtResource("2_1l84j")
 frame = 13
 override_offset = true
 offset = Vector2(34, 56)
+override_scale = true
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_rfpqx"]
@@ -1952,13 +2007,12 @@ script = ExtResource("2_1l84j")
 frame = 14
 override_offset = true
 offset = Vector2(50, 56)
+override_scale = true
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_am1je"]
 script = ExtResource("1_ij4jk")
 animation_name = &"FallDefeated"
-override_scale = true
-scale = Vector2(1.1, 1.1)
 frame_adjustments = Array[ExtResource("2_1l84j")]([SubResource("Resource_4r3ac"), SubResource("Resource_6xyxx"), SubResource("Resource_b3m5s"), SubResource("Resource_7d1q5"), SubResource("Resource_owa58"), SubResource("Resource_0wdtg"), SubResource("Resource_bt3ip"), SubResource("Resource_ian6r"), SubResource("Resource_g83d4"), SubResource("Resource_jo8n4"), SubResource("Resource_ebwyc"), SubResource("Resource_iy3kk"), SubResource("Resource_hemqq"), SubResource("Resource_8f08k"), SubResource("Resource_rfpqx")])
 metadata/_custom_type_script = "uid://bu7ghhff457v2"
 
@@ -2164,6 +2218,8 @@ metadata/_custom_type_script = "uid://bu7ghhff457v2"
 script = ExtResource("2_1l84j")
 override_offset = true
 offset = Vector2(12, -32)
+override_scale = true
+scale = Vector2(1.1, 1.1)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_fvem3"]
@@ -2171,6 +2227,8 @@ script = ExtResource("2_1l84j")
 frame = 1
 override_offset = true
 offset = Vector2(0, -36)
+override_scale = true
+scale = Vector2(1.1, 1.1)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_gihvi"]
@@ -2178,6 +2236,8 @@ script = ExtResource("2_1l84j")
 frame = 2
 override_offset = true
 offset = Vector2(6, -36)
+override_scale = true
+scale = Vector2(1.075, 1.075)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_5bywt"]
@@ -2185,6 +2245,8 @@ script = ExtResource("2_1l84j")
 frame = 3
 override_offset = true
 offset = Vector2(10, -36)
+override_scale = true
+scale = Vector2(1.075, 1.075)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_2ihan"]
@@ -2192,6 +2254,8 @@ script = ExtResource("2_1l84j")
 frame = 4
 override_offset = true
 offset = Vector2(16, -40)
+override_scale = true
+scale = Vector2(1.05, 1.05)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_p1xai"]
@@ -2199,6 +2263,8 @@ script = ExtResource("2_1l84j")
 frame = 5
 override_offset = true
 offset = Vector2(8, -72)
+override_scale = true
+scale = Vector2(1.025, 1.025)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_a6r3g"]
@@ -2206,6 +2272,7 @@ script = ExtResource("2_1l84j")
 frame = 6
 override_offset = true
 offset = Vector2(0, -84)
+override_scale = true
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_7hl6g"]
@@ -2213,6 +2280,7 @@ script = ExtResource("2_1l84j")
 frame = 7
 override_offset = true
 offset = Vector2(-6, -88)
+override_scale = true
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_fd6px"]
@@ -2220,6 +2288,8 @@ script = ExtResource("2_1l84j")
 frame = 8
 override_offset = true
 offset = Vector2(2, -56)
+override_scale = true
+scale = Vector2(1.025, 1.025)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_bd6jp"]
@@ -2227,6 +2297,8 @@ script = ExtResource("2_1l84j")
 frame = 9
 override_offset = true
 offset = Vector2(6, -36)
+override_scale = true
+scale = Vector2(1.05, 1.05)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_h2341"]
@@ -2234,6 +2306,8 @@ script = ExtResource("2_1l84j")
 frame = 10
 override_offset = true
 offset = Vector2(14, -8)
+override_scale = true
+scale = Vector2(1.075, 1.075)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_rfwo7"]
@@ -2241,6 +2315,8 @@ script = ExtResource("2_1l84j")
 frame = 11
 override_offset = true
 offset = Vector2(8, 0)
+override_scale = true
+scale = Vector2(1.1, 1.1)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_52r71"]
@@ -2248,230 +2324,282 @@ script = ExtResource("2_1l84j")
 frame = 12
 override_offset = true
 offset = Vector2(2, -4)
+override_scale = true
+scale = Vector2(1.1, 1.1)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_tquae"]
 script = ExtResource("1_ij4jk")
 animation_name = &"Entry"
-override_scale = true
-scale = Vector2(1.1, 1.1)
 frame_adjustments = Array[ExtResource("2_1l84j")]([SubResource("Resource_q5uh5"), SubResource("Resource_fvem3"), SubResource("Resource_gihvi"), SubResource("Resource_5bywt"), SubResource("Resource_2ihan"), SubResource("Resource_p1xai"), SubResource("Resource_a6r3g"), SubResource("Resource_7hl6g"), SubResource("Resource_fd6px"), SubResource("Resource_bd6jp"), SubResource("Resource_h2341"), SubResource("Resource_rfwo7"), SubResource("Resource_52r71")])
 metadata/_custom_type_script = "uid://bu7ghhff457v2"
 
 [sub_resource type="Resource" id="Resource_5bv21"]
 script = ExtResource("2_1l84j")
 override_offset = true
-offset = Vector2(20, -32)
+offset = Vector2(12, 30)
+override_scale = true
+scale = Vector2(1.1, 1.1)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_y38y7"]
 script = ExtResource("2_1l84j")
 frame = 1
 override_offset = true
-offset = Vector2(8, -12)
+offset = Vector2(-15, 10)
+override_scale = true
+scale = Vector2(1.1, 1.1)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_kpajt"]
 script = ExtResource("2_1l84j")
 frame = 2
 override_offset = true
-offset = Vector2(14, -20)
+offset = Vector2(15, 0)
+override_scale = true
+scale = Vector2(1.075, 1.075)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_khx8l"]
 script = ExtResource("2_1l84j")
 frame = 3
 override_offset = true
-offset = Vector2(26, -24)
+offset = Vector2(20, 5)
+override_scale = true
+scale = Vector2(1.05, 1.05)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_0pcji"]
 script = ExtResource("2_1l84j")
 frame = 4
 override_offset = true
-offset = Vector2(42, -36)
+offset = Vector2(25, 5)
+override_scale = true
+scale = Vector2(1.025, 1.025)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_vafe2"]
 script = ExtResource("2_1l84j")
 frame = 5
 override_offset = true
-offset = Vector2(40, -28)
+offset = Vector2(25, 8)
+override_scale = true
+scale = Vector2(1.025, 1.025)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_12frs"]
 script = ExtResource("2_1l84j")
 frame = 6
 override_offset = true
-offset = Vector2(50, -32)
+offset = Vector2(22, 8)
+override_scale = true
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_48fas"]
 script = ExtResource("2_1l84j")
 frame = 7
 override_offset = true
-offset = Vector2(54, -32)
+offset = Vector2(25, 8)
+override_scale = true
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_ba83p"]
 script = ExtResource("2_1l84j")
 frame = 8
 override_offset = true
-offset = Vector2(60, -44)
+offset = Vector2(22, 8)
+override_scale = true
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_mdvwc"]
 script = ExtResource("2_1l84j")
 frame = 9
 override_offset = true
-offset = Vector2(56, -92)
+offset = Vector2(22, 8)
+override_scale = true
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_8c876"]
 script = ExtResource("2_1l84j")
 frame = 10
 override_offset = true
-offset = Vector2(56, -80)
+offset = Vector2(22, -44)
+override_scale = true
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_5k3wx"]
 script = ExtResource("2_1l84j")
 frame = 11
 override_offset = true
-offset = Vector2(52, -84)
+offset = Vector2(30, -28)
+override_scale = true
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_kfdyt"]
 script = ExtResource("2_1l84j")
 frame = 12
 override_offset = true
-offset = Vector2(52, -112)
+offset = Vector2(30, -40)
+override_scale = true
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_34bmi"]
 script = ExtResource("2_1l84j")
 frame = 13
 override_offset = true
-offset = Vector2(38, -32)
+offset = Vector2(25, -60)
+override_scale = true
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_18xve"]
 script = ExtResource("2_1l84j")
 frame = 14
 override_offset = true
-offset = Vector2(36, -28)
+offset = Vector2(20, 10)
+override_scale = true
+scale = Vector2(1.025, 1.025)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_y0mf1"]
 script = ExtResource("2_1l84j")
 frame = 15
 override_offset = true
-offset = Vector2(36, -32)
+offset = Vector2(0, 10)
+override_scale = true
+scale = Vector2(1.025, 1.025)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_vbsl5"]
 script = ExtResource("2_1l84j")
 frame = 16
 override_offset = true
-offset = Vector2(38, -28)
+offset = Vector2(-10, 10)
+override_scale = true
+scale = Vector2(1.025, 1.025)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_i3jxx"]
 script = ExtResource("2_1l84j")
 frame = 17
 override_offset = true
-offset = Vector2(36, -28)
+offset = Vector2(-30, 5)
+override_scale = true
+scale = Vector2(1.025, 1.025)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_fmgqv"]
 script = ExtResource("2_1l84j")
 frame = 18
 override_offset = true
-offset = Vector2(36, -28)
+offset = Vector2(-25, 5)
+override_scale = true
+scale = Vector2(1.025, 1.025)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_8ebvg"]
 script = ExtResource("2_1l84j")
 frame = 19
 override_offset = true
-offset = Vector2(38, -28)
+offset = Vector2(-35, 5)
+override_scale = true
+scale = Vector2(1.025, 1.025)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_a07hj"]
 script = ExtResource("2_1l84j")
 frame = 20
 override_offset = true
-offset = Vector2(40, -32)
+offset = Vector2(-30, 5)
+override_scale = true
+scale = Vector2(1.025, 1.025)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_41wp1"]
 script = ExtResource("2_1l84j")
 frame = 21
 override_offset = true
-offset = Vector2(12, -32)
+offset = Vector2(-35, 5)
+override_scale = true
+scale = Vector2(1.1, 1.1)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_rclnx"]
 script = ExtResource("2_1l84j")
 frame = 22
 override_offset = true
-offset = Vector2(0, -36)
+offset = Vector2(30, 20)
+override_scale = true
+scale = Vector2(1.1, 1.1)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_os28e"]
 script = ExtResource("2_1l84j")
 frame = 23
 override_offset = true
-offset = Vector2(6, -36)
+offset = Vector2(0, 30)
+override_scale = true
+scale = Vector2(1.075, 1.075)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_b61lu"]
 script = ExtResource("2_1l84j")
 frame = 24
 override_offset = true
-offset = Vector2(10, -36)
+offset = Vector2(-10, 25)
+override_scale = true
+scale = Vector2(1.075, 1.075)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_koowe"]
 script = ExtResource("2_1l84j")
 frame = 25
 override_offset = true
-offset = Vector2(16, -40)
+offset = Vector2(-25, 25)
+override_scale = true
+scale = Vector2(1.05, 1.05)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_k44by"]
 script = ExtResource("2_1l84j")
 frame = 26
 override_offset = true
-offset = Vector2(8, -72)
+offset = Vector2(-40, 25)
+override_scale = true
+scale = Vector2(1.025, 1.025)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_aasmk"]
 script = ExtResource("2_1l84j")
 frame = 27
 override_offset = true
-offset = Vector2(0, -84)
+offset = Vector2(-18, -8)
+override_scale = true
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_ak5cq"]
 script = ExtResource("2_1l84j")
 frame = 28
 override_offset = true
-offset = Vector2(-6, -88)
+offset = Vector2(0, -25)
+override_scale = true
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_c8le7"]
 script = ExtResource("2_1l84j")
 frame = 29
 override_offset = true
-offset = Vector2(2, -56)
+offset = Vector2(10, -25)
+override_scale = true
+scale = Vector2(1.025, 1.025)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_0k85a"]
 script = ExtResource("2_1l84j")
 frame = 30
 override_offset = true
-offset = Vector2(6, -36)
+offset = Vector2(-17, -15)
+override_scale = true
+scale = Vector2(1.05, 1.05)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_ch07g"]
@@ -2479,6 +2607,8 @@ script = ExtResource("2_1l84j")
 frame = 31
 override_offset = true
 offset = Vector2(14, -8)
+override_scale = true
+scale = Vector2(1.075, 1.075)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_rbbm0"]
@@ -2486,6 +2616,8 @@ script = ExtResource("2_1l84j")
 frame = 32
 override_offset = true
 offset = Vector2(8, 0)
+override_scale = true
+scale = Vector2(1.1, 1.1)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_yr2oa"]
@@ -2493,13 +2625,13 @@ script = ExtResource("2_1l84j")
 frame = 33
 override_offset = true
 offset = Vector2(2, -4)
+override_scale = true
+scale = Vector2(1.1, 1.1)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_fm8fu"]
 script = ExtResource("1_ij4jk")
 animation_name = &"Taunt"
-override_scale = true
-scale = Vector2(1.1, 1.1)
 frame_adjustments = Array[ExtResource("2_1l84j")]([SubResource("Resource_5bv21"), SubResource("Resource_y38y7"), SubResource("Resource_kpajt"), SubResource("Resource_khx8l"), SubResource("Resource_0pcji"), SubResource("Resource_vafe2"), SubResource("Resource_12frs"), SubResource("Resource_48fas"), SubResource("Resource_ba83p"), SubResource("Resource_mdvwc"), SubResource("Resource_8c876"), SubResource("Resource_5k3wx"), SubResource("Resource_kfdyt"), SubResource("Resource_34bmi"), SubResource("Resource_18xve"), SubResource("Resource_y0mf1"), SubResource("Resource_vbsl5"), SubResource("Resource_i3jxx"), SubResource("Resource_fmgqv"), SubResource("Resource_8ebvg"), SubResource("Resource_a07hj"), SubResource("Resource_41wp1"), SubResource("Resource_rclnx"), SubResource("Resource_os28e"), SubResource("Resource_b61lu"), SubResource("Resource_koowe"), SubResource("Resource_k44by"), SubResource("Resource_aasmk"), SubResource("Resource_ak5cq"), SubResource("Resource_c8le7"), SubResource("Resource_0k85a"), SubResource("Resource_ch07g"), SubResource("Resource_rbbm0"), SubResource("Resource_yr2oa")])
 metadata/_custom_type_script = "uid://bu7ghhff457v2"
 
@@ -2507,6 +2639,8 @@ metadata/_custom_type_script = "uid://bu7ghhff457v2"
 script = ExtResource("2_1l84j")
 override_offset = true
 offset = Vector2(0, -8)
+override_scale = true
+scale = Vector2(1.1, 1.1)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_ggs0i"]
@@ -2514,6 +2648,8 @@ script = ExtResource("2_1l84j")
 frame = 1
 override_offset = true
 offset = Vector2(2, -8)
+override_scale = true
+scale = Vector2(1.1, 1.1)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_jxw5o"]
@@ -2521,6 +2657,8 @@ script = ExtResource("2_1l84j")
 frame = 2
 override_offset = true
 offset = Vector2(0, -8)
+override_scale = true
+scale = Vector2(1.1, 1.1)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_35qye"]
@@ -2528,6 +2666,8 @@ script = ExtResource("2_1l84j")
 frame = 3
 override_offset = true
 offset = Vector2(12, -28)
+override_scale = true
+scale = Vector2(1.075, 1.075)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_i061u"]
@@ -2535,6 +2675,8 @@ script = ExtResource("2_1l84j")
 frame = 4
 override_offset = true
 offset = Vector2(12, -36)
+override_scale = true
+scale = Vector2(1.05, 1.05)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_lvhpu"]
@@ -2542,6 +2684,8 @@ script = ExtResource("2_1l84j")
 frame = 5
 override_offset = true
 offset = Vector2(14, -56)
+override_scale = true
+scale = Vector2(1.025, 1.025)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_25dxg"]
@@ -2549,6 +2693,7 @@ script = ExtResource("2_1l84j")
 frame = 6
 override_offset = true
 offset = Vector2(14, -80)
+override_scale = true
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_u150p"]
@@ -2556,6 +2701,7 @@ script = ExtResource("2_1l84j")
 frame = 7
 override_offset = true
 offset = Vector2(40, -108)
+override_scale = true
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_wq17p"]
@@ -2563,6 +2709,7 @@ script = ExtResource("2_1l84j")
 frame = 8
 override_offset = true
 offset = Vector2(20, -61)
+override_scale = true
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_fvu2x"]
@@ -2570,6 +2717,7 @@ script = ExtResource("2_1l84j")
 frame = 9
 override_offset = true
 offset = Vector2(20, -61)
+override_scale = true
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_hmpyu"]
@@ -2577,6 +2725,8 @@ script = ExtResource("2_1l84j")
 frame = 10
 override_offset = true
 offset = Vector2(10, -45)
+override_scale = true
+scale = Vector2(1.025, 1.025)
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_lrdpi"]
@@ -2584,6 +2734,7 @@ script = ExtResource("2_1l84j")
 frame = 11
 override_offset = true
 offset = Vector2(14, -96)
+override_scale = true
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_r2a6g"]
@@ -2591,6 +2742,7 @@ script = ExtResource("2_1l84j")
 frame = 12
 override_offset = true
 offset = Vector2(16, -92)
+override_scale = true
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_ueof3"]
@@ -2598,13 +2750,13 @@ script = ExtResource("2_1l84j")
 frame = 13
 override_offset = true
 offset = Vector2(14, -96)
+override_scale = true
 metadata/_custom_type_script = "uid://bycvcpito73xu"
 
 [sub_resource type="Resource" id="Resource_mup8r"]
 script = ExtResource("1_ij4jk")
 animation_name = &"Victory"
 override_scale = true
-scale = Vector2(1.1, 1.1)
 frame_adjustments = Array[ExtResource("2_1l84j")]([SubResource("Resource_qfvv5"), SubResource("Resource_ggs0i"), SubResource("Resource_jxw5o"), SubResource("Resource_35qye"), SubResource("Resource_i061u"), SubResource("Resource_lvhpu"), SubResource("Resource_25dxg"), SubResource("Resource_u150p"), SubResource("Resource_wq17p"), SubResource("Resource_fvu2x"), SubResource("Resource_hmpyu"), SubResource("Resource_lrdpi"), SubResource("Resource_r2a6g"), SubResource("Resource_ueof3")])
 metadata/_custom_type_script = "uid://bu7ghhff457v2"
 

@@ -234,8 +234,6 @@
 [ext_resource type="Script" uid="uid://bt5tashi1crub" path="res://Scripts/Player/ImputBuffering.gd" id="232_s1jv7"]
 [ext_resource type="Script" uid="uid://byslak2i1ykxe" path="res://Scripts/Player/PlayerControls/PlayerControls.gd" id="233_lot5g"]
 [ext_resource type="Script" uid="uid://dbu8ihntj2ffr" path="res://Scripts/Player/CommandParser/commandParse.gd" id="234_5qx7q"]
-[ext_resource type="Script" uid="uid://brg7ixgqu5kif" path="res://Scripts/Player/CommandParser/CommandSequence.gd" id="235_424ca"]
-[ext_resource type="Resource" uid="uid://qsc53uxyhf5y" path="res://Scripts/Combat/MegaFist.tres" id="236_tltuc"]
 [ext_resource type="Script" uid="uid://i478e5jfr2tp" path="res://Scripts/Audio/CharacterVoicePlayer.gd" id="237_3owr2"]
 [ext_resource type="Script" uid="uid://cmprwqp560lvn" path="res://Scripts/Player/StateMachine/StateMachine.gd" id="238_u4cea"]
 [ext_resource type="Script" uid="uid://bi6q5kxootr01" path="res://Scripts/Player/StateMachine/States/Ground/Idle.gd" id="239_lqlwi"]
@@ -282,15 +280,10 @@
 [ext_resource type="Script" uid="uid://0avj1tmmibwt" path="res://Scripts/Player/StateMachine/States/Ground/Entry.gd" id="280_8ibwe"]
 [ext_resource type="AudioStream" uid="uid://bj8tdr8rghtft" path="res://assets/Audio/Voice/zangief/Entry/PL10_00016.wav" id="281_888tw"]
 [ext_resource type="AudioStream" uid="uid://dxud3fiosicjt" path="res://assets/Audio/Voice/zangief/Entry/PL10_00019.wav" id="282_7guxb"]
-[ext_resource type="Script" uid="uid://bcfo411m8d1q1" path="res://Scripts/Potenkim/States/MegaFist.gd" id="283_rfeq0"]
-[ext_resource type="AudioStream" uid="uid://b7bwbiyh8ish1" path="res://assets/Audio/Voice/Potenkim/MegaFist1/vpot004b.ogg" id="284_n3bny"]
-[ext_resource type="Script" uid="uid://c5bf4qf28j27m" path="res://Scripts/Potenkim/States/SlideHead.gd" id="285_poadn"]
-[ext_resource type="AudioStream" uid="uid://erjmjadttm8g" path="res://assets/Audio/Voice/Potenkim/SlideHead1/vpot203a.ogg" id="286_agbcb"]
-[ext_resource type="AudioStream" uid="uid://dosjlwmm004gg" path="res://assets/Audio/Voice/Potenkim/SlideHead1/vpot203b.ogg" id="287_4v77w"]
-[ext_resource type="AudioStream" uid="uid://bbdtc6yu8umos" path="res://assets/Audio/Voice/Potenkim/SlideHead1/vpot203c.ogg" id="288_emd8h"]
-[ext_resource type="AudioStream" uid="uid://dgme8ajxrupk2" path="res://assets/Audio/Voice/Potenkim/PotemkinBuster/vpot208c.ogg" id="289_fcy7h"]
-[ext_resource type="AudioStream" uid="uid://buhsv245tfdxn" path="res://assets/Audio/Voice/Potenkim/PotemkinBuster/vpot209a.ogg" id="290_4tfxx"]
-[ext_resource type="AudioStream" uid="uid://bu3a21wgicbp7" path="res://assets/Audio/Voice/Potenkim/PotemkinBuster/vpot209b.ogg" id="291_0ugwg"]
+[ext_resource type="Script" uid="uid://b43wkpww8dc7v" path="res://Scripts/Axl Low/States/BentenGari.gd" id="282_73efq"]
+[ext_resource type="Script" uid="uid://dtyxp7mmmb0j8" path="res://Scripts/Axl Low/States/RaieiSageki.gd" id="283_j6axg"]
+[ext_resource type="Script" uid="uid://cmwjlk75t414" path="res://Scripts/Axl Low/States/RensenGeki.gd" id="283_ocomb"]
+[ext_resource type="Script" uid="uid://bkklrvtapkren" path="res://Scripts/Player/StateMachine/State.gd" id="284_73efq"]
 [ext_resource type="Script" uid="uid://do3du61yy2b2o" path="res://Scripts/Player/Hitbox/Hitboxers.gd" id="292_b1blq"]
 [ext_resource type="AudioStream" uid="uid://v8n41tqls7ke" path="res://assets/Audio/SFX/Combat/Hits/smash-bros-hit-2.mp3" id="293_jvyq2"]
 [ext_resource type="AudioStream" uid="uid://b8asxc7p44qtf" path="res://assets/Audio/SFX/Combat/Guard/hitstop.mp3" id="294_ju0og"]
@@ -298,9 +291,15 @@
 [ext_resource type="AudioStream" uid="uid://bi8h37ajawew2" path="res://assets/Audio/SFX/Combat/Hits/sword-hit.mp3" id="296_2wy6s"]
 [ext_resource type="AudioStream" uid="uid://d22bgxty3l74y" path="res://assets/Audio/SFX/Combat/Hits/hitmarker_lPlclg2.mp3" id="297_euami"]
 [ext_resource type="Script" uid="uid://cgjhpb6ihl6r5" path="res://Scripts/Player/StateMachine/States/Ground/ThrowBox.gd" id="298_fkkts"]
-[ext_resource type="AudioStream" uid="uid://76ivwn2ew2u1" path="res://assets/Audio/SFX/Combat/Strikes/critical-hit-sounds-effect.mp3" id="299_l4qtk"]
+[ext_resource type="Resource" uid="uid://bc560dkgvyydd" path="res://Scripts/Combat/RensenGeki.tres" id="300_73efq"]
 [ext_resource type="Script" uid="uid://iki0228sltc8" path="res://Scripts/Components/FrameVisualAdjustment/AnimationVisualController.gd" id="300_nfakb"]
 [ext_resource type="Resource" uid="uid://dm0ui0ogdvbgp" path="res://Cenas/Potenkim/PotemkinVisualProfile.tres" id="301_s6pn1"]
+[ext_resource type="Script" uid="uid://cgnqvbeli4som" path="res://Scripts/Axl Low/AxlChainEffect.gd" id="302_6q5pr"]
+[ext_resource type="Texture2D" uid="uid://bp0l0q05qvuj" path="res://Scripts/Axl Low/sprite_14.png" id="303_ta3me"]
+[ext_resource type="Texture2D" uid="uid://sixb6qthxpwl" path="res://Scripts/Axl Low/sprite_15.png" id="304_uakcq"]
+[ext_resource type="Texture2D" uid="uid://dy1tepr3tpde0" path="res://Scripts/Axl Low/sprite_16.png" id="305_7odhp"]
+[ext_resource type="Texture2D" uid="uid://du3khg6rk5oh3" path="res://Scripts/Axl Low/sprite_17.png" id="306_1ngpf"]
+[ext_resource type="Texture2D" uid="uid://cg0i4pu4g6nn4" path="res://Scripts/Axl Low/sprite_18.png" id="307_00kpl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
@@ -1470,29 +1469,6 @@ size = Vector2(204.62755, 128.34247)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o1poj"]
 size = Vector2(84, 108.5)
 
-[sub_resource type="Resource" id="Resource_aok8r"]
-script = ExtResource("295_rjx21")
-hitstun = 60
-launch = Vector2(-60, -50)
-metadata/_custom_type_script = "uid://c48umgmbmjtf1"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gngh"]
-size = Vector2(209.88872, 363.59607)
-
-[sub_resource type="Resource" id="Resource_wsi31"]
-script = ExtResource("295_rjx21")
-damage = 90
-hitstun = 30
-launch = Vector2(60, -170)
-hurt_animation = &"HurtFall"
-metadata/_custom_type_script = "uid://c48umgmbmjtf1"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7numd"]
-size = Vector2(1585.959, 146)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fcnqv"]
-size = Vector2(135.5, 380.5)
-
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_drr2n"]
 points = PackedVector2Array(-194, 201, 190, 206, 11, -136)
 
@@ -1589,7 +1565,6 @@ player_controls = SubResource("Resource_7djc3")
 
 [node name="CommandParser" type="Node" parent="." unique_id=486781128 node_paths=PackedStringArray("input_buffer")]
 script = ExtResource("234_5qx7q")
-commands = Array[ExtResource("235_424ca")]([ExtResource("236_tltuc"), ExtResource("236_tltuc")])
 input_buffer = NodePath("../InputBuffer")
 
 [node name="VoicePlayer" type="Node" parent="." unique_id=842979086]
@@ -1809,35 +1784,24 @@ script = ExtResource("280_8ibwe")
 special_voices = Array[AudioStream]([ExtResource("281_888tw"), ExtResource("282_7guxb")])
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
-[node name="MegaFist" type="Node" parent="StateMachine" unique_id=1369972705 node_paths=PackedStringArray("hitbox")]
-script = ExtResource("283_rfeq0")
-special_voices = Array[AudioStream]([ExtResource("284_n3bny")])
-hitbox = NodePath("../../Hitboxers/MegaFist")
-active_start_frame = 4
-active_end_frame = 6
+[node name="RensenGeki" type="Node" parent="StateMachine" unique_id=1783731017]
+script = ExtResource("283_ocomb")
+chain_effect_path = NodePath("../../AxlEffects")
+stage_by_frame = PackedInt32Array()
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
-[node name="SlideHead" type="Node" parent="StateMachine" unique_id=1178867562 node_paths=PackedStringArray("quake_hitbox")]
-script = ExtResource("285_poadn")
-special_voices = Array[AudioStream]([ExtResource("286_agbcb"), ExtResource("287_4v77w"), ExtResource("288_emd8h")])
-quake_hitbox = NodePath("../../Hitboxers/SlideHead")
+[node name="BentenGari" type="Node" parent="StateMachine" unique_id=688088603]
+script = ExtResource("282_73efq")
+active_start_frame = 2
+active_end_frame = 11
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
-[node name="PotenkimBusterTry" type="Node" parent="StateMachine" unique_id=1933176017 node_paths=PackedStringArray("throw_box")]
-script = ExtResource("274_1ku31")
-grab_animation = &"PotenkimBusterTry"
-throw_box = NodePath("../../Hitboxers/ThrowBox")
-active_end_frame = 2
-throw_state = &"PotenkimBuster"
+[node name="RaieiSageki" type="Node" parent="StateMachine" unique_id=683641837]
+script = ExtResource("283_j6axg")
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
-[node name="potenkimBuster" type="Node" parent="StateMachine" unique_id=795461407]
-script = ExtResource("269_5qn32")
-throw_voices = Array[AudioStream]([ExtResource("289_fcy7h"), ExtResource("290_4tfxx"), ExtResource("291_0ugwg")])
-throw_animation = &"PotenkimBuster"
-move_victim_during_throw = true
-victim_path_by_frame = Array[Vector2]([Vector2(45, 0), Vector2(10, -30), Vector2(-5, -60), Vector2(-5, -65), Vector2(-5, -65), Vector2(-5, -65), Vector2(15, -35)])
-release_frame = 12
+[node name="State4" type="Node" parent="StateMachine" unique_id=451540778]
+script = ExtResource("284_73efq")
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="Hitboxers" type="Node2D" parent="." unique_id=1330527987]
@@ -2038,44 +2002,6 @@ shape = SubResource("RectangleShape2D_o1poj")
 visible = false
 position = Vector2(62, -43)
 
-[node name="MegaFist" type="Area2D" parent="Hitboxers" unique_id=251524934]
-visible = false
-script = ExtResource("292_b1blq")
-hit_spark_type = 2
-impact_sound_type = 1
-hit_sound = ExtResource("299_l4qtk")
-guard_sound = ExtResource("294_ju0og")
-strike_sound = ExtResource("299_l4qtk")
-hit_data = SubResource("Resource_aok8r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/MegaFist" unique_id=919471078]
-position = Vector2(-93, 73)
-rotation = 0.6981317
-scale = Vector2(0.9999999, 0.9999999)
-shape = SubResource("RectangleShape2D_3gngh")
-
-[node name="SlideHead" type="Area2D" parent="Hitboxers" unique_id=754538235]
-visible = false
-script = ExtResource("292_b1blq")
-grounded_only = true
-hit_spark_type = 2
-impact_sound_type = 1
-hit_sound = ExtResource("293_jvyq2")
-strike_sound = ExtResource("293_jvyq2")
-hit_data = SubResource("Resource_wsi31")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/SlideHead" unique_id=1362289078]
-position = Vector2(0, 255)
-shape = SubResource("RectangleShape2D_7numd")
-
-[node name="PtenkimBusterTry" type="Area2D" parent="Hitboxers" unique_id=202198225]
-visible = false
-script = ExtResource("274_1ku31")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/PtenkimBusterTry" unique_id=2064458842]
-position = Vector2(-188.25, 21.75)
-shape = SubResource("RectangleShape2D_fcnqv")
-
 [node name="AnimationVisualController" type="Node" parent="." unique_id=1290380281 node_paths=PackedStringArray("animated_sprite")]
 script = ExtResource("300_nfakb")
 animated_sprite = NodePath("../AnimatedSprite2D")
@@ -2087,3 +2013,22 @@ visible = false
 z_index = 1
 position = Vector2(34, -214)
 shape = SubResource("ConvexPolygonShape2D_drr2n")
+
+[node name="AxlEffects" type="Node2D" parent="." unique_id=229142005]
+
+[node name="RensenEffect" type="Node2D" parent="AxlEffects" unique_id=1891162568 node_paths=PackedStringArray("chain_sprite", "hitbox", "collision_shape")]
+script = ExtResource("302_6q5pr")
+chain_sprite = NodePath("Sprite2D")
+hitbox = NodePath("HitBox")
+collision_shape = NodePath("HitBox/CollisionShape2D")
+textures = Array[Texture2D]([ExtResource("303_ta3me"), ExtResource("304_uakcq"), ExtResource("305_7odhp"), ExtResource("306_1ngpf"), ExtResource("307_00kpl")])
+stage_lengths = PackedFloat32Array(160, 224, 312, 384, 480)
+
+[node name="Sprite2D" type="Sprite2D" parent="AxlEffects/RensenEffect" unique_id=1095958463]
+
+[node name="HitBox" type="Area2D" parent="AxlEffects/RensenEffect" unique_id=1750674667]
+script = ExtResource("292_b1blq")
+hit_spark_type = 2
+hit_data = ExtResource("300_73efq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AxlEffects/RensenEffect/HitBox" unique_id=808070919]

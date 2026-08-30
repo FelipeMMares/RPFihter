@@ -82,16 +82,16 @@
 size = Vector2(255, 308)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_flcoc"]
-radius = 76.05919
+radius = 56.61272
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gloog"]
-size = Vector2(336.25, 294.375)
+size = Vector2(220, 192.1875)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jeabl"]
-size = Vector2(302, 184.25)
+size = Vector2(182, 110)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8txj"]
-size = Vector2(471.5, 445)
+size = Vector2(288.5, 232.5)
 
 [sub_resource type="Resource" id="Resource_7djc3"]
 script = ExtResource("254_khx8l")
@@ -146,7 +146,7 @@ damage = 180
 metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(193.30536, 135.44011)
+size = Vector2(154.74869, 83.083374)
 
 [sub_resource type="Resource" id="Resource_5eklt"]
 script = ExtResource("305_200k5")
@@ -154,7 +154,7 @@ damage = 110
 metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ypqdr"]
-size = Vector2(137.57176, 462.56024)
+size = Vector2(101.248436, 238.37619)
 
 [sub_resource type="Resource" id="Resource_jpp6u"]
 script = ExtResource("305_200k5")
@@ -162,7 +162,7 @@ damage = 180
 metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oay3g"]
-size = Vector2(420.28522, 189.5)
+size = Vector2(293.01324, 137.44022)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hvt0"]
 size = Vector2(245.00006, 87.000015)
@@ -172,17 +172,17 @@ script = ExtResource("305_200k5")
 metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8wvuv"]
-size = Vector2(262.58865, 75.966095)
+size = Vector2(247.3433, 62.265457)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vexq3"]
-size = Vector2(195.00003, 156.00003)
+size = Vector2(159.50003, 137)
 
 [sub_resource type="Resource" id="Resource_d0u6y"]
 script = ExtResource("305_200k5")
 metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
-size = Vector2(204.62755, 128.34247)
+size = Vector2(155.83112, 91.772835)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o1poj"]
 size = Vector2(84, 108.5)
@@ -194,7 +194,7 @@ launch = Vector2(-60, -50)
 metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3gngh"]
-size = Vector2(209.88872, 363.59607)
+size = Vector2(151.7589, 300.30133)
 
 [sub_resource type="Resource" id="Resource_wsi31"]
 script = ExtResource("305_200k5")
@@ -211,7 +211,7 @@ size = Vector2(1585.959, 146)
 size = Vector2(135.5, 380.5)
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_drr2n"]
-points = PackedVector2Array(-194, 201, 190, 206, 11, -136)
+points = PackedVector2Array(-139, 225, 111, 223, -15, 138)
 
 [node name="Potenkim" type="CharacterBody2D" unique_id=1892667997 node_paths=PackedStringArray("body_collision", "anti_stack_collision")]
 script = ExtResource("1_cbsdk")
@@ -219,14 +219,15 @@ body_collision = NodePath("CollisionShape2D")
 anti_stack_collision = NodePath("AntiStackCollision")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2063367094]
-scale = Vector2(1.2, 1.2)
+scale = Vector2(1.1, 1.1)
 sprite_frames = ExtResource("2_yv6lr")
-animation = &"Throw"
-offset = Vector2(40, 60)
+animation = &"Taunt"
+frame = 33
+offset = Vector2(-20, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1137279768]
 visible = false
-position = Vector2(33.5, 41)
+position = Vector2(5, 14)
 shape = SubResource("RectangleShape2D_qkyit")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=241036802 node_paths=PackedStringArray("health", "state_machine", "head_shape", "torso_shape", "feet_shape", "crouch_shape")]
@@ -243,19 +244,19 @@ feet_shape = NodePath("FeetShape")
 crouch_shape = NodePath("CrouchShape")
 
 [node name="HeadShape" type="CollisionShape2D" parent="Hurtbox" unique_id=1999467920]
-position = Vector2(-93, -150)
+position = Vector2(-51, -87)
 shape = SubResource("CircleShape2D_flcoc")
 
 [node name="TorsoShape" type="CollisionShape2D" parent="Hurtbox" unique_id=1381567128]
-position = Vector2(32.875, -44.1875)
+position = Vector2(15, -27.09375)
 shape = SubResource("RectangleShape2D_gloog")
 
 [node name="FeetShape" type="CollisionShape2D" parent="Hurtbox" unique_id=676081703]
-position = Vector2(37, 191.875)
+position = Vector2(17, 116)
 shape = SubResource("RectangleShape2D_jeabl")
 
 [node name="CrouchShape" type="CollisionShape2D" parent="Hurtbox" unique_id=1989103608]
-position = Vector2(0.25, 20.5)
+position = Vector2(1.75, 51.25)
 shape = SubResource("RectangleShape2D_y8txj")
 
 [node name="Health" type="Node" parent="." unique_id=1045650779]
@@ -570,8 +571,8 @@ impact_volume_db = -1.0
 hit_data = SubResource("Resource_eswd0")
 
 [node name="HitColision" type="CollisionPolygon2D" parent="Hitboxers/LightPunch" unique_id=1609064660]
-position = Vector2(63, -130)
-polygon = PackedVector2Array(-271, 197, -216, 4, -191, -37, -106, -85, -21, -120, 59, -104, 139, -77, 49, -169, -80, -189, -180, -155, -282, -74, -320, 7)
+position = Vector2(137, -23)
+polygon = PackedVector2Array(-212, 57, -167, -40, -125, -90, -56, -134, -21, -120, 59, -104, 139, -77, 56, -154, -31, -184, -125, -159, -229, -97, -242, -17)
 
 [node name="HighPunch" type="Area2D" parent="Hitboxers" unique_id=671267806]
 visible = false
@@ -585,8 +586,8 @@ guard_sound = ExtResource("304_myb47")
 hit_data = SubResource("Resource_1y82m")
 
 [node name="HitColision" type="CollisionPolygon2D" parent="Hitboxers/HighPunch" unique_id=837219645]
-position = Vector2(110, 3.5)
-polygon = PackedVector2Array(-21, -397.5, -276, -249.5, -358, -194.5, -407, -125.5, -455, -25.5, -425, 222.5, -475, 202.5, -500, 85.5, -524, -34.5, -512, -158.5, -450, -256.5, -326, -328.5, -209, -353.5)
+position = Vector2(285, -20)
+polygon = PackedVector2Array(-148, -187, -242, -143, -291, -139, -373, -102, -455, -25.5, -428, 24, -415, 80, -433, 135, -502, 123, -521, 73, -527, 4, -497, -83, -440, -138, -358, -207, -242, -237)
 
 [node name="Kick" type="Area2D" parent="Hitboxers" unique_id=40085513]
 visible = false
@@ -600,7 +601,7 @@ guard_sound = ExtResource("304_myb47")
 hit_data = SubResource("Resource_c828g")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/Kick" unique_id=1286226779]
-position = Vector2(-181.2663, 96.68518)
+position = Vector2(-62.5, 28.499992)
 rotation = -0.34906584
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_g4v7s")
@@ -616,7 +617,7 @@ guard_sound = ExtResource("304_myb47")
 hit_data = SubResource("Resource_5eklt")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/LowKick" unique_id=737385493]
-position = Vector2(-170, -34)
+position = Vector2(-58.944923, -56.613792)
 rotation = 1.2217305
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_ypqdr")
@@ -630,9 +631,9 @@ guard_sound = ExtResource("304_myb47")
 hit_data = SubResource("Resource_jpp6u")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/CrouchLightPunch" unique_id=1466533505]
-position = Vector2(-174.2482, -170.39594)
-rotation = 0.2617994
-scale = Vector2(0.99999994, 0.99999994)
+position = Vector2(-82.18807, -106.94081)
+rotation = 0.26179934
+scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_oay3g")
 
 [node name="CrouchHighPunch" type="Area2D" parent="Hitboxers" unique_id=280327612]
@@ -645,9 +646,9 @@ guard_sound = ExtResource("304_myb47")
 hit_data = SubResource("Resource_jpp6u")
 
 [node name="HitColision" type="CollisionPolygon2D" parent="Hitboxers/CrouchHighPunch" unique_id=506132740]
-position = Vector2(-130, -164)
+position = Vector2(-63.000015, -164.00002)
 rotation = 2.5307274
-polygon = PackedVector2Array(-174.51169, 109.75276, -168.19215, 27.502762, -52.757133, -10.083908, 3.121952, -63.735817, 34.749386, -100.18724, 61.135593, -150.07478, 86.35597, -64.051926, 67.66843, 0.9924927, -7.549122, 87.49292, -118.890076, 140.15402)
+polygon = PackedVector2Array(-83.07766, 54.13965, -94.95111, 15.306389, -52.757133, -10.083908, 3.121952, -63.735817, 34.749386, -100.18724, 61.135593, -150.07478, 86.35597, -64.051926, 67.66843, 0.9924927, 2.5279846, 83.562, -50.641277, 91.50113)
 
 [node name="CrouchKick" type="Area2D" parent="Hitboxers" unique_id=1712473104]
 visible = false
@@ -659,7 +660,7 @@ guard_sound = ExtResource("304_myb47")
 hit_data = SubResource("Resource_jpp6u")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/CrouchKick" unique_id=90840365]
-position = Vector2(-245, -33)
+position = Vector2(-59, -20)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_4hvt0")
 
@@ -673,9 +674,9 @@ guard_sound = ExtResource("304_myb47")
 hit_data = SubResource("Resource_qxayb")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/CrouchLowKick" unique_id=1763550637]
-position = Vector2(-209.37384, 82.53888)
-rotation = -0.43633232
-scale = Vector2(0.9999998, 0.9999998)
+position = Vector2(-26.748566, -10.7842865)
+rotation = -0.34906584
+scale = Vector2(0.9999997, 0.9999997)
 shape = SubResource("RectangleShape2D_8wvuv")
 
 [node name="AirLightPunch" type="Area2D" parent="Hitboxers" unique_id=1763649255]
@@ -688,7 +689,7 @@ guard_sound = ExtResource("304_myb47")
 hit_data = SubResource("Resource_qxayb")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/AirLightPunch" unique_id=1939671706]
-position = Vector2(-177.5, 100.99999)
+position = Vector2(-73.75, -9.499994)
 scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_vexq3")
 
@@ -703,10 +704,10 @@ guard_sound = ExtResource("304_myb47")
 hit_data = SubResource("Resource_qxayb")
 
 [node name="FirstHitShape" type="CollisionPolygon2D" parent="Hitboxers/AirHighPunch" unique_id=571118486]
-position = Vector2(-172, 123.000015)
+position = Vector2(-105, 86.000015)
 rotation = 0.43633232
 scale = Vector2(0.99999976, 0.99999976)
-polygon = PackedVector2Array(-63.89598, -68.405495, -49.09456, -69.79059, -16.232956, -60.839905, 22.667465, -43.671356, 93.95557, -49.329086, 140.88573, -14.940689, 210.35144, 13.352707, 162.73973, 36.657776, 97.30721, 57.23906, 0.6522522, 41.624207, -68.01955, -15.727249)
+polygon = PackedVector2Array(-63.89598, -68.405495, -49.09456, -69.79059, -16.232956, -60.839905, 22.667465, -43.671356, 70.32559, -19.552841, 193.51266, -41.68782, 280.58417, -101.04737, 232.60117, -47.777924, 180.5141, -8.04203, 142.08762, 6.566391, 80.94237, 33.975525, 0.6522522, 41.624207, -68.01955, -15.727249)
 
 [node name="AirKick" type="Area2D" parent="Hitboxers" unique_id=696165616]
 visible = false
@@ -719,10 +720,10 @@ guard_sound = ExtResource("304_myb47")
 hit_data = SubResource("Resource_qxayb")
 
 [node name="HitColision" type="CollisionPolygon2D" parent="Hitboxers/AirKick" unique_id=1000279848]
-position = Vector2(-30.000008, 51)
+position = Vector2(0, -50)
 rotation = 1.0471976
 scale = Vector2(0.9999998, 0.9999998)
-polygon = PackedVector2Array(-131.13141, 117.12625, -88.58846, 117.43973, -21.091034, 112.53075, 13.059608, 103.38011, 75.19101, 105.76538, 116.064095, 118.971146, 152.61664, 99.66026, 179.08075, 61.823074, 209.00897, 25.9859, 219.61667, -16.387169, 209.50192, -56.867935, 143.9064, -61.2532, 96.96154, -47.942307, 66.33718, -22.89936, 16.000004, -27.71283, -35.908974, -13.803856, -79.75577, 0.1410141, -118.09294, -25.45707, -151.70767, -25.234634, -149.59296, 29.10254, -170.91345, 26.030746, -189.2077, 39.717285, -180.05704, 73.86792)
+polygon = PackedVector2Array(-53.59808, 86.83461, -33.21539, 105.53076, -16.457058, 102.50447, 31.049992, 102.219864, 81.82498, 92.27501, 122.466, 101.88269, 152.61664, 99.66026, 179.08075, 61.823074, 197.04486, 38.708347, 195.9923, -3.4685745, 179.87756, -33.557037, 149.49487, -34.932682, 121.73654, -12.853838, 85.08589, 0.6269264, 47.837177, 9.143589, 11.052563, 24.856411, -12.330128, 11.356411, -32.016666, 3.4544868, -41.98077, 12.712814, -50.98077, 28.301273, -38.892315, 43.363453, -60.846798, 43.38973, -69.8468, 58.9782)
 
 [node name="AirLowKick" type="Area2D" parent="Hitboxers" unique_id=861251936]
 visible = false
@@ -733,7 +734,7 @@ guard_sound = ExtResource("304_myb47")
 hit_data = SubResource("Resource_d0u6y")
 
 [node name="HitColision" type="CollisionShape2D" parent="Hitboxers/AirLowKick" unique_id=1257882839]
-position = Vector2(-178.00002, -16.000002)
+position = Vector2(-71.2363, -27.280836)
 rotation = 0.17453295
 scale = Vector2(0.9999995, 0.9999995)
 shape = SubResource("RectangleShape2D_yf5fn")
@@ -744,7 +745,7 @@ position = Vector2(5, 26)
 script = ExtResource("308_1nd5b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/ThrowBox" unique_id=1756148402]
-position = Vector2(-177, -4.25)
+position = Vector2(-112, -16)
 shape = SubResource("RectangleShape2D_o1poj")
 
 [node name="ThrowPathRoot" type="Node" parent="Hitboxers" unique_id=1992079360]
@@ -764,9 +765,9 @@ strike_sound = ExtResource("308_aok8r")
 hit_data = SubResource("Resource_aok8r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/MegaFist" unique_id=919471078]
-position = Vector2(-93, 73)
+position = Vector2(-53.705177, 43.149643)
 rotation = 0.6981317
-scale = Vector2(0.9999999, 0.9999999)
+scale = Vector2(0.99999964, 0.99999964)
 shape = SubResource("RectangleShape2D_3gngh")
 
 [node name="SlideHead" type="Area2D" parent="Hitboxers" unique_id=754538235]
@@ -780,15 +781,15 @@ strike_sound = ExtResource("303_4nxg1")
 hit_data = SubResource("Resource_wsi31")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/SlideHead" unique_id=1362289078]
-position = Vector2(0, 255)
+position = Vector2(0, 186)
 shape = SubResource("RectangleShape2D_7numd")
 
-[node name="PtenkimBusterTry" type="Area2D" parent="Hitboxers" unique_id=202198225]
+[node name="PotenkimBusterTry" type="Area2D" parent="Hitboxers" unique_id=202198225]
 visible = false
-script = ExtResource("291_25dxg")
+script = ExtResource("308_1nd5b")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/PtenkimBusterTry" unique_id=2064458842]
-position = Vector2(-188.25, 21.75)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxers/PotenkimBusterTry" unique_id=2064458842]
+position = Vector2(-107, -75)
 shape = SubResource("RectangleShape2D_fcnqv")
 
 [node name="AnimationVisualController" type="Node" parent="." unique_id=1290380281 node_paths=PackedStringArray("animated_sprite")]
@@ -800,5 +801,5 @@ debug_visual = true
 [node name="AntiStackCollision" type="CollisionShape2D" parent="." unique_id=152907459]
 visible = false
 z_index = 1
-position = Vector2(34, -214)
+position = Vector2(17, -370)
 shape = SubResource("ConvexPolygonShape2D_drr2n")
