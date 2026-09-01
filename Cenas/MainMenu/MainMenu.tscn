@@ -2,7 +2,11 @@
 
 [ext_resource type="FontFile" uid="uid://ct6yapfcrys5m" path="res://assets/fontes/PressStart2P-Regular.ttf" id="1_a6e8e"]
 [ext_resource type="Script" uid="uid://1uj65g6ctasn" path="res://Cenas/MainMenu/MainMenu.gd" id="1_u0r8f"]
+[ext_resource type="Texture2D" uid="uid://bmngn7x1adl1j" path="res://assets/Menus/Menu/ChatGPT Image 1 de set. de 2026, 01_17_52 (1).png" id="2_p2hn2"]
 [ext_resource type="AudioStream" uid="uid://dhli6vvhvydnq" path="res://assets/Audio/Music/MainMusic.mp3" id="3_76sle"]
+[ext_resource type="Texture2D" uid="uid://co65mjhyw11uu" path="res://assets/Menus/Menu/ChatGPT Image 1 de set. de 2026, 01_17_52 (2).png" id="3_n5j5k"]
+[ext_resource type="Texture2D" uid="uid://b06cewh51netn" path="res://assets/Menus/Menu/ChatGPT Image 1 de set. de 2026, 01_17_52 (3).png" id="4_7ymfy"]
+[ext_resource type="Texture2D" uid="uid://b1o5u5xn27gmy" path="res://assets/Menus/Menu/ChatGPT Image 1 de set. de 2026, 00_46_19.png" id="5_jvsxr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_76sle"]
 bg_color = Color(0.9764706, 0.11372549, 0.15294118, 1)
@@ -41,6 +45,31 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.015994186, 0.016039778, 0.22424898, 1)
 
+[node name="LogoRoot" type="Node2D" parent="Background" unique_id=145957713]
+
+[node name="Oval" type="Sprite2D" parent="Background/LogoRoot" unique_id=1442393816]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_p2hn2")
+
+[node name="LogoText" type="Sprite2D" parent="Background/LogoRoot" unique_id=71767186]
+z_index = 2
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_n5j5k")
+
+[node name="Fist" type="Sprite2D" parent="Background/LogoRoot" unique_id=302401412]
+z_index = 3
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_7ymfy")
+
+[node name="Dice" type="Sprite2D" parent="Background/LogoRoot" unique_id=1393272527]
+z_index = 4
+texture = ExtResource("5_jvsxr")
+hframes = 5
+vframes = 4
+
+[node name="Flash" type="Sprite2D" parent="Background/LogoRoot" unique_id=2145425239]
+z_index = 5
+
 [node name="CenterContainer" type="CenterContainer" parent="Background" unique_id=2144373118]
 layout_mode = 0
 offset_left = 404.0
@@ -52,7 +81,7 @@ offset_bottom = 431.0
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
-theme_override_constants/separation = 50
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="TitleLabel" type="Label" parent="Background/CenterContainer/VBoxContainer" unique_id=233944834]
@@ -87,6 +116,17 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_1gsfq")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fe8cl")
 text = "INICIAR"
+
+[node name="SkipLabel" type="Label" parent="." unique_id=1277487743]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "PRESSIONE QUALQUER BOTÃO PARA PULAR"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1895881809]
+root_node = NodePath("../SkipLabel")
+
+[node name="HitSfx" type="AudioStreamPlayer" parent="." unique_id=1806020364]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2002063585]
 stream = ExtResource("3_76sle")
