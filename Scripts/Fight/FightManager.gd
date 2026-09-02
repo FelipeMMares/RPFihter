@@ -162,6 +162,49 @@ var _round_intro_in_progress: bool = false
 
 
 func _ready() -> void:
+	print("========== DEBUG FIGHT ==========")
+
+	print(
+		"Player selecionado: ",
+		FighterSelection.player_fighter,
+		" | ",
+		FighterSelection.Fighter.keys()[
+			FighterSelection.player_fighter
+		]
+	)
+
+	print(
+		"CPU selecionada: ",
+		FighterSelection.opponent_fighter,
+		" | ",
+		FighterSelection.Fighter.keys()[
+			FighterSelection.opponent_fighter
+		]
+	)
+
+	print(
+		"Arena selecionada: ",
+		ArenaSelection.selected_arena,
+		" | ",
+		ArenaSelection.Arena.keys()[
+			ArenaSelection.selected_arena
+		]
+	)
+
+	print("Chun-Li Scene: ", chun_li_scene)
+	print("Elena Scene: ", elena_scene)
+	print("Morrigan Scene: ", morrigan_scene)
+	print("Zangief Scene: ", zangief_scene)
+
+	print("Arena 01: ", arena_01_scene)
+	print("Arena 02: ", arena_02_scene)
+	print("Arena 03: ", arena_03_scene)
+	print("Arena 04: ", arena_04_scene)
+	print("Arena 05: ", arena_05_scene)
+	print("Arena 06: ", arena_06_scene)
+
+	print("=================================")
+
 	var selected_arena: ArenaVisual = (
 		_spawn_selected_arena()
 	)
@@ -169,6 +212,7 @@ func _ready() -> void:
 	_play_arena_music(
 		selected_arena
 	)
+
 	_spawn_selected_fighters()
 
 	if player_1 == null or player_2 == null:
@@ -1944,26 +1988,26 @@ func _disable_hitboxes_recursive(
 func _handle_campaign_match_end(
 	winner_number: int
 ) -> void:
-	# CPU venceu.
+	# CPU venceu a luta.
 	if winner_number != 1:
-		CampaignManager.reset_campaign()
+		CampaignManager.fail_campaign()
 
 		_open_player_defeat_screen()
 
 		return
 
 	# Player venceu.
-	var campaign_finished: bool = (
-		CampaignManager.register_victory()
-	)
-
-	# Ainda existem adversários.
-	if not campaign_finished:
+	# advance_after_victory() retorna true
+	# se ainda existir outra luta.
+	if CampaignManager.advance_after_victory():
 		CampaignManager.open_current_fight()
 
 		return
 
-	# Por enquanto usamos o menu final existente.
-	# Depois criaremos uma tela própria
-	# "CAMPANHA CONCLUÍDA".
+	# Não existe próxima luta:
+	# o jogador derrotou todos os adversários.
+	CampaignManager.complete_campaign()
+
+	# Temporariamente usa o menu final.
+	# Depois trocaremos pela VictoryScreen.
 	_open_match_end_menu()

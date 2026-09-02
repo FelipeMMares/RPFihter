@@ -605,7 +605,6 @@ libraries/ = SubResource("AnimationLibrary_kcdtw")
 
 [node name="HitSfX" type="AudioStreamPlayer" parent="." unique_id=1806020364]
 stream = ExtResource("8_7ymfy")
-bus = &"SFX"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2002063585]
 stream = ExtResource("3_76sle")

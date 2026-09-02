@@ -427,7 +427,17 @@ func _on_versus_button_pressed() -> void:
 	if _changing_scene:
 		return
 
+	GameModeManager.set_mode(
+		GameModeManager.GameMode.VERSUS
+	)
+
+	CampaignManager.reset_campaign()
+
 	_mode_selection_open = false
+
+	print(
+		"Modo selecionado: VERSUS"
+	)
 
 	_change_scene(
 		character_select_scene_path
@@ -438,15 +448,18 @@ func _on_campaign_button_pressed() -> void:
 	if _changing_scene:
 		return
 
+	GameModeManager.set_mode(
+		GameModeManager.GameMode.CAMPAIGN
+	)
+
+	CampaignManager.reset_campaign()
+
 	_mode_selection_open = false
 
 	print(
-		"Modo Campanha selecionado."
+		"Modo selecionado: CAMPANHA"
 	)
 
-	# Por enquanto abre o mesmo CharacterSelect.
-	# Depois vamos marcar o modo como CAMPAIGN
-	# antes de trocar de cena.
 	_change_scene(
 		character_select_scene_path
 	)

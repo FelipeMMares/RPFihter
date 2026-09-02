@@ -23,3 +23,6 @@ func is_versus() -> bool:
 
 func is_campaign() -> bool:
 	return current_mode == GameMode.CAMPAIGN
+
+func reset() -> void:
+	current_mode = GameMode.NONE

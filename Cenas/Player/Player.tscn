@@ -78,7 +78,7 @@
 [ext_resource type="Script" uid="uid://b08hbttop7cej" path="res://Scripts/Dummy/DummyAI.gd" id="463_by7ee"]
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_fcnqv"]
-points = PackedVector2Array(-102, 75, 93, 77, 0, 0)
+points = PackedVector2Array(-75, 76, 56, 76, 0, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r8ryd"]
 size = Vector2(127, 161)

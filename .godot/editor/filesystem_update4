@@ -16,3 +16,9 @@ res://Cenas/PreparationScreen/PreparationScreen.gd
 res://Cenas/ArenaSelection/ArenaSelection.gd
 res://Cenas/VictoryScreen/VictoryScreen.gd
 res://Cenas/VictoryScreen/VictoryScreen.tscn
+res://Cenas/Zangief/Zangief.tscn
+res://Cenas/Morrigan/Morrigan.tscn
+res://Cenas/Dummy/dummy.tscn
+res://Cenas/Player/Player.tscn
+res://Cenas/Cenarios/CenaDaLuta.tscn
+res://Scripts/Components/PauseMenu.gd

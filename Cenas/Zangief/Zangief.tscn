@@ -67,7 +67,7 @@
 [ext_resource type="Script" uid="uid://fsicwrnesrxg" path="res://Scripts/Zangief/States/DoubleLariat.gd" id="409_b522q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qkyit"]
-size = Vector2(203.5, 186)
+size = Vector2(177.5, 186)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_flcoc"]
 radius = 44.102154
@@ -193,7 +193,7 @@ metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 size = Vector2(99.5, 88)
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_drr2n"]
-points = PackedVector2Array(-148, 80, 111, 80, -20, 34)
+points = PackedVector2Array(-126, 85, 51, 81, -33, 31)
 
 [node name="Zangief" type="CharacterBody2D" unique_id=1892667997 node_paths=PackedStringArray("body_collision", "anti_stack_collision")]
 script = ExtResource("1_kyap7")
@@ -207,7 +207,7 @@ animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1137279768]
 visible = false
-position = Vector2(-24.75, 52)
+position = Vector2(-37.75, 52)
 shape = SubResource("RectangleShape2D_qkyit")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=241036802 node_paths=PackedStringArray("health", "state_machine", "head_shape", "torso_shape", "feet_shape", "crouch_shape")]

@@ -1,3 +1,4 @@
+Button
 Label
 AnimationVisualController
 AnimatedSprite2D
@@ -8,7 +9,6 @@ CenterContainer
 Timer
 CanvasLayer
 ColorRect
-Button
 Control
 AudioStreamPlayer
 AnimationPlayer

@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://c7euq3glrhph6" path="res://Cenas/Cenarios/Arenas/Arena02.tscn" id="5_g4c8h"]
 [ext_resource type="PackedScene" uid="uid://c3j6jqqi848lx" path="res://Cenas/Dummy/dummy.tscn" id="5_hvrgt"]
 [ext_resource type="PackedScene" uid="uid://doobjno5j21hm" path="res://Cenas/Zangief/Zangief.tscn" id="5_pin31"]
-[ext_resource type="PackedScene" uid="uid://dcyjj5y2emc7r" path="res://Cenas/Potenkim/Potenkim.tscn" id="6_67vs5"]
 [ext_resource type="PackedScene" uid="uid://8uvxssoc7t0d" path="res://Cenas/Cenarios/Arenas/Arena03.tscn" id="6_pin31"]
 [ext_resource type="PackedScene" uid="uid://cjaisuac7ycha" path="res://Cenas/Cenarios/Arenas/Arena04.tscn" id="7_67vs5"]
 [ext_resource type="Script" uid="uid://de0n2cyr6pkqo" path="res://Scripts/Components/PauseMenu.gd" id="8_0iw18"]
@@ -75,7 +74,6 @@ chun_li_scene = ExtResource("4_oi066")
 elena_scene = ExtResource("5_hvrgt")
 morrigan_scene = ExtResource("4_g4c8h")
 zangief_scene = ExtResource("5_pin31")
-potemkin_scene = ExtResource("6_67vs5")
 arena_01_scene = ExtResource("4_ywvde")
 arena_02_scene = ExtResource("5_g4c8h")
 arena_03_scene = ExtResource("6_pin31")
@@ -100,6 +98,7 @@ position = Vector2(1198, 279)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="Chão" type="StaticBody2D" parent="." unique_id=43905329]
+visible = false
 z_index = -10
 position = Vector2(693, 315)
 scale = Vector2(0.9453125, 0.8769531)
@@ -189,6 +188,30 @@ theme_override_font_sizes/font_size = 21
 theme_override_styles/normal = SubResource("StyleBoxFlat_yf5fn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cuiii")
 text = "Continuar"
+icon_alignment = 1
+
+[node name="CharacterSelectButton" type="Button" parent="PauseLayer/PauseMenu/Background/MenuPosition/VBoxContainer" unique_id=2038730907]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0.49411765, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
+theme_override_constants/h_separation = 50
+theme_override_fonts/font = ExtResource("9_cuiii")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_yf5fn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cuiii")
+text = "Selecionar personagens"
+icon_alignment = 1
+
+[node name="ArenaSelectButton" type="Button" parent="PauseLayer/PauseMenu/Background/MenuPosition/VBoxContainer" unique_id=660933124]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0.49411765, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
+theme_override_constants/h_separation = 50
+theme_override_fonts/font = ExtResource("9_cuiii")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_yf5fn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cuiii")
+text = "Selecionar arena"
 icon_alignment = 1
 
 [node name="RestartButton" type="Button" parent="PauseLayer/PauseMenu/Background/MenuPosition/VBoxContainer" unique_id=600715336]

@@ -215,7 +215,7 @@ metadata/_custom_type_script = "uid://c48umgmbmjtf1"
 size = Vector2(77, 91)
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_drr2n"]
-points = PackedVector2Array(-102, 75, 93, 77, 0, 0)
+points = PackedVector2Array(-68, 84, 75, 80, 0, 0)
 
 [node name="Morrigan" type="CharacterBody2D" unique_id=1892667997 node_paths=PackedStringArray("body_collision", "anti_stack_collision")]
 script = ExtResource("1_0sgn8")
@@ -565,6 +565,7 @@ spawn_frame = 8
 metadata/_custom_type_script = "uid://bkklrvtapkren"
 
 [node name="Hitboxers" type="Node2D" parent="." unique_id=1330527987]
+visible = false
 position = Vector2(0, 4)
 
 [node name="LightPunch" type="Area2D" parent="Hitboxers" unique_id=1445031812]
