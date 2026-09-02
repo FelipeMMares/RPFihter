@@ -28,6 +28,9 @@ var blink_duration: float = 0.55
 @export_range(0.0, 1.0, 0.05)
 var blink_min_alpha: float = 0.20
 
+@onready var hit_sfx: AudioStreamPlayer = (
+	$HitSfX
+)
 
 @onready var start_button: Button = (
 	$Background/CenterContainer/VBoxContainer/StartButton
@@ -41,6 +44,21 @@ var blink_min_alpha: float = 0.20
 	$Background/LogoRoot/Flash
 )
 
+@onready var mode_dark_overlay: ColorRect = (
+	$Background/CanvasLayer/ModeDarkOverlay
+)
+
+@onready var mode_selection: CenterContainer = (
+	$Background/CanvasLayer/ModeSelection
+)
+
+@onready var versus_button: Button = (
+	$Background/CanvasLayer/ModeSelection/ModeVBox/VersusButton
+)
+
+@onready var campaign_button: Button = (
+	$Background/CanvasLayer/ModeSelection/ModeVBox/CampaignButton
+)
 
 var _intro_finished: bool = false
 var _can_skip: bool = false
@@ -48,6 +66,7 @@ var _changing_scene: bool = false
 
 var _blink_tween: Tween
 
+var _mode_selection_open: bool = false
 
 func _ready() -> void:
 	get_tree().paused = false
@@ -82,10 +101,29 @@ func _ready() -> void:
 
 	_can_skip = true
 
+	mode_dark_overlay.visible = false
+	mode_selection.visible = false
+	mode_dark_overlay.modulate.a = 0.0
+
+	versus_button.pressed.connect(
+		_on_versus_button_pressed
+	)
+
+	campaign_button.pressed.connect(
+		_on_campaign_button_pressed
+	)
 
 func _unhandled_input(
 	event: InputEvent
 ) -> void:
+
+	if _mode_selection_open:
+		if event.is_action_pressed("ui_cancel"):
+			_close_mode_selection()
+
+			get_viewport().set_input_as_handled()
+			return
+
 	if _intro_finished:
 		return
 
@@ -228,7 +266,6 @@ func _play_logo_impact() -> void:
 
 	flash.stop()
 
-	# Força todas as propriedades visuais para teste.
 	flash.visible = true
 	flash.modulate = Color.WHITE
 	flash.self_modulate = Color.WHITE
@@ -239,6 +276,11 @@ func _play_logo_impact() -> void:
 	flash.speed_scale = 1.0
 
 	flash.play()
+
+	# Toca o impacto junto com o hitSpark.
+	if hit_sfx != null:
+		hit_sfx.stop()
+		hit_sfx.play()
 
 	print("Visible: ", flash.visible)
 	print("Playing: ", flash.is_playing())
@@ -260,15 +302,10 @@ func _on_start_button_pressed() -> void:
 	if not _intro_finished:
 		return
 
-	if _changing_scene:
+	if _mode_selection_open:
 		return
 
-	if _blink_tween != null:
-		_blink_tween.kill()
-
-	_change_scene(
-		character_select_scene_path
-	)
+	_open_mode_selection()
 
 
 func _change_scene(
@@ -309,3 +346,107 @@ func _change_scene(
 			"MainMenu: erro ao abrir a cena: ",
 			change_error
 		)
+
+func _open_mode_selection() -> void:
+	_mode_selection_open = true
+
+	if _blink_tween != null:
+		_blink_tween.kill()
+
+	start_button.visible = false
+
+	mode_dark_overlay.visible = true
+	mode_selection.visible = true
+
+	mode_dark_overlay.modulate.a = 0.0
+	mode_selection.modulate.a = 0.0
+
+	var tween := create_tween()
+
+	tween.set_parallel(true)
+
+	tween.tween_property(
+		mode_dark_overlay,
+		"modulate:a",
+		1.0,
+		0.15
+	)
+
+	tween.tween_property(
+		mode_selection,
+		"modulate:a",
+		1.0,
+		0.15
+	)
+
+	await tween.finished
+
+	if _mode_selection_open:
+		versus_button.grab_focus()
+
+func _close_mode_selection() -> void:
+	if not _mode_selection_open:
+		return
+
+	_mode_selection_open = false
+
+	var tween := create_tween()
+
+	tween.set_parallel(true)
+
+	tween.tween_property(
+		mode_dark_overlay,
+		"modulate:a",
+		0.0,
+		0.15
+	)
+
+	tween.tween_property(
+		mode_selection,
+		"modulate:a",
+		0.0,
+		0.15
+	)
+
+	await tween.finished
+
+	if _mode_selection_open:
+		return
+
+	mode_dark_overlay.visible = false
+	mode_selection.visible = false
+
+	start_button.visible = true
+	start_button.modulate.a = 1.0
+
+	start_button.grab_focus()
+
+	_start_button_blink()
+
+func _on_versus_button_pressed() -> void:
+	if _changing_scene:
+		return
+
+	_mode_selection_open = false
+
+	_change_scene(
+		character_select_scene_path
+	)
+
+
+func _on_campaign_button_pressed() -> void:
+	if _changing_scene:
+		return
+
+	_mode_selection_open = false
+
+	print(
+		"Modo Campanha selecionado."
+	)
+
+	# Por enquanto abre o mesmo CharacterSelect.
+	# Depois vamos marcar o modo como CAMPAIGN
+	# antes de trocar de cena.
+	_change_scene(
+		character_select_scene_path
+	)

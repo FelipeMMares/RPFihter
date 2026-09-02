@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://dfwjfcoy0f4ko"]
+
+[ext_resource type="Script" uid="uid://bfre6b4mn713f" path="res://Cenas/VictoryScreen/VictoryScreen.gd" id="1_kw8lx"]
+[ext_resource type="Texture2D" uid="uid://csvwt8qqfkdvo" path="res://assets/Promps/NPCs/Final/Gemini_Generated_Image_c3vg2oc3vg2oc3vg.png" id="2_hdhqe"]
+[ext_resource type="Script" uid="uid://iki0228sltc8" path="res://Scripts/Components/FrameVisualAdjustment/AnimationVisualController.gd" id="3_g8p6u"]
+[ext_resource type="Resource" uid="uid://dytnv83eeppwf" path="res://MorriganVisualProfile.tres" id="4_hdhqe"]
+[ext_resource type="FontFile" uid="uid://ct6yapfcrys5m" path="res://assets/fontes/PressStart2P-Regular.ttf" id="4_vxww5"]
+
+[node name="VictoryScreen" type="Control" unique_id=1819531647]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kw8lx")
+
+[node name="Background" type="TextureRect" parent="." unique_id=950452830]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hdhqe")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="FighterPreview" type="AnimatedSprite2D" parent="." unique_id=2072374731]
+position = Vector2(618, 429)
+
+[node name="AnimationVisualController" type="Node" parent="." unique_id=1927485005 node_paths=PackedStringArray("animated_sprite")]
+script = ExtResource("3_g8p6u")
+animated_sprite = NodePath("../FighterPreview")
+visual_profile = ExtResource("4_hdhqe")
+metadata/_custom_type_script = "uid://iki0228sltc8"
+
+[node name="VictoryLabel" type="Label" parent="." unique_id=1583629789]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 90.0
+offset_right = 686.0
+offset_bottom = 120.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0.68850946, 0.42612013, 1.92523e-07, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("4_vxww5")
+theme_override_font_sizes/font_size = 30
+text = "VITÓRIA!"
+
+[node name="ContinueLabel" type="Label" parent="." unique_id=2119310573]
+layout_mode = 0
+offset_left = 372.0
+offset_top = 597.0
+offset_right = 852.0
+offset_bottom = 620.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.38821748, 0.20790714, 0.0010489135, 1)
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 33
+theme_override_fonts/font = ExtResource("4_vxww5")
+theme_override_font_sizes/font_size = 20
+text = "PRESSIONE QUALQUER BOTÃO"

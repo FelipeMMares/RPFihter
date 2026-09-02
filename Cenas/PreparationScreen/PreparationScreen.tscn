@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://dhio2l1n2ob4w"]
+
+[ext_resource type="Texture2D" uid="uid://wh5g3as4rnrr" path="res://assets/Promps/NPCs/Preparation/GkGDZfYWsAA9Xqn.jpg" id="1_aoo1e"]
+[ext_resource type="Script" uid="uid://cxa38gvyaunk0" path="res://Cenas/PreparationScreen/PreparationScreen.gd" id="1_n5klt"]
+[ext_resource type="Texture2D" uid="uid://c4g01xh6rnav2" path="res://assets/Menus/SelectionCharacter/images.jpg" id="2_jpou6"]
+[ext_resource type="FontFile" uid="uid://ct6yapfcrys5m" path="res://assets/fontes/PressStart2P-Regular.ttf" id="2_lqlfr"]
+[ext_resource type="Texture2D" uid="uid://dupk2bq1d6pdd" path="res://assets/Menus/SelectionCharacter/images (1).jpg" id="3_785uk"]
+[ext_resource type="Texture2D" uid="uid://bouf4wag4u5ip" path="res://assets/Menus/SelectionCharacter/Morrigan.jpg" id="4_t65w2"]
+[ext_resource type="Texture2D" uid="uid://btosaf4qgyxdr" path="res://assets/Menus/SelectionCharacter/250px-Zangief.jpg" id="5_vyt1w"]
+
+[node name="PreparationScreen" type="Control" unique_id=1111946330]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n5klt")
+chun_li_icon = ExtResource("2_jpou6")
+elena_icon = ExtResource("3_785uk")
+morrigan_icon = ExtResource("4_t65w2")
+zangief_icon = ExtResource("5_vyt1w")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1094099621]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_aoo1e")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="MainContainer" type="CenterContainer" parent="." unique_id=1108239730]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FightersRow" type="HBoxContainer" parent="MainContainer" unique_id=865182894]
+layout_mode = 2
+theme_override_constants/separation = 35
+
+[node name="PlayerBox" type="VBoxContainer" parent="MainContainer/FightersRow" unique_id=888951329]
+custom_minimum_size = Vector2(400, 350)
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="PlayerIcon" type="TextureRect" parent="MainContainer/FightersRow/PlayerBox" unique_id=1217194866]
+layout_mode = 2
+size_flags_vertical = 3
+expand_mode = 1
+stretch_mode = 6
+
+[node name="PlayerName" type="Label" parent="MainContainer/FightersRow/PlayerBox" unique_id=1115927459]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.38039216, 0, 1)
+theme_override_fonts/font = ExtResource("2_lqlfr")
+theme_override_font_sizes/font_size = 18
+
+[node name="VsLabel" type="Label" parent="MainContainer/FightersRow" unique_id=942835422]
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_lqlfr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OpponentBox" type="VBoxContainer" parent="MainContainer/FightersRow" unique_id=33549806]
+custom_minimum_size = Vector2(400, 350)
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="OpponentIcon" type="TextureRect" parent="MainContainer/FightersRow/OpponentBox" unique_id=1185040737]
+layout_mode = 2
+size_flags_vertical = 3
+expand_mode = 1
+stretch_mode = 6
+
+[node name="OpponentName" type="Label" parent="MainContainer/FightersRow/OpponentBox" unique_id=1458371488]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(1, 0.38039216, 0, 1)
+theme_override_fonts/font = ExtResource("2_lqlfr")
+
+[node name="LoadingLabel" type="Label" parent="." unique_id=1473239191]
+layout_mode = 0
+offset_left = 436.0
+offset_top = 532.0
+offset_right = 744.0
+offset_bottom = 555.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_lqlfr")
+theme_override_font_sizes/font_size = 22
+text = "PREPAREM-SE..."
+
+[node name="PreparationTimer" type="Timer" parent="." unique_id=1878822470]

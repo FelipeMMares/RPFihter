@@ -64,15 +64,12 @@ var idle_before_taunt_time: float = 3.0
 	$MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/ZangiefButton
 )
 
-@onready var potemkin_button: Button = (
-	$MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/PotemkinButton
-)
-
 @onready var preview_visual_controller: AnimationVisualController = (
 	$MainMargin/MainRow/PreviewPanel/PreviewBox/AnimationVisualController
 )
 
 @onready var locked_buttons: Array[Button] = [
+	$MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton,
 	$MainMargin/MainRow/SelectionPanel/SelectionColumn/CharacterGrid/LockedButton2
 ]
 
@@ -147,9 +144,7 @@ func _connect_buttons() -> void:
 		_on_zangief_pressed
 	)
 
-	potemkin_button.pressed.connect(
-		_on_potemkin_pressed
-	)
+
 
 	# Mouse em cima do personagem troca o preview.
 	chun_li_button.mouse_entered.connect(
@@ -168,9 +163,7 @@ func _connect_buttons() -> void:
 		_preview_zangief
 	)
 
-	potemkin_button.mouse_entered.connect(
-		_preview_potemkin
-	)
+
 
 	# Também funciona com teclado/controle.
 	chun_li_button.focus_entered.connect(
@@ -189,9 +182,6 @@ func _connect_buttons() -> void:
 		_preview_zangief
 	)
 
-	potemkin_button.focus_entered.connect(
-		_preview_potemkin
-	)
 
 	for button in locked_buttons:
 		button.pressed.connect(
@@ -431,19 +421,19 @@ func _on_zangief_pressed() -> void:
 
 	await _confirm_selection()
 
-func _on_potemkin_pressed() -> void:
-	if _character_confirmed:
-		return
-
-	_preview_potemkin()
-
-	_select_character_button(potemkin_button)
-
-	FighterSelection.select_player(
-		FighterSelection.Fighter.POTEMKIN
-	)
-
-	await _confirm_selection()
+#func _on_potemkin_pressed() -> void:
+	#if _character_confirmed:
+		#return
+#
+	#_preview_potemkin()
+#
+	#_select_character_button(potemkin_button)
+#
+	#FighterSelection.select_player(
+		#FighterSelection.Fighter.POTEMKIN
+	#)
+#
+	#await _confirm_selection()
 
 func _confirm_selection() -> void:
 	_character_confirmed = true
@@ -459,7 +449,7 @@ func _confirm_selection() -> void:
 	elena_button.disabled = true
 	morrigan_button.disabled = true
 	zangief_button.disabled = true
-	potemkin_button.disabled = true
+	#potemkin_button.disabled = true
 
 	for button in locked_buttons:
 		button.disabled = true
@@ -482,7 +472,7 @@ func _confirm_selection() -> void:
 			0.8
 		).timeout
 
-	_open_opponent_select()
+	_continue_after_character_selection()
 
 
 func _on_locked_character_pressed() -> void:
@@ -535,8 +525,8 @@ func _setup_character_buttons() -> void:
 		chun_li_button,
 		elena_button,
 		morrigan_button,
-		zangief_button,
-		potemkin_button
+		zangief_button
+		#potemkin_button
 	]
 
 	for locked_button in locked_buttons:
@@ -790,3 +780,14 @@ func _open_opponent_select() -> void:
 			"CharacterSelect: erro ao abrir OpponentSelect: ",
 			error
 		)
+
+func _continue_after_character_selection() -> void:
+	if GameModeManager.is_campaign():
+		CampaignManager.start_campaign()
+
+		CampaignManager.open_current_fight()
+
+		return
+
+	# Versus mantém exatamente o fluxo antigo.
+	_open_opponent_select()

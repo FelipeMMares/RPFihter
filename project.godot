@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 FighterSelection="*uid://bb26qvyf3osul"
 ArenaSelection="*uid://m0lu38uk7qrb"
+CampaignManager="*uid://bx35w1ogyclb0"
+GameModeManager="*uid://bu4yjy4g7jlrc"
 
 [input]
 

@@ -3,3 +3,16 @@ res://Cenas/HUD/guardProgress.tres
 res://MorriganVisualProfile.tres
 res://Cenas/Potenkim/PotemkinVisualProfile.tres
 res://Cenas/MainMenu/MainMenu.gd
+res://Scripts/Global/CampaignManager.gd
+res://Scripts/Global/GameModeManager.gd
+res://Cenas/OpponentSelect/OpponentSelect.tscn
+res://Cenas/CharacterSelect/CharacterSelect.gd
+res://Scripts/Global/FighterSelection.gd
+res://Scripts/Fight/FightManager.gd
+res://Cenas/OpponentSelect/OpponentSelect.gd
+res://Cenas/CharacterSelect/CharacterSelect.tscn
+res://Cenas/PreparationScreen/PreparationScreen.tscn
+res://Cenas/PreparationScreen/PreparationScreen.gd
+res://Cenas/ArenaSelection/ArenaSelection.gd
+res://Cenas/VictoryScreen/VictoryScreen.gd
+res://Cenas/VictoryScreen/VictoryScreen.tscn

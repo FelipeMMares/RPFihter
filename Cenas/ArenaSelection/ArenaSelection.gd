@@ -1,5 +1,9 @@
 extends Control
 
+@export_file("*.tscn")
+var preparation_scene_path: String = (
+	"res://Cenas/PreparationScreen/PreparationScreen.tscn"
+)
 
 @export_group("Panoramas")
 
@@ -199,20 +203,25 @@ func _select_arena(
 		arena
 	)
 
-	print(
-		"CONFIRMOU ARENA: ",
-		_get_arena_name(arena)
-	)
-
-	if fight_scene == null:
+	if not ResourceLoader.exists(
+		preparation_scene_path
+	):
 		printerr(
-			"ArenaSelect: Fight Scene não configurada."
+			"ArenaSelect: PreparationScreen não encontrada."
 		)
 		return
 
-	get_tree().change_scene_to_packed(
-		fight_scene
+	var error: Error = (
+		get_tree().change_scene_to_file(
+			preparation_scene_path
+		)
 	)
+
+	if error != OK:
+		printerr(
+			"ArenaSelect: erro ao abrir PreparationScreen: ",
+			error
+		)
 
 func _focus_current_arena() -> void:
 	var button: TextureButton = (

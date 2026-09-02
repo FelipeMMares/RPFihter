@@ -1,6 +1,10 @@
 extends Node2D
 class_name FightManager
 
+const CAMPAIGN_VICTORY_SCENE_PATH: String = (
+	"res://Cenas/VictoryScreen/VictoryScreen.tscn"
+)
+
 @onready var arena_holder: Node2D = (
 	$ArenaHolder
 )
@@ -777,6 +781,13 @@ func _finish_match(
 	await get_tree().create_timer(
 		final_victory_message_duration
 	).timeout
+
+	if GameModeManager.is_campaign():
+		await _handle_campaign_match_end(
+			winner_number
+		)
+
+		return
 
 	# Player 2 venceu, portanto Chun-Li perdeu.
 	if winner_number == 2:
@@ -1929,3 +1940,30 @@ func _disable_hitboxes_recursive(
 		_disable_hitboxes_recursive(
 			child
 		)
+
+func _handle_campaign_match_end(
+	winner_number: int
+) -> void:
+	# CPU venceu.
+	if winner_number != 1:
+		CampaignManager.reset_campaign()
+
+		_open_player_defeat_screen()
+
+		return
+
+	# Player venceu.
+	var campaign_finished: bool = (
+		CampaignManager.register_victory()
+	)
+
+	# Ainda existem adversários.
+	if not campaign_finished:
+		CampaignManager.open_current_fight()
+
+		return
+
+	# Por enquanto usamos o menu final existente.
+	# Depois criaremos uma tela própria
+	# "CAMPANHA CONCLUÍDA".
+	_open_match_end_menu()

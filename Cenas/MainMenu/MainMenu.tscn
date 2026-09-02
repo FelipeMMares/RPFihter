@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b06cewh51netn" path="res://assets/Menus/Menu/ChatGPT Image 1 de set. de 2026, 01_17_52 (3).png" id="4_7ymfy"]
 [ext_resource type="Texture2D" uid="uid://b1o5u5xn27gmy" path="res://assets/Menus/Menu/ChatGPT Image 1 de set. de 2026, 00_46_19.png" id="5_jvsxr"]
 [ext_resource type="Texture2D" uid="uid://dkqf4tc6tr1tg" path="res://assets/HitSparks/ChatGPT Image 10 de ago. de 2026, 00_49_14.png" id="6_n5j5k"]
+[ext_resource type="AudioStream" uid="uid://bsoue2ktyu0ck" path="res://assets/Audio/SFX/Combat/Strikes/smash-bros-magic-hit.mp3" id="8_7ymfy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ymfy"]
 atlas = ExtResource("6_n5j5k")
@@ -68,6 +69,34 @@ animations = [{
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yf5fn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_57qmd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g4v7s"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p1u0y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5s0fj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_33x8s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2j2di"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wgxnn"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_avnxn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qssos"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_11l65"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4dgpn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7numd"]
 
@@ -433,19 +462,16 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_p2hn2")
 
 [node name="LogoText" type="Sprite2D" parent="Background/LogoRoot" unique_id=71767186]
-z_index = 3
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("3_n5j5k")
 
 [node name="Fist" type="Sprite2D" parent="Background/LogoRoot" unique_id=302401412]
-z_index = 3
 position = Vector2(-70, -20)
 rotation = -0.17453292
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_7ymfy")
 
 [node name="Dice" type="Sprite2D" parent="Background/LogoRoot" unique_id=1393272527]
-z_index = 4
 position = Vector2(-70, -110)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_jvsxr")
@@ -455,7 +481,6 @@ frame = 19
 
 [node name="Flash" type="AnimatedSprite2D" parent="Background/LogoRoot" unique_id=971992253]
 modulate = Color(1, 1, 1, 0)
-z_index = 2
 position = Vector2(-70, -100)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
@@ -491,6 +516,64 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_yf5fn")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_57qmd")
 text = "INICIAR"
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Background" unique_id=1239014678]
+layer = 10
+
+[node name="ModeDarkOverlay" type="ColorRect" parent="Background/CanvasLayer" unique_id=1548683526]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5176471)
+
+[node name="ModeSelection" type="CenterContainer" parent="Background/CanvasLayer" unique_id=481987455]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="ModeVBox" type="VBoxContainer" parent="Background/CanvasLayer/ModeSelection" unique_id=392922464]
+propagate_maximum_size = false
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="CampaignButton" type="Button" parent="Background/CanvasLayer/ModeSelection/ModeVBox" unique_id=1700011]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.40392157, 0, 1)
+theme_override_fonts/font = ExtResource("1_a6e8e")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g4v7s")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_p1u0y")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5s0fj")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_33x8s")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2j2di")
+text = "CAMPANHA"
+
+[node name="VersusButton" type="Button" parent="Background/CanvasLayer/ModeSelection/ModeVBox" unique_id=833126296]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9097244, 0.9144032, 1.540184e-06, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.36862746, 0, 1)
+theme_override_fonts/font = ExtResource("1_a6e8e")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wgxnn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_avnxn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qssos")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_11l65")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4dgpn")
+text = "VERSUS"
+
 [node name="SubtitleLabel" type="Label" parent="." unique_id=184704904]
 unique_name_in_owner = true
 layout_mode = 0
@@ -520,7 +603,9 @@ text = "PRESSIONE QUALQUER BOTÃO PARA PULAR"
 root_node = NodePath("../SkipLabel")
 libraries/ = SubResource("AnimationLibrary_kcdtw")
 
-[node name="HitSfx" type="AudioStreamPlayer" parent="." unique_id=1806020364]
+[node name="HitSfX" type="AudioStreamPlayer" parent="." unique_id=1806020364]
+stream = ExtResource("8_7ymfy")
+bus = &"SFX"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2002063585]
 stream = ExtResource("3_76sle")
