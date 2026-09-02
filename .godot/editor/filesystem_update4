@@ -2,3 +2,4 @@ res://Cenas/MainMenu/MainMenu.tscn
 res://Cenas/HUD/guardProgress.tres
 res://MorriganVisualProfile.tres
 res://Cenas/Potenkim/PotemkinVisualProfile.tres
+res://Cenas/MainMenu/MainMenu.gd
